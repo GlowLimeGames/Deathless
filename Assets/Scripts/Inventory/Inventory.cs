@@ -18,14 +18,6 @@ public class Inventory : MonoBehaviour {
         // of this object
 	}
 
-    public static void Show() {
-
-    }
-
-    public static void Hide() {
-
-    }
-
     public static void AddItem(InventoryItem item) {
 
     }
@@ -40,11 +32,11 @@ public class Inventory : MonoBehaviour {
     }
 
     public static void SelectItem(InventoryItem item) {
-
+        selectedItem = item;
     }
 
     public static void ClearSelection() {
-
+        selectedItem = null;
     }
 
     public static bool HasItem(InventoryItem item) {
@@ -56,6 +48,6 @@ public class Inventory : MonoBehaviour {
         // is an instance of the given prefab InventoryItem,
         // even if it's not the exact same object.
         // Maybe use gameObject.name
-        return false;
+        return item == selectedItem;
     }
 }
