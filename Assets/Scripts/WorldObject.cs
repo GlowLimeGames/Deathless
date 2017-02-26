@@ -29,12 +29,11 @@ public class WorldObject : MonoBehaviour {
     }
     
     void OnMouseUpAsButton() {
-        // This should move the player to the object
-        // and initiate its dialogue.
-
         if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
             GameManager.Player.MoveToPoint(transform.position);
         }
+
+        DialogueManager.StartDialogue(dialogue);
     }
 
     public void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {

@@ -26,6 +26,17 @@ namespace Dialogue {
             }
         }
 
+        public Node GetOriginal() {
+            Node original;
+            if (isLink) {
+                original = ((Link)this).Original;
+            }
+            else {
+                original = (Node)this;
+            }
+            return original;
+        }
+
         public virtual void Replace(Node node) {
             Data = node.Data;
         }

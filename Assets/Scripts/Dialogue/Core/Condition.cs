@@ -5,5 +5,8 @@ using UnityEngine;
 namespace Dialogue {
     [System.Serializable]
     public class Condition {
+        public bool isValid {
+            get { return true; }
+        }
     }
 }
