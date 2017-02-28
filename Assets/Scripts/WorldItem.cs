@@ -5,13 +5,11 @@ using UnityEngine;
 /// <summary>
 /// 
 /// </summary>
-public class WorldObject : MonoBehaviour {
+public class WorldItem : GameItem {
     public const float DEFAULT_SPEED = 0.25f;
     private Vector3 startingScale;
     private float startingZPos;
-
-    [SerializeField]
-    private Dialogue.SerializableTree dialogue;
+    
     private SpriteRenderer spriteRenderer;
 
     private bool isMoving;
@@ -37,12 +35,16 @@ public class WorldObject : MonoBehaviour {
             GameManager.Player.MoveToPoint(transform.position);
         }
 
+        Interact();
+
         //Temporary, for testing
-        Inventory.AddItem(inventoryItem);
-        Destroy(gameObject);
+        if (!Inventory.isItemSelected && inventoryItem != null) {
+            Inventory.AddItem(inventoryItem);
+            Destroy(gameObject);
+        }
     }
 
-    public void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
+    public virtual void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
         this.speed = speed;
         waypoints = Pathfinding.GetPath(transform.position, point);
         isMoving = true;

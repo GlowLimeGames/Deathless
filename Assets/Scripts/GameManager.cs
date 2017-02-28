@@ -5,11 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     private static GameManager instance;
 
-    public static WorldObject Player {
+    public static Player Player {
         get { return instance.player; }
     }
     [SerializeField]
-    private WorldObject player;
+    private Player player;
     [SerializeField]
     private Inventory inventory;
     
@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
         if (Input.GetMouseButtonUp(1)) {
-            if (!Inventory.isItemSelected()) {
-                inventory.gameObject.SetActive(!inventory.gameObject.activeInHierarchy);
+            if (!Inventory.isItemSelected && !Inventory.ObserveIconSelected) {
+                Inventory.Show(!Inventory.isShown);
             }
             else {
                 Inventory.ClearSelection();
