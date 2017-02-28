@@ -17,6 +17,10 @@ public class WorldObject : MonoBehaviour {
     private bool isMoving;
     private List<Vector3> waypoints;
     private float speed;
+
+    //Temporary, for testing
+    [SerializeField]
+    private InventoryItem inventoryItem;
     
 	void Start () {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -29,12 +33,13 @@ public class WorldObject : MonoBehaviour {
     }
     
     void OnMouseUpAsButton() {
-        // This should move the player to the object
-        // and initiate its dialogue.
-
         if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
             GameManager.Player.MoveToPoint(transform.position);
         }
+
+        //Temporary, for testing
+        Inventory.AddItem(inventoryItem);
+        Destroy(gameObject);
     }
 
     public void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {

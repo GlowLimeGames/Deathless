@@ -22,11 +22,13 @@ public class GameManager : MonoBehaviour {
         else {
             Destroy(this);
         }
+
+        inventory.Init();
 	}
 
     void Update() {
         if (Input.GetMouseButtonUp(1)) {
-            if (Inventory.ItemSelected(null)) {
+            if (!Inventory.isItemSelected()) {
                 inventory.gameObject.SetActive(!inventory.gameObject.activeInHierarchy);
             }
             else {
