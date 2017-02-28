@@ -17,6 +17,10 @@ public class WorldObject : MonoBehaviour {
     private bool isMoving;
     private List<Vector3> waypoints;
     private float speed;
+
+    //Temporary, for testing
+    [SerializeField]
+    private InventoryItem inventoryItem;
     
 	void Start () {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -33,7 +37,9 @@ public class WorldObject : MonoBehaviour {
             GameManager.Player.MoveToPoint(transform.position);
         }
 
-        DialogueManager.StartDialogue(dialogue);
+        //Temporary, for testing
+        Inventory.AddItem(inventoryItem);
+        Destroy(gameObject);
     }
 
     public void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
