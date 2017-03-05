@@ -38,10 +38,8 @@ public class InventorySlot : MonoBehaviour {
 
     public void OnClick() {
         if (!isEmpty) {
-            if (Inventory.isItemSelected()) {
-                //Temporary, for testing
-                Inventory.RemoveItem(item);
-                Inventory.ClearSelection();
+            if (Inventory.isItemSelected || Inventory.ObserveIconSelected) {
+                item.Interact();
             }
             else {
                 Inventory.SelectItem(item);

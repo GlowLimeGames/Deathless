@@ -8,10 +8,20 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler {
     private static Inventory instance;
     private static List<InventorySlot> slots = new List<InventorySlot>();
-    private static InventoryItem selectedItem;
+
+    public static bool isShown {
+        get { return instance.gameObject.activeInHierarchy; }
+    }
+
+    public static InventoryItem SelectedItem { get; private set; }
+    public static bool isItemSelected {
+        get { return (SelectedItem != null); }
+    }
+    
+    public static bool ObserveIconSelected { get; private set; }
     
     private const float POINTER_EXIT_TIMEOUT = 0.3f;
-    private float pointerExitedCounter = float.MinValue;
+    private float pointerExitedCounter = -1;
     
 	public void Init () {
         if (instance == null) {
@@ -28,6 +38,15 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
         CheckForPointerExitTimeout();
     } 
 
+    public static void Show(bool visible) {
+        instance.gameObject.SetActive(visible);
+        instance.pointerExitedCounter = -1;
+
+        if (ObserveIconSelected) {
+            ClearSelection();
+        }
+    }
+
     public static void AddItem(InventoryItem prefab) {
         InventoryItem item = Instantiate(prefab);
 
@@ -42,6 +61,10 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     }
 
     public static void RemoveItem(InventoryItem prefab) {
+        if (isItemSelected && SelectedItem.Equals(prefab)) {
+            ClearSelection();
+        }
+
         foreach (InventorySlot slot in slots) {
             if (slot.ItemEquals(prefab)) {
                 slot.Clear();
@@ -66,39 +89,41 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     }
 
     public static void SelectItem(InventoryItem item) {
-        selectedItem = item;
+        SelectedItem = item;
+        ObserveIconSelected = false;
+        Util.SetCursor(item.GetComponent<Image>().sprite);
+    }
 
-        Texture2D texture = Util.CreateCursorTexture(item.GetComponent<Image>().sprite);
-        Vector2 hotspot = new Vector2(texture.width / 2, texture.height / 2);
-        Cursor.SetCursor(texture, hotspot, CursorMode.Auto);
+    public static void SelectObserveIcon(Sprite observeIcon) {
+        SelectedItem = null;
+        ObserveIconSelected = true;
+        Util.SetCursor(observeIcon);
     }
 
     public static void ClearSelection() {
-        selectedItem = null;
+        SelectedItem = null;
+        ObserveIconSelected = false;
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     public static bool HasItem(InventoryItem prefab) {
-        return false;
-    }
-
-    public static bool isItemSelected() {
-        return (selectedItem != null);
-    }
-
-    public static bool isItemSelected(InventoryItem prefab) {
-        bool equal = false;
-        if (isItemSelected()) {
-            equal = selectedItem.Equals(prefab);
+        bool hasItem = false;
+        foreach (InventorySlot slot in slots) {
+            if (slot.ItemEquals(prefab)) {
+                hasItem = true;
+                break;
+            }
         }
-        return equal;
+        return hasItem;
     }
 
     private void CheckForPointerExitTimeout() {
-        if (pointerExitedCounter != float.MinValue) {
+        if (pointerExitedCounter > float.MinValue && Input.GetKeyUp(KeyCode.Mouse0)) {
+            Show(false);
+        }
+        else if (pointerExitedCounter >= 0) {
             if (pointerExitedCounter >= POINTER_EXIT_TIMEOUT) {
-                gameObject.SetActive(false);
-                pointerExitedCounter = float.MinValue;
+                Show(false);
             }
             else {
                 pointerExitedCounter += Time.deltaTime;
