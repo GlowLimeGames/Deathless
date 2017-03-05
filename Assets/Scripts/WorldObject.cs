@@ -35,11 +35,11 @@ public class WorldObject : MonoBehaviour {
     void OnMouseUpAsButton() {
         if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
             GameManager.Player.MoveToPoint(transform.position);
+			Inventory.AddItem(inventoryItem);
+			Destroy(gameObject);
         }
 
         //Temporary, for testing
-        Inventory.AddItem(inventoryItem);
-        Destroy(gameObject);
     }
 
     public void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
