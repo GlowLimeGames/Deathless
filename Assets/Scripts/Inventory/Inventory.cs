@@ -41,7 +41,6 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     public static void Show(bool visible) {
         instance.gameObject.SetActive(visible);
         instance.pointerExitedCounter = -1;
-        Player.MovementEnabled = !visible;
 
         if (ObserveIconSelected) {
             ClearSelection();
@@ -119,7 +118,7 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     }
 
     private void CheckForPointerExitTimeout() {
-        if (!EventSystem.current.IsPointerOverGameObject() && Input.GetKeyUp(KeyCode.Mouse0)) {
+        if (pointerExitedCounter > float.MinValue && Input.GetKeyUp(KeyCode.Mouse0)) {
             Show(false);
         }
         else if (pointerExitedCounter >= 0) {
@@ -137,6 +136,6 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        pointerExitedCounter = -1;
+        pointerExitedCounter = float.MinValue;
     }
 }

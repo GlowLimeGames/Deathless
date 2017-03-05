@@ -71,10 +71,8 @@ public class WorldItem : GameItem {
     /// when the player clicks this object.
     /// </summary>
     void OnMouseUpAsButton() {
-        if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
-            GameManager.Player.MoveToPoint(transform.position);
-        }
-
+        GameManager.Player.MoveToPoint(transform.position);
+            
         Interact();
 
         //Temporary, for testing
