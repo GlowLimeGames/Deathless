@@ -2,11 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles how dialogue is displayed in-game.
+/// </summary>
 public class DialogueUI : MonoBehaviour {
+    /// <summary>
+    /// The instance of the DialogueUI in the current scene.
+    /// </summary>
     private DialogueUI instance;
+
+    /// <summary>
+    /// The line of dialogue currently being shown.
+    /// </summary>
     private Dialogue.Node currentNode = null;
 
     void Start() {
+        // Singleton
         if (instance == null) {
             DontDestroyOnLoad(this);
             instance = this;

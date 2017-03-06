@@ -11,7 +11,9 @@ public class World : MonoBehaviour {
     /// should move toward the point they clicked.
     /// </summary>
     void OnMouseUpAsButton() {
-        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        GameManager.Player.MoveToPoint(pos);
+        if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            GameManager.Player.MoveToPoint(pos);
+        }
     }
 }

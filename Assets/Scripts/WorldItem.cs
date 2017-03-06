@@ -71,14 +71,16 @@ public class WorldItem : GameItem {
     /// when the player clicks this object.
     /// </summary>
     void OnMouseUpAsButton() {
-        GameManager.Player.MoveToPoint(transform.position);
-            
-        Interact();
+        if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
+            GameManager.Player.MoveToPoint(transform.position);
 
-        //Temporary, for testing
-        if (!Inventory.isItemSelected && inventoryItem != null) {
-            Inventory.AddItem(inventoryItem);
-            Destroy(gameObject);
+            Interact();
+
+            //Temporary, for testing
+            if (!Inventory.isItemSelected && inventoryItem != null) {
+                Inventory.AddItem(inventoryItem);
+                Destroy(gameObject);
+            }
         }
     }
 
