@@ -17,8 +17,22 @@ public class DialogueUI : MonoBehaviour {
     /// </summary>
     private Dialogue.Node currentNode = null;
 
+    /// <summary>
+    /// Allow a click to move dialogue forward. Necessary to create a
+    /// single frame delay so clicks don't get registered in more than
+    /// one place.
+    /// </summary>
+    private bool allowClick = false;
+
+    /// <summary>
+    /// Various GameObjects that are part of the dialogue UI.
+    /// </summary>
     [SerializeField]
     private GameObject lineView, choiceView, choicePrefab;
+
+    /// <summary>
+    /// The text shown for a single line of dialogue.
+    /// </summary>
     private Text lineText;
 
     void Start() {
@@ -34,9 +48,11 @@ public class DialogueUI : MonoBehaviour {
 
     void Update() {
         // Advance dialogue when mouse is clicked.
-        if (currentNode != null && Input.GetKeyUp(KeyCode.Mouse0)) {
+        if (allowClick && Input.GetKeyUp(KeyCode.Mouse0)) {
             DialogueManager.DisplayNext(currentNode);
         }
+
+        allowClick = (currentNode != null);
     }
 
     /// <summary>
@@ -44,6 +60,7 @@ public class DialogueUI : MonoBehaviour {
     /// </summary>
     public void Show(bool show) {
         gameObject.SetActive(show);
+        GameManager.InputEnabled = !show;
     }
 
     /// <summary>
@@ -74,7 +91,7 @@ public class DialogueUI : MonoBehaviour {
     public void ClearDialogue() {
         currentNode = null;
         foreach (DialogueUIChoice choice in choiceView.GetComponentsInChildren<DialogueUIChoice>()) {
-            Destroy(choice);
+            Destroy(choice.gameObject);
         }
         choiceView.SetActive(false);
         lineView.SetActive(false);

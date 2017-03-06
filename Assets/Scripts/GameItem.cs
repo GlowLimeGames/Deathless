@@ -95,9 +95,11 @@ public class GameItem : MonoBehaviour {
             Debug.Log("Examining " + InteractionTarget);
         }
         else {
-            Debug.Log("Running attached dlg");
+            //Temporary, for testing
+            Debug.Log("Dialogue attached. Running test dialogue");
+            DialogueManager.StartDialogue(DialogueTester.CreateTestTree());
         }
 
-        DialogueManager.StartDialogue(dlg);
+        //DialogueManager.StartDialogue(dlg);
     }
 }
