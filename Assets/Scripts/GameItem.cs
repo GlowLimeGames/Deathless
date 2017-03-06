@@ -98,6 +98,6 @@ public class GameItem : MonoBehaviour {
             Debug.Log("Running attached dlg");
         }
 
-        //DialogueManager.StartDialogue(dlg);
+        DialogueManager.StartDialogue(dlg);
     }
 }

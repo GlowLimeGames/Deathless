@@ -77,10 +77,12 @@ public class WorldItem : GameItem {
             Interact();
 
             //Temporary, for testing
+            /*
             if (!Inventory.isItemSelected && inventoryItem != null) {
                 Inventory.AddItem(inventoryItem);
                 Destroy(gameObject);
             }
+            */
         }
     }
 
