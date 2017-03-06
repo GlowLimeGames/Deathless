@@ -29,6 +29,12 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private Inventory inventory;
+
+    /// <summary>
+    /// Whether GameManager-controlled input is allowed.
+    /// Should be disabled during dialogue.
+    /// </summary>
+    public static bool InputEnabled { get; set; }
     
 	void Start () {
         // Singleton
@@ -41,11 +47,12 @@ public class GameManager : MonoBehaviour {
         }
         
         inventory.Init();
+        InputEnabled = true;
 	}
 
     void Update() {
         // Handle generic input
-        if (Input.GetMouseButtonUp(1)) {
+        if (InputEnabled && Input.GetMouseButtonUp(1)) {
             if (!Inventory.isItemSelected && !Inventory.ObserveIconSelected) {
                 Inventory.Show(!Inventory.isShown);
             }

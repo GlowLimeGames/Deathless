@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Handles how dialogue is displayed in-game.
@@ -16,6 +17,24 @@ public class DialogueUI : MonoBehaviour {
     /// </summary>
     private Dialogue.Node currentNode = null;
 
+    /// <summary>
+    /// Allow a click to move dialogue forward. Necessary to create a
+    /// single frame delay so clicks don't get registered in more than
+    /// one place.
+    /// </summary>
+    private bool allowClick = false;
+
+    /// <summary>
+    /// Various GameObjects that are part of the dialogue UI.
+    /// </summary>
+    [SerializeField]
+    private GameObject lineView, choiceView, choicePrefab;
+
+    /// <summary>
+    /// The text shown for a single line of dialogue.
+    /// </summary>
+    private Text lineText;
+
     void Start() {
         // Singleton
         if (instance == null) {
@@ -23,13 +42,17 @@ public class DialogueUI : MonoBehaviour {
             instance = this;
         }
         else { Destroy(this); }
+
+        lineText = lineView.GetComponentInChildren<Text>();
     }
 
     void Update() {
         // Advance dialogue when mouse is clicked.
-        if (currentNode != null && Input.GetKeyUp(KeyCode.Mouse0)) {
+        if (allowClick && Input.GetKeyUp(KeyCode.Mouse0)) {
             DialogueManager.DisplayNext(currentNode);
         }
+
+        allowClick = (currentNode != null);
     }
 
     /// <summary>
@@ -37,6 +60,7 @@ public class DialogueUI : MonoBehaviour {
     /// </summary>
     public void Show(bool show) {
         gameObject.SetActive(show);
+        GameManager.InputEnabled = !show;
     }
 
     /// <summary>
@@ -44,14 +68,20 @@ public class DialogueUI : MonoBehaviour {
     /// </summary>
     public void ShowLine(Dialogue.Node line) {
         currentNode = line;
-        //TBD
+        lineText.text = line.Data.Text;
+        lineView.SetActive(true);
     }
 
     /// <summary>
     /// Show a set of choices.
     /// </summary>
     public void ShowChoices(List<Dialogue.Node> choices) {
-        //TBD (Use DialogueUIChoice.cs)
+        foreach (Dialogue.Node choice in choices) {
+            DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
+            choiceUI.Init(choice);
+            choiceUI.transform.SetParent(choiceView.transform, false);
+        }
+        choiceView.SetActive(true);
     }
 
     /// <summary>
@@ -60,5 +90,10 @@ public class DialogueUI : MonoBehaviour {
     /// </summary>
     public void ClearDialogue() {
         currentNode = null;
+        foreach (DialogueUIChoice choice in choiceView.GetComponentsInChildren<DialogueUIChoice>()) {
+            Destroy(choice.gameObject);
+        }
+        choiceView.SetActive(false);
+        lineView.SetActive(false);
     }
 }

@@ -118,7 +118,7 @@ public class DialogueManager : MonoBehaviour {
     private static List<Node> GetValidNodes(List<BaseNode> nodes, bool getMultiple = true) {
         List<Node> validNodes = new List<Node>();
         for (int i = 0; i < nodes.Count && (getMultiple || validNodes.Count < 1); i++) {
-            if (nodes[i].Data.Condition.isValid) {
+            if (nodes[i].Data.Condition == null || nodes[i].Data.Condition.isValid) {
                 validNodes.Add(nodes[i].GetOriginal());
             }
         }
