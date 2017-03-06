@@ -12,6 +12,21 @@ public class GameItem : MonoBehaviour {
     public static GameItem InteractionTarget { get; private set; }
 
     /// <summary>
+    /// Backing field for ItemName.
+    /// </summary>
+    private string itemName;
+
+    /// <summary>
+    /// The in-game name of this item.
+    /// </summary>
+    public string ItemName {
+        get {
+            if (itemName == null) { return "NULL"; }
+            else { return itemName; }
+        }
+    }
+
+    /// <summary>
     /// Backing field for Dialogue property.
     /// </summary>
     [SerializeField]
