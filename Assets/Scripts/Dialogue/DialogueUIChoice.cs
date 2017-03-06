@@ -1,11 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DialogueUIChoice : MonoBehaviour {
+/// <summary>
+/// A dialogue choice the player can click on.
+/// </summary>
+public class DialogueUIChoice : MonoBehaviour, IPointerClickHandler {
+    /// <summary>
+    /// The dialogue node for this choice.
+    /// </summary>
     public Dialogue.Node node;
 
-    void OnMouseUpAsButton() {
+    /// <summary>
+    /// When clicked, show the dialogue that follows from this choice.
+    /// </summary>
+    public void OnPointerClick(PointerEventData eventData) {
         DialogueManager.DisplayNext(node);
     }
 }
