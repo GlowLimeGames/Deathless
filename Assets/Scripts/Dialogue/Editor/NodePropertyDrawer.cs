@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 namespace Dialogue {
+    // currently unused
     [UnityEditor.CustomPropertyDrawer(typeof(NodeData))]
     public class NodePropertyDrawer : UnityEditor.PropertyDrawer {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
@@ -25,6 +26,26 @@ namespace Dialogue {
             
             data.ApplyModifiedProperties();
             EditorGUI.EndProperty();
+        }
+
+    }
+
+    [UnityEditor.CustomEditor(typeof(NodeData))]
+    public class NodeEditor : Editor {
+        public static bool Link { get; set; }
+
+        public override void OnInspectorGUI() {
+            NodeData data = (NodeData)target;
+            GUIStyle style;
+
+            EditorGUI.BeginDisabledGroup(Link);
+            
+            EditorGUILayout.LabelField("Text", EditorStyles.boldLabel);
+            style = new GUIStyle(EditorStyles.textArea);
+            style.wordWrap = true;
+            data.Text = EditorGUILayout.TextArea(data.Text, style);
+
+            EditorGUI.EndDisabledGroup();
         }
     }
 }

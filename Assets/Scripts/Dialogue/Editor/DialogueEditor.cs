@@ -88,11 +88,17 @@ public class DialogueEditor : EditorWindow {
                 NodeGUI focused = GetNodeGUI(GUI.GetNameOfFocusedControl());
                 if (focused != null && focused.node != null) {
                     dataInEditor = focused.node.Data;
+                    NodeEditor.Link = focused.node.isLink;
                     if (focused.node.Data == null) { Debug.Log("Data is null... :("); }
                 }
                 else { dataInEditor = null; }
                 if (dataInEditor != null) {
                     Selection.activeGameObject = dataInEditor.gameObject;
+                }
+
+                if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Delete) {
+                    focused.node.Remove();
+                    Repaint();
                 }
             }
         }
@@ -205,13 +211,15 @@ public class DialogueEditor : EditorWindow {
         private void RenderNode(DialogueEditor editor) {
             GUI.SetNextControlName(id.ToString());
             bool isChoice = (node.Data.Type == NodeType.CHOICE);
+            string text = node.Data.Text;
+            if (text == "") { text = "<empty>"; }
 
             if (node.isLink || ((Node)node).Children.Count == 0) {
-                EditorGUILayout.SelectableLabel(node.Data.Text, GetStyle(EditorStyles.label, isChoice, node.isLink), GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                EditorGUILayout.SelectableLabel(text, GetStyle(EditorStyles.label, isChoice, node.isLink), GUILayout.Height(EditorGUIUtility.singleLineHeight));
                 rect = GUILayoutUtility.GetLastRect();
             }
             else {
-                expanded = EditorGUILayout.Foldout(expanded, node.Data.Text, GetStyle(EditorStyles.foldout, isChoice));
+                expanded = EditorGUILayout.Foldout(expanded, text, GetStyle(EditorStyles.foldout, isChoice));
                 rect = GUILayoutUtility.GetLastRect();
                 if (expanded) {
                     EditorGUI.indentLevel++;
@@ -225,22 +233,35 @@ public class DialogueEditor : EditorWindow {
 
         private GUIStyle GetStyle(GUIStyle defaultStyle, bool isChoice, bool isLink = false) {
             GUIStyle style = new GUIStyle(defaultStyle);
+            
+            Color highlight = new Color(0.8f, 0.8f, 0.8f, 1);
 
-            Color linkBlue = new Color(0, 0, 0.4f, 1);
-            Color linkRed = new Color(0.4f, 0, 0, 1);
+            Color color = isChoice ? Color.blue : new Color(0.8f, 0, 0, 1);
+            if (isLink) { style.fontStyle = FontStyle.Italic; }
+            
+            Texture2D tex = new Texture2D(style.focused.background.width, style.focused.background.height);
+            Color[] pixels = tex.GetPixels();
 
-            Color color = isChoice ? Color.blue : Color.red;
-            Color linkColor = isChoice ? linkBlue : linkRed;
-            if (isLink) { color = linkColor; }
+            for (int i = 0; i < pixels.Length; i++) {
+                pixels[i] = Color.grey;
+            }
+
+            tex.SetPixels(pixels);
+            tex.Apply();
+            
 
             style.normal.textColor = color;
             style.onNormal.textColor = color;
 
-            style.focused.textColor = Color.white;
-            style.onFocused.textColor = Color.white;
+            style.focused.background = tex;
+            style.onFocused.background = tex;
+            style.focused.textColor = color;
+            style.onFocused.textColor = color;
 
-            style.active.textColor = Color.gray;
-            style.onActive.textColor = Color.gray;
+            style.active.background = tex;
+            style.onActive.background = tex;
+            style.active.textColor = color;
+            style.onActive.textColor = color;
 
             return style;
         }
