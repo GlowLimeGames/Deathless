@@ -4,9 +4,8 @@ using UnityEditor;
 using Dialogue;
 using UnityEngine;
 
-public class DialogueEditor : SplitViewWindow {
-    protected Vector2 scrollPosTree = Vector2.zero;
-    protected Vector2 scrollPosEditor = Vector2.zero;
+public class DialogueEditor : EditorWindow {
+    protected Vector2 scrollPos = Vector2.zero;
 
     [SerializeField]
     private SerializableTree savedTree, lastSavedTree;
@@ -26,7 +25,7 @@ public class DialogueEditor : SplitViewWindow {
 
     void OnGUI() {
         GUILayout.BeginVertical();
-        scrollPosTree = GUILayout.BeginScrollView(scrollPosTree, GUILayout.Height(currentScrollViewHeight));
+        scrollPos = GUILayout.BeginScrollView(scrollPos);
 
         EditorGUIUtility.hierarchyMode = true;
         EditorGUI.indentLevel++;
@@ -205,14 +204,14 @@ public class DialogueEditor : SplitViewWindow {
 
         private void RenderNode(DialogueEditor editor) {
             GUI.SetNextControlName(id.ToString());
+            bool isChoice = (node.Data.Type == NodeType.CHOICE);
 
             if (node.isLink || ((Node)node).Children.Count == 0) {
-                EditorGUILayout.SelectableLabel(node.Data.Text, GUILayout.Height(EditorGUIUtility.singleLineHeight));
-                //EditorGUILayout.LabelField(node.Data.Text);
+                EditorGUILayout.SelectableLabel(node.Data.Text, GetStyle(EditorStyles.label, isChoice, node.isLink), GUILayout.Height(EditorGUIUtility.singleLineHeight));
                 rect = GUILayoutUtility.GetLastRect();
             }
             else {
-                expanded = EditorGUILayout.Foldout(expanded, node.Data.Text);
+                expanded = EditorGUILayout.Foldout(expanded, node.Data.Text, GetStyle(EditorStyles.foldout, isChoice));
                 rect = GUILayoutUtility.GetLastRect();
                 if (expanded) {
                     EditorGUI.indentLevel++;
@@ -222,6 +221,28 @@ public class DialogueEditor : SplitViewWindow {
                     EditorGUI.indentLevel--;
                 }
             }
+        }
+
+        private GUIStyle GetStyle(GUIStyle defaultStyle, bool isChoice, bool isLink = false) {
+            GUIStyle style = new GUIStyle(defaultStyle);
+
+            Color linkBlue = new Color(0, 0, 0.4f, 1);
+            Color linkRed = new Color(0.4f, 0, 0, 1);
+
+            Color color = isChoice ? Color.blue : Color.red;
+            Color linkColor = isChoice ? linkBlue : linkRed;
+            if (isLink) { color = linkColor; }
+
+            style.normal.textColor = color;
+            style.onNormal.textColor = color;
+
+            style.focused.textColor = Color.white;
+            style.onFocused.textColor = Color.white;
+
+            style.active.textColor = Color.gray;
+            style.onActive.textColor = Color.gray;
+
+            return style;
         }
 
         public bool Contains(Vector2 point) {
