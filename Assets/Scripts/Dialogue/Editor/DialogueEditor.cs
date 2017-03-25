@@ -96,13 +96,16 @@ public class DialogueEditor : SplitViewWindow {
             }
             if (dataInEditor != null) {
                 SerializedObject editor = new SerializedObject(this);
-                SerializedProperty data = editor.FindProperty("dataInEditor");
-                EditorGUILayout.PropertyField(data);
+                EditorGUILayout.PropertyField(editor.FindProperty("dataInEditor"));
             }
 
             GUILayout.EndScrollView();
             GUILayout.EndVertical();
             Repaint();
+        }
+        else {
+            GUILayout.EndScrollView();
+            GUILayout.EndVertical();
         }
     }
 

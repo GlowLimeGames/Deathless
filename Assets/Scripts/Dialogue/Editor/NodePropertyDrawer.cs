@@ -8,6 +8,7 @@ namespace Dialogue {
     public class NodePropertyDrawer : UnityEditor.PropertyDrawer {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             EditorGUI.BeginProperty(position, label, property);
+            
             SerializedObject data = new SerializedObject(property.objectReferenceValue);
 
             SerializedProperty text = data.FindProperty("text");
@@ -21,7 +22,8 @@ namespace Dialogue {
             if (notes != null) { EditorGUILayout.PropertyField(notes); }
             if (condition != null) { EditorGUILayout.PropertyField(condition); }
             if (action != null) { EditorGUILayout.PropertyField(action); }
-
+            
+            
             data.ApplyModifiedProperties();
             EditorGUI.EndProperty();
         }

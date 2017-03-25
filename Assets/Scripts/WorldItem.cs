@@ -54,7 +54,7 @@ public class WorldItem : GameItem {
     /// Initializes fields.
     /// </summary>
 	void Start () {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = Instance.gameObject.GetComponent<SpriteRenderer>();
         startingScale = transform.localScale;
         startingZPos = transform.position.z;
 	}
@@ -79,9 +79,16 @@ public class WorldItem : GameItem {
             //Temporary, for testing
             if (!Inventory.isItemSelected && inventoryItem != null) {
                 Inventory.AddItem(inventoryItem);
-                Destroy(gameObject);
+                Destroy(Instance.gameObject);
             }
         }
+    }
+
+    /// <summary>
+    /// Initiate movement to a given waypoint object.
+    /// </summary>
+    public void MoveToPoint(GameObject waypoint) {
+        MoveToPoint(waypoint.transform.position);
     }
 
     /// <summary>

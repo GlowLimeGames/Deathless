@@ -36,6 +36,11 @@ namespace Dialogue {
                 links.Add(newNode);
             }
             else {
+                string path = UnityEditor.AssetDatabase.GetAssetPath(node.Data);
+                if (path == null || path == "") {
+                    UnityEditor.AssetDatabase.AddObjectToAsset(node.Data, this);
+                }
+
                 newNode = SerializableNode.NewNode(nodes.Count, node.Data);
                 nodes.Add(newNode);
                 tempNodes.Add((Node)node, newNode);

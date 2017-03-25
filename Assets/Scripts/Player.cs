@@ -24,6 +24,10 @@ public class Player : WorldItem {
         get { return GameManager.Player; }
     }
 
+    protected override GameItem Instance {
+        get { return instance; }
+    }
+
     /// <summary>
     /// Whether the player should be able to move. Will be false
     /// if there is no player character in the scene.
