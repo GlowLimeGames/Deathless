@@ -27,6 +27,34 @@ public class GameItem : MonoBehaviour {
     }
 
     /// <summary>
+    /// Backing field for Instance
+    /// </summary>
+    private GameItem instance = null;
+
+    /// <summary>
+    /// The instance of this GameItem in the current scene.
+    /// </summary>
+    protected virtual GameItem Instance {
+        get {
+            if (instance == null) {
+                if (UnityEditor.PrefabUtility.GetPrefabType(this) == UnityEditor.PrefabType.None) {
+                    instance = this;
+                }
+                else {
+                    GameItem[] items = FindObjectsOfType<GameItem>();
+                    foreach (GameItem item in items) {
+                        if (item.Equals(this)) {
+                            instance = item;
+                            break;
+                        }
+                    }
+                }
+            }
+            return instance;
+        }
+    }
+
+    /// <summary>
     /// Backing field for Dialogue property.
     /// </summary>
     [SerializeField]
@@ -83,7 +111,7 @@ public class GameItem : MonoBehaviour {
     /// of interaction.
     /// </summary>
     public void Interact(bool examine) {
-        InteractionTarget = this;
+        InteractionTarget = instance;
         Dialogue.SerializableTree dlg = dialogue;
 
         if (!examine) {
@@ -95,9 +123,8 @@ public class GameItem : MonoBehaviour {
             Debug.Log("Examining " + InteractionTarget);
         }
         else {
-            //Temporary, for testing
-            Debug.Log("Dialogue attached. Running test dialogue");
-            DialogueManager.StartDialogue(DialogueTester.CreateTestTree());
+            Debug.Log("Running attached dialogue.");
+            DialogueManager.StartDialogue(dlg);
         }
 
         //DialogueManager.StartDialogue(dlg);

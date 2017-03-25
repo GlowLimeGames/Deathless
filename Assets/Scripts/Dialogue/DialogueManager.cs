@@ -60,6 +60,9 @@ public class DialogueManager : MonoBehaviour {
     /// Display the dialogue node(s) that come after the given one.
     /// </summary>
     public static void DisplayNext(Node current) {
+        if (current.Data.Action != null) {
+            current.Data.Action.Invoke();
+        }
         UI.ClearDialogue();
         if (!isDialogueOver(current.Children)) {
             if (current.Children[0].Data.Type == NodeType.LINE) {

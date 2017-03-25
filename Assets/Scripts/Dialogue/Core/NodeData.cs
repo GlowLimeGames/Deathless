@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +10,7 @@ namespace Dialogue {
     public enum NodeType { LINE, CHOICE }
 
     [Serializable]
-    public class NodeData : ScriptableObject {
+    public class NodeData : MonoBehaviour {
         [SerializeField]
         private NodeType type;
         public NodeType Type {
@@ -51,9 +52,9 @@ namespace Dialogue {
             set { notes = value; }
         }
 
-        public NodeData(NodeType type) {
+        public void Init(NodeType type) {
             this.type = type;
             Text = "Add text here";
-        }
+        } 
     }
 }
