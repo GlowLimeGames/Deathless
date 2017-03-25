@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Dialogue {
     [CreateAssetMenu(menuName = "Dialogue Tree")] [Serializable]
-    public class SerializableTree : ScriptableObject {
+    public class SerializableTree : MonoBehaviour {
         [SerializeField]
         private GameObject owner;
         [SerializeField] [HideInInspector]
@@ -36,10 +36,12 @@ namespace Dialogue {
                 links.Add(newNode);
             }
             else {
+                /*
                 string path = UnityEditor.AssetDatabase.GetAssetPath(node.Data);
                 if (path == null || path == "") {
                     UnityEditor.AssetDatabase.AddObjectToAsset(node.Data, this);
                 }
+                */
 
                 newNode = SerializableNode.NewNode(nodes.Count, node.Data);
                 nodes.Add(newNode);

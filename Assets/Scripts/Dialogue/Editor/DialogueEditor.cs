@@ -34,7 +34,7 @@ public class DialogueEditor : SplitViewWindow {
         GUI.SetNextControlName("DummyControl");
         GUI.Button(new Rect(0, 0, 0, 0), "", GUIStyle.none);
 
-        savedTree = (SerializableTree)EditorGUILayout.ObjectField("Dialogue Tree", savedTree, typeof(SerializableTree), false);
+        savedTree = (SerializableTree)EditorGUILayout.ObjectField("Dialogue Tree", savedTree, typeof(SerializableTree), true);
 
         if (savedTree == null || (lastSavedTree != null && savedTree != lastSavedTree)) {
             tree = null;
@@ -56,7 +56,7 @@ public class DialogueEditor : SplitViewWindow {
                 }
             }
         }
-        
+
         if (savedTree != null && tree != null) {
             if (nodes == null) {
                 nodes = new Dictionary<int, NodeGUI>();
@@ -64,7 +64,7 @@ public class DialogueEditor : SplitViewWindow {
             }
             NodeGUI.RenderNode(this, tree.root);
 
-            
+
             NodeGUI gui = GetNodeAtPoint(Event.current.mousePosition);
             if (gui != null) {
                 switch (Event.current.type) {
@@ -85,28 +85,21 @@ public class DialogueEditor : SplitViewWindow {
                 }
             }
 
-            GUILayout.EndScrollView();
-            ResizableSplit();
-            scrollPosEditor = GUILayout.BeginScrollView(scrollPosEditor, GUILayout.Height(this.position.height - currentScrollViewHeight));
-            
-            NodeGUI focused = GetNodeGUI(GUI.GetNameOfFocusedControl());
-            if (focused != null && focused.node != null) {
-                dataInEditor = focused.node.Data;
-                if (focused.node.Data == null) { Debug.Log("Data is null... :("); }
+            if (focusedWindow == this) {
+                NodeGUI focused = GetNodeGUI(GUI.GetNameOfFocusedControl());
+                if (focused != null && focused.node != null) {
+                    dataInEditor = focused.node.Data;
+                    if (focused.node.Data == null) { Debug.Log("Data is null... :("); }
+                }
+                else { dataInEditor = null; }
+                if (dataInEditor != null) {
+                    Selection.activeGameObject = dataInEditor.gameObject;
+                }
             }
-            if (dataInEditor != null) {
-                SerializedObject editor = new SerializedObject(this);
-                EditorGUILayout.PropertyField(editor.FindProperty("dataInEditor"));
-            }
+        }
 
-            GUILayout.EndScrollView();
-            GUILayout.EndVertical();
-            Repaint();
-        }
-        else {
-            GUILayout.EndScrollView();
-            GUILayout.EndVertical();
-        }
+        GUILayout.EndScrollView();
+        GUILayout.EndVertical();
     }
 
     private void GenerateContextMenu(NodeGUI gui) {

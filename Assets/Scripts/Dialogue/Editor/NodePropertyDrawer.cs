@@ -23,7 +23,6 @@ namespace Dialogue {
             if (condition != null) { EditorGUILayout.PropertyField(condition); }
             if (action != null) { EditorGUILayout.PropertyField(action); }
             
-            
             data.ApplyModifiedProperties();
             EditorGUI.EndProperty();
         }

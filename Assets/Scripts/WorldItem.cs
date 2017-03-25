@@ -87,7 +87,7 @@ public class WorldItem : GameItem {
     /// <summary>
     /// Initiate movement to a given waypoint object.
     /// </summary>
-    public void MoveToPoint(GameObject waypoint) {
+    public void MoveToWaypoint(GameObject waypoint) {
         MoveToPoint(waypoint.transform.position);
     }
 
