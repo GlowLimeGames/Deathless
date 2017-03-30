@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// High-level management of game systems and objects.
@@ -60,5 +61,9 @@ public class GameManager : MonoBehaviour {
                 Inventory.ClearSelection();
             }
         }
+    }
+
+    public void LoadScene(string scene) {
+        SceneManager.LoadScene(scene);
     }
 }
