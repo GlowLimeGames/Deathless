@@ -1,0 +1,2105 @@
+2017-04-01 16:00:40.235 Unity[6192:507] 16:00:40.234 WARNING:   [0x7fff7e378310] >compload> AudioComponentPluginLoader.cpp:662: RegisterComponentsFromArray: 
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+[usbmuxd] Send listen message
+debugger-agent: Unable to listen on 9
+[usbmuxd] Stop listen thread
+[usbmuxd] Error: 
+[usbmuxd] Listen thread exiting
+license dates set
+
+LICENSE SYSTEM [201741 16:0:40] Next license update check is after 2017-04-02T10:55:55
+
+
+ BATCHMODE ARGUMENTS:
+/Applications/Unity/Unity.app/Contents/MacOS/Unity
+-batchmode
+-nographics
+-logFile
+logRunSetup.txt
+-projectPath
+/Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp
+-executeMethod
+WwiseSetupWizard.RunModify
+Successfully changed project path to: /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp
+/Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp
+Loading GUID <-> Path mappings...0.000055 seconds
+Loading Asset Database...0.014073 seconds
+Audio: FMOD Profiler initialized on port 54900
+AssetDatabase consistency checks...0.013346 seconds
+Initialize engine version: 5.5.2p2 (03f34082a9c0)
+Forcing GfxDevice: Null
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Unity.Locator.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Unity.DataContract.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/System.Core.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Unity.IvyParser.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/System.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/System.Xml.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/System.Configuration.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/PackageManager/Unity/PackageManager/5.5.2/Unity.PackageManager.dll (this message is harmless)
+Initializing Unity.PackageManager (PackageManager) v5.5.2 for Unity v5.5.2p2
+Setting StandaloneOSXIntel v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/PlaybackEngines/macstandalonesupport
+Setting Advertisements v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements
+  UnityEngine.Advertisements.dll (Extension) GUID: 739bbd9f364b4268874f9fd86ab3beef
+  Editor/UnityEditor.Advertisements.dll (Extension) GUID: 97decbdab0634cdd991f8d23ddf0dead
+Setting EditorTestsRunner v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner
+  Editor/nunit.framework.dll (Extension) GUID: 7cbab2be89b54486bbd23a6fe637d30e
+  Editor/UnityEditor.EditorTestsRunner.dll (Extension) GUID: 3c0ad459c1534645b5d603b7cc258f97
+Setting GUISystem v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem
+  UnityEngine.UI.dll (Extension) GUID: f5f67c52d1564df4a8936ccd202a3bd8
+  Standalone/UnityEngine.UI.dll (Extension) GUID: f70555f144d8491a825f0804e09c671c
+  Editor/UnityEditor.UI.dll (Extension) GUID: 80a3616ca19596e4da0f10f14d241e9f
+Setting UNetHLAPI v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking
+  UnityEngine.Networking.dll (Extension) GUID: 870353891bb340e2b2a9c8707e7419ba
+  Standalone/UnityEngine.Networking.dll (Extension) GUID: dc443db3e92b4983b9738c1131f555cb
+  Editor/UnityEditor.Networking.dll (Extension) GUID: 5f32cd94baa94578a686d4b9d6b660f7
+Setting PlaymodeTestsRunner v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner
+  Editor/UnityEditor.PlaymodeTestsRunner.dll (Extension) GUID: 4113173d5e95493ab8765d7b08371de4
+  UnityEngine.PlaymodeTestsRunner.dll (Extension) GUID: 53ebcfaa2e1e4e2dbc85882cd5a73fa1
+Setting TreeEditor v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor
+  Editor/UnityEditor.TreeEditor.dll (Extension) GUID: adebbd281f1a4ef3a30be7f21937e02f
+Setting UnityAnalytics v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics
+  UnityEngine.Analytics.dll (Extension) GUID: 852E56802EB941638ACBB491814497B0
+  Editor/UnityEditor.Analytics.dll (Extension) GUID: 86f4de9468454445ac2f39e207fafa3a
+Setting UnityHoloLens v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens
+  Editor/UnityEditor.HoloLens.dll (Extension) GUID: 12fd8a0055b84bb59e84c9835a37e333
+  Runtime/UnityEngine.HoloLens.dll (Extension) GUID: f7b54ff4a43d4fcf81b4538b678e0bcc
+  RuntimeEditor/UnityEngine.HoloLens.dll (Extension) GUID: 1c6d1fbb51834b64847b1b73a75bfc77
+Setting UnityPurchasing v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing
+  UnityEngine.Purchasing.dll (Extension) GUID: 8E0CD8ED44D4412CBE0642067ABC9E44
+Setting UnityVR v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR
+  Editor/UnityEditor.VR.dll (Extension) GUID: 4ba2329b63d54f0187bcaa12486b1b0f
+  Runtime/UnityEngine.VR.dll (Extension) GUID: 6cdf1e5c78d14720aaadccd4C792df96
+  RuntimeEditor/UnityEngine.VR.dll (Extension) GUID: 307433eba81a469ab1e2084d52d1a5a2
+Registering custom dll's ...
+Register platform support module: /Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: /Applications/Unity/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Unity.app/Contents/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.006337 seconds.
+Non platform assembly: /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp/Library/ScriptAssemblies/Assembly-CSharp.dll (this message is harmless)
+Loading /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp/Library/ScriptAssemblies/Assembly-CSharp.dll into Unity Child Domain
+Non platform assembly: /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll (this message is harmless)
+Loading /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll into Unity Child Domain
+Platform assembly: /Applications/Unity/Unity.app/Contents/PackageManager/Unity/PackageManager/5.5.2/Unity.PackageManager.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/PackageManager/Unity/PackageManager/5.5.2/Unity.PackageManager.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll into Unity Child Domain
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll (this message is harmless)
+Loading /Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll (this message is harmless)
+Loading /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll (this message is harmless)
+Loading /Applications/Unity/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll into Unity Child Domain
+Platform assembly: /Applications/Unity/Unity.app/Contents/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll into Unity Child Domain
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/nunit.core.interfaces.dll (this message is harmless)
+Refreshing native plugins compatible for Editor in 28.46 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Mono.Cecil.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Unity.SerializationLogic.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/UnityScript.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/ICSharpCode.NRefactory.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/System.Xml.Linq.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/nunit.core.dll (this message is harmless)
+Non platform assembly: /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll (this message is harmless)
+Mono: successfully reloaded assembly
+- Completed reload, in  0.891 seconds
+Registering platform support modules:
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/Boo.Lang.Compiler.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/Boo.Lang.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/Boo.Lang.Parser.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/UnityScript.Lang.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/Mono.Security.dll (this message is harmless)
+Registered platform support modules in: 0.118609s.
+Native extension for OSXStandalone target not found
+Native extension for WindowsStandalone target not found
+Loading native library: UnityEditor.iOS.Native at /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Native.dylib
+Native extension for iOS target not found
+Native extension for Android target not found
+Reloading assemblies after script compilation.
+Begin MonoManager ReloadAssembly
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Unity.Locator.dll (this message is harmless)
+Registering custom dll's ...
+Register platform support module: /Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: /Applications/Unity/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Unity.app/Contents/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/System.Core.dll (this message is harmless)
+Registered in 0.009030 seconds.
+Non platform assembly: /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp/Library/ScriptAssemblies/Assembly-CSharp.dll (this message is harmless)
+Loading /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp/Library/ScriptAssemblies/Assembly-CSharp.dll into Unity Child Domain
+Non platform assembly: /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll (this message is harmless)
+Loading /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless_WwiseIntegrationTemp/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll into Unity Child Domain
+Platform assembly: /Applications/Unity/Unity.app/Contents/PackageManager/Unity/PackageManager/5.5.2/Unity.PackageManager.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/PackageManager/Unity/PackageManager/5.5.2/Unity.PackageManager.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll into Unity Child Domain
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll (this message is harmless)
+Loading /Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll (this message is harmless)
+Loading /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll (this message is harmless)
+Loading /Applications/Unity/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll into Unity Child Domain
+Platform assembly: /Applications/Unity/Unity.app/Contents/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll (this message is harmless)
+Loading /Applications/Unity/Unity.app/Contents/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll (this message is harmless)
+Loading /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll into Unity Child Domain
+Non platform assembly: /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll (this message is harmless)
+Loading /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll into Unity Child Domain
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/nunit.core.interfaces.dll (this message is harmless)
+Refreshing native plugins compatible for Editor in 1.67 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Mono.Cecil.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Unity.SerializationLogic.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Unity.DataContract.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/UnityScript.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/ICSharpCode.NRefactory.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/System.Xml.Linq.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/Unity.IvyParser.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Managed/nunit.core.dll (this message is harmless)
+Mono: successfully reloaded assembly
+- Completed reload, in  0.627 seconds
+Initializing Unity.PackageManager (PackageManager) v5.5.2 for Unity v5.5.2p2
+Setting StandaloneOSXIntel v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/PlaybackEngines/macstandalonesupport
+Setting Advertisements v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements
+  UnityEngine.Advertisements.dll (Extension) GUID: 739bbd9f364b4268874f9fd86ab3beef
+  Editor/UnityEditor.Advertisements.dll (Extension) GUID: 97decbdab0634cdd991f8d23ddf0dead
+Setting EditorTestsRunner v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner
+  Editor/nunit.framework.dll (Extension) GUID: 7cbab2be89b54486bbd23a6fe637d30e
+  Editor/UnityEditor.EditorTestsRunner.dll (Extension) GUID: 3c0ad459c1534645b5d603b7cc258f97
+Setting GUISystem v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem
+  UnityEngine.UI.dll (Extension) GUID: f5f67c52d1564df4a8936ccd202a3bd8
+  Standalone/UnityEngine.UI.dll (Extension) GUID: f70555f144d8491a825f0804e09c671c
+  Editor/UnityEditor.UI.dll (Extension) GUID: 80a3616ca19596e4da0f10f14d241e9f
+Setting UNetHLAPI v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking
+  UnityEngine.Networking.dll (Extension) GUID: 870353891bb340e2b2a9c8707e7419ba
+  Standalone/UnityEngine.Networking.dll (Extension) GUID: dc443db3e92b4983b9738c1131f555cb
+  Editor/UnityEditor.Networking.dll (Extension) GUID: 5f32cd94baa94578a686d4b9d6b660f7
+Setting PlaymodeTestsRunner v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner
+  Editor/UnityEditor.PlaymodeTestsRunner.dll (Extension) GUID: 4113173d5e95493ab8765d7b08371de4
+  UnityEngine.PlaymodeTestsRunner.dll (Extension) GUID: 53ebcfaa2e1e4e2dbc85882cd5a73fa1
+Setting TreeEditor v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor
+  Editor/UnityEditor.TreeEditor.dll (Extension) GUID: adebbd281f1a4ef3a30be7f21937e02f
+Setting UnityAnalytics v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics
+  UnityEngine.Analytics.dll (Extension) GUID: 852E56802EB941638ACBB491814497B0
+  Editor/UnityEditor.Analytics.dll (Extension) GUID: 86f4de9468454445ac2f39e207fafa3a
+Setting UnityHoloLens v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens
+  Editor/UnityEditor.HoloLens.dll (Extension) GUID: 12fd8a0055b84bb59e84c9835a37e333
+  Runtime/UnityEngine.HoloLens.dll (Extension) GUID: f7b54ff4a43d4fcf81b4538b678e0bcc
+  RuntimeEditor/UnityEngine.HoloLens.dll (Extension) GUID: 1c6d1fbb51834b64847b1b73a75bfc77
+Setting UnityPurchasing v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing
+  UnityEngine.Purchasing.dll (Extension) GUID: 8E0CD8ED44D4412CBE0642067ABC9E44
+Setting UnityVR v5.5.2 for Unity v5.5.2p2 to /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR
+  Editor/UnityEditor.VR.dll (Extension) GUID: 4ba2329b63d54f0187bcaa12486b1b0f
+  Runtime/UnityEngine.VR.dll (Extension) GUID: 6cdf1e5c78d14720aaadccd4C792df96
+  RuntimeEditor/UnityEngine.VR.dll (Extension) GUID: 307433eba81a469ab1e2084d52d1a5a2
+Registering platform support modules:
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/Boo.Lang.Compiler.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/Boo.Lang.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/Boo.Lang.Parser.dll (this message is harmless)
+Platform assembly: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0/UnityScript.Lang.dll (this message is harmless)
+Registered platform support modules in: 0.061758s.
+Native extension for OSXStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Validating Project structure ... 0.004500 seconds.
+Refresh: detecting if any assets need to be imported or removed ... 
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.001 MB)
+  hash: 0.000 seconds
+----- Compute hash(es) for 1 asset(s).
+
+Refresh: elapses 0.065213 seconds
+Updating Assets/WwiseSettings.xml - GUID: 8685e7fde2bb5485eae90126277a00c3...
+ done. [Time: 44.115967 ms] 
+Unloading 362 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 78.5 MB.
+System memory in use after: 78.6 MB.
+
+Unloading 173 unused Assets to reduce memory usage. Loaded Objects now: 2635.
+Total: 4.603803 ms (FindLiveObjects: 0.223669 ms CreateObjectMapping: 0.034390 ms MarkObjects: 4.294650 ms  DeleteObjects: 0.049840 ms)
+
+Refreshing native plugins compatible for Editor in 31.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.350931s, AssetImport time: 0.256235s, Asset hashing: 0.000187s [0.7 KB, 3.479892 mb/s]
+
+Warming cache for 469 main assets: 0.001049 seconds elapsed
+Initializing Unity extensions:
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll'  GUID: 12fd8a0055b84bb59e84c9835a37e333
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll'  GUID: 852e56802eb941638acbb491814497b0
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll'  GUID: f70555f144d8491a825f0804e09c671c
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'  GUID: f5f67c52d1564df4a8936ccd202a3bd8
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll'  GUID: dc443db3e92b4983b9738c1131f555cb
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll'  GUID: 5f32cd94baa94578a686d4b9d6b660f7
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll'  GUID: 86f4de9468454445ac2f39e207fafa3a
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll'  GUID: f7b54ff4a43d4fcf81b4538b678e0bcc
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll'  GUID: adebbd281f1a4ef3a30be7f21937e02f
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll'  GUID: 3c0ad459c1534645b5d603b7cc258f97
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'  GUID: 870353891bb340e2b2a9c8707e7419ba
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll'  GUID: 53ebcfaa2e1e4e2dbc85882cd5a73fa1
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll'  GUID: 97decbdab0634cdd991f8d23ddf0dead
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll'  GUID: 4ba2329b63d54f0187bcaa12486b1b0f
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll'  GUID: 1c6d1fbb51834b64847b1b73a75bfc77
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll'  GUID: 307433eba81a469ab1e2084d52d1a5a2
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll'  GUID: 6cdf1e5c78d14720aaadccd4c792df96
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll'  GUID: 80a3616ca19596e4da0f10f14d241e9f
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll'  GUID: 4113173d5e95493ab8765d7b08371de4
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll'  GUID: 8e0cd8ed44d4412cbe0642067abc9e44
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll'  GUID: 7cbab2be89b54486bbd23a6fe637d30e
+ '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll'  GUID: 739bbd9f364b4268874f9fd86ab3beef
+CreateAssetMenu attribute on Dialogue.SerializableTree will be ignored as Dialogue.SerializableTree is not derived from ScriptableObject.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:LogFormat(LogType, String, Object[])
+UnityEngine.Debug:LogWarningFormat(String, Object[])
+UnityEditor.AttributeHelper:ExtractCreateAssetMenuItems(Assembly) (at /Users/builduser/buildslave/unity/build/Editor/Mono/AttributeHelper.cs:315)
+ 
+(Filename: /Users/builduser/buildslave/unity/build/Editor/Mono/AttributeHelper.cs Line: 315)
+
+Unloading 128 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.4 MB.
+System memory in use after: 74.6 MB.
+
+Unloading 100 unused Assets to reduce memory usage. Loaded Objects now: 2659.
+Total: 4.037341 ms (FindLiveObjects: 0.250858 ms CreateObjectMapping: 0.029772 ms MarkObjects: 3.723363 ms  DeleteObjects: 0.031865 ms)
+
+WwiseUnity: Running modify setup...
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WwiseSetupWizard:RunModifyImpl() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:37)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions() (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/EditorApplicationBindings.gen.cs:207)
+ 
+(Filename: /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 37)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.3 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 2659.
+Total: 4.232629 ms (FindLiveObjects: 0.213647 ms CreateObjectMapping: 0.024837 ms MarkObjects: 3.982021 ms  DeleteObjects: 0.010936 ms)
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll - GUID: 12fd8a0055b84bb59e84c9835a37e333...
+ done. [Time: 42.486065 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.77 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.159601s, AssetImport time: 0.132937s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.289 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/CrankcaseAudioREVModelPlayer.dll - GUID: 4be74f0094d8b4db9bcadb99fcdd2489...
+ done. [Time: 2.879856 ms] 
+Refreshing native plugins compatible for Editor in 2.95 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.077985s, AssetImport time: 0.040505s, Asset hashing: 0.002782s [295.9 KB, 103.856956 mb/s]
+
+
+Hashing assets ... 0.022 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.004 seconds (11.889 MB)
+  hash: 0.019 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAuro.so - GUID: 7ad0f540513c94511bf166e6036666e5...
+ done. [Time: 3.218549 ms] 
+Refreshing native plugins compatible for Editor in 3.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.100540s, AssetImport time: 0.042504s, Asset hashing: 0.022179s [11.9 MB, 536.040833 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.480 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libMcDSP.bundle - GUID: 84cfa64076e784f349be518e1e535261...
+ done. [Time: 3.993682 ms] 
+Refreshing native plugins compatible for Editor in 1.82 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.078695s, AssetImport time: 0.048454s, Asset hashing: 0.000840s [491.5 KB, 571.206177 mb/s]
+
+
+Hashing assets ... 0.005 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (2.440 MB)
+  hash: 0.004 seconds
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/VR/Win64/OVRPlugin.dll - GUID: b2bead50dbf86924f8e51f03ddbebf70...
+ done. [Time: 4.770052 ms] 
+Refreshing native plugins compatible for Editor in 1.80 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.083036s, AssetImport time: 0.037946s, Asset hashing: 0.005091s [2.4 MB, 479.309662 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.227 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkPitchShifter.dll - GUID: b7265f50234e74896a2470392db6a533...
+ done. [Time: 2.009771 ms] 
+Refreshing native plugins compatible for Editor in 2.47 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.078326s, AssetImport time: 0.040752s, Asset hashing: 0.000496s [232.4 KB, 457.424744 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.214 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkSoundSeedImpact.dll - GUID: 82649f50c87164f78b8e8d31f72a7ce7...
+ done. [Time: 2.952616 ms] 
+Refreshing native plugins compatible for Editor in 2.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.071396s, AssetImport time: 0.037338s, Asset hashing: 0.001134s [219.4 KB, 188.913239 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.323 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/IOSONOProximity.dll - GUID: dc09e960630ba4020848cd953bf167a6...
+ done. [Time: 1.834585 ms] 
+Refreshing native plugins compatible for Editor in 3.88 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.090586s, AssetImport time: 0.050127s, Asset hashing: 0.000666s [330.4 KB, 484.743744 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll - GUID: 852e56802eb941638acbb491814497b0...
+ done. [Time: 10.951923 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.123415s, AssetImport time: 0.092449s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.235 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkFlanger.dll - GUID: d6f95890a7f5b4746a81f6197650be6f...
+ done. [Time: 3.591610 ms] 
+Refreshing native plugins compatible for Editor in 4.57 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.091870s, AssetImport time: 0.044694s, Asset hashing: 0.001479s [240.4 KB, 158.768463 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.538 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/iZotope.dll - GUID: 9b4b75b011f4e4dd2b0617a030f5ab48...
+ done. [Time: 1.765117 ms] 
+Refreshing native plugins compatible for Editor in 4.62 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.083205s, AssetImport time: 0.037103s, Asset hashing: 0.001037s [0.5 MB, 519.081848 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.658 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkTimeStretch.so - GUID: e8bca1c0798e74c5aa293d3903224da4...
+ done. [Time: 2.065923 ms] 
+Refreshing native plugins compatible for Editor in 1.76 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.071692s, AssetImport time: 0.040314s, Asset hashing: 0.001691s [0.7 MB, 389.232910 mb/s]
+
+
+Hashing assets ... 0.006 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (3.838 MB)
+  hash: 0.005 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/Debug/libAkSoundEngine.so - GUID: 69db4fd09b10c42b889ba100274f2327...
+ done. [Time: 1.982268 ms] 
+Refreshing native plugins compatible for Editor in 3.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.084391s, AssetImport time: 0.045025s, Asset hashing: 0.005635s [3.8 MB, 681.070618 mb/s]
+
+
+Hashing assets ... 0.005 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (2.822 MB)
+  hash: 0.004 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/Profile/libAkSoundEngine.so - GUID: 544a5b3105fd3452583024016c9b72c9...
+ done. [Time: 2.702634 ms] 
+Refreshing native plugins compatible for Editor in 3.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.084452s, AssetImport time: 0.042470s, Asset hashing: 0.004701s [2.8 MB, 600.217102 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.224 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkRoomVerb.bundle - GUID: 29340f6116ead4eabadd1e72af097b6e...
+ done. [Time: 1.862056 ms] 
+Refreshing native plugins compatible for Editor in 3.11 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.091403s, AssetImport time: 0.044209s, Asset hashing: 0.000567s [229.7 KB, 395.657654 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.214 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkGuitarDistortion.dll - GUID: 3e40e6717993e4bafb73c113d82913e1...
+ done. [Time: 3.834794 ms] 
+Refreshing native plugins compatible for Editor in 1.96 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.075930s, AssetImport time: 0.039810s, Asset hashing: 0.001678s [219.4 KB, 127.673477 mb/s]
+
+
+Hashing assets ... 0.002 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.002 seconds (0.300 MB)
+  hash: 0.000 seconds
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/VR/Win64/openvr_api.dll - GUID: 328cc881519068e4eb7db4bb907ad2d9...
+ done. [Time: 1.979888 ms] 
+Refreshing native plugins compatible for Editor in 3.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.074513s, AssetImport time: 0.038343s, Asset hashing: 0.002095s [307.5 KB, 143.354355 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.755 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/iZotope.dll - GUID: b634d491584384dfa8f345a1e08eec47...
+ done. [Time: 3.923010 ms] 
+Refreshing native plugins compatible for Editor in 3.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.079628s, AssetImport time: 0.040647s, Asset hashing: 0.005498s [0.8 MB, 137.368484 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.446 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkMotion.so - GUID: b22291a1fa5fa49ff842e37b3b5ccff1...
+ done. [Time: 1.822610 ms] 
+Refreshing native plugins compatible for Editor in 3.61 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.088028s, AssetImport time: 0.041735s, Asset hashing: 0.000814s [456.8 KB, 547.700256 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.280 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkConvolutionReverb.dll - GUID: 70126ec12f3ff4d94b5d7842f552c600...
+ done. [Time: 1.950859 ms] 
+Refreshing native plugins compatible for Editor in 3.66 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.082544s, AssetImport time: 0.046767s, Asset hashing: 0.001264s [286.9 KB, 221.725815 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll - GUID: f70555f144d8491a825f0804e09c671c...
+ done. [Time: 92.416115 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 3.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.202850s, AssetImport time: 0.165672s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.553 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkFlanger.so - GUID: 42f5bdf17e26a46eabeac4a727bcaa63...
+ done. [Time: 8.476646 ms] 
+Refreshing native plugins compatible for Editor in 1.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.085752s, AssetImport time: 0.045692s, Asset hashing: 0.001090s [0.6 MB, 507.074127 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (1.759 MB)
+  hash: 0.003 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/Release/libAkSoundEngine.so - GUID: 3e301a02d7c0847fd9476126f7a4dbf0...
+ done. [Time: 3.020897 ms] 
+Refreshing native plugins compatible for Editor in 4.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.089047s, AssetImport time: 0.047181s, Asset hashing: 0.002802s [1.8 MB, 627.713013 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.757 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libCrankcaseAudioREVModelPlayer.so - GUID: 623e86320fc3e4ac3a3e446b6ef6f5b8...
+ done. [Time: 5.368926 ms] 
+Refreshing native plugins compatible for Editor in 1.96 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.077721s, AssetImport time: 0.045469s, Asset hashing: 0.001272s [0.8 MB, 595.176697 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll - GUID: f5f67c52d1564df4a8936ccd202a3bd8...
+ done. [Time: 74.327446 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 1.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.185057s, AssetImport time: 0.145920s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.005 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (2.930 MB)
+  hash: 0.005 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/Release/libAkSoundEngine.so - GUID: ed7fa292d15314309b4d944a4ec147ad...
+ done. [Time: 2.868000 ms] 
+Refreshing native plugins compatible for Editor in 3.78 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.090889s, AssetImport time: 0.041704s, Asset hashing: 0.005424s [2.9 MB, 540.249817 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.346 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/McDSP.dll - GUID: 88c7e6a31b8844a62a5b9d196b93f707...
+ done. [Time: 3.958241 ms] 
+Refreshing native plugins compatible for Editor in 2.95 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.080010s, AssetImport time: 0.042319s, Asset hashing: 0.000698s [354.4 KB, 496.052094 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.212 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkPitchShifter.dll - GUID: 70359da3c83c549268cd46c993e2aff4...
+ done. [Time: 2.913128 ms] 
+Refreshing native plugins compatible for Editor in 3.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.110273s, AssetImport time: 0.061619s, Asset hashing: 0.000946s [216.9 KB, 224.015442 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll - GUID: dc443db3e92b4983b9738c1131f555cb...
+ done. [Time: 45.448956 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.76 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.170119s, AssetImport time: 0.123700s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.282 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkSoundSeedAir.dll - GUID: da38a8d3cc05f4b3c8cec5f9ee38df65...
+ done. [Time: 2.447372 ms] 
+Refreshing native plugins compatible for Editor in 4.38 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.085958s, AssetImport time: 0.040841s, Asset hashing: 0.000611s [288.9 KB, 461.426941 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.107 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkTimeStretch.bundle - GUID: 81a65cf335004455a990275d49625b17...
+ done. [Time: 2.741071 ms] 
+Refreshing native plugins compatible for Editor in 2.90 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.085347s, AssetImport time: 0.048866s, Asset hashing: 0.000558s [109.7 KB, 192.089264 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.040 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkMotion.bundle - GUID: 0c477004b65444f7a870b1a68798088d...
+ done. [Time: 3.295046 ms] 
+Refreshing native plugins compatible for Editor in 3.24 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.102786s, AssetImport time: 0.055845s, Asset hashing: 0.000391s [41.3 KB, 103.136414 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.082 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkFlanger.bundle - GUID: f4add80460d334dedbfd1ecd0b584699...
+ done. [Time: 3.209993 ms] 
+Refreshing native plugins compatible for Editor in 3.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.101137s, AssetImport time: 0.050147s, Asset hashing: 0.000409s [84.5 KB, 201.641434 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.179 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libCrankcaseAudioREVModelPlayer.bundle - GUID: 95ccf8143ddd14251ba5eb38c68d3547...
+ done. [Time: 2.325328 ms] 
+Refreshing native plugins compatible for Editor in 3.70 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.092548s, AssetImport time: 0.045082s, Asset hashing: 0.003048s [183.7 KB, 58.854519 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.063 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkTremolo.bundle - GUID: 431dd8240765d46b6b80a84ebe80da3c...
+ done. [Time: 2.723419 ms] 
+Refreshing native plugins compatible for Editor in 3.09 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.090619s, AssetImport time: 0.049769s, Asset hashing: 0.000379s [64.5 KB, 166.103149 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.073 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkRecorder.bundle - GUID: b61e284434d2b4acd92d2402d0df4363...
+ done. [Time: 2.455850 ms] 
+Refreshing native plugins compatible for Editor in 3.43 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.096088s, AssetImport time: 0.051274s, Asset hashing: 0.001325s [74.9 KB, 55.248219 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.004 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/AkWwiseSDKVersion.h - GUID: a8409b749d47846028fcc65cc300ce90...
+ done. [Time: 2.850906 ms] 
+Refreshing native plugins compatible for Editor in 4.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.115200s, AssetImport time: 0.053419s, Asset hashing: 0.000731s [4.2 KB, 5.625189 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll - GUID: 5f32cd94baa94578a686d4b9d6b660f7...
+ done. [Time: 24.030590 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.185158s, AssetImport time: 0.141435s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll - GUID: 86f4de9468454445ac2f39e207fafa3a...
+ done. [Time: 11.585252 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 4.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.160274s, AssetImport time: 0.109875s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.204 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkMotion.dll - GUID: 19d708c4e6d1341098273e45f6b24d51...
+ done. [Time: 4.416454 ms] 
+Refreshing native plugins compatible for Editor in 3.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.114716s, AssetImport time: 0.059292s, Asset hashing: 0.010263s [209.4 KB, 19.925579 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.636 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkStereoDelay.so - GUID: faf1f9c46488448e59951e57850e45bf...
+ done. [Time: 2.781006 ms] 
+Refreshing native plugins compatible for Editor in 4.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.118177s, AssetImport time: 0.053183s, Asset hashing: 0.001368s [0.6 MB, 464.997192 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll - GUID: f7b54ff4a43d4fcf81b4538b678e0bcc...
+ done. [Time: 14.237818 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 4.05 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.174033s, AssetImport time: 0.117856s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.244 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkSoundSeedAir.dll - GUID: a0439015b62e7407a83a65eaf0ceb64a...
+ done. [Time: 5.149332 ms] 
+Refreshing native plugins compatible for Editor in 2.94 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.130954s, AssetImport time: 0.064743s, Asset hashing: 0.007303s [249.4 KB, 33.348736 mb/s]
+
+
+Hashing assets ... 0.009 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (3.661 MB)
+  hash: 0.009 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/Debug/AkSoundEngine.dll - GUID: b2119815374554fd1a1355f6d7c02761...
+ done. [Time: 3.771986 ms] 
+Refreshing native plugins compatible for Editor in 3.24 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.181764s, AssetImport time: 0.108092s, Asset hashing: 0.021714s [3.7 MB, 168.583633 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.646 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libSynthOne.so - GUID: 7804f81559cf349d8a74ecf38333c67b...
+ done. [Time: 2.625671 ms] 
+Refreshing native plugins compatible for Editor in 4.07 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.130269s, AssetImport time: 0.072013s, Asset hashing: 0.001247s [0.6 MB, 517.655334 mb/s]
+
+
+Hashing assets ... 0.076 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.011 seconds (33.578 MB)
+  hash: 0.071 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/Debug/libAkSoundEngine.so - GUID: bd8c1535d97b14d04bcd738346905619...
+ done. [Time: 13.403896 ms] 
+Refreshing native plugins compatible for Editor in 3.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.218484s, AssetImport time: 0.086813s, Asset hashing: 0.082860s [33.6 MB, 405.239624 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.709 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libCrankcaseAudioREVModelPlayer.so - GUID: 9d82c78589fe941b488e1fbc35e67a66...
+ done. [Time: 3.345022 ms] 
+Refreshing native plugins compatible for Editor in 3.23 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.140084s, AssetImport time: 0.068980s, Asset hashing: 0.003548s [0.7 MB, 199.742233 mb/s]
+
+Updating Assets/Wwise/Deployment/Plugins/Mac/Debug/AkSoundEngine.bundle - GUID: ac486395c14bf4b2f8bb760ba5ce20ca...
+ done. [Time: 2.750874 ms] 
+Refreshing native plugins compatible for Editor in 3.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.127477s, AssetImport time: 0.078583s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+Invalid AssetDatabase path: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/VR/Android/OVRPlugin.aar. Use path relative to the project folder.
+UnityEditor.AssetDatabase:ImportAsset(String, ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset(String) (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cs:119)
+AkPluginActivator:DeactivateAllPlugins() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkPluginActivator.cs:451)
+WwiseSetupWizard:ModifySetup() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:294)
+WwiseSetupWizard:RunModifyImpl() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:41)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions() (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/EditorApplicationBindings.gen.cs:207)
+
+[/Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cpp line 29] 
+(Filename: /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cs Line: 119)
+
+'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/VR/Android/OVRPlugin.aar' is an absolute path, importing is skipped
+Paths to assets have to be relative to the project folder e.g 'Assets/Folder/MyAsset.asset'
+UnityEditor.AssetDatabase:ImportAsset(String, ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset(String) (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cs:119)
+AkPluginActivator:DeactivateAllPlugins() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkPluginActivator.cs:451)
+WwiseSetupWizard:ModifySetup() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:294)
+WwiseSetupWizard:RunModifyImpl() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:41)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions() (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/EditorApplicationBindings.gen.cs:207)
+
+[/Users/builduser/buildslave/unity/build/Editor/Src/AssetPipeline/AssetInterface.cpp line 1309] 
+(Filename: /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cs Line: 119)
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.002 seconds (0.255 MB)
+  hash: 0.000 seconds
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/VR/Win/openvr_api.dll - GUID: d91035c548f23744c9bfb107348ed1c0...
+ done. [Time: 2.454832 ms] 
+Refreshing native plugins compatible for Editor in 3.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.115124s, AssetImport time: 0.066046s, Asset hashing: 0.005289s [261.5 KB, 48.284122 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.221 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkTimeStretch.dll - GUID: 50070cc553b2b4651b0a93f4c6c0c98d...
+ done. [Time: 4.925085 ms] 
+Refreshing native plugins compatible for Editor in 4.84 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.107893s, AssetImport time: 0.056874s, Asset hashing: 0.001834s [225.9 KB, 120.298981 mb/s]
+
+
+Hashing assets ... 0.002 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.702 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkConvolutionReverb.so - GUID: a4dc4df5ff88a4539ae80d560af774c7...
+ done. [Time: 2.979844 ms] 
+Refreshing native plugins compatible for Editor in 3.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.102042s, AssetImport time: 0.051769s, Asset hashing: 0.002302s [0.7 MB, 305.053589 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.055 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkSoundSeedImpact.bundle - GUID: 78c18e3641aa3461698ffe5f4956a5f3...
+ done. [Time: 4.741761 ms] 
+Refreshing native plugins compatible for Editor in 3.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.109909s, AssetImport time: 0.063618s, Asset hashing: 0.000426s [56.0 KB, 128.446548 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.004 seconds (1.867 MB)
+  hash: 0.003 seconds
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/VR/Win/OVRPlugin.dll - GUID: 21eff446d50eaf44a85985cd4c0b6fa1...
+ done. [Time: 4.784307 ms] 
+Refreshing native plugins compatible for Editor in 3.79 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.121045s, AssetImport time: 0.057020s, Asset hashing: 0.009520s [1.9 MB, 196.095642 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.225 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/SynthOne.dll - GUID: 5ddc11b6d5a9d4252b95a92aabe12ba5...
+ done. [Time: 3.112719 ms] 
+Refreshing native plugins compatible for Editor in 3.48 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.109344s, AssetImport time: 0.052470s, Asset hashing: 0.000693s [230.9 KB, 325.228333 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.249 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/CrankcaseAudioREVModelPlayer.dll - GUID: 8fa59ac6d292147a19c4b831f85c356a...
+ done. [Time: 3.024869 ms] 
+Refreshing native plugins compatible for Editor in 3.21 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.101079s, AssetImport time: 0.055849s, Asset hashing: 0.000691s [254.9 KB, 360.336578 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.556 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkGuitarDistortion.so - GUID: 411e77277bcf147108a6f0f6dd7104be...
+ done. [Time: 3.550268 ms] 
+Refreshing native plugins compatible for Editor in 3.27 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.108833s, AssetImport time: 0.059230s, Asset hashing: 0.001344s [0.6 MB, 414.006165 mb/s]
+
+
+Hashing assets ... 0.020 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.004 seconds (10.889 MB)
+  hash: 0.018 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAuro.so - GUID: 8cddc3373169f40079a60dbffaffd69c...
+ done. [Time: 2.666083 ms] 
+Refreshing native plugins compatible for Editor in 3.39 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.134772s, AssetImport time: 0.066707s, Asset hashing: 0.020144s [10.9 MB, 540.571045 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (1.767 MB)
+  hash: 0.003 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/Profile/AkSoundEngine.dll - GUID: 4e94c9579d33a4103bf7bd042be5752f...
+ done. [Time: 3.243372 ms] 
+Refreshing native plugins compatible for Editor in 3.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.100425s, AssetImport time: 0.053539s, Asset hashing: 0.003172s [1.8 MB, 556.882141 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.554 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkTremolo.so - GUID: be8647a7a42164846af9a1290ddf967b...
+ done. [Time: 3.313237 ms] 
+Refreshing native plugins compatible for Editor in 3.26 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.111086s, AssetImport time: 0.054465s, Asset hashing: 0.001145s [0.6 MB, 483.583313 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.242 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/SynthOne.dll - GUID: 2d739bb7416c44d82bae9e567b910c93...
+ done. [Time: 4.664482 ms] 
+Refreshing native plugins compatible for Editor in 4.01 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.097511s, AssetImport time: 0.051632s, Asset hashing: 0.000573s [247.9 KB, 422.307007 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.207 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkTremolo.dll - GUID: 6e7a4cd7dd8004f1dbf90ad328487ad1...
+ done. [Time: 4.094755 ms] 
+Refreshing native plugins compatible for Editor in 4.80 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.121267s, AssetImport time: 0.062846s, Asset hashing: 0.008598s [212.4 KB, 24.125393 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.175 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkRecorder.dll - GUID: e1f56908e7e6a4733845bd5fc59f9457...
+ done. [Time: 3.267730 ms] 
+Refreshing native plugins compatible for Editor in 3.20 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.106335s, AssetImport time: 0.053633s, Asset hashing: 0.001630s [179.4 KB, 107.494736 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll - GUID: adebbd281f1a4ef3a30be7f21937e02f...
+ done. [Time: 32.348808 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 6.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.190111s, AssetImport time: 0.138207s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.002 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.484 MB)
+  hash: 0.002 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkMotion.so - GUID: 19f82b688c75047bdb417d84e1a6b64f...
+ done. [Time: 7.355366 ms] 
+Refreshing native plugins compatible for Editor in 5.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.132981s, AssetImport time: 0.075363s, Asset hashing: 0.004169s [495.7 KB, 116.127419 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.238 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkTimeStretch.dll - GUID: 5e993a78f77e04c33b1503ecffabc24a...
+ done. [Time: 3.079077 ms] 
+Refreshing native plugins compatible for Editor in 3.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.120034s, AssetImport time: 0.058162s, Asset hashing: 0.001949s [243.4 KB, 121.950676 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.858 MB)
+  hash: 0.003 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkSoundSeedAir.so - GUID: 3a42f588111594428beee3e9c50917de...
+ done. [Time: 2.850951 ms] 
+Refreshing native plugins compatible for Editor in 3.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.131943s, AssetImport time: 0.060541s, Asset hashing: 0.014840s [0.9 MB, 57.843964 mb/s]
+
+
+Hashing assets ... 0.004 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (2.056 MB)
+  hash: 0.003 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/Profile/libAkSoundEngine.so - GUID: 7856f339fe81a44888b285fff968dcb9...
+ done. [Time: 3.636958 ms] 
+Refreshing native plugins compatible for Editor in 3.44 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.119141s, AssetImport time: 0.062660s, Asset hashing: 0.008416s [2.1 MB, 244.297165 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.483 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkSoundSeedImpact.so - GUID: c3f2a5490ad694ebe9c05e40eb7a69b3...
+ done. [Time: 3.028815 ms] 
+Refreshing native plugins compatible for Editor in 3.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.119231s, AssetImport time: 0.066066s, Asset hashing: 0.003863s [494.4 KB, 124.984863 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.571 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkPitchShifter.so - GUID: d5ae94590903c4e14a0f1bcf240f89cf...
+ done. [Time: 3.188935 ms] 
+Refreshing native plugins compatible for Editor in 3.46 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.110855s, AssetImport time: 0.058652s, Asset hashing: 0.003975s [0.6 MB, 143.775284 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll - GUID: 3c0ad459c1534645b5d603b7cc258f97...
+ done. [Time: 33.863689 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.76 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.195180s, AssetImport time: 0.145728s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll - GUID: 870353891bb340e2b2a9c8707e7419ba...
+ done. [Time: 62.147522 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.91 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.221101s, AssetImport time: 0.170636s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.214 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkStereoDelay.dll - GUID: c3132199d219f437e87cb316700e9ac8...
+ done. [Time: 3.207316 ms] 
+Refreshing native plugins compatible for Editor in 3.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.115267s, AssetImport time: 0.061032s, Asset hashing: 0.003264s [218.9 KB, 65.491592 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.215 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkFlanger.dll - GUID: be25c0b973ddb41a0a217d0baba827c2...
+ done. [Time: 4.393174 ms] 
+Refreshing native plugins compatible for Editor in 3.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.127025s, AssetImport time: 0.073669s, Asset hashing: 0.002549s [219.9 KB, 84.236824 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.574 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkRecorder.so - GUID: 9b5dc2e915574462f8d45a27938f5664...
+ done. [Time: 3.527416 ms] 
+Refreshing native plugins compatible for Editor in 3.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.115430s, AssetImport time: 0.062781s, Asset hashing: 0.001559s [0.6 MB, 368.163727 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.194 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkRecorder.dll - GUID: acda16e9b206e4d9a916282c47064a2d...
+ done. [Time: 3.142577 ms] 
+Refreshing native plugins compatible for Editor in 3.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.128597s, AssetImport time: 0.061133s, Asset hashing: 0.000689s [198.4 KB, 281.215729 mb/s]
+
+Invalid AssetDatabase path: /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/VR/OSXUniversal/OVRPlugin.bundle. Use path relative to the project folder.
+UnityEditor.AssetDatabase:ImportAsset(String, ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset(String) (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cs:119)
+AkPluginActivator:DeactivateAllPlugins() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkPluginActivator.cs:451)
+WwiseSetupWizard:ModifySetup() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:294)
+WwiseSetupWizard:RunModifyImpl() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:41)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions() (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/EditorApplicationBindings.gen.cs:207)
+
+[/Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cpp line 29] 
+(Filename: /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cs Line: 119)
+
+'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/VR/OSXUniversal/OVRPlugin.bundle' is an absolute path, importing is skipped
+Paths to assets have to be relative to the project folder e.g 'Assets/Folder/MyAsset.asset'
+UnityEditor.AssetDatabase:ImportAsset(String, ImportAssetOptions)
+UnityEditor.AssetDatabase:ImportAsset(String) (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cs:119)
+AkPluginActivator:DeactivateAllPlugins() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkPluginActivator.cs:451)
+WwiseSetupWizard:ModifySetup() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:294)
+WwiseSetupWizard:RunModifyImpl() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:41)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions() (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/EditorApplicationBindings.gen.cs:207)
+
+[/Users/builduser/buildslave/unity/build/Editor/Src/AssetPipeline/AssetInterface.cpp line 1309] 
+(Filename: /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/AssetDatabaseBindings.gen.cs Line: 119)
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.144 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkHarmonizer.bundle - GUID: cf69790ace84f49b6a5bebc0b588b4b8...
+ done. [Time: 3.586314 ms] 
+Refreshing native plugins compatible for Editor in 3.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.105671s, AssetImport time: 0.057194s, Asset hashing: 0.002340s [147.2 KB, 61.429428 mb/s]
+
+
+Hashing assets ... 0.007 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.003 seconds (3.392 MB)
+  hash: 0.006 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/Auro.dll - GUID: 6773873a542f044b591cf3328cdfd7f5...
+ done. [Time: 3.580427 ms] 
+Refreshing native plugins compatible for Editor in 4.18 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.116083s, AssetImport time: 0.059172s, Asset hashing: 0.007813s [3.4 MB, 434.174622 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.212 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkSoundSeedImpact.dll - GUID: beab845a3e9644913b7a4f1c4b0e62d8...
+ done. [Time: 5.413318 ms] 
+Refreshing native plugins compatible for Editor in 3.44 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.114225s, AssetImport time: 0.059159s, Asset hashing: 0.008212s [217.4 KB, 25.852751 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.079 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkStereoDelay.bundle - GUID: d907ca5a6ec484415ad7bd22489d14cb...
+ done. [Time: 2.916727 ms] 
+Refreshing native plugins compatible for Editor in 3.96 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.116873s, AssetImport time: 0.065575s, Asset hashing: 0.000518s [80.4 KB, 151.672668 mb/s]
+
+
+Hashing assets ... 0.002 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.691 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libSynthOne.so - GUID: 1547346a1e52a4f93afba837fd45f2e3...
+ done. [Time: 2.142923 ms] 
+Refreshing native plugins compatible for Editor in 3.47 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.090149s, AssetImport time: 0.044808s, Asset hashing: 0.001905s [0.7 MB, 362.579285 mb/s]
+
+
+Hashing assets ... 0.002 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (1.344 MB)
+  hash: 0.002 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/Profile/AkSoundEngine.dll - GUID: 99663f6aad44d4fc992cb7e31c9c2840...
+ done. [Time: 2.948996 ms] 
+Refreshing native plugins compatible for Editor in 4.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.096458s, AssetImport time: 0.048702s, Asset hashing: 0.002703s [1.3 MB, 497.169128 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll - GUID: 53ebcfaa2e1e4e2dbc85882cd5a73fa1...
+ done. [Time: 33.983017 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 5.92 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.178750s, AssetImport time: 0.135959s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.520 MB)
+  hash: 0.002 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkSoundSeedImpact.so - GUID: c3cc19cad913942d7a7ec5eff2b6d4fb...
+ done. [Time: 3.350882 ms] 
+Refreshing native plugins compatible for Editor in 3.27 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.109329s, AssetImport time: 0.057074s, Asset hashing: 0.002942s [0.5 MB, 176.875778 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.589 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkStereoDelay.so - GUID: 1d219dcaba2244769bf406db23950654...
+ done. [Time: 3.013575 ms] 
+Refreshing native plugins compatible for Editor in 3.74 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.127125s, AssetImport time: 0.057224s, Asset hashing: 0.011343s [0.6 MB, 51.930561 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll - GUID: 97decbdab0634cdd991f8d23ddf0dead...
+ done. [Time: 4.186613 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.80 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.170182s, AssetImport time: 0.123405s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.113 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libSynthOne.bundle - GUID: 9d13faeabf71c4610a1db230cac38904...
+ done. [Time: 6.352905 ms] 
+Refreshing native plugins compatible for Editor in 4.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.139114s, AssetImport time: 0.073119s, Asset hashing: 0.009772s [115.8 KB, 11.567967 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (1.249 MB)
+  hash: 0.002 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libMcDSP.so - GUID: 1a8e697b2bc4646219b1d7f21372acbc...
+ done. [Time: 3.920293 ms] 
+Refreshing native plugins compatible for Editor in 4.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.120852s, AssetImport time: 0.060704s, Asset hashing: 0.009620s [1.2 MB, 129.789825 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll - GUID: 4ba2329b63d54f0187bcaa12486b1b0f...
+ done. [Time: 3.997467 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 3.09 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.171969s, AssetImport time: 0.122332s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.510 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkTremolo.so - GUID: e195d2bb729724886a5348061e335cb1...
+ done. [Time: 3.867934 ms] 
+Refreshing native plugins compatible for Editor in 4.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.110919s, AssetImport time: 0.057457s, Asset hashing: 0.001307s [0.5 MB, 390.059326 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll - GUID: 1c6d1fbb51834b64847b1b73a75bfc77...
+ done. [Time: 16.575890 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 3.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.173235s, AssetImport time: 0.124965s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll - GUID: 307433eba81a469ab1e2084d52d1a5a2...
+ done. [Time: 4.139868 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 3.05 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.226453s, AssetImport time: 0.150748s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.600 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkGuitarDistortion.so - GUID: 0798261c9f27f4dc5afdc2327718dcf5...
+ done. [Time: 7.217853 ms] 
+Refreshing native plugins compatible for Editor in 4.23 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.112848s, AssetImport time: 0.061216s, Asset hashing: 0.002014s [0.6 MB, 297.943115 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.741 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkConvolutionReverb.so - GUID: 1831722c21db84fdc9f3b91807caf0fb...
+ done. [Time: 3.635433 ms] 
+Refreshing native plugins compatible for Editor in 3.38 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.112489s, AssetImport time: 0.058117s, Asset hashing: 0.002255s [0.7 MB, 328.711456 mb/s]
+
+
+Hashing assets ... 0.010 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (3.605 MB)
+  hash: 0.010 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/Auro.dll - GUID: d1f7473c3365343e2889a728c4c2ad36...
+ done. [Time: 10.810897 ms] 
+Refreshing native plugins compatible for Editor in 3.43 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.153717s, AssetImport time: 0.089321s, Asset hashing: 0.010726s [3.6 MB, 336.131470 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.909 MB)
+  hash: 0.003 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkSoundSeedAir.so - GUID: 6e1b5e3c630a44ee7a8d94266669c8ac...
+ done. [Time: 5.315160 ms] 
+Refreshing native plugins compatible for Editor in 3.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.135575s, AssetImport time: 0.063032s, Asset hashing: 0.010959s [0.9 MB, 82.907005 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.795 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkHarmonizer.so - GUID: 160cac5cd4114406f8689fe3a3343eda...
+ done. [Time: 4.641147 ms] 
+Refreshing native plugins compatible for Editor in 3.94 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.112319s, AssetImport time: 0.056150s, Asset hashing: 0.006918s [0.8 MB, 114.978310 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll - GUID: 6cdf1e5c78d14720aaadccd4c792df96...
+ done. [Time: 12.599566 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 4.88 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.195635s, AssetImport time: 0.141732s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll - GUID: 80a3616ca19596e4da0f10f14d241e9f...
+ done. [Time: 63.736820 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.81 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.228559s, AssetImport time: 0.176013s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.288 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/IOSONOProximity.dll - GUID: de08636cfcec9496b9c49f206998e314...
+ done. [Time: 3.464541 ms] 
+Refreshing native plugins compatible for Editor in 3.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.112174s, AssetImport time: 0.058775s, Asset hashing: 0.001976s [294.4 KB, 145.501526 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.256 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkConvolutionReverb.dll - GUID: 9f47ea6ca7ca34b5ba3843b71910e2bf...
+ done. [Time: 3.193036 ms] 
+Refreshing native plugins compatible for Editor in 3.48 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.119431s, AssetImport time: 0.066447s, Asset hashing: 0.000849s [261.9 KB, 301.384613 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.428 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/McDSP.dll - GUID: 34807a9c451e4478c99c6f1bc3f98e87...
+ done. [Time: 3.829583 ms] 
+Refreshing native plugins compatible for Editor in 7.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.122078s, AssetImport time: 0.066480s, Asset hashing: 0.003021s [438.4 KB, 141.724579 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.611 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkRecorder.so - GUID: 0f5f3b1df7cb44445a907ee2e23fa395...
+ done. [Time: 11.737085 ms] 
+Refreshing native plugins compatible for Editor in 3.43 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.134595s, AssetImport time: 0.069572s, Asset hashing: 0.001234s [0.6 MB, 495.019775 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll - GUID: 4113173d5e95493ab8765d7b08371de4...
+ done. [Time: 22.920811 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 7.66 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.185834s, AssetImport time: 0.131912s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.002 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (1.329 MB)
+  hash: 0.002 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libMcDSP.so - GUID: 124ddd5d54d79421d96ed715f3fbea38...
+ done. [Time: 4.857740 ms] 
+Refreshing native plugins compatible for Editor in 3.72 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.113011s, AssetImport time: 0.056632s, Asset hashing: 0.003237s [1.3 MB, 410.395081 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.076 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkPitchShifter.bundle - GUID: 99516bcded3b34bb99ea3f2e85ef27e0...
+ done. [Time: 2.661337 ms] 
+Refreshing native plugins compatible for Editor in 2.29 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.104516s, AssetImport time: 0.060941s, Asset hashing: 0.000446s [78.0 KB, 170.736069 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll - GUID: 8e0cd8ed44d4412cbe0642067abc9e44...
+ done. [Time: 33.119976 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.90 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.183028s, AssetImport time: 0.137213s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.134 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkConvolutionReverb.bundle - GUID: 34fe00fd9f2d9417882ff2909bf01d2b...
+ done. [Time: 5.815969 ms] 
+Refreshing native plugins compatible for Editor in 4.62 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.093822s, AssetImport time: 0.051236s, Asset hashing: 0.000426s [137.1 KB, 314.319366 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.599 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkFlanger.so - GUID: 647bf01e4df934933a15257165ab579c...
+ done. [Time: 2.060158 ms] 
+Refreshing native plugins compatible for Editor in 3.79 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.100452s, AssetImport time: 0.053530s, Asset hashing: 0.001220s [0.6 MB, 491.246429 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.264 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkHarmonizer.dll - GUID: a799225e052064a7d9b64653b61c376a...
+ done. [Time: 2.976727 ms] 
+Refreshing native plugins compatible for Editor in 3.43 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.111106s, AssetImport time: 0.062406s, Asset hashing: 0.000838s [269.9 KB, 314.369507 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.235 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkStereoDelay.dll - GUID: 4a08658e12014462cb4771614c6dc2fc...
+ done. [Time: 4.261731 ms] 
+Refreshing native plugins compatible for Editor in 4.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.116082s, AssetImport time: 0.069749s, Asset hashing: 0.000589s [240.4 KB, 398.830383 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.231 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkTremolo.dll - GUID: 85c222ae8cd6748928362276bdc5ef77...
+ done. [Time: 3.637311 ms] 
+Refreshing native plugins compatible for Editor in 3.49 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.087431s, AssetImport time: 0.044347s, Asset hashing: 0.001318s [236.9 KB, 175.501495 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll - GUID: 7cbab2be89b54486bbd23a6fe637d30e...
+ done. [Time: 28.628979 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 2.81 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.165340s, AssetImport time: 0.120177s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.005 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (2.726 MB)
+  hash: 0.004 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/Debug/AkSoundEngine.dll - GUID: a26292ce1e54f45c7ad5fb66f3f6e36d...
+ done. [Time: 2.905807 ms] 
+Refreshing native plugins compatible for Editor in 3.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.106660s, AssetImport time: 0.057962s, Asset hashing: 0.005124s [2.7 MB, 531.971375 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.233 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/DSP/AkHarmonizer.dll - GUID: 12f561de1aaf846acb9d161976ed3d9c...
+ done. [Time: 2.642448 ms] 
+Refreshing native plugins compatible for Editor in 3.45 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.101887s, AssetImport time: 0.051948s, Asset hashing: 0.000655s [238.9 KB, 356.367432 mb/s]
+
+Updating Assets/Wwise/Deployment/Plugins/Mac/Release/AkSoundEngine.bundle - GUID: 1e377bee7c3014c22853d37c7119fb13...
+ done. [Time: 3.480852 ms] 
+Refreshing native plugins compatible for Editor in 3.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.118266s, AssetImport time: 0.072967s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.618 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkTimeStretch.so - GUID: dc5e952f390b24e4c89d8cc6510caf77...
+ done. [Time: 3.046354 ms] 
+Refreshing native plugins compatible for Editor in 3.24 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.110116s, AssetImport time: 0.053552s, Asset hashing: 0.001627s [0.6 MB, 379.834564 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.750 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/armeabi-v7a/DSP/libAkHarmonizer.so - GUID: c86e482f2f3524fe4836349e811a9f13...
+ done. [Time: 4.366833 ms] 
+Refreshing native plugins compatible for Editor in 3.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.105388s, AssetImport time: 0.050765s, Asset hashing: 0.001465s [0.8 MB, 512.345886 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.232 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkGuitarDistortion.dll - GUID: 5f51754fe78334372ae5f2e8fdc52f7c...
+ done. [Time: 2.357152 ms] 
+Refreshing native plugins compatible for Editor in 3.04 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.095284s, AssetImport time: 0.049932s, Asset hashing: 0.000524s [237.9 KB, 443.356781 mb/s]
+
+Updating Assets/Wwise/Deployment/Plugins/Mac/Profile/AkSoundEngine.bundle - GUID: 7bfb775f4124740a29b1b0551c6cc49b...
+ done. [Time: 4.651317 ms] 
+Refreshing native plugins compatible for Editor in 3.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.115838s, AssetImport time: 0.073956s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.001 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.617 MB)
+  hash: 0.001 seconds
+Updating Assets/Wwise/Deployment/Plugins/Android/x86/DSP/libAkPitchShifter.so - GUID: 9d459b8f214e247948b0746a469d4654...
+ done. [Time: 3.143812 ms] 
+Refreshing native plugins compatible for Editor in 3.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.110843s, AssetImport time: 0.061662s, Asset hashing: 0.005641s [0.6 MB, 109.294174 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.081 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkGuitarDistortion.bundle - GUID: 742c899f238cb4c34991a9bff371305f...
+ done. [Time: 3.972262 ms] 
+Refreshing native plugins compatible for Editor in 3.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.097246s, AssetImport time: 0.051865s, Asset hashing: 0.000523s [83.2 KB, 155.405014 mb/s]
+
+
+Hashing assets ... 0.002 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (1.167 MB)
+  hash: 0.002 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86/Release/AkSoundEngine.dll - GUID: 527d9a9f0cece4defba0dfa8e8abd0fa...
+ done. [Time: 3.110305 ms] 
+Refreshing native plugins compatible for Editor in 3.67 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.106191s, AssetImport time: 0.056233s, Asset hashing: 0.002052s [1.2 MB, 568.720276 mb/s]
+
+Updating /Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll - GUID: 739bbd9f364b4268874f9fd86ab3beef...
+ done. [Time: 37.185425 ms] 
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Runtime/UnityEngine.HoloLens.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll' because we're compiling for Editor
+Ignoring '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Runtime/UnityEngine.VR.dll' because we're compiling for Editor
+- starting compile Library/ScriptAssemblies/Assembly-CSharp.dll, for buildtarget 27
+Refreshing native plugins compatible for Editor in 4.08 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.194943s, AssetImport time: 0.145019s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+
+
+Hashing assets ... 0.003 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.001 seconds (1.526 MB)
+  hash: 0.002 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/Release/AkSoundEngine.dll - GUID: a1cda0af5ac1b480d84762ecb4651009...
+ done. [Time: 4.507637 ms] 
+Refreshing native plugins compatible for Editor in 4.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.112675s, AssetImport time: 0.056847s, Asset hashing: 0.003099s [1.5 MB, 492.285431 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.208 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Windows/x86_64/DSP/AkMotion.dll - GUID: e40c52af53dd246ff856ca01382ece6c...
+ done. [Time: 4.813097 ms] 
+Refreshing native plugins compatible for Editor in 2.51 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.097052s, AssetImport time: 0.053197s, Asset hashing: 0.000868s [212.9 KB, 239.470612 mb/s]
+
+
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.181 MB)
+  hash: 0.000 seconds
+Updating Assets/Wwise/Deployment/Plugins/Mac/DSP/libAkSoundSeedAir.bundle - GUID: d70e37cfd879243f0baf2b8923be9713...
+ done. [Time: 2.238208 ms] 
+Refreshing native plugins compatible for Editor in 3.59 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+----- Total AssetImport time: 0.090947s, AssetImport time: 0.050518s, Asset hashing: 0.000684s [185.4 KB, 264.869080 mb/s]
+
+WwiseUnity: Refreshing asset database.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WwiseSetupWizard:RunModifyImpl() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:43)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions() (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/EditorApplicationBindings.gen.cs:207)
+ 
+(Filename: /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 43)
+
+Refresh: detecting if any assets need to be imported or removed ... Refresh: elapses 0.004125 seconds (Nothing changed)
+WwiseUnity: End of modify setup, exiting Unity.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WwiseSetupWizard:RunModifyImpl() (at /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:46)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions() (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/EditorApplicationBindings.gen.cs:207)
+ 
+(Filename: /Users/joemarchuk/Documents/Projects/Deathless/DeathlessGit/Deathless/Assets/Wwise/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 46)
+
+Refresh: detecting if any assets need to be imported or removed ... Refresh: elapses 0.008081 seconds (Nothing changed)
+Refresh: detecting if any assets need to be imported or removed ... Refresh: elapses 0.003633 seconds (Nothing changed)
+Cleanup mono
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+##unity-automation:{"messageType":"MemoryLeaks","allocatedMemory":31924,"memoryLabels":[{"Default":96},{"Permanent":15808},{"Thread":288},{"Manager":520},{"GfxDevice":320},{"Physics":8},{"String":102},{"DynamicArray":12},{"ScriptManager":2104},{"VR":6332},{"EditorUtility":536},{"AssetImporter":24},{"RestService":64},{"License":238},{"UnityConnect":5344},{"Collab":128}]}

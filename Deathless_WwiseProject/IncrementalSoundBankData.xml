@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IncrementalBankBuild Version="6" Flags="240381544">
+	<Platform GUID="{06D7AF25-CA4B-4791-A2FC-7D77CE5AEB9A}">
+		<Banks>
+			<Language ID="0">
+				<File Name="Incinerator" Hash="2775070666" Timestamp="131355513170000000"/>
+				<File Name="Init" Hash="2660739647" Timestamp="131355493020000000"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="2973565690" Timestamp="131355513170000000"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+	<Platform GUID="{602ABDAC-885C-4E9B-835A-832A76581990}">
+		<Banks>
+			<Language ID="0">
+				<File Name="Incinerator" Hash="2775070666" Timestamp="131355513170000000"/>
+				<File Name="Init" Hash="2127831791" Timestamp="131355493010000000"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="191999432" Timestamp="131355513170000000"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+	<Platform GUID="{86837377-2808-4F20-BDFC-6ACC16F2387E}">
+		<Banks>
+			<Language ID="0">
+				<File Name="Incinerator" Hash="2775070666" Timestamp="131355513170000000"/>
+				<File Name="Init" Hash="1982699813" Timestamp="131355493010000000"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="1479470052" Timestamp="131355513170000000"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+</IncrementalBankBuild>
