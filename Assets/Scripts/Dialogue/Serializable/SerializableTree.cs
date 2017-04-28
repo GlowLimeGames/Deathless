@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Dialogue {
-    [CreateAssetMenu(menuName = "Dialogue Tree")] [Serializable]
     public class SerializableTree : MonoBehaviour {
         [SerializeField]
         private GameObject owner;

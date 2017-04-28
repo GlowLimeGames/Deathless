@@ -28,6 +28,7 @@ namespace Dialogue {
         protected BaseNode(Node parent, NodeType type) : this(parent) {
             GameObject data = new GameObject();
             data.hideFlags = HideFlags.HideInHierarchy;
+            data.name = "dialogue_nodedata";
             Data = data.AddComponent<NodeData>();
             Data.Init(type);
         }

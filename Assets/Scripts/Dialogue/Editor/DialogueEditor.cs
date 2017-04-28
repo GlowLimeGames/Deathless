@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using Dialogue;
 using UnityEngine;
-
+//
 public class DialogueEditor : EditorWindow {
     protected Vector2 scrollPos = Vector2.zero;
 
@@ -14,6 +14,9 @@ public class DialogueEditor : EditorWindow {
     private int nextID;
     private bool contextMenuShown;
     private Node copiedLink;
+
+    private List<BaseNode> forceExpandNodes;
+    private BaseNode nodeToSelect;
 
     [SerializeField]
     private NodeData dataInEditor;
@@ -63,7 +66,6 @@ public class DialogueEditor : EditorWindow {
             }
             NodeGUI.RenderNode(this, tree.root);
 
-
             NodeGUI gui = GetNodeAtPoint(Event.current.mousePosition);
             if (gui != null) {
                 switch (Event.current.type) {
@@ -86,13 +88,33 @@ public class DialogueEditor : EditorWindow {
 
             if (focusedWindow == this) {
                 NodeGUI focused = GetNodeGUI(GUI.GetNameOfFocusedControl());
-                if (focused != null && focused.node != null) {
+                if (nodeToSelect != null) {
+                    if (focused == GetNodeGUI(nodeToSelect)) {
+                        nodeToSelect = null;
+                    }
+                    else {
+                        SelectNode(nodeToSelect);
+                    }
+                }
+                else if (focused != null && focused.node != null) {
                     dataInEditor = focused.node.Data;
+                    NodeEditor.Link = focused.node.isLink;
                     if (focused.node.Data == null) { Debug.Log("Data is null... :("); }
+                    
+                    if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Delete) {
+                        focused.node.Remove();
+                        Repaint();
+                    }
+                    else if (focused.node.isLink && Event.current.clickCount == 2) {
+                        SelectNode(focused.node.GetOriginal());
+                    }
                 }
                 else { dataInEditor = null; }
+
                 if (dataInEditor != null) {
                     Selection.activeGameObject = dataInEditor.gameObject;
+                    NodeEditor[] editors = Resources.FindObjectsOfTypeAll<NodeEditor>();
+                    foreach (NodeEditor editor in editors) { editor.Repaint(); }
                 }
             }
         }
@@ -159,6 +181,32 @@ public class DialogueEditor : EditorWindow {
         return gui;
     }
 
+    private void SelectNode(BaseNode node) {
+        if (nodeToSelect != null) {
+            NodeGUI gui = GetNodeGUI(node);
+            GUI.FocusControl(gui.id.ToString());
+        }
+        else {
+            RevealNode(node);
+            nodeToSelect = node;
+        }
+    }
+
+    /// <summary>
+    /// Expands all ancester nodes of the given node.
+    /// </summary>
+    private void RevealNode(BaseNode node) {
+        if (forceExpandNodes == null) {
+            forceExpandNodes = new List<BaseNode>();
+            RevealNode(node.Parent);
+            Repaint();
+        }
+        else if (node != null) {
+            forceExpandNodes.Add(node);
+            RevealNode(node.Parent);
+        }
+    }
+
     private void AddLine(object obj) {
         ((Node)obj).AddNode(NodeType.LINE);
     }
@@ -184,7 +232,7 @@ public class DialogueEditor : EditorWindow {
     
     private class NodeGUI {
         public int id { get; private set; }
-        bool expanded;
+        public bool expanded { get; set; }
         public BaseNode node { get; private set; }
         Rect rect;
 
@@ -200,18 +248,27 @@ public class DialogueEditor : EditorWindow {
                 editor.nodes.Add(gui.id, gui);
             }
             gui.RenderNode(editor);
+            editor.forceExpandNodes = null;
         }
 
         private void RenderNode(DialogueEditor editor) {
             GUI.SetNextControlName(id.ToString());
             bool isChoice = (node.Data.Type == NodeType.CHOICE);
+            string text = node.Data.Text;
+            if (text == "") { text = "<empty>"; }
+
+            if (editor.forceExpandNodes != null) {
+                if (editor.forceExpandNodes.Contains(node)) {
+                    expanded = true;
+                }
+            }
 
             if (node.isLink || ((Node)node).Children.Count == 0) {
-                EditorGUILayout.SelectableLabel(node.Data.Text, GetStyle(EditorStyles.label, isChoice, node.isLink), GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                EditorGUILayout.SelectableLabel(text, GetStyle(EditorStyles.label, isChoice, node.isLink), GUILayout.Height(EditorGUIUtility.singleLineHeight));
                 rect = GUILayoutUtility.GetLastRect();
             }
             else {
-                expanded = EditorGUILayout.Foldout(expanded, node.Data.Text, GetStyle(EditorStyles.foldout, isChoice));
+                expanded = EditorGUILayout.Foldout(expanded, text, GetStyle(EditorStyles.foldout, isChoice));
                 rect = GUILayoutUtility.GetLastRect();
                 if (expanded) {
                     EditorGUI.indentLevel++;
@@ -225,22 +282,35 @@ public class DialogueEditor : EditorWindow {
 
         private GUIStyle GetStyle(GUIStyle defaultStyle, bool isChoice, bool isLink = false) {
             GUIStyle style = new GUIStyle(defaultStyle);
+            
+            Color highlight = new Color(0.6f, 0.6f, 0.6f, 1);
 
-            Color linkBlue = new Color(0, 0, 0.4f, 1);
-            Color linkRed = new Color(0.4f, 0, 0, 1);
+            Color color = isChoice ? Color.blue : new Color(0.8f, 0, 0, 1);
+            if (isLink) { style.fontStyle = FontStyle.Italic; }
+            
+            Texture2D tex = new Texture2D(style.focused.background.width, style.focused.background.height);
+            Color[] pixels = tex.GetPixels();
 
-            Color color = isChoice ? Color.blue : Color.red;
-            Color linkColor = isChoice ? linkBlue : linkRed;
-            if (isLink) { color = linkColor; }
+            for (int i = 0; i < pixels.Length; i++) {
+                pixels[i] = highlight;
+            }
+
+            tex.SetPixels(pixels);
+            tex.Apply();
+            
 
             style.normal.textColor = color;
             style.onNormal.textColor = color;
 
-            style.focused.textColor = Color.white;
-            style.onFocused.textColor = Color.white;
+            style.focused.background = tex;
+            style.onFocused.background = tex;
+            style.focused.textColor = color;
+            style.onFocused.textColor = color;
 
-            style.active.textColor = Color.gray;
-            style.onActive.textColor = Color.gray;
+            style.active.background = tex;
+            style.onActive.background = tex;
+            style.active.textColor = color;
+            style.onActive.textColor = color;
 
             return style;
         }

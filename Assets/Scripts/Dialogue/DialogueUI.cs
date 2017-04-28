@@ -67,9 +67,14 @@ public class DialogueUI : MonoBehaviour {
     /// Show a single line of dialogue.
     /// </summary>
     public void ShowLine(Dialogue.Node line) {
-        currentNode = line;
-        lineText.text = line.Data.Text;
-        lineView.SetActive(true);
+        if (line.Data.Text != "") {
+            currentNode = line;
+            lineText.text = line.Data.Text;
+            lineView.SetActive(true);
+        }
+        else {
+            DialogueManager.DisplayNext(line);
+        }
     }
 
     /// <summary>
@@ -77,9 +82,11 @@ public class DialogueUI : MonoBehaviour {
     /// </summary>
     public void ShowChoices(List<Dialogue.Node> choices) {
         foreach (Dialogue.Node choice in choices) {
-            DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
-            choiceUI.Init(choice);
-            choiceUI.transform.SetParent(choiceView.transform, false);
+            if (choice.Data.Text != "") {
+                DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
+                choiceUI.Init(choice);
+                choiceUI.transform.SetParent(choiceView.transform, false);
+            }
         }
         choiceView.SetActive(true);
     }
