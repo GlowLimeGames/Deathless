@@ -17,13 +17,24 @@ namespace Dialogue {
         public Node Parent { get; private set; }
         public NodeData Data { get; private set; }
         public abstract bool isLink { get; }
-
-        public BaseNode(Node parent, NodeData data) {
+        
+        private BaseNode(Node parent) {
             Parent = parent;
-            Data = data;
             if (Parent != null) {
                 Parent.Children.Add(this);
             }
+        }
+
+        protected BaseNode(Node parent, NodeType type) : this(parent) {
+            GameObject data = new GameObject();
+            data.hideFlags = HideFlags.HideInHierarchy;
+            data.name = "dialogue_nodedata";
+            Data = data.AddComponent<NodeData>();
+            Data.Init(type);
+        }
+
+        protected BaseNode(Node parent, NodeData data) : this(parent) {
+            Data = data;
         }
 
         public Node GetOriginal() {
@@ -93,14 +104,19 @@ namespace Dialogue {
             Links = new List<Link>();
         }
 
+        private Node(Node parent, NodeType type) : base(parent, type) {
+            Children = new List<BaseNode>();
+            Links = new List<Link>();
+        }
+
         public static Node CreateRoot() {
-            Node node = new Node(null, new NodeData(NodeType.LINE));
+            Node node = new Node(null, NodeType.LINE);
             node.Data.Text = "<root>";
             return node;
         }
 
         public Node AddNode(NodeType type) {
-            return new Node(this, new NodeData(type));
+            return new Node(this, type);
         }
 
         public Node AddNode(NodeType type, string text) {
