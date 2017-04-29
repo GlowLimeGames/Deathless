@@ -60,7 +60,7 @@ public class DialogueUI : MonoBehaviour {
     /// </summary>
     public void Show(bool show) {
         gameObject.SetActive(show);
-        GameManager.InputEnabled = !show;
+        UIManager.InputEnabled = !show;
     }
 
     /// <summary>

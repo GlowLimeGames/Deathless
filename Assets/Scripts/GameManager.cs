@@ -22,22 +22,9 @@ public class GameManager : MonoBehaviour {
     /// <summary>
     /// Backing field for Player.
     /// </summary>
-    [SerializeField]
     private Player player;
-
-    /// <summary>
-    /// The Inventory object in the current scene.
-    /// </summary>
-    [SerializeField]
-    private Inventory inventory;
-
-    /// <summary>
-    /// Whether GameManager-controlled input is allowed.
-    /// Should be disabled during dialogue.
-    /// </summary>
-    public static bool InputEnabled { get; set; }
     
-	void Start () {
+	void Start() {
         // Singleton
 		if (instance == null) {
             DontDestroyOnLoad(this);
@@ -46,23 +33,32 @@ public class GameManager : MonoBehaviour {
         else {
             Destroy(this);
         }
-        
-        inventory.Init();
-        InputEnabled = true;
+
+        InitFields();
+        SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
-    void Update() {
-        // Handle generic input
-        if (InputEnabled && Input.GetMouseButtonUp(1)) {
-            if (!Inventory.isItemSelected && !Inventory.ObserveIconSelected) {
-                Inventory.Show(!Inventory.isShown);
-            }
-            else {
-                Inventory.ClearSelection();
-            }
+    /// <summary>
+    /// Initialize fields with objects found in the
+    /// current scene.
+    /// </summary>
+    void InitFields() {
+        if (player == null) {
+            player = FindObjectOfType<Player>();
         }
     }
 
+    /// <summary>
+    /// Called when the Unity SceneManager finishes loading a scene.
+    /// </summary>>
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        InitFields();
+    }
+
+    /// <summary>
+    /// Load a different game scene.
+    /// </summary>
+    /// <param name="scene"></param>
     public void LoadScene(string scene) {
         SceneManager.LoadScene(scene);
     }
