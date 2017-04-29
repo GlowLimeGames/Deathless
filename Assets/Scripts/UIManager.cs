@@ -13,7 +13,13 @@ public class UIManager : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private Inventory inventory;
-    
+
+    /// <summary>
+    /// The Input Blocker UI object in the current scene.
+    /// </summary>
+    [SerializeField]
+    private GameObject inputBlocker;
+
     /// <summary>
     /// Whether UIManager-controlled input is allowed.
     /// Should be disabled during dialogue.
@@ -36,5 +42,9 @@ public class UIManager : MonoBehaviour {
                 Inventory.ClearSelection();
             }
         }
+    }
+
+    public static void BlockInput(bool block) {
+        instance.inputBlocker.SetActive(block);
     }
 }

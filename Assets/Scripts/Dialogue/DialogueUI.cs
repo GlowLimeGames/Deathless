@@ -59,6 +59,7 @@ public class DialogueUI : MonoBehaviour {
     /// Show or hide the dialogue UI.
     /// </summary>
     public void Show(bool show) {
+        UIManager.BlockInput(show);
         gameObject.SetActive(show);
         UIManager.InputEnabled = !show;
     }
