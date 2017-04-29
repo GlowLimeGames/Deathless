@@ -8,16 +8,13 @@ using UnityEngine.UI;
 /// <summary>
 /// Handles the player's inventory.
 /// </summary>
-public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler {
-    /// <summary>
-    /// The instance of the inventory in the current scene.
-    /// </summary>
-    private static Inventory instance;
-
+public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterHandler {
     /// <summary>
     /// An ordered list of all inventory slots in the inventory.
     /// </summary>
-    private static List<InventorySlot> slots = new List<InventorySlot>();
+    private List<InventorySlot> slots = new List<InventorySlot>();
+
+    public static List<InventorySlot> Slots { get { return instance.slots; } }
 
     /// <summary>
     /// Whether the inventory is currently open.
@@ -56,21 +53,17 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     private float pointerExitedCounter = -1;
     
 	public void Init () {
-        // Singleton
-        if (instance == null) {
-            instance = this;
-        }
-        else { Destroy(gameObject); }
+        SingletonInit();
         
         // Add inventory slots to list
         foreach (InventorySlot slot in transform.GetComponentsInChildren<InventorySlot>(true)) {
-            slots.Add(slot);
+            Slots.Add(slot);
         }
 	}
 
     void Update () {
         CheckForPointerExitTimeout();
-    } 
+    }
 
     /// <summary>
     /// Open or close the inventory.
@@ -91,9 +84,9 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     public static void AddItem(InventoryItem prefab) {
         InventoryItem item = Instantiate(prefab);
 
-        for (int i = 0; item != null && i < slots.Count; i++) {
-            if (slots[i].isEmpty) {
-                slots[i].SetItem(item);
+        for (int i = 0; item != null && i < Slots.Count; i++) {
+            if (Slots[i].isEmpty) {
+                Slots[i].SetItem(item);
                 item = null;
             }
         }
@@ -109,10 +102,10 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
             ClearSelection();
         }
 
-        foreach (InventorySlot slot in slots) {
+        foreach (InventorySlot slot in Slots) {
             if (slot.ItemEquals(prefab)) {
                 slot.Clear();
-                CollapseItems(slots.IndexOf(slot));
+                CollapseItems(Slots.IndexOf(slot));
                 break;
             }
         }
@@ -125,13 +118,13 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     private static void CollapseItems(int startIndex = 0) {
         List<InventorySlot> emptySlots = new List<InventorySlot>();
 
-        for (int i = startIndex; i < slots.Count; i++) {
-            if (!slots[i].isEmpty && emptySlots.Count > 0) {
-                slots[i].MoveTo(emptySlots[0]);
+        for (int i = startIndex; i < Slots.Count; i++) {
+            if (!Slots[i].isEmpty && emptySlots.Count > 0) {
+                Slots[i].MoveTo(emptySlots[0]);
                 emptySlots.RemoveAt(0);
             }
-            if (slots[i].isEmpty) {
-                emptySlots.Add(slots[i]);
+            if (Slots[i].isEmpty) {
+                emptySlots.Add(Slots[i]);
             }
         }
     }
@@ -168,7 +161,7 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     /// </summary>
     public static bool HasItem(InventoryItem prefab) {
         bool hasItem = false;
-        foreach (InventorySlot slot in slots) {
+        foreach (InventorySlot slot in Slots) {
             if (slot.ItemEquals(prefab)) {
                 hasItem = true;
                 break;
