@@ -37,16 +37,11 @@ public class GameItem : MonoBehaviour {
     protected virtual GameItem Instance {
         get {
             if (instance == null) {
-                if (UnityEditor.PrefabUtility.GetPrefabType(this) == UnityEditor.PrefabType.None) {
-                    instance = this;
-                }
-                else {
-                    GameItem[] items = FindObjectsOfType<GameItem>();
-                    foreach (GameItem item in items) {
-                        if (item.Equals(this)) {
-                            instance = item;
-                            break;
-                        }
+                GameItem[] items = FindObjectsOfType<GameItem>();
+                foreach (GameItem item in items) {
+                    if (item.Equals(this)) {
+                        instance = item;
+                        break;
                     }
                 }
             }

@@ -76,6 +76,7 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     /// Open or close the inventory.
     /// </summary>
     public static void Show(bool visible) {
+        UIManager.BlockInput(visible);
         instance.gameObject.SetActive(visible);
         instance.pointerExitedCounter = -1;
 
