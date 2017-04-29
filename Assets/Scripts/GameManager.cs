@@ -6,12 +6,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// High-level management of game systems and objects.
 /// </summary>
-public class GameManager : MonoBehaviour {
-    /// <summary>
-    /// The instance of GameManager in the current scene.
-    /// </summary>
-    private static GameManager instance;
-
+public class GameManager : Manager<GameManager> {
     /// <summary>
     /// The Player object in the current scene.
     /// </summary>
@@ -25,15 +20,7 @@ public class GameManager : MonoBehaviour {
     private Player player;
     
 	void Start() {
-        // Singleton
-		if (instance == null) {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-        else {
-            Destroy(this);
-        }
-
+        SingletonInit();
         InitFields();
         SceneManager.sceneLoaded += OnSceneLoaded;
 	}
@@ -59,7 +46,11 @@ public class GameManager : MonoBehaviour {
     /// Load a different game scene.
     /// </summary>
     /// <param name="scene"></param>
-    public void LoadScene(string scene) {
+    public static void LoadScene(string scene) {
         SceneManager.LoadScene(scene);
+    }
+
+    public static string GetCurrentScene() {
+        return SceneManager.GetActiveScene().name;
     }
 }

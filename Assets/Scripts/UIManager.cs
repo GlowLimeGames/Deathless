@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour {
-    /// <summary>
-    /// The instance of UIManager in the current scene.
-    /// </summary>
-    private static UIManager instance;
+public class UIManager : Manager<UIManager> {
+    private const string mainMenuScene = "MainMenu";
 
     /// <summary>
     /// The Inventory UI object in the current scene.
@@ -21,13 +18,14 @@ public class UIManager : MonoBehaviour {
     private GameObject inputBlocker;
 
     /// <summary>
-    /// Whether UIManager-controlled input is allowed.
-    /// Should be disabled during dialogue.
+    /// Whether world input (clicking items in the world such
+    /// as characters, object, and the background) is enabled.
     /// </summary>
     public static bool InputEnabled { get; set; }
 
     void Start() {
-        instance = this;
+        SingletonInit();
+
         InputEnabled = true;
         if (inventory != null) { inventory.Init(); }
     }
@@ -42,9 +40,22 @@ public class UIManager : MonoBehaviour {
                 Inventory.ClearSelection();
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.Escape) && GameManager.GetCurrentScene() != mainMenuScene) {
+            GameManager.LoadScene(mainMenuScene);
+        }
     }
 
     public static void BlockInput(bool block) {
         instance.inputBlocker.SetActive(block);
+    }
+
+    /// <summary>
+    /// Load a different game scene. Use this for buttons (otherwise, use
+    /// GameManager's static function).
+    /// </summary>
+    /// <param name="scene"></param>
+    public void LoadScene(string scene) {
+        GameManager.LoadScene(scene);
     }
 }

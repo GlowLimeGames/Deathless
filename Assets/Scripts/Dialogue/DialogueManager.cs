@@ -6,12 +6,7 @@ using Dialogue;
 /// <summary>
 /// Manages dialogue trees in-game.
 /// </summary>
-public class DialogueManager : MonoBehaviour {
-    /// <summary>
-    /// The instance of the DialogueManager in the current scene.
-    /// </summary>
-    private static DialogueManager instance;
-
+public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Backing field for UI.
     /// </summary>
@@ -23,15 +18,6 @@ public class DialogueManager : MonoBehaviour {
     /// </summary>
     private static DialogueUI UI {
         get { return instance.ui; }
-    }
-
-    void Start() {
-        // Singleton
-        if (instance == null) {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-        else { Destroy(this); }
     }
 
     /// <summary>
