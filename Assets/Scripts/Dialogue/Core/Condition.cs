@@ -52,12 +52,14 @@ namespace Dialogue {
             stringVar = null;
         }
 
+        [EnumAction(typeof(GlobalInt))]
         public void SetIntVar (int i) {
-            intVar = i;
+            intVar = Globals.GetGlobal((GlobalInt)i);
         }
 
-        public void SetStringVar (string s) {
-            stringVar = s;
+        [EnumAction(typeof(GlobalString))]
+        public void SetStringVar (int i) {
+            stringVar = Globals.GetGlobal((GlobalString)i);
         }
 
         public void IsGreaterThan (int i) {
