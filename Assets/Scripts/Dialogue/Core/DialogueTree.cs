@@ -8,8 +8,8 @@ namespace Dialogue {
         public Node root;
         public GameObject owner;
 
-        public DialogueTree() {
-            root = Node.CreateRoot();
+        public DialogueTree(Transform parentObject) {
+            root = Node.CreateRoot(parentObject);
         }
     }
     
@@ -27,10 +27,14 @@ namespace Dialogue {
 
         protected BaseNode(Node parent, NodeType type) : this(parent) {
             GameObject data = new GameObject();
-            data.hideFlags = HideFlags.HideInHierarchy;
-            data.name = "dialogue_nodedata";
             Data = data.AddComponent<NodeData>();
-            Data.Init(type);
+
+            if (Parent != null) {
+                Data.Init(type, Parent.Data.gameObject.transform);
+            }
+            else {
+                Data.Init(type, null);
+            }
         }
 
         protected BaseNode(Node parent, NodeData data) : this(parent) {
@@ -109,9 +113,10 @@ namespace Dialogue {
             Links = new List<Link>();
         }
 
-        public static Node CreateRoot() {
+        public static Node CreateRoot(Transform parentObject) {
             Node node = new Node(null, NodeType.LINE);
             node.Data.Text = "<root>";
+            node.Data.gameObject.transform.SetParent(parentObject);
             return node;
         }
 
@@ -138,6 +143,10 @@ namespace Dialogue {
             else {
                 base.Remove();
                 ClearLinks();
+                foreach (BaseNode child in Children) {
+                    child.Remove();
+                }
+                GameObject.Destroy(Data.gameObject);
             }
         }
 
@@ -145,10 +154,12 @@ namespace Dialogue {
             while (Links.Count > 0) {
                 Links[0].Remove();
             }
+            /*
             foreach (BaseNode child in Children) {
                 if (child.isLink) { child.Remove(); }
                 else { ((Node)child).ClearLinks(); }
             }
+            */
         }
     }
 }

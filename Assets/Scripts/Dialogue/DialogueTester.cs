@@ -9,8 +9,8 @@ public class DialogueTester {
     /// <summary>
     /// Create a test dialogue tree.
     /// </summary>
-	public static DialogueTree CreateTestTree() {
-        DialogueTree tree = new DialogueTree();
+	public static DialogueTree CreateTestTree(UnityEngine.Transform treeObject) {
+        DialogueTree tree = new DialogueTree(treeObject);
         TestBranch(tree.root, 1);
         TestBranch(tree.root, 2);
         TestBranch(tree.root, 3);

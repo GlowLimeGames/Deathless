@@ -46,14 +46,18 @@ public class DialogueEditor : EditorWindow {
             if (GUILayout.Button("Save") && tree != null) {
                 savedTree.ExportTree(tree);
                 EditorUtility.SetDirty(savedTree);
+
+                ClearOrphanedNodes();
                 Debug.Log("Saved tree");
             }
 
             if (GUILayout.Button("Load")) {
+                ClearOrphanedNodes();
+
                 lastSavedTree = savedTree;
                 tree = savedTree.ImportTree();
                 if (tree == null) {
-                    tree = DialogueTester.CreateTestTree();
+                    tree = DialogueTester.CreateTestTree(savedTree.gameObject.transform);
                     Debug.Log("Created new tree");
                 }
             }
@@ -121,6 +125,14 @@ public class DialogueEditor : EditorWindow {
 
         GUILayout.EndScrollView();
         GUILayout.EndVertical();
+    }
+
+    private void ClearOrphanedNodes() {
+        foreach (NodeData data in FindObjectsOfType<NodeData>()) {
+            if (data.transform.parent == null) {
+                DestroyImmediate(data.gameObject);
+            }
+        }
     }
 
     private void GenerateContextMenu(NodeGUI gui) {

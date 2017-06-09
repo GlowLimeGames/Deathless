@@ -51,9 +51,13 @@ namespace Dialogue {
             set { notes = value; }
         }
 
-        public void Init(NodeType type) {
+        public void Init(NodeType type, Transform parentObject) {
             this.type = type;
             Text = "Add text here";
+            Condition = gameObject.AddComponent<Condition>();
+            gameObject.transform.SetParent(parentObject);
+            gameObject.name = "dialogue_nodedata";
+            gameObject.hideFlags = HideFlags.HideInHierarchy;
         } 
     }
 }

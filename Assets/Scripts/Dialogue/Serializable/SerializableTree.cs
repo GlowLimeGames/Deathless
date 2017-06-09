@@ -64,7 +64,7 @@ namespace Dialogue {
             DialogueTree imported = null;
 
             if (nodes != null && nodes.Count > 0 && links != null) {
-                imported = new DialogueTree();
+                imported = new DialogueTree(gameObject.transform);
                 imported.owner = owner;
                 ImportChildNodes(imported.root, nodes[0]);
                 ImportLinks();
