@@ -58,7 +58,7 @@ public class DialogueUI : Manager<DialogueUI> {
     /// Show a single line of dialogue.
     /// </summary>
     public void ShowLine(Dialogue.Node line) {
-        if (line.Data.Text != "") {
+        if (line.Data.Text != "" && line.Data.Text != null) {
             currentNode = line;
             lineText.text = line.Data.Text;
             lineView.SetActive(true);

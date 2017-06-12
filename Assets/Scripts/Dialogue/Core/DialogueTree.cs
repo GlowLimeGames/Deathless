@@ -11,6 +11,10 @@ namespace Dialogue {
         public DialogueTree(Transform parentObject) {
             root = Node.CreateRoot(parentObject);
         }
+
+        public DialogueTree(NodeData rootData) {
+            root = Node.CreateRoot(rootData);
+        }
     }
     
     public abstract class BaseNode {
@@ -120,6 +124,11 @@ namespace Dialogue {
             return node;
         }
 
+        public static Node CreateRoot(NodeData rootData) {
+            Node node = new Node(null, rootData);
+            return node;
+        }
+
         public Node AddNode(NodeType type) {
             return new Node(this, type);
         }
@@ -143,10 +152,10 @@ namespace Dialogue {
             else {
                 base.Remove();
                 ClearLinks();
-                foreach (BaseNode child in Children) {
-                    child.Remove();
+                while (Children.Count > 0) {
+                    Children[0].Remove();
                 }
-                GameObject.Destroy(Data.gameObject);
+                GameObject.DestroyImmediate(Data.gameObject);
             }
         }
 
@@ -154,12 +163,6 @@ namespace Dialogue {
             while (Links.Count > 0) {
                 Links[0].Remove();
             }
-            /*
-            foreach (BaseNode child in Children) {
-                if (child.isLink) { child.Remove(); }
-                else { ((Node)child).ClearLinks(); }
-            }
-            */
         }
     }
 }

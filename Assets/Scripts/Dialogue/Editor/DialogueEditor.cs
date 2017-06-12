@@ -14,6 +14,7 @@ public class DialogueEditor : EditorWindow {
     private int nextID;
     private bool contextMenuShown;
     private Node copiedLink;
+    private bool dirty = false;
 
     private List<BaseNode> forceExpandNodes;
     private BaseNode nodeToSelect;
@@ -39,23 +40,22 @@ public class DialogueEditor : EditorWindow {
         savedTree = (SerializableTree)EditorGUILayout.ObjectField("Dialogue Tree", savedTree, typeof(SerializableTree), true);
 
         if (savedTree == null || (lastSavedTree != null && savedTree != lastSavedTree)) {
+            Cleanup();
             tree = null;
             nodes = null;
         }
         if (savedTree != null) {
             if (GUILayout.Button("Save") && tree != null) {
-                savedTree.ExportTree(tree);
+                savedTree = savedTree.ExportInstance(tree);
                 EditorUtility.SetDirty(savedTree);
-
-                ClearOrphanedNodes();
+                
                 Debug.Log("Saved tree");
             }
 
             if (GUILayout.Button("Load")) {
-                ClearOrphanedNodes();
-
+                Cleanup();
                 lastSavedTree = savedTree;
-                tree = savedTree.ImportTree();
+                tree = savedTree.InstantiateTree();
                 if (tree == null) {
                     tree = DialogueTester.CreateTestTree(savedTree.gameObject.transform);
                     Debug.Log("Created new tree");
@@ -64,6 +64,7 @@ public class DialogueEditor : EditorWindow {
         }
 
         if (savedTree != null && tree != null) {
+            dirty = true;
             if (nodes == null) {
                 nodes = new Dictionary<int, NodeGUI>();
                 nextID = 0;
@@ -127,11 +128,19 @@ public class DialogueEditor : EditorWindow {
         GUILayout.EndVertical();
     }
 
-    private void ClearOrphanedNodes() {
-        foreach (NodeData data in FindObjectsOfType<NodeData>()) {
-            if (data.transform.parent == null) {
-                DestroyImmediate(data.gameObject);
+    private void Cleanup() {
+        if (dirty == true) {
+            foreach (SerializableTree tree in FindObjectsOfType<SerializableTree>()) {
+                tree.CleanupTempInstance();
             }
+
+            foreach (NodeData data in FindObjectsOfType<NodeData>()) {
+                if (data.transform.parent == null) {
+                    DestroyImmediate(data.gameObject);
+                }
+            }
+
+            dirty = false;
         }
     }
 

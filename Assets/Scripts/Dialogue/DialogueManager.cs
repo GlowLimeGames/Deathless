@@ -39,15 +39,15 @@ public class DialogueManager : Manager<DialogueManager> {
     /// Load a DialogueTree from the given SerializableTree.
     /// </summary>
     public static DialogueTree LoadDialogue(SerializableTree dialogue) {
-        return dialogue.ImportTree();
+        return dialogue.InstantiateTree();
     }
 
     /// <summary>
     /// Display the dialogue node(s) that come after the given one.
     /// </summary>
     public static void DisplayNext(Node current) {
-        if (current.Data.Action != null) {
-            current.Data.Action.Invoke();
+        if (current.Data.Actions != null) {
+            current.Data.Actions.Invoke();
         }
         UI.ClearDialogue();
         if (!isDialogueOver(current.Children)) {
@@ -107,7 +107,7 @@ public class DialogueManager : Manager<DialogueManager> {
     private static List<Node> GetValidNodes(List<BaseNode> nodes, bool getMultiple = true) {
         List<Node> validNodes = new List<Node>();
         for (int i = 0; i < nodes.Count && (getMultiple || validNodes.Count < 1); i++) {
-            if (nodes[i].Data.Condition == null || nodes[i].Data.Condition.isValid) {
+            if (nodes[i].Data.Conditions == null || nodes[i].Data.Conditions.isValid) {
                 validNodes.Add(nodes[i].GetOriginal());
             }
         }

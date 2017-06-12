@@ -31,17 +31,17 @@ namespace Dialogue {
         }
 
         [SerializeField]
-        private Condition condition;
-        public Condition Condition {
-            get { return condition; }
-            set { condition = value; }
+        private Conditions conditions;
+        public Conditions Conditions {
+            get { return conditions; }
+            set { conditions = value; }
         }
         
         [SerializeField]
-        private UnityEvent action;
-        public UnityEvent Action {
-            get { return action; }
-            set { action = value; }
+        private Actions actions;
+        public Actions Actions {
+            get { return actions; }
+            set { actions = value; }
         }
 
         [SerializeField]
@@ -54,10 +54,12 @@ namespace Dialogue {
         public void Init(NodeType type, Transform parentObject) {
             this.type = type;
             Text = "Add text here";
-            Condition = gameObject.AddComponent<Condition>();
+            Conditions = gameObject.AddComponent<Conditions>();
+            Actions = gameObject.AddComponent<Actions>();
+
             gameObject.transform.SetParent(parentObject);
             gameObject.name = "dialogue_nodedata";
-            gameObject.hideFlags = HideFlags.HideInHierarchy;
+            //gameObject.hideFlags = HideFlags.HideInHierarchy;
         } 
     }
 }

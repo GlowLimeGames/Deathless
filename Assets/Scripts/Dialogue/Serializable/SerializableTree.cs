@@ -15,7 +15,39 @@ namespace Dialogue {
         [NonSerialized]
         private Dictionary<Node, SerializableNode> tempNodes;
 
-        public void ExportTree (DialogueTree export) {
+        [NonSerialized]
+        SerializableTree instance, prefab;
+
+        public void CleanupTempInstance() {
+            Debug.Log("cleaning up " + gameObject.name);
+            if (prefab != null) {
+                DestroyImmediate(this.gameObject);
+            }
+            else if (instance != null && instance != this) {
+                DestroyImmediate(instance.gameObject);
+            }
+        }
+
+        public SerializableTree ExportInstance (DialogueTree export) {
+            if (instance == this) {
+                ExportTree(export);
+                return this;
+            }
+            else {
+                instance.ExportTree(export);
+                SerializableTree newPrefab = this;
+
+                #if UNITY_EDITOR
+                    newPrefab = UnityEditor.PrefabUtility.ReplacePrefab(instance.gameObject, this, UnityEditor.ReplacePrefabOptions.ConnectToPrefab).GetComponent<SerializableTree>();
+                    newPrefab.instance = instance;
+                    instance.prefab = newPrefab;
+                #endif
+
+                return newPrefab;
+            }
+        }
+
+        private void ExportTree (DialogueTree export) {
             owner = export.owner;
             nodes = new List<SerializableNode>();
             links = new List<SerializableNode>();
@@ -35,13 +67,6 @@ namespace Dialogue {
                 links.Add(newNode);
             }
             else {
-                /*
-                string path = UnityEditor.AssetDatabase.GetAssetPath(node.Data);
-                if (path == null || path == "") {
-                    UnityEditor.AssetDatabase.AddObjectToAsset(node.Data, this);
-                }
-                */
-
                 newNode = SerializableNode.NewNode(nodes.Count, node.Data);
                 nodes.Add(newNode);
                 tempNodes.Add((Node)node, newNode);
@@ -60,16 +85,26 @@ namespace Dialogue {
             }
         }
 
-        public DialogueTree ImportTree () {
+        public DialogueTree InstantiateTree () {
+            if (gameObject.activeInHierarchy) { instance = this; }
+            else {
+                instance = Instantiate(this);
+                instance.name = this.name;
+                instance.prefab = this;
+            }
+            return instance.ImportTree();
+        }
+
+        private DialogueTree ImportTree () {
             DialogueTree imported = null;
 
             if (nodes != null && nodes.Count > 0 && links != null) {
-                imported = new DialogueTree(gameObject.transform);
+                imported = new DialogueTree(nodes[0].data);
                 imported.owner = owner;
                 ImportChildNodes(imported.root, nodes[0]);
                 ImportLinks();
             }
-            
+
             return imported;
         }
 

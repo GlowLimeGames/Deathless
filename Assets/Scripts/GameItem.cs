@@ -119,9 +119,8 @@ public class GameItem : MonoBehaviour {
         }
         else {
             Debug.Log("Running attached dialogue.");
-            DialogueManager.StartDialogue(dlg);
         }
 
-        //DialogueManager.StartDialogue(dlg);
+        if (dlg != null) { DialogueManager.StartDialogue(dlg); }
     }
 }
