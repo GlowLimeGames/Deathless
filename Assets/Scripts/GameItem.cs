@@ -14,6 +14,7 @@ public class GameItem : MonoBehaviour {
     /// <summary>
     /// Backing field for ItemName.
     /// </summary>
+    [SerializeField]
     private string itemName;
 
     /// <summary>

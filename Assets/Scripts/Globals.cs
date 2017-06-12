@@ -8,16 +8,18 @@ public static class Globals {
     private static Dictionary<GlobalString, string> globalStrings;
 
     public static void Init() {
-        InitDictionary(globalInts);
-        InitDictionary(globalStrings);
+        globalInts = InitDictionary(globalInts);
+        globalStrings = InitDictionary(globalStrings);
     }
 
-    private static void InitDictionary<E, T>(Dictionary<E, T> dict) {
+    private static Dictionary<E, T> InitDictionary<E, T>(Dictionary<E, T> dict) {
         dict = new Dictionary<E, T>();
 
         foreach (E global in Enum.GetValues(typeof(E))) {
             dict.Add(global, default(T));
         }
+
+        return dict;
     }
 
     public static string GetGlobal(GlobalString global) {

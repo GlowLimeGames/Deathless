@@ -15,7 +15,9 @@ public class Player : WorldItem {
     /// Backing fields for ExamineDialogue and UseItemDialogue.
     /// </summary>
     [SerializeField]
+    #pragma warning disable 0649
     private Dialogue.SerializableTree examineDialogue, useItemDialogue;
+    #pragma warning restore 0649
 
     /// <summary>
     /// The current instance of the player in the scene.
