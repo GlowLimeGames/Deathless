@@ -233,10 +233,13 @@ public class AkAmbientInspector : AkEventInspector
 			bool isEventUsedBeforeHandle = (Event.current.type == EventType.used);
 			
 			Handles.color = Color.green;
-			Handles.DrawCapFunction capFunc = Handles.SphereCap;
+            
+            #pragma warning disable 0618
+            Handles.DrawCapFunction capFunc = Handles.SphereCap;
 			Handles.ScaleValueHandle(0, pos, Quaternion.identity, handleSize, capFunc, 0);
-			
-			if (curPointIndex == i)
+            #pragma warning restore 0618
+
+            if (curPointIndex == i)
 			{
 				pos = Handles.PositionHandle(pos, Quaternion.identity);
 			}
@@ -348,7 +351,10 @@ public class AkAmbientInspector : AkEventInspector
 		if(Vector3.SqrMagnitude(SceneView.lastActiveSceneView.camera.transform.position - in_position) > in_radius*in_radius)
 		{
 			Handles.color = new Color(1.0f, 0.0f, 0.0f, 0.1f);
+
+            #pragma warning disable 0618
 			Handles.SphereCap(0, in_position, Quaternion.identity, in_radius*2.0f);
+            #pragma warning restore 0618
 		}
 		else
 		{
