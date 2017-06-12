@@ -19,7 +19,6 @@ namespace Dialogue {
         SerializableTree instance, prefab;
 
         public void CleanupTempInstance() {
-            Debug.Log("cleaning up " + gameObject.name);
             if (prefab != null) {
                 DestroyImmediate(this.gameObject);
             }
@@ -85,17 +84,35 @@ namespace Dialogue {
             }
         }
 
-        public DialogueTree InstantiateTree () {
-            if (gameObject.activeInHierarchy) { instance = this; }
+        public bool TryInstantiateTree (out SerializableTree tree) {
+            if (gameObject.activeInHierarchy) {
+                instance = this;
+            }
             else {
                 instance = Instantiate(this);
                 instance.name = this.name;
                 instance.prefab = this;
             }
-            return instance.ImportTree();
+
+            tree = instance;
+            return (!gameObject.activeInHierarchy);
         }
 
-        private DialogueTree ImportTree () {
+        public SerializableTree InstantiateTree () {
+            if (gameObject.activeInHierarchy) { instance = this; }
+            else {
+                #if UNITY_EDITOR
+                    instance = UnityEditor.PrefabUtility.InstantiatePrefab(this) as SerializableTree;
+                #endif
+
+                if (instance == null) { instance = Instantiate(this); }
+                instance.name = this.name;
+                instance.prefab = this;
+            }
+            return instance;
+        }
+
+        public DialogueTree ImportTree () {
             DialogueTree imported = null;
 
             if (nodes != null && nodes.Count > 0 && links != null) {

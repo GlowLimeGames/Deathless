@@ -55,7 +55,7 @@ public class DialogueEditor : EditorWindow {
             if (GUILayout.Button("Load")) {
                 Cleanup();
                 lastSavedTree = savedTree;
-                tree = savedTree.InstantiateTree();
+                tree = savedTree.InstantiateTree().ImportTree();
                 if (tree == null) {
                     tree = DialogueTester.CreateTestTree(savedTree.gameObject.transform);
                     Debug.Log("Created new tree");

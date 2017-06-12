@@ -30,7 +30,7 @@ public class DialogueUI : Manager<DialogueUI> {
     /// </summary>
     private Text lineText;
 
-    void Start() {
+    void Awake() {
         SingletonInit();
 
         lineText = lineView.GetComponentInChildren<Text>();

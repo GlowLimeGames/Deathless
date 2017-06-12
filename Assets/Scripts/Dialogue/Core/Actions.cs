@@ -26,7 +26,7 @@ namespace Dialogue {
         }
 
         public void RedirectDialogue (SerializableTree dlg) {
-            DialogueManager.StartDialogue(dlg);
+            DialogueManager.RedirectDialogue(dlg);
         }
     }
 }

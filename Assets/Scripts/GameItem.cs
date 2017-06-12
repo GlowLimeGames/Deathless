@@ -106,19 +106,19 @@ public class GameItem : MonoBehaviour {
     /// of interaction.
     /// </summary>
     public void Interact(bool examine) {
-        InteractionTarget = instance;
+        InteractionTarget = Instance;
         Dialogue.SerializableTree dlg = dialogue;
 
         if (!examine) {
             dlg = Player.UseItemDialogue;
-            Debug.Log("Using selected item with " + InteractionTarget);
+            //Debug.Log("Using selected item with " + InteractionTarget);
         }
         else if (dlg == null) {
             dlg = Player.ExamineDialogue;
-            Debug.Log("Examining " + InteractionTarget);
+            //Debug.Log("Examining " + InteractionTarget);
         }
         else {
-            Debug.Log("Running attached dialogue.");
+            //Debug.Log("Running attached dialogue.");
         }
 
         if (dlg != null) { DialogueManager.StartDialogue(dlg); }
