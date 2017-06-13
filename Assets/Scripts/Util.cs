@@ -17,6 +17,11 @@ public static class Util {
                                                         (int)sprite.textureRect.height);
         newText.SetPixels(newColors);
         newText.Apply();
+
+        #if UNITY_EDITOR
+        newText.alphaIsTransparency = true;
+        #endif
+
         return newText;
     }
 

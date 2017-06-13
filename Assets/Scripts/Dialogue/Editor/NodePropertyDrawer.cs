@@ -27,8 +27,6 @@ namespace Dialogue {
             style = new GUIStyle(EditorStyles.textArea);
             style.wordWrap = true;
             data.Text = EditorGUILayout.TextArea(data.Text, style);
-            
-            EditorGUILayout.PropertyField(dataObject.FindProperty("action"));
 
             EditorGUI.EndDisabledGroup();
         }

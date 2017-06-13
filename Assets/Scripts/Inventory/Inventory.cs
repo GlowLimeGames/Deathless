@@ -83,6 +83,7 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// </summary>
     public static void AddItem(InventoryItem prefab) {
         InventoryItem item = Instantiate(prefab);
+        item.name = prefab.name;
 
         for (int i = 0; item != null && i < Slots.Count; i++) {
             if (Slots[i].isEmpty) {

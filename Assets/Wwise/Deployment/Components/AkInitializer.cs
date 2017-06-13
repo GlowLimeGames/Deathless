@@ -108,7 +108,7 @@ public class AkInitializer : MonoBehaviour
             return;
         }
 
-        Debug.Log("WwiseUnity: Initialize sound engine ...");
+        if (engineLogging) { Debug.Log("WwiseUnity: Initialize sound engine ..."); }
 
         //Use default properties for most SoundEngine subsystem.  
         //The game programmer should modify these when needed.  See the Wwise SDK documentation for the initialization.
@@ -186,7 +186,7 @@ public class AkInitializer : MonoBehaviour
 
         AkBankManager.Reset ();
 
-        Debug.Log("WwiseUnity: Sound engine initialized.");
+        if (engineLogging) { Debug.Log("WwiseUnity: Sound engine initialized."); }
 
         //The sound engine should not be destroyed once it is initialized.
         DontDestroyOnLoad(this);

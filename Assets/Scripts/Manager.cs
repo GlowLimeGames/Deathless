@@ -13,7 +13,7 @@ public abstract class Manager<T> : Manager where T : Manager<T> {
     [SerializeField]
     private bool dontDestroyOnLoad;
     
-	void Start () {
+	void Awake () {
         SingletonInit();
 	}
 

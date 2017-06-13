@@ -23,14 +23,16 @@ public class DialogueUI : Manager<DialogueUI> {
     /// Various GameObjects that are part of the dialogue UI.
     /// </summary>
     [SerializeField]
+    #pragma warning disable 0649
     private GameObject lineView, choiceView, choicePrefab;
+    #pragma warning restore 0649
 
     /// <summary>
     /// The text shown for a single line of dialogue.
     /// </summary>
     private Text lineText;
 
-    void Start() {
+    void Awake() {
         SingletonInit();
 
         lineText = lineView.GetComponentInChildren<Text>();
@@ -58,7 +60,7 @@ public class DialogueUI : Manager<DialogueUI> {
     /// Show a single line of dialogue.
     /// </summary>
     public void ShowLine(Dialogue.Node line) {
-        if (line.Data.Text != "") {
+        if (line.Data.Text != "" && line.Data.Text != null) {
             currentNode = line;
             lineText.text = line.Data.Text;
             lineView.SetActive(true);

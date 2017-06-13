@@ -54,7 +54,7 @@ public class WorldItem : GameItem {
     /// Initializes fields.
     /// </summary>
 	void Start () {
-        spriteRenderer = Instance.gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         startingScale = transform.localScale;
         startingZPos = transform.position.z;
 	}

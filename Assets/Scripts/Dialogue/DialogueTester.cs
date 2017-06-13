@@ -9,8 +9,8 @@ public class DialogueTester {
     /// <summary>
     /// Create a test dialogue tree.
     /// </summary>
-	public static DialogueTree CreateTestTree() {
-        DialogueTree tree = new DialogueTree();
+	public static DialogueTree CreateTestTree(UnityEngine.Transform treeObject) {
+        DialogueTree tree = new DialogueTree(treeObject);
         TestBranch(tree.root, 1);
         TestBranch(tree.root, 2);
         TestBranch(tree.root, 3);
@@ -22,12 +22,6 @@ public class DialogueTester {
     /// </summary>
     private static void TestBranch(Node parent, float id) {
         Node[] segment = TestSegment(parent, id);
-
-        Node[] childSegment = TestSegment(segment[1], id + 0.1f);
-
-        //Link testing
-        //parent.AddLink(childSegment[0]);
-
         TestSegment(segment[1], id + 0.2f);
     }
 

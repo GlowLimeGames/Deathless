@@ -14,6 +14,7 @@ public class GameItem : MonoBehaviour {
     /// <summary>
     /// Backing field for ItemName.
     /// </summary>
+    [SerializeField]
     private string itemName;
 
     /// <summary>
@@ -106,22 +107,21 @@ public class GameItem : MonoBehaviour {
     /// of interaction.
     /// </summary>
     public void Interact(bool examine) {
-        InteractionTarget = instance;
+        InteractionTarget = Instance;
         Dialogue.SerializableTree dlg = dialogue;
 
         if (!examine) {
             dlg = Player.UseItemDialogue;
-            Debug.Log("Using selected item with " + InteractionTarget);
+            //Debug.Log("Using selected item with " + InteractionTarget);
         }
         else if (dlg == null) {
             dlg = Player.ExamineDialogue;
-            Debug.Log("Examining " + InteractionTarget);
+            //Debug.Log("Examining " + InteractionTarget);
         }
         else {
-            Debug.Log("Running attached dialogue.");
-            DialogueManager.StartDialogue(dlg);
+            //Debug.Log("Running attached dialogue.");
         }
 
-        //DialogueManager.StartDialogue(dlg);
+        if (dlg != null) { DialogueManager.StartDialogue(dlg); }
     }
 }
