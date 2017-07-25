@@ -102,7 +102,7 @@ namespace Dialogue {
         }
 
         public void ItemSelected (InventoryItem item) {
-            isValid = Inventory.SelectedItem.Equals(item);
+            isValid = Inventory.SelectedItem != null && Inventory.SelectedItem.Equals(item);
         }
 
         public void ItemInInventory (InventoryItem item) {
