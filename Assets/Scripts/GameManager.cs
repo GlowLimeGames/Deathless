@@ -18,8 +18,20 @@ public class GameManager : Manager<GameManager> {
     /// Backing field for Player.
     /// </summary>
     private Player player;
+
+    /// <summary>
+    /// The ZDepthMap in the current scene.
+    /// </summary>
+    public static ZDepthMap ZDepthMap {
+        get { return instance.zDepthMap; }
+    }
+
+    /// <summary>
+    /// Backing field for ZDepthMap.
+    /// </summary>
+    private ZDepthMap zDepthMap;
     
-	void Start() {
+	void Awake() {
         SingletonInit();
         InitFields();
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -32,6 +44,9 @@ public class GameManager : Manager<GameManager> {
     void InitFields() {
         if (player == null) {
             player = FindObjectOfType<Player>();
+        }
+        if (zDepthMap == null) {
+            zDepthMap = FindObjectOfType<ZDepthMap>();
         }
     }
 

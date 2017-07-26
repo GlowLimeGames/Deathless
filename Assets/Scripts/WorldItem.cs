@@ -10,7 +10,7 @@ public class WorldItem : GameItem {
     /// <summary>
     /// The default speed at which objects should move.
     /// </summary>
-    public const float DEFAULT_SPEED = 0.25f;
+    public const float DEFAULT_SPEED = 5f;
 
     /// <summary>
     /// The scale of the gameObject on start.
@@ -28,20 +28,14 @@ public class WorldItem : GameItem {
     private SpriteRenderer spriteRenderer;
 
     /// <summary>
-    /// Whether this object is currently moving.
+    /// The Seeker attached to the gameObject. Part of the A* Pathfinding Project plugin.
     /// </summary>
-    private bool isMoving;
+    private Seeker seeker;
 
     /// <summary>
-    /// The path to the object's destination. It should
-    /// move to each of these waypoints in order.
+    /// The AIPath attached to the gameObject. Part of the A* Pathfinding Project plugin.
     /// </summary>
-    private List<Vector3> waypoints;
-
-    /// <summary>
-    /// The speed at which this object will move.
-    /// </summary>
-    private float speed;
+    private AIPath aiPath;
 
     /// <summary>
     /// (TEMPORARY, for testing) The inventory item the
@@ -54,16 +48,16 @@ public class WorldItem : GameItem {
     /// Initializes fields.
     /// </summary>
 	void Start () {
+        seeker = gameObject.GetComponent<Seeker>();
+        aiPath = gameObject.GetComponent<AIPath>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         startingScale = transform.localScale;
-        startingZPos = transform.position.z;
-	}
 
-    /// <summary>
-    /// Performs movement updates.
-    /// </summary>
+        startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
+    }
+
     void Update() {
-        if (isMoving) { UpdatePosition(); }
+        UpdateScale();
     }
     
     /// <summary>
@@ -85,50 +79,38 @@ public class WorldItem : GameItem {
     }
 
     /// <summary>
-    /// Initiate movement to a given waypoint object.
-    /// </summary>
-    public void MoveToWaypoint(GameObject waypoint) {
-        MoveToPoint(waypoint.transform.position);
-    }
-
-    /// <summary>
     /// Initiate movement to a given point.
     /// </summary>
     public virtual void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
-        this.speed = speed;
-        waypoints = Navigation.GetPath(transform.position, point);
-        isMoving = true;
+        aiPath.speed = speed;
+
+        //float z = GameManager.ZDepthMap.GetZDepthAtScreenPoint(Camera.main.WorldToScreenPoint(point));
+        //Vector3 target = new Vector3(point.x, point.y, z);
+
+        seeker.StartPath(transform.position, point, OnPathComplete);
+    }
+
+    public void OnPathComplete(Pathfinding.Path p) {
+        Debug.Log("Yay, we got a path back. The complete state is: " + p.CompleteState);
     }
 
     /// <summary>
-    /// Halt any in-progress movement for this object.
+    /// Updates the scale of the object based on its z position.
     /// </summary>
-    public void StopMovement() {
-        isMoving = false;
-        waypoints = null;
-    }
+    protected void UpdateScale() {
+        if (startingScale != default(Vector3)) {
+            float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
 
-    /// <summary>
-    /// Updates the current position for a moving object.
-    /// </summary>
-    private void UpdatePosition() {
-        if (waypoints.Count == 0) {
-            isMoving = false;
+            float camZ = Camera.main.transform.position.z;
+            float zDist = Mathf.Abs(camZ - currentZ);
+            float startingZDist = Mathf.Abs(camZ - startingZPos);
+
+            transform.localScale = startingScale / (startingZDist / zDist);
+
+            //Debug.Log("Z pos: " + transform.position.z);
+            //Debug.Log("Attempted to update scale. zDist: " + zDist + ", startingZDist: " + startingZDist);
         }
-        else {
-            if (transform.position == waypoints[0]) {
-                waypoints.Remove(waypoints[0]);
-                UpdatePosition();
-            }
-            else {
-                transform.position = Vector3.MoveTowards(transform.position, waypoints[0], speed);
-                float camZ = Camera.main.transform.position.z;
-                float zDist = Mathf.Abs(camZ - transform.position.z);
-                float startingZDist = Mathf.Abs(camZ - startingZPos);
-                
-                transform.localScale = startingScale * (startingZDist / zDist);
-            }
-        }
+        else { Debug.Log("haven't initialized scale"); }
     }
 
     /// <summary>
