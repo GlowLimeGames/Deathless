@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Handles in-game character and object movement through a scene.
 /// </summary>
-public class Pathfinding {
+public class Navigation {
     /// <summary>
     /// Get a path to the given point, in the form of an ordered list of waypoints.
     /// </summary>

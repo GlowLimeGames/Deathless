@@ -96,7 +96,7 @@ public class WorldItem : GameItem {
     /// </summary>
     public virtual void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
         this.speed = speed;
-        waypoints = Pathfinding.GetPath(transform.position, point);
+        waypoints = Navigation.GetPath(transform.position, point);
         isMoving = true;
     }
 
