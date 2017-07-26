@@ -33,4 +33,4 @@ sysinfo.txt
 *.DS_Store
 
 # Wwise project cache
-*/AkWwiseProjectData.asset
+*AkWwiseProjectData.asset
