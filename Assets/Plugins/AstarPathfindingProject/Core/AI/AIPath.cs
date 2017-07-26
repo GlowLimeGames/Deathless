@@ -39,6 +39,8 @@ using Pathfinding.Util;
 [AddComponentMenu("Pathfinding/AI/AIPath (2D,3D)")]
 [HelpURL("http://arongranberg.com/astar/docs/class_a_i_path.php")]
 public class AIPath : AIBase {
+    public bool enableRotation;
+
 	/** Determines how often it will search for new paths.
 	 * If you have fast moving targets or AIs, you might want to set it to a lower value.
 	 * The value is in seconds between path requests.
@@ -280,8 +282,9 @@ public class AIPath : AIBase {
 
 			// a = v/t, should probably expose as a variable
 			float acceleration = speed / 0.4f;
+            Vector2 forward = enableRotation ? (Vector2)(rotationIn2D ? tr.up : tr.forward) : dir;
 			velocity2D += MovementUtilities.CalculateAccelerationToReachPoint(dir, dir.normalized*speed, velocity2D, acceleration, speed) * deltaTime;
-			velocity2D = MovementUtilities.ClampVelocity(velocity2D, speed, slowdown, true, movementPlane.ToPlane(rotationIn2D ? tr.up : tr.forward));
+			velocity2D = MovementUtilities.ClampVelocity(velocity2D, speed, slowdown, true, movementPlane.ToPlane(forward));
 
 			ApplyGravity(deltaTime);
 
@@ -290,9 +293,11 @@ public class AIPath : AIBase {
 				OnTargetReached();
 			}
 
-			// Rotate towards the direction we are moving in
-			var currentRotationSpeed = rotationSpeed * Mathf.Clamp01((Mathf.Sqrt(slowdown) - 0.3f) / 0.7f);
-			RotateTowards(velocity2D, currentRotationSpeed * deltaTime);
+            // Rotate towards the direction we are moving in
+            if (enableRotation) {
+                var currentRotationSpeed = rotationSpeed * Mathf.Clamp01((Mathf.Sqrt(slowdown) - 0.3f) / 0.7f);
+                RotateTowards(velocity2D, currentRotationSpeed * deltaTime);
+            }
 
 			var delta2D = CalculateDeltaToMoveThisFrame(movementPlane.ToPlane(currentPosition), distanceToEnd, deltaTime);
 			Move(currentPosition, movementPlane.ToWorld(delta2D, verticalVelocity * deltaTime));
