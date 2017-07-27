@@ -35,7 +35,7 @@ public class WorldItem : GameItem {
     /// <summary>
     /// The AIPath attached to the gameObject. Part of the A* Pathfinding Project plugin.
     /// </summary>
-    private AIPath aiPath;
+    private CustomAIPath aiPath;
 
     /// <summary>
     /// (TEMPORARY, for testing) The inventory item the
@@ -49,10 +49,11 @@ public class WorldItem : GameItem {
     /// </summary>
 	void Start () {
         seeker = gameObject.GetComponent<Seeker>();
-        aiPath = gameObject.GetComponent<AIPath>();
+        aiPath = gameObject.GetComponent<CustomAIPath>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        startingScale = transform.localScale;
 
+        if (aiPath != null) { aiPath.canMove = false; }
+        startingScale = transform.localScale;
         startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
     }
 
@@ -82,16 +83,23 @@ public class WorldItem : GameItem {
     /// Initiate movement to a given point.
     /// </summary>
     public virtual void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
-        aiPath.speed = speed;
+        if (aiPath == null) {
+            Debug.LogError("Tried to move " + gameObject.name + ", but it does not have pathfinding AI.");
+        }
+        else {
+            aiPath.speed = speed;
+            aiPath.targetReachedCallback += OnTargetReached;
+            aiPath.canMove = true;
 
-        //float z = GameManager.ZDepthMap.GetZDepthAtScreenPoint(Camera.main.WorldToScreenPoint(point));
-        //Vector3 target = new Vector3(point.x, point.y, z);
-
-        seeker.StartPath(transform.position, point, OnPathComplete);
+            seeker.StartPath(transform.position, point);
+        }
     }
 
-    public void OnPathComplete(Pathfinding.Path p) {
-        Debug.Log("Yay, we got a path back. The complete state is: " + p.CompleteState);
+    /// <summary>
+    /// Called when the item successfully arrives at its target.
+    /// </summary>
+    public void OnTargetReached(Transform target) {
+        aiPath.canMove = false;
     }
 
     /// <summary>

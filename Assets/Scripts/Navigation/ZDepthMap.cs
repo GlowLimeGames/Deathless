@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ZDepthMap : MonoBehaviour {
+    #pragma warning disable 0649
     [SerializeField]
     private float minZDepth, maxZDepth;
+    #pragma warning restore 0649
 
     private Sprite sprite;
 
