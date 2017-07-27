@@ -35,6 +35,7 @@ public class GameManager : Manager<GameManager> {
         SingletonInit();
         InitFields();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        Globals.Init();
 	}
 
     /// <summary>

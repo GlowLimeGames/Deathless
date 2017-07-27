@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Dialogue {
     [System.Serializable]
-    public class Conditions : MonoBehaviour {
+    public class Conditions : NodeCache {
         #region Conditional Logic
 
         private enum Type { AND, OR, NOT }
@@ -54,51 +54,29 @@ namespace Dialogue {
             return (validAnd && validOr && validNot);
         }
 
-        private void ResetVars() {
-            intVar = 0;
-            stringVar = null;
-        }
-
-        #endregion
-
-        #region Variable Caching
-
-        private int intVar;
-        private string stringVar;
-        private GameItem itemVar;
-
-        [EnumAction(typeof(GlobalInt))]
-        public void SetIntVar(int i) {
-            intVar = Globals.GetGlobal((GlobalInt)i);
-        }
-
-        [EnumAction(typeof(GlobalString))]
-        public void SetStringVar(int i) {
-            stringVar = Globals.GetGlobal((GlobalString)i);
-        }
-
-        public void SetItemVar(GameItem item) {
-            itemVar = item;
-        }
-
         #endregion
 
         #region Conditions
 
         public void IntIsGreaterThan(int i) {
-            isValid = intVar > i;
+            isValid = IntVar > i;
         }
 
         public void IntIsLessThan(int i) {
-            isValid = intVar < i;
-        }
-
-        public void StringEquals(string s) {
-            isValid = (stringVar == s);
+            isValid = IntVar < i;
         }
 
         public void IntEquals(int i) {
-            isValid = (intVar == i);
+            isValid = (IntVar == i);
+        }
+
+        public void StringEquals(string s) {
+            isValid = (StringVar == s);
+        }
+
+        [EnumAction(typeof(GlobalBool))]
+        public void IsTrue(int i) {
+            isValid = Globals.GetGlobal((GlobalBool)i);
         }
 
         public void ItemSelected(InventoryItem item) {

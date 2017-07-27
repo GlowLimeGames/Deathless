@@ -5,12 +5,30 @@ using UnityEngine.Events;
 
 namespace Dialogue {
     [System.Serializable]
-    public class Actions : MonoBehaviour {
+    public class Actions : NodeCache {
         [SerializeField]
         private UnityEvent actions;
 
         public void Invoke() {
             if (actions != null) { actions.Invoke(); }
+        }
+
+        #region Actions
+
+        public void SetBool(bool b) {
+            BoolVar = b;
+        }
+
+        public void SetInt(int i) {
+            IntVar = i;
+        }
+
+        public void AddToInt(int i) {
+            IntVar += i;
+        }
+
+        public void SetString(string s) {
+            StringVar = s;
         }
 
         public void AddToInventory(InventoryItem item) {
@@ -39,5 +57,7 @@ namespace Dialogue {
                 wItem.PickUp();
             }
         }
+
+        #endregion
     }
 }
