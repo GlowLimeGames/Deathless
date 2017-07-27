@@ -38,11 +38,9 @@ public class WorldItem : GameItem {
     private CustomAIPath aiPath;
 
     /// <summary>
-    /// (TEMPORARY, for testing) The inventory item the
-    /// player gets when interacting with this object.
+    /// The InventoryItem, if any, that corresponds to this WorldItem.
     /// </summary>
-    [SerializeField]
-    private InventoryItem inventoryItem;
+    public InventoryItem inventoryItem;
     
     /// <summary>
     /// Initializes fields.
@@ -58,7 +56,9 @@ public class WorldItem : GameItem {
     }
 
     void Update() {
-        UpdateScale();
+        if (aiPath != null && aiPath.canMove) {
+            UpdateScale();
+        }
     }
     
     /// <summary>
@@ -67,15 +67,8 @@ public class WorldItem : GameItem {
     /// </summary>
     void OnMouseUpAsButton() {
         if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
+            InteractionTarget = this;
             GameManager.Player.MoveToPoint(transform.position);
-
-            Interact();
-
-            //Temporary, for testing
-            if (!Inventory.isItemSelected && inventoryItem != null) {
-                Inventory.AddItem(inventoryItem);
-                Destroy(Instance.gameObject);
-            }
         }
     }
 
@@ -99,26 +92,25 @@ public class WorldItem : GameItem {
     /// Called when the item successfully arrives at its target.
     /// </summary>
     public void OnTargetReached(Transform target) {
-        aiPath.canMove = false;
+        if (aiPath.canMove) {         //Helps to ensure this only gets called once.
+            aiPath.canMove = false;
+            if (InteractionTarget != null) {
+                InteractionTarget.Interact();
+            }
+        }
     }
 
     /// <summary>
     /// Updates the scale of the object based on its z position.
     /// </summary>
     protected void UpdateScale() {
-        if (startingScale != default(Vector3)) {
-            float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
+        float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
 
-            float camZ = Camera.main.transform.position.z;
-            float zDist = Mathf.Abs(camZ - currentZ);
-            float startingZDist = Mathf.Abs(camZ - startingZPos);
+        float camZ = Camera.main.transform.position.z;
+        float zDist = Mathf.Abs(camZ - currentZ);
+        float startingZDist = Mathf.Abs(camZ - startingZPos);
 
-            transform.localScale = startingScale / (startingZDist / zDist);
-
-            //Debug.Log("Z pos: " + transform.position.z);
-            //Debug.Log("Attempted to update scale. zDist: " + zDist + ", startingZDist: " + startingZDist);
-        }
-        else { Debug.Log("haven't initialized scale"); }
+        transform.localScale = startingScale / (startingZDist / zDist);
     }
 
     /// <summary>
@@ -126,5 +118,20 @@ public class WorldItem : GameItem {
     /// </summary>
     public void ChangeSprite(Sprite sprite) {
         spriteRenderer.sprite = sprite;
+    }
+
+    public void PickUp() {
+        if (inventoryItem == null) {
+            Debug.LogWarning("Could not pick up " + name + " as it does not have an InventoryItem associated with it.");
+        }
+        else {
+            Inventory.AddItem(inventoryItem);
+            RemoveFromWorld();
+        }
+    }
+
+    public void RemoveFromWorld() {
+        Destroy(gameObject);
+        //TBD Should also recalculate pathfinding graph(s).
     }
 }

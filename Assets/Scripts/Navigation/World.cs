@@ -12,6 +12,7 @@ public class World : MonoBehaviour {
     /// </summary>
     void OnMouseUpAsButton() {
         if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
+            GameItem.CancelInteraction();
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameManager.Player.MoveToPoint(pos);
         }

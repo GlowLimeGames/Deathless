@@ -9,7 +9,7 @@ public class GameItem : MonoBehaviour {
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>
-    public static GameItem InteractionTarget { get; private set; }
+    public static GameItem InteractionTarget { get; protected set; }
 
     /// <summary>
     /// Backing field for ItemName.
@@ -79,8 +79,27 @@ public class GameItem : MonoBehaviour {
     /// <summary>
     /// Equality of game items will be based on their gameobject's name.
     /// Items must be of the same runtime type to be considered equal.
+    /// However, a WorldItem may also be considered equal to the item in its
+    /// inventoryItem field.
     /// </summary>
     public bool Equals(GameItem other) {
+        bool equal = false;
+
+        equal = EqualsExactly(other);
+
+        if (!equal) {
+            if (other.GetType() == typeof(WorldItem)) {
+                equal = ((WorldItem)other).inventoryItem.EqualsExactly(this);
+            }
+            else if (GetType() == typeof(WorldItem)) {
+                equal = ((WorldItem)this).inventoryItem.EqualsExactly(other);
+            }
+        }
+
+        return equal;
+    }
+
+    private bool EqualsExactly(GameItem other) {
         return ((other.gameObject.name == gameObject.name) &&
                 (other.GetType() == GetType()));
     }
@@ -100,6 +119,11 @@ public class GameItem : MonoBehaviour {
         if (!Inventory.isItemSelected || !Inventory.SelectedItem.Equals(this)) {
             Interact(!Inventory.isItemSelected);
         }
+        else { CancelInteraction(); }
+    }
+
+    public static void CancelInteraction() {
+        InteractionTarget = null;
     }
 
     /// <summary>

@@ -28,5 +28,12 @@ namespace Dialogue {
         public void RedirectDialogue (SerializableTree dlg) {
             DialogueManager.RedirectDialogue(dlg);
         }
+
+        public void PickUpInteractionTarget () {
+            if (GameItem.InteractionTarget.GetType() == typeof(WorldItem)) {
+                WorldItem wItem = (WorldItem)GameItem.InteractionTarget;
+                wItem.PickUp();
+            }
+        }
     }
 }

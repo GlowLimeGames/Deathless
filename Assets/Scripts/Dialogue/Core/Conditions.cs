@@ -50,7 +50,7 @@ namespace Dialogue {
             type = Type.NOT;
             validNot = true;
             notConditions.Invoke();
-            
+
             return (validAnd && validOr && validNot);
         }
 
@@ -68,16 +68,16 @@ namespace Dialogue {
         private GameItem itemVar;
 
         [EnumAction(typeof(GlobalInt))]
-        public void SetIntVar (int i) {
+        public void SetIntVar(int i) {
             intVar = Globals.GetGlobal((GlobalInt)i);
         }
 
         [EnumAction(typeof(GlobalString))]
-        public void SetStringVar (int i) {
+        public void SetStringVar(int i) {
             stringVar = Globals.GetGlobal((GlobalString)i);
         }
 
-        public void SetItemVar (GameItem item) {
+        public void SetItemVar(GameItem item) {
             itemVar = item;
         }
 
@@ -85,34 +85,38 @@ namespace Dialogue {
 
         #region Conditions
 
-        public void IntIsGreaterThan (int i) {
+        public void IntIsGreaterThan(int i) {
             isValid = intVar > i;
         }
 
-        public void IntIsLessThan (int i) {
+        public void IntIsLessThan(int i) {
             isValid = intVar < i;
         }
 
-        public void StringEquals (string s) {
+        public void StringEquals(string s) {
             isValid = (stringVar == s);
         }
 
-        public void IntEquals (int i) {
+        public void IntEquals(int i) {
             isValid = (intVar == i);
         }
 
-        public void ItemSelected (InventoryItem item) {
+        public void ItemSelected(InventoryItem item) {
             isValid = Inventory.SelectedItem != null && Inventory.SelectedItem.Equals(item);
         }
 
-        public void ItemInInventory (InventoryItem item) {
+        public void ItemInInventory(InventoryItem item) {
             isValid = Inventory.HasItem(item);
         }
 
-        public void ItemCombination (GameItem item) {
+        public void ItemCombination(GameItem item) {
             isValid =
                 ((Inventory.SelectedItem.Equals(itemVar) && GameItem.InteractionTarget.Equals(item))
                 || (Inventory.SelectedItem.Equals(item) && GameItem.InteractionTarget.Equals(itemVar)));
+        }
+
+        public void InteractionTarget(GameItem item) {
+            isValid = GameItem.InteractionTarget != null && GameItem.InteractionTarget.Equals(item);
         }
 
         #endregion
