@@ -59,7 +59,7 @@ namespace Dialogue {
 
             gameObject.transform.SetParent(parentObject);
             gameObject.name = "dialogue_nodedata";
-            gameObject.hideFlags = HideFlags.HideInHierarchy;
+            //gameObject.hideFlags = HideFlags.HideInHierarchy;
         } 
     }
 }

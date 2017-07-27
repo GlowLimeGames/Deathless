@@ -89,10 +89,12 @@ public class GameItem : MonoBehaviour {
 
         if (!equal) {
             if (other.GetType() == typeof(WorldItem)) {
-                equal = ((WorldItem)other).inventoryItem.EqualsExactly(this);
+                WorldItem o = (WorldItem)other;
+                equal = o.inventoryItem != null && o.inventoryItem.EqualsExactly(this);
             }
             else if (GetType() == typeof(WorldItem)) {
-                equal = ((WorldItem)this).inventoryItem.EqualsExactly(other);
+                WorldItem t = (WorldItem)this;
+                equal = t.inventoryItem != null && t.inventoryItem.EqualsExactly(other);
             }
         }
 

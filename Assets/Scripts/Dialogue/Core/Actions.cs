@@ -13,6 +13,10 @@ namespace Dialogue {
             if (actions != null) { actions.Invoke(); }
         }
 
+        public void AddToInventory(InventoryItem item) {
+            Inventory.AddItem(item);
+        }
+
         public void RemoveFromInventory(InventoryItem item) {
             Inventory.RemoveItem(item);
         }

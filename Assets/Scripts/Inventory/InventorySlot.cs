@@ -56,7 +56,7 @@ public class InventorySlot : MonoBehaviour {
     /// Whether this slot's InventoryItem is the same as the given item.
     /// </summary>
     public bool ItemEquals(InventoryItem item) {
-        return this.item.Equals(item);
+        return this.item != null && this.item.Equals(item);
     }
 
     /// <summary>
