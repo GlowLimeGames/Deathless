@@ -103,7 +103,7 @@ public class GameItem : MonoBehaviour {
     /// <summary>
     /// Trigger an interaction with this object.
     /// </summary>
-    public void Interact() {
+    public virtual void Interact() {
         if (!Inventory.isItemSelected || !Inventory.SelectedItem.Equals(this)) {
             Interact(!Inventory.isItemSelected);
         }
@@ -118,7 +118,7 @@ public class GameItem : MonoBehaviour {
     /// Trigger an interaction with this object & specify the type
     /// of interaction.
     /// </summary>
-    public void Interact(bool examine) {
+    public virtual void Interact(bool examine) {
         InteractionTarget = Instance;
         Dialogue.SerializableTree dlg = dialogue;
 

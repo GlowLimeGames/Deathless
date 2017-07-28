@@ -13,6 +13,14 @@ public class WorldItem : GameItem {
     public const float DEFAULT_SPEED = 5f;
 
     /// <summary>
+    /// Whether this item may be interacted with. Interactable
+    /// items should, at the least, have a dialogue attached to
+    /// them with examine text.
+    /// </summary>
+    [SerializeField] [HideInInspector]
+    private bool interactable;
+
+    /// <summary>
     /// The scale of the gameObject on start.
     /// </summary>
     private Vector3 startingScale;
@@ -36,11 +44,6 @@ public class WorldItem : GameItem {
     /// The AIPath attached to the gameObject. Part of the A* Pathfinding Project plugin.
     /// </summary>
     private CustomAIPath aiPath;
-
-    /// <summary>
-    /// The InventoryItem, if any, that corresponds to this WorldItem.
-    /// </summary>
-    public InventoryItem inventoryItem;
     
     /// <summary>
     /// Initializes fields.
@@ -72,12 +75,21 @@ public class WorldItem : GameItem {
         }
     }
 
+    public override void Interact() {
+        if (interactable) { base.Interact(); }
+    }
+
+    public override void Interact(bool examine) {
+        if (interactable) { base.Interact(examine); }
+    }
+
     /// <summary>
     /// Initiate movement to a given point.
     /// </summary>
     public virtual void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
         if (aiPath == null) {
-            Debug.LogError("Tried to move " + gameObject.name + ", but it does not have pathfinding AI.");
+            Debug.LogError("Tried to move " + gameObject.name + ", but it does not have pathfinding AI. " +
+                "(Must have Seeker and CustomAIPath components attached.)");
         }
         else {
             aiPath.speed = speed;
@@ -120,18 +132,8 @@ public class WorldItem : GameItem {
         spriteRenderer.sprite = sprite;
     }
 
-    public void PickUp() {
-        if (inventoryItem == null) {
-            Debug.LogWarning("Could not pick up " + name + " as it does not have an InventoryItem associated with it.");
-        }
-        else {
-            Inventory.AddItem(inventoryItem);
-            RemoveFromWorld();
-        }
-    }
-
     public void RemoveFromWorld() {
-        Destroy(gameObject);
+        Destroy(Instance.gameObject);
         //TBD Should also recalculate pathfinding graph(s).
     }
 }

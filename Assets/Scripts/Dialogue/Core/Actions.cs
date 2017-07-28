@@ -51,11 +51,8 @@ namespace Dialogue {
             DialogueManager.RedirectDialogue(dlg);
         }
 
-        public void PickUpInteractionTarget () {
-            if (GameItem.InteractionTarget.GetType() == typeof(WorldItem)) {
-                WorldItem wItem = (WorldItem)GameItem.InteractionTarget;
-                wItem.PickUp();
-            }
+        public void RemoveFromWorld(WorldItem item) {
+            item.RemoveFromWorld();
         }
 
         #endregion
