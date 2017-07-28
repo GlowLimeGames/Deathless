@@ -15,8 +15,14 @@ namespace Dialogue {
 
         #region Actions
 
-        public void SetBool(bool b) {
-            BoolVar = b;
+        [EnumAction(typeof(GlobalBool))]
+        public void SetTrue(int i) {
+            Globals.SetGlobal((GlobalBool)i, true);
+        }
+
+        [EnumAction(typeof(GlobalBool))]
+        public void SetFalse(int i) {
+            Globals.SetGlobal((GlobalBool)i, false);
         }
 
         public void SetInt(int i) {
@@ -53,6 +59,14 @@ namespace Dialogue {
 
         public void RemoveFromWorld(WorldItem item) {
             item.RemoveFromWorld();
+        }
+
+        public void ChangeItemName(string name) {
+            if (itemVar != null) { itemVar.DisplayName = name; }
+            else {
+                Debug.LogWarning("Unable to change item name to \"" + name + "\" " +
+                    "- Note that you must cache an item (SetItemVar) before using this command.");
+            }
         }
 
         #endregion

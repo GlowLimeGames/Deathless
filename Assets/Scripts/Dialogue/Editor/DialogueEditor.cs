@@ -104,7 +104,7 @@ public class DialogueEditor : EditorWindow {
                 else if (focused != null && focused.node != null) {
                     dataInEditor = focused.node.Data;
                     NodeEditor.Link = focused.node.isLink;
-                    if (focused.node.Data == null) { Debug.Log("Data is null... :("); }
+                    //if (focused.node.Data == null) { Debug.Log("Data is null... :("); }
                     
                     if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Delete) {
                         focused.node.Remove();

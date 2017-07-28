@@ -15,16 +15,17 @@ public class GameItem : MonoBehaviour {
     /// Backing field for ItemName.
     /// </summary>
     [SerializeField]
-    private string itemName;
+    private string displayName;
 
     /// <summary>
     /// The in-game name of this item.
     /// </summary>
-    public string ItemName {
+    public string DisplayName {
         get {
-            if (itemName == null) { return "NULL"; }
-            else { return itemName; }
+            if (displayName == null) { return "NULL"; }
+            else { return displayName; }
         }
+        set { displayName = value; }
     }
 
     /// <summary>
@@ -77,7 +78,8 @@ public class GameItem : MonoBehaviour {
     /// </summary>
     public override bool Equals(object other) {
         bool equal = false;
-        if (other.GetType() == typeof(GameItem)) {
+        if (other.GetType().IsSubclassOf(typeof(GameItem))
+            || other.GetType() == typeof(GameItem)) {
             equal = Equals((GameItem)other);
         }
         return equal;

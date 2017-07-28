@@ -34,6 +34,8 @@ namespace Dialogue {
             Data = data.AddComponent<NodeData>();
 
             if (Parent != null) {
+                if (Data == null) { Debug.LogWarning("Data is null???"); }
+                if (Parent.Data == null) { Debug.LogWarning("Parent data is null??"); }
                 Data.Init(type, Parent.Data.gameObject.transform);
             }
             else {
