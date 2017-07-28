@@ -154,6 +154,11 @@ public class DialogueEditor : EditorWindow {
 
             menu.AddSeparator("");
 
+            menu.AddItem(new GUIContent("Move Up"), false, MoveUp, gui.node);
+            menu.AddItem(new GUIContent("Move Down"), false, MoveDown, gui.node);
+
+            menu.AddSeparator("");
+
             menu.AddItem(new GUIContent("Copy Link"), false, CopyLink, gui.node);
             if (copiedLink != null) {
                 menu.AddItem(new GUIContent("Paste Link"), false, PasteLink, gui.node);
@@ -235,6 +240,14 @@ public class DialogueEditor : EditorWindow {
 
     private void AddChoice(object obj) {
         ((Node)obj).AddNode(NodeType.CHOICE);
+    }
+
+    private void MoveUp(object obj) {
+        ((Node)obj).ChangePosition(-1);
+    }
+
+    private void MoveDown(object obj) {
+        ((Node)obj).ChangePosition(1);
     }
 
     private void RemoveNode(object obj) {

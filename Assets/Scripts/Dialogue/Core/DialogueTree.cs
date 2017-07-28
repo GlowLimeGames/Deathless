@@ -68,6 +68,18 @@ namespace Dialogue {
             Parent.Children.Add(this);
         }
 
+        public void ChangePosition(int change) {
+            int index = Parent.Children.IndexOf(this);
+            int target = index + change;
+
+            target = Mathf.Clamp(target, 0, Parent.Children.Count - 1);
+            
+            if (target != index) {
+                Parent.Children.Remove(this);
+                Parent.Children.Insert(target, this);
+            }
+        }
+
         public virtual void Remove() {
             Parent.Children.Remove(this);
         }
