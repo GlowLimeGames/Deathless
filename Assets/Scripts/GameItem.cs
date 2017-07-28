@@ -65,6 +65,13 @@ public class GameItem : MonoBehaviour {
     }
 
     /// <summary>
+    /// Inventory items which may be used on this item (this item's
+    /// attached dialogue should have a branch for the combination).
+    /// </summary>
+    [SerializeField]
+    private List<InventoryItem> validInteractions;
+
+    /// <summary>
     /// Equality of game items will be based on their gameobject's name.
     /// Items must be of the same runtime type to be considered equal.
     /// </summary>
@@ -79,29 +86,8 @@ public class GameItem : MonoBehaviour {
     /// <summary>
     /// Equality of game items will be based on their gameobject's name.
     /// Items must be of the same runtime type to be considered equal.
-    /// However, a WorldItem may also be considered equal to the item in its
-    /// inventoryItem field.
     /// </summary>
     public bool Equals(GameItem other) {
-        bool equal = false;
-
-        equal = EqualsExactly(other);
-
-        if (!equal) {
-            if (other.GetType() == typeof(WorldItem)) {
-                WorldItem o = (WorldItem)other;
-                equal = o.inventoryItem != null && o.inventoryItem.EqualsExactly(this);
-            }
-            else if (GetType() == typeof(WorldItem)) {
-                WorldItem t = (WorldItem)this;
-                equal = t.inventoryItem != null && t.inventoryItem.EqualsExactly(other);
-            }
-        }
-
-        return equal;
-    }
-
-    private bool EqualsExactly(GameItem other) {
         return ((other.gameObject.name == gameObject.name) &&
                 (other.GetType() == GetType()));
     }
@@ -137,15 +123,20 @@ public class GameItem : MonoBehaviour {
         Dialogue.SerializableTree dlg = dialogue;
 
         if (!examine) {
-            dlg = Player.UseItemDialogue;
-            //Debug.Log("Using selected item with " + InteractionTarget);
-        }
-        else if (dlg == null) {
-            dlg = Player.ExamineDialogue;
-            //Debug.Log("Examining " + InteractionTarget);
-        }
-        else {
-            //Debug.Log("Running attached dialogue.");
+            InventoryItem selected = Inventory.SelectedItem;
+
+            if (!validInteractions.Contains(selected)) {
+                if (GetType() == typeof(InventoryItem) && selected.validInteractions.Contains((InventoryItem)Instance)) {
+                    // Reverse the selection/target order if necessary.
+                    Inventory.SelectItem((InventoryItem)Instance);
+                    dlg = null;
+                    selected.Interact(examine);
+                }
+                else {
+                    // This is the default dialogue for invalid combinations.
+                    dlg = Player.UseItemDialogue;
+                }
+            }
         }
 
         if (dlg != null) { DialogueManager.StartDialogue(dlg); }
