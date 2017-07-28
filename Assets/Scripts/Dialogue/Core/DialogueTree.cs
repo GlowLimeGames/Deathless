@@ -32,9 +32,9 @@ namespace Dialogue {
         protected BaseNode(Node parent, NodeType type) : this(parent) {
             GameObject data = new GameObject();
             Data = data.AddComponent<NodeData>();
+            if (Data == null) { Debug.LogWarning("Data is null???"); }
 
             if (Parent != null) {
-                if (Data == null) { Debug.LogWarning("Data is null???"); }
                 if (Parent.Data == null) { Debug.LogWarning("Parent data is null??"); }
                 Data.Init(type, Parent.Data.gameObject.transform);
             }
@@ -77,16 +77,17 @@ namespace Dialogue {
         public Node Original { get; private set; }
         public override bool isLink { get { return true; } }
 
-        private Link (Node parent) : base(parent, null) { }
-
         private Link(Node parent, Node original) : base(parent, original.Data) {
             Original = original;
             Original.Links.Add(this);
         }
 
         public static Link Add(Node parent, Node original) {
-            return (original == null) ?
-                new Link(parent) : new Link(parent, original);
+            if (original == null) {
+                Debug.LogError("Attempted to create a link to nothing.");
+                return null;
+            }
+            else { return new Link(parent, original); }
         }
 
         public override void Replace(Node node) {

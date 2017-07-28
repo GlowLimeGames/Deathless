@@ -10,7 +10,7 @@ public class DialogueEditor : EditorWindow {
     [SerializeField]
     private SerializableTree savedTree, lastSavedTree;
     private DialogueTree tree;
-    private Dictionary<int, NodeGUI> nodes { get; set; }
+    private Dictionary<int, NodeGUI> nodes;
     private int nextID;
     private bool contextMenuShown;
     private Node copiedLink;
@@ -102,13 +102,13 @@ public class DialogueEditor : EditorWindow {
                     }
                 }
                 else if (focused != null && focused.node != null) {
+                    if (focused.node.Data == null) { Debug.LogWarning("DATA IS NULL"); }
+
                     dataInEditor = focused.node.Data;
                     NodeEditor.Link = focused.node.isLink;
-                    //if (focused.node.Data == null) { Debug.Log("Data is null... :("); }
-                    
+
                     if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Delete) {
-                        focused.node.Remove();
-                        Repaint();
+                        focused.Remove(this);
                     }
                     else if (focused.node.isLink && Event.current.clickCount == 2) {
                         SelectNode(focused.node.GetOriginal());
@@ -229,6 +229,7 @@ public class DialogueEditor : EditorWindow {
     }
 
     private void AddLine(object obj) {
+        if (((Node)obj).Data == null) { Debug.LogWarning("Attempting to add a line to a node with no data."); }
         ((Node)obj).AddNode(NodeType.LINE);
     }
 
@@ -238,9 +239,7 @@ public class DialogueEditor : EditorWindow {
 
     private void RemoveNode(object obj) {
         NodeGUI gui = (NodeGUI)obj;
-        nodes.Remove(gui.id);
-        gui.node.Remove();
-        GUI.FocusControl("DummyControl");
+        gui.Remove(this);
     }
 
     private void CopyLink(object obj) {
@@ -261,15 +260,28 @@ public class DialogueEditor : EditorWindow {
             this.node = node;
         }
 
+        public void Remove(DialogueEditor editor) {
+            node.Remove();
+            editor.nodes.Remove(id);
+            GUI.FocusControl("DummyControl");
+            editor.Repaint();
+        }
+
         public static void RenderNode(DialogueEditor editor, BaseNode node) {
             NodeGUI gui = editor.GetNodeGUI(node);
-            if (gui == null) {
-                gui = new NodeGUI(node);
-                gui.id = editor.nextID++;
-                editor.nodes.Add(gui.id, gui);
+
+            if (gui != null && gui.node.Data == null) {
+                gui.Remove(editor);
             }
-            gui.RenderNode(editor);
-            editor.forceExpandNodes = null;
+            else {
+                if (gui == null) {
+                    gui = new NodeGUI(node);
+                    gui.id = editor.nextID++;
+                    editor.nodes.Add(gui.id, gui);
+                }
+                gui.RenderNode(editor);
+                editor.forceExpandNodes = null;
+            }
         }
 
         private void RenderNode(DialogueEditor editor) {
