@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Contains static utility functions.
@@ -32,5 +33,20 @@ public static class Util {
         Texture2D texture = CreateCursorTexture(sprite);
         Vector2 hotspot = new Vector2(texture.width / 2, texture.height / 2);
         Cursor.SetCursor(texture, hotspot, CursorMode.Auto);
+    }
+
+    /// <summary>
+    /// Similar to GameObject.FindObjectsOfType but allows for
+    /// the inclusion of inactive objects.
+    /// </summary>
+    public static T[] FindObjectsOfType<T>(bool includeInactive) where T : Component {
+        List<T> results = new List<T>();
+        GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+
+        foreach (GameObject obj in rootObjects) {
+            results.AddRange(obj.GetComponentsInChildren<T>(includeInactive));
+        }
+        
+        return results.ToArray();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
@@ -39,7 +40,7 @@ public class GameItem : MonoBehaviour {
     protected virtual GameItem Instance {
         get {
             if (instance == null) {
-                GameItem[] items = FindObjectsOfType<GameItem>();
+                GameItem[] items = Util.FindObjectsOfType<GameItem>(true);
                 foreach (GameItem item in items) {
                     if (item.Equals(this)) {
                         instance = item;
@@ -142,5 +143,10 @@ public class GameItem : MonoBehaviour {
         }
 
         if (dlg != null) { DialogueManager.StartDialogue(dlg); }
+    }
+
+    public virtual void ChangeSprite(Sprite sprite) {
+        Debug.LogWarning("Attempted to run GameItem.ChangeSprite directly. " +
+            "This method should be overwritten by child classes.");
     }
 }

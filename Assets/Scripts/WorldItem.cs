@@ -140,12 +140,18 @@ public class WorldItem : GameItem {
     /// <summary>
     /// Set this object's sprite.
     /// </summary>
-    public void ChangeSprite(Sprite sprite) {
-        spriteRenderer.sprite = sprite;
+    public override void ChangeSprite(Sprite sprite) {
+        if (spriteRenderer != null) {
+            spriteRenderer.sprite = sprite;
+        }
     }
 
     public void RemoveFromWorld() {
         Destroy(Instance.gameObject);
         World.UpdateNavGraph();
+    }
+
+    public void Enable() {
+        Instance.gameObject.SetActive(true);
     }
 }

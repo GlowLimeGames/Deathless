@@ -62,5 +62,6 @@ public enum GlobalBool {
     S1_GUARDS_DISTRACTED,
     S1_ALCOHOL_TAKEN,
     S1_RUST_BOOZED,
-    S1_RUST_BURNT
+    S1_RUST_BURNT,
+    S1_VAT_TOPPLED
 }

@@ -61,11 +61,23 @@ namespace Dialogue {
             item.RemoveFromWorld();
         }
 
+        public void EnableItem(WorldItem item) {
+            item.Enable();
+        }
+
         public void ChangeItemName(string name) {
             if (itemVar != null) { itemVar.DisplayName = name; }
             else {
                 Debug.LogWarning("Unable to change item name to \"" + name + "\" " +
                     "- Note that you must cache an item (SetItemVar) before using this command.");
+            }
+        }
+
+        public void ChangeItemSprite(Sprite sprite) {
+            if (itemVar!= null) { itemVar.ChangeSprite(sprite); }
+            else {
+                Debug.LogWarning("Unable to set the sprite on this item. " +
+                    "Note that you must cache an item (SetItemVar) before using this command.");
             }
         }
 
@@ -76,7 +88,7 @@ namespace Dialogue {
             if (itemVar != null) {
                 if (itemVar.GetType() == typeof(WorldItem)) {
                     Vector3 pos = ((WorldItem)itemVar).GetPosition();
-                    WorldItem newItem = Instantiate(item, pos, Quaternion.identity);
+                    Instantiate(item, pos, Quaternion.identity);
                     ((WorldItem)itemVar).RemoveFromWorld();
                 }
                 else { Debug.LogWarning("Cannot place an inventory item in the world."); }
