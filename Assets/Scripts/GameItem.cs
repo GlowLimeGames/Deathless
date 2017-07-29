@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
-public class GameItem : MonoBehaviour {
+public abstract class GameItem : MonoBehaviour {
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>
@@ -78,21 +78,8 @@ public class GameItem : MonoBehaviour {
     /// Items must be of the same runtime type to be considered equal.
     /// </summary>
     public override bool Equals(object other) {
-        bool equal = false;
-        if (other.GetType().IsSubclassOf(typeof(GameItem))
-            || other.GetType() == typeof(GameItem)) {
-            equal = Equals((GameItem)other);
-        }
-        return equal;
-    }
-
-    /// <summary>
-    /// Equality of game items will be based on their gameobject's name.
-    /// Items must be of the same runtime type to be considered equal.
-    /// </summary>
-    public bool Equals(GameItem other) {
-        return (other.gameObject.name == gameObject.name &&
-            other.GetType() == GetType());
+        return (other.GetType() == GetType() &&
+            ((GameItem)other).gameObject.name == gameObject.name);
     }
 
     /// <summary>
@@ -143,8 +130,5 @@ public class GameItem : MonoBehaviour {
         InteractionTarget = null;
     }
 
-    public virtual void ChangeSprite(Sprite sprite) {
-        Debug.LogWarning("Attempted to run GameItem.ChangeSprite directly. " +
-            "This method should be overwritten by child classes.");
-    }
+    public abstract void ChangeSprite(Sprite sprite);
 }

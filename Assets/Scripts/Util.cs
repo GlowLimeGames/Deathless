@@ -41,12 +41,14 @@ public static class Util {
     /// </summary>
     public static T[] FindObjectsOfType<T>(bool includeInactive) where T : Component {
         List<T> results = new List<T>();
-        GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
 
-        foreach (GameObject obj in rootObjects) {
-            results.AddRange(obj.GetComponentsInChildren<T>(includeInactive));
+        foreach (T obj in Resources.FindObjectsOfTypeAll<T>()) {
+            if (obj.gameObject.hideFlags != HideFlags.NotEditable && obj.gameObject.hideFlags != HideFlags.HideAndDontSave) {
+                results.Add(obj);
+            }
+
         }
-        
+
         return results.ToArray();
     }
 }
