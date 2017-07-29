@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
-public class GameItem : MonoBehaviour {
+public abstract class GameItem : MonoBehaviour {
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>
@@ -79,8 +79,9 @@ public class GameItem : MonoBehaviour {
     /// </summary>
     public override bool Equals(object other) {
         bool equal = false;
-        if (other.GetType().IsSubclassOf(typeof(GameItem))
-            || other.GetType() == typeof(GameItem)) {
+        if (other != null &&
+            (other.GetType().IsSubclassOf(typeof(GameItem))
+            || other.GetType() == typeof(GameItem))) {
             equal = Equals((GameItem)other);
         }
         return equal;
