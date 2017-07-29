@@ -12,12 +12,10 @@ public class Player : WorldItem {
     private bool movementEnabled = true;
 
     /// <summary>
-    /// Backing fields for ExamineDialogue and UseItemDialogue.
+    /// Backing field for UseItemDialogue.
     /// </summary>
     [SerializeField]
-    #pragma warning disable 0649
-    private Dialogue.SerializableTree examineDialogue, useItemDialogue;
-    #pragma warning restore 0649
+    private Dialogue.SerializableTree useItemDialogue;
 
     /// <summary>
     /// The current instance of the player in the scene.
@@ -42,18 +40,6 @@ public class Player : WorldItem {
             if (instance != null) {
                 instance.movementEnabled = value;
             }
-        }
-    }
-
-    /// <summary>
-    /// Default dialogue tree for interacting with objects.
-    /// </summary>
-    public static Dialogue.SerializableTree ExamineDialogue {
-        get {
-            if (instance != null) {
-                return instance.examineDialogue;
-            }
-            else { return null; }
         }
     }
 

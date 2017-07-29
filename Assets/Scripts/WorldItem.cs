@@ -82,6 +82,18 @@ public class WorldItem : GameItem {
     public override void Interact(bool examine) {
         if (interactable) { base.Interact(examine); }
     }
+    
+    /// <summary>
+    /// Returns the current position of the instance of this object
+    /// in the scene.
+    /// </summary>
+    /// <returns></returns>
+    public Vector3 GetPosition() {
+        if (Instance != null) {
+            return Instance.transform.position;
+        }
+        else { return Vector3.zero; }
+    }
 
     /// <summary>
     /// Initiate movement to a given point.
@@ -134,6 +146,6 @@ public class WorldItem : GameItem {
 
     public void RemoveFromWorld() {
         Destroy(Instance.gameObject);
-        //TBD Should also recalculate pathfinding graph(s).
+        World.UpdateNavGraph();
     }
 }

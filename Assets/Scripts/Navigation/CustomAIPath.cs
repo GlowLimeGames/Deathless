@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding.Util;
-
+using Pathfinding;
 
 public class CustomAIPath : AIPath {
     /** Whether the object should rotate towards the direction it moves.*/

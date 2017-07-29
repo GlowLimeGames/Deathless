@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 /// <summary>
 /// Attached to the background of a scene.
@@ -15,6 +16,19 @@ public class World : MonoBehaviour {
             GameItem.CancelInteraction();
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameManager.Player.MoveToPoint(pos);
+        }
+    }
+
+    public static void UpdateNavGraph() {
+        AstarPath.active.Scan();
+    }
+
+    public static void UpdateNavGraph(GameObject obj) {
+        Collider2D coll = obj.GetComponent<Collider2D>();
+        if (coll != null) {
+            GraphUpdateObject graphUpdate = new GraphUpdateObject(coll.bounds);
+            graphUpdate.updatePhysics = true;
+            AstarPath.active.UpdateGraphs(graphUpdate);
         }
     }
 }
