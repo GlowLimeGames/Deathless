@@ -141,8 +141,8 @@ public class WorldItem : GameItem {
     /// Set this object's sprite.
     /// </summary>
     public override void ChangeSprite(Sprite sprite) {
-        if (spriteRenderer != null) {
-            spriteRenderer.sprite = sprite;
+        if (((WorldItem)Instance).spriteRenderer != null) {
+            ((WorldItem)Instance).spriteRenderer.sprite = sprite;
         }
     }
 

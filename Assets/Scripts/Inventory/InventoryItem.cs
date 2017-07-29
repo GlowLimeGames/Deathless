@@ -14,8 +14,8 @@ public class InventoryItem : GameItem {
     }
 
     public override void ChangeSprite(Sprite sprite) {
-        if (image != null) {
-            image.sprite = sprite;
+        if (((InventoryItem)Instance).image != null) {
+            ((InventoryItem)Instance).image.sprite = sprite;
         }
     }
 }
