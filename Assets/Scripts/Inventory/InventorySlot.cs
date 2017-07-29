@@ -65,7 +65,7 @@ public class InventorySlot : MonoBehaviour {
     /// </summary>
     public void OnClick() {
         if (!isEmpty) {
-            if (Inventory.isItemSelected || Inventory.ObserveIconSelected) {
+            if (Inventory.SelectedItem != null) {
                 item.Interact();
             }
             else {

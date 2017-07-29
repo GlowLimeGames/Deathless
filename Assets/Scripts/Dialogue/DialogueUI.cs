@@ -54,6 +54,9 @@ public class DialogueUI : Manager<DialogueUI> {
         UIManager.BlockInput(show);
         gameObject.SetActive(show);
         UIManager.InputEnabled = !show;
+        Inventory.ShowItemCursor(!show);
+
+        if (!show) { Inventory.RevertSelection(); }
     }
 
     /// <summary>

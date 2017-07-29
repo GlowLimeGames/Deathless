@@ -9,8 +9,13 @@ using UnityEngine.UI;
 public class InventoryItem : GameItem {
     private Image image;
 
+    [SerializeField]
+    private Sprite cursorSprite;
+    public Sprite CursorSprite { get; private set; }
+
     void Start() {
         image = gameObject.GetComponent<Image>();
+        CursorSprite = (cursorSprite == null ? image.sprite : cursorSprite);
     }
 
     public override void ChangeSprite(Sprite sprite) {

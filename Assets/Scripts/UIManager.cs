@@ -33,7 +33,7 @@ public class UIManager : Manager<UIManager> {
     void Update() {
         // Handle generic input
         if (InputEnabled && inventory != null && Input.GetMouseButtonUp(1)) {
-            if (!Inventory.isItemSelected && !Inventory.ObserveIconSelected) {
+            if (Inventory.SelectedItem == null) {
                 Inventory.Show(!Inventory.isShown);
             }
             else {

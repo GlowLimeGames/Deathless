@@ -78,10 +78,6 @@ public class WorldItem : GameItem {
     public override void Interact() {
         if (interactable) { base.Interact(); }
     }
-
-    public override void Interact(bool examine) {
-        if (interactable) { base.Interact(examine); }
-    }
     
     /// <summary>
     /// Returns the current position of the instance of this object

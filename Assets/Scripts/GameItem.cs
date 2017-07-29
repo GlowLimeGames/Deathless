@@ -91,8 +91,8 @@ public class GameItem : MonoBehaviour {
     /// Items must be of the same runtime type to be considered equal.
     /// </summary>
     public bool Equals(GameItem other) {
-        return ((other.gameObject.name == gameObject.name) &&
-                (other.GetType() == GetType()));
+        return (other.gameObject.name == gameObject.name &&
+            other.GetType() == GetType());
     }
 
     /// <summary>
@@ -107,33 +107,22 @@ public class GameItem : MonoBehaviour {
     /// Trigger an interaction with this object.
     /// </summary>
     public virtual void Interact() {
-        if (!Inventory.isItemSelected || !Inventory.SelectedItem.Equals(this)) {
-            Interact(!Inventory.isItemSelected);
-        }
-        else { CancelInteraction(); }
-    }
-
-    public static void CancelInteraction() {
-        InteractionTarget = null;
-    }
-
-    /// <summary>
-    /// Trigger an interaction with this object & specify the type
-    /// of interaction.
-    /// </summary>
-    public virtual void Interact(bool examine) {
         InteractionTarget = Instance;
         Dialogue.SerializableTree dlg = dialogue;
 
-        if (!examine) {
+        if (Inventory.SelectedItem != null && !Inventory.isObserveIconSelected) {
             InventoryItem selected = Inventory.SelectedItem;
 
-            if (!validInteractions.Contains(selected)) {
+            if (selected.Equals(this)) { dlg = null; }
+            else if (this.Equals(Inventory.ObserveItem)) {
+                dlg = null;
+                Inventory.ClearSelection(true);
+                selected.Interact();
+            }
+            else if (!validInteractions.Contains(selected)) {
                 if (GetType() == typeof(InventoryItem) && selected.validInteractions.Contains((InventoryItem)Instance)) {
-                    // Reverse the selection/target order if necessary.
-                    Inventory.SelectItem((InventoryItem)Instance);
                     dlg = null;
-                    selected.Interact(examine);
+                    ReverseInteraction(selected);
                 }
                 else {
                     // This is the default dialogue for invalid combinations.
@@ -143,6 +132,15 @@ public class GameItem : MonoBehaviour {
         }
 
         if (dlg != null) { DialogueManager.StartDialogue(dlg); }
+    }
+
+    private void ReverseInteraction(InventoryItem newTarget) {
+        Inventory.SelectItem((InventoryItem)Instance, true);
+        newTarget.Interact();
+    }
+
+    public static void CancelInteraction() {
+        InteractionTarget = null;
     }
 
     public virtual void ChangeSprite(Sprite sprite) {
