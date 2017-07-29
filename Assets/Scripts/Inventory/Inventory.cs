@@ -73,6 +73,7 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// </summary>
     public static void Show(bool visible) {
         UIManager.BlockInput(visible);
+        UIManager.ClearHoverText();
         instance.gameObject.SetActive(visible);
         instance.pointerExitedCounter = -1;
 

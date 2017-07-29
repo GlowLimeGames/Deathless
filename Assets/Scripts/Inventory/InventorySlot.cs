@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// A slot for a single item in the player's inventory.
 /// </summary>
-public class InventorySlot : MonoBehaviour {
+public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     /// <summary>
     /// Whether there is anything in this slot.
     /// </summary>
@@ -72,5 +74,15 @@ public class InventorySlot : MonoBehaviour {
                 Inventory.SelectItem(item);
             }
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData) {
+        if (!isEmpty) {
+            item.OnMouseEnter();
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        if (!isEmpty) { item.OnMouseExit(); }
     }
 }

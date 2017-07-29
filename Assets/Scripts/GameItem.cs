@@ -26,7 +26,7 @@ public abstract class GameItem : MonoBehaviour {
             if (displayName == null) { return "NULL"; }
             else { return displayName; }
         }
-        set { displayName = value; }
+        private set { displayName = value; }
     }
 
     /// <summary>
@@ -90,6 +90,14 @@ public abstract class GameItem : MonoBehaviour {
         return gameObject.name.GetHashCode() + GetType().GetHashCode();
     }
 
+    public virtual void OnMouseEnter() {
+        UIManager.SetHoverText(Instance.displayName);
+    }
+
+    public virtual void OnMouseExit() {
+        UIManager.ClearHoverText();
+    }
+
     /// <summary>
     /// Trigger an interaction with this object.
     /// </summary>
@@ -128,6 +136,10 @@ public abstract class GameItem : MonoBehaviour {
 
     public static void CancelInteraction() {
         InteractionTarget = null;
+    }
+
+    public void SetName(string s) {
+        Instance.DisplayName = s;
     }
 
     public abstract void ChangeSprite(Sprite sprite);

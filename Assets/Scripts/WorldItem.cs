@@ -69,9 +69,22 @@ public class WorldItem : GameItem {
     /// when the player clicks this object.
     /// </summary>
     void OnMouseUpAsButton() {
-        if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
+        //if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
+        if (UIManager.WorldInputEnabled) {
             InteractionTarget = this;
             GameManager.Player.MoveToPoint(transform.position);
+        }
+    }
+
+    public override void OnMouseEnter() {
+        if (UIManager.WorldInputEnabled) {
+            base.OnMouseEnter();
+        }
+    }
+
+    public override void OnMouseExit() {
+        if (UIManager.WorldInputEnabled) {
+            base.OnMouseExit();
         }
     }
 

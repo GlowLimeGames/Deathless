@@ -66,7 +66,7 @@ namespace Dialogue {
         }
 
         public void ChangeItemName(string name) {
-            if (itemVar != null) { itemVar.DisplayName = name; }
+            if (itemVar != null) { itemVar.SetName(name); }
             else {
                 Debug.LogWarning("Unable to change item name to \"" + name + "\" " +
                     "- Note that you must cache an item (SetItemVar) before using this command.");
