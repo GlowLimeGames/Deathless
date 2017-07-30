@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimState {
-    IDLE,
-    WALK
-}
+public enum AnimState { IDLE = 0, WALK = 1 }
 
 /// <summary>
 /// Parent class for both inventory and world items.

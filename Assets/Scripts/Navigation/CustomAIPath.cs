@@ -5,12 +5,20 @@ using Pathfinding.Util;
 using Pathfinding;
 
 public class CustomAIPath : AIPath {
+    private const float CONSTANT_SPEED_MODIFIER = 30;
+
     /** Whether the object should rotate towards the direction it moves.*/
     public bool enableRotation;
 
-    public delegate void OnTargetReachedDelegate(Transform target);
+    public bool enableAcceleration;
 
-    public OnTargetReachedDelegate targetReachedCallback;
+    private Vector2 direction;
+
+    public bool isMoving {
+        get {
+            return Mathf.Abs(velocity2D.x) > 0 || Mathf.Abs(velocity2D.y) > 0;
+        }
+    }
 
     /** A modified version of AIPath.Movement Update which allows movement without rotation.*/
     protected override void MovementUpdate(float deltaTime) {
@@ -25,18 +33,24 @@ public class CustomAIPath : AIPath {
             interpolator.MoveToLocallyClosestPoint(currentPosition, true, false);
             interpolator.MoveToCircleIntersection2D(currentPosition, pickNextWaypointDist, movementPlane);
             targetPoint = interpolator.position;
-            var dir = movementPlane.ToPlane(targetPoint - currentPosition);
+            direction = movementPlane.ToPlane(targetPoint - currentPosition);
 
-            var distanceToEnd = dir.magnitude + interpolator.remainingDistance;
+            var distanceToEnd = direction.magnitude + interpolator.remainingDistance;
             // How fast to move depending on the distance to the target.
             // Move slower as the character gets closer to the target.
             float slowdown = slowdownDistance > 0 ? distanceToEnd / slowdownDistance : 1;
 
             // a = v/t, should probably expose as a variable
             float acceleration = speed / 0.4f;
-            Vector2 forward = enableRotation ? (Vector2)(rotationIn2D ? tr.up : tr.forward) : dir;
-            velocity2D += MovementUtilities.CalculateAccelerationToReachPoint(dir, dir.normalized * speed, velocity2D, acceleration, speed) * deltaTime;
-            velocity2D = MovementUtilities.ClampVelocity(velocity2D, speed, slowdown, true, movementPlane.ToPlane(forward));
+            Vector2 forward = enableRotation ? (Vector2)(rotationIn2D ? tr.up : tr.forward) : direction;
+
+            if (enableAcceleration) {
+                velocity2D += MovementUtilities.CalculateAccelerationToReachPoint(direction, direction.normalized * speed, velocity2D, acceleration, speed) * deltaTime;
+            }
+            else {
+                velocity2D = direction.normalized * speed * CONSTANT_SPEED_MODIFIER * deltaTime;
+            }
+            velocity2D = MovementUtilities.ClampVelocity(velocity2D, speed, slowdown, enableRotation, movementPlane.ToPlane(forward));
 
             ApplyGravity(deltaTime);
 
@@ -60,8 +74,25 @@ public class CustomAIPath : AIPath {
 
     /** Called when the AI has successfully reached its target. */
     public override void OnTargetReached() {
-        if (targetReachedCallback != null) {
-            targetReachedCallback(target);
+        GetComponent<WorldItem>().OnTargetReached(target);
+    }
+
+    public CardinalDirection GetDirection() {
+        CardinalDirection cardinalDir;
+        
+        if (Mathf.Abs(direction.y) > (Mathf.Abs(direction.x) * 2)) {
+            if (direction.y > 0) { cardinalDir = CardinalDirection.NORTH; }
+            else { cardinalDir = CardinalDirection.SOUTH; }
         }
+        else {
+            if (direction.x > 0) { cardinalDir = CardinalDirection.EAST; }
+            else { cardinalDir = CardinalDirection.WEST; }
+        }
+
+        return cardinalDir;
+    }
+
+    public void StopImmediately() {
+        velocity2D = Vector2.zero;
     }
 }

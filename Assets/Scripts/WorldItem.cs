@@ -8,11 +8,6 @@ using UnityEngine;
 /// </summary>
 public class WorldItem : GameItem {
     /// <summary>
-    /// The default speed at which objects should move.
-    /// </summary>
-    public const float DEFAULT_SPEED = 5f;
-
-    /// <summary>
     /// Whether this item may be interacted with. Interactable
     /// items should, at the least, have a dialogue attached to
     /// them with examine text.
@@ -52,15 +47,15 @@ public class WorldItem : GameItem {
         seeker = gameObject.GetComponent<Seeker>();
         aiPath = gameObject.GetComponent<CustomAIPath>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-
-        if (aiPath != null) { aiPath.canMove = false; }
+        
         startingScale = transform.localScale;
         startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
     }
 
     void Update() {
-        if (aiPath != null && aiPath.canMove) {
+        if (aiPath != null && aiPath.isMoving) {
             UpdateScale();
+            if (Animator != null) { UpdateWalkDirection(); }
         }
     }
     
@@ -107,19 +102,13 @@ public class WorldItem : GameItem {
     /// <summary>
     /// Initiate movement to a given point.
     /// </summary>
-    public virtual void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
+    public virtual void MoveToPoint(Vector2 point) {
         if (aiPath == null) {
             Debug.LogError("Tried to move " + gameObject.name + ", but it does not have pathfinding AI. " +
                 "(Must have Seeker and CustomAIPath components attached.)");
         }
         else {
-            aiPath.speed = speed;
-            aiPath.targetReachedCallback += OnTargetReached;
-            aiPath.canMove = true;
-
-            Flip(true);
             if (Animator != null) { Animator.SetInteger("state", (int)AnimState.WALK); }
-
             seeker.StartPath(transform.position, point);
         }
     }
@@ -128,15 +117,10 @@ public class WorldItem : GameItem {
     /// Called when the item successfully arrives at its target.
     /// </summary>
     public void OnTargetReached(Transform target) {
-        if (aiPath.canMove) {         //Helps to ensure this only gets called once.
-            aiPath.canMove = false;
+        if (Animator != null) { Animator.SetInteger("state", (int)AnimState.IDLE); }
 
-            Flip(false);
-            if (Animator != null) { Animator.SetInteger("state", (int)AnimState.IDLE); }
-
-            if (InteractionTarget != null) {
-                InteractionTarget.Interact();
-            }
+        if (InteractionTarget != null) {
+            InteractionTarget.Interact();
         }
     }
 
@@ -156,6 +140,14 @@ public class WorldItem : GameItem {
         scale.x *= flipModifier;
 
         transform.localScale = scale;
+    }
+
+    protected void UpdateWalkDirection() {
+        CardinalDirection dir = aiPath.GetDirection();
+        if (dir == CardinalDirection.WEST) { Flip(false); }
+        else if (dir == CardinalDirection.EAST) { Flip(true); }
+        
+        Animator.SetInteger("direction", (int)aiPath.GetDirection());
     }
 
     /// <summary>

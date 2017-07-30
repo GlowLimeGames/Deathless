@@ -59,7 +59,7 @@ public class Player : WorldItem {
     /// Moves the player to the given point, but only if player movement
     /// is currently enabled.
     /// </summary>
-    public override void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
-        if (MovementEnabled) { base.MoveToPoint(point, speed); }
+    public override void MoveToPoint(Vector2 point) {
+        if (MovementEnabled) { base.MoveToPoint(point); }
     }
 }

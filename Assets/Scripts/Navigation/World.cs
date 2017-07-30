@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+public enum CardinalDirection { NORTH = 0, SOUTH = 1, EAST = 2, WEST = 3 }
+
 /// <summary>
 /// Attached to the background of a scene.
 /// </summary>
