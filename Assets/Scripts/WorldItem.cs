@@ -117,6 +117,9 @@ public class WorldItem : GameItem {
             aiPath.targetReachedCallback += OnTargetReached;
             aiPath.canMove = true;
 
+            Flip(true);
+            if (Animator != null) { Animator.SetInteger("state", (int)AnimState.WALK); }
+
             seeker.StartPath(transform.position, point);
         }
     }
@@ -127,6 +130,10 @@ public class WorldItem : GameItem {
     public void OnTargetReached(Transform target) {
         if (aiPath.canMove) {         //Helps to ensure this only gets called once.
             aiPath.canMove = false;
+
+            Flip(false);
+            if (Animator != null) { Animator.SetInteger("state", (int)AnimState.IDLE); }
+
             if (InteractionTarget != null) {
                 InteractionTarget.Interact();
             }
@@ -137,13 +144,18 @@ public class WorldItem : GameItem {
     /// Updates the scale of the object based on its z position.
     /// </summary>
     protected void UpdateScale() {
-        float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
+        float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(Instance.transform.position);
 
         float camZ = Camera.main.transform.position.z;
         float zDist = Mathf.Abs(camZ - currentZ);
         float startingZDist = Mathf.Abs(camZ - startingZPos);
 
-        transform.localScale = startingScale / (startingZDist / zDist);
+        float flipModifier = Instance.transform.localScale.x < 0 ? -1 : 1;
+
+        Vector3 scale = startingScale / (startingZDist / zDist);
+        scale.x *= flipModifier;
+
+        transform.localScale = scale;
     }
 
     /// <summary>
@@ -162,5 +174,15 @@ public class WorldItem : GameItem {
 
     public void Enable() {
         Instance.gameObject.SetActive(true);
+    }
+
+    public void Flip(bool faceRight) {
+        Vector3 scale = Instance.transform.localScale;
+        bool flip = faceRight ? (scale.x > 0) : (scale.x < 0);
+
+        if (flip) {
+            scale.x *= -1;
+            Instance.transform.localScale = scale;
+        }
     }
 }
