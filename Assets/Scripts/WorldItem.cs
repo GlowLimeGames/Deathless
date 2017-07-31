@@ -15,6 +15,9 @@ public class WorldItem : GameItem {
     [SerializeField] [HideInInspector]
     private bool interactable;
 
+    [SerializeField]
+    private float minInteractionDistance = 1;
+
     /// <summary>
     /// The scale of the gameObject on start.
     /// </summary>
@@ -39,6 +42,8 @@ public class WorldItem : GameItem {
     /// The AIPath attached to the gameObject. Part of the A* Pathfinding Project plugin.
     /// </summary>
     private CustomAIPath aiPath;
+
+    private Collider2D coll;
     
     /// <summary>
     /// Initializes fields.
@@ -47,6 +52,7 @@ public class WorldItem : GameItem {
         seeker = gameObject.GetComponent<Seeker>();
         aiPath = gameObject.GetComponent<CustomAIPath>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        coll = gameObject.GetComponent<Collider2D>();
         
         startingScale = transform.localScale;
         startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
@@ -64,10 +70,9 @@ public class WorldItem : GameItem {
     /// when the player clicks this object.
     /// </summary>
     void OnMouseUpAsButton() {
-        //if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
         if (UIManager.WorldInputEnabled) {
             InteractionTarget = this;
-            GameManager.Player.MoveToPoint(transform.position);
+            GameManager.Player.MoveToPoint(coll.bounds.ClosestPoint(GameManager.Player.transform.position));
         }
     }
 
@@ -84,7 +89,14 @@ public class WorldItem : GameItem {
     }
 
     public override void Interact() {
-        if (interactable) { base.Interact(); }
+        if (interactable) {
+            Vector3 playerPos = GameManager.Player.transform.position;
+            Vector3 target = coll.bounds.ClosestPoint(playerPos);
+
+            if (Vector2.Distance(playerPos, target) < minInteractionDistance) {
+                base.Interact();
+            }
+        }
     }
     
     /// <summary>
@@ -116,12 +128,8 @@ public class WorldItem : GameItem {
     /// <summary>
     /// Called when the item successfully arrives at its target.
     /// </summary>
-    public void OnTargetReached(Transform target) {
+    public virtual void OnTargetReached(Transform target) {
         if (Animator != null) { Animator.SetInteger("state", (int)AnimState.IDLE); }
-
-        if (InteractionTarget != null) {
-            InteractionTarget.Interact();
-        }
     }
 
     /// <summary>

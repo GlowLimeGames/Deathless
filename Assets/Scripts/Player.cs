@@ -62,4 +62,12 @@ public class Player : WorldItem {
     public override void MoveToPoint(Vector2 point) {
         if (MovementEnabled) { base.MoveToPoint(point); }
     }
+
+    public override void OnTargetReached(Transform target) {
+        base.OnTargetReached(target);
+
+        if (InteractionTarget != null) {
+            InteractionTarget.Interact();
+        }
+    }
 }
