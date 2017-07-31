@@ -46,7 +46,10 @@ public class UIManager : Manager<UIManager> {
     }
 
     public static void BlockInput(bool block) {
-        WorldInputEnabled = (!block);
+        if (!block && !Inventory.isShown && !DialogueUI.isShown) {
+            WorldInputEnabled = (true);
+        }
+        else { WorldInputEnabled = (false); }
     }
 
     /// <summary>

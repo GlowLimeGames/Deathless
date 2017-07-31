@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 /// Contains static utility functions.
 /// </summary>
 public static class Util {
+    private static List<GameObject> dontDestroyOnLoad = new List<GameObject>();
+
     /// <summary>
     /// Convert a sprite to a Texture2D that is valid for use as a cursor.
     /// </summary>\
@@ -42,13 +44,26 @@ public static class Util {
     public static T[] FindObjectsOfType<T>(bool includeInactive) where T : Component {
         List<T> results = new List<T>();
 
-        foreach (T obj in Resources.FindObjectsOfTypeAll<T>()) {
-            if (obj.gameObject.hideFlags != HideFlags.NotEditable && obj.gameObject.hideFlags != HideFlags.HideAndDontSave) {
-                results.Add(obj);
+        foreach (GameObject obj in SceneManager.GetActiveScene().GetRootGameObjects()) {
+            results.AddRange(obj.GetComponentsInChildren<T>(includeInactive));
+        }
+        
+        foreach (GameObject obj in dontDestroyOnLoad) {
+            if (obj != null) {
+                results.AddRange(obj.GetComponentsInChildren<T>(includeInactive));
             }
-
         }
 
         return results.ToArray();
+    }
+
+    public static void DontDestroyOnLoad(GameObject obj) {
+        dontDestroyOnLoad.Add(obj);
+        GameObject.DontDestroyOnLoad(obj);
+    }
+
+    public static void Destroy(GameObject obj) {
+        dontDestroyOnLoad.Remove(obj);
+        GameObject.Destroy(obj);
     }
 }

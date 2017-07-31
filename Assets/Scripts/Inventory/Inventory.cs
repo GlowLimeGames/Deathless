@@ -20,7 +20,7 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// Whether the inventory is currently open.
     /// </summary>
     public static bool isShown {
-        get { return instance.gameObject.activeInHierarchy; }
+        get { return instance != null && instance.gameObject.activeInHierarchy; }
     }
 
     /// <summary>
@@ -72,10 +72,10 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// Open or close the inventory.
     /// </summary>
     public static void Show(bool visible) {
-        UIManager.BlockInput(visible);
         UIManager.ClearHoverText();
         instance.gameObject.SetActive(visible);
         instance.pointerExitedCounter = -1;
+        UIManager.BlockInput(visible);
 
         if (isObserveIconSelected) {
             ClearSelection();
