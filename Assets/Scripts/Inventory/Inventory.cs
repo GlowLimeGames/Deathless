@@ -38,8 +38,6 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     public static bool isObserveIconSelected {
         get { return (ObserveItem != null && SelectedItem == ObserveItem); }
     }
-
-    private static Sprite cursorIcon;
     
     /// <summary>
     /// How long before we should close the inventory upon cursor exit.
@@ -143,8 +141,9 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
         }
         else {
             lastSelectedItem = null;
-            cursorIcon = (item == null ? null : item.CursorSprite);
-            ShowItemCursor(item != null);
+
+            if (item == null) { UIManager.ClearCustomCursor(); }
+            else { UIManager.SetCustomCursor(item.CursorSprite); }
         }
 
         SelectedItem = item;
@@ -162,11 +161,6 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// </summary>
     public static void ClearSelection(bool temp = false) {
         SelectItem(null, temp);
-    }
-
-    public static void ShowItemCursor(bool show) {
-        if (show && cursorIcon != null) { Util.SetCursor(cursorIcon); }
-        else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
     }
 
     /// <summary>

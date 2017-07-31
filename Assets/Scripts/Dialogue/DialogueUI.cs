@@ -60,7 +60,7 @@ public class DialogueUI : Manager<DialogueUI> {
     public void Show(bool show) {
         gameObject.SetActive(show);
         UIManager.WorldInputEnabled = !show;
-        Inventory.ShowItemCursor(!show);
+        UIManager.ShowCustomCursor(!show);
         UIManager.BlockInput(show);
         UIManager.ShowHoverText(!show);
 

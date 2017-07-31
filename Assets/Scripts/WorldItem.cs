@@ -77,13 +77,13 @@ public class WorldItem : GameItem {
     }
 
     public override void OnMouseEnter() {
-        if (UIManager.WorldInputEnabled) {
+        if (interactable && UIManager.WorldInputEnabled) {
             base.OnMouseEnter();
         }
     }
 
     public override void OnMouseExit() {
-        if (UIManager.WorldInputEnabled) {
+        if (interactable && UIManager.WorldInputEnabled) {
             base.OnMouseExit();
         }
     }

@@ -104,10 +104,12 @@ public abstract class GameItem : MonoBehaviour {
 
     public virtual void OnMouseEnter() {
         UIManager.SetHoverText(Instance.displayName);
+        UIManager.SetInteractionCursor(true);
     }
 
     public virtual void OnMouseExit() {
         UIManager.ClearHoverText();
+        UIManager.SetInteractionCursor(false);
     }
 
     /// <summary>
