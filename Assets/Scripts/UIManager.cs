@@ -32,7 +32,7 @@ public class UIManager : Manager<UIManager> {
     void Update() {
         // Handle generic input
         if (inventory != null && Input.GetMouseButtonUp(1)) {
-            if (Inventory.SelectedItem == null) {
+            if (Inventory.SelectedItem == null && !DialogueUI.isShown) {
                 Inventory.Show(!Inventory.isShown);
             }
             else {
