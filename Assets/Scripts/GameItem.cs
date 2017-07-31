@@ -2,28 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AnimState { IDLE = 0, WALK = 1 }
+
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
-public class GameItem : MonoBehaviour {
+public abstract class GameItem : MonoBehaviour {
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>
-    public static GameItem InteractionTarget { get; private set; }
+    public static GameItem InteractionTarget { get; protected set; }
 
     /// <summary>
     /// Backing field for ItemName.
     /// </summary>
     [SerializeField]
-    private string itemName;
+    private string displayName;
 
     /// <summary>
     /// The in-game name of this item.
     /// </summary>
-    public string ItemName {
+    public string DisplayName {
         get {
-            if (itemName == null) { return "NULL"; }
-            else { return itemName; }
+            if (displayName == null) { return "NULL"; }
+            else { return displayName; }
+        }
+        private set { displayName = value; }
+    }
+
+    private Animator animator;
+
+    protected Animator Animator {
+        get {
+            if (Instance.animator == null) {
+                Instance.animator = GetComponent<Animator>();
+            }
+            return animator;
         }
     }
 
@@ -38,7 +52,7 @@ public class GameItem : MonoBehaviour {
     protected virtual GameItem Instance {
         get {
             if (instance == null) {
-                GameItem[] items = FindObjectsOfType<GameItem>();
+                GameItem[] items = Util.FindObjectsOfType<GameItem>(true);
                 foreach (GameItem item in items) {
                     if (item.Equals(this)) {
                         instance = item;
@@ -65,24 +79,19 @@ public class GameItem : MonoBehaviour {
     }
 
     /// <summary>
-    /// Equality of game items will be based on their gameobject's name.
-    /// Items must be of the same runtime type to be considered equal.
+    /// Inventory items which may be used on this item (this item's
+    /// attached dialogue should have a branch for the combination).
     /// </summary>
-    public override bool Equals(object other) {
-        bool equal = false;
-        if (other.GetType() == typeof(GameItem)) {
-            equal = Equals((GameItem)other);
-        }
-        return equal;
-    }
+    [SerializeField]
+    private List<InventoryItem> validInteractions;
 
     /// <summary>
     /// Equality of game items will be based on their gameobject's name.
     /// Items must be of the same runtime type to be considered equal.
     /// </summary>
-    public bool Equals(GameItem other) {
-        return ((other.gameObject.name == gameObject.name) &&
-                (other.GetType() == GetType()));
+    public override bool Equals(object other) {
+        return (other.GetType() == GetType() &&
+            ((GameItem)other).gameObject.name == gameObject.name);
     }
 
     /// <summary>
@@ -93,35 +102,57 @@ public class GameItem : MonoBehaviour {
         return gameObject.name.GetHashCode() + GetType().GetHashCode();
     }
 
-    /// <summary>
-    /// Trigger an interaction with this object.
-    /// </summary>
-    public void Interact() {
-        if (!Inventory.isItemSelected || !Inventory.SelectedItem.Equals(this)) {
-            Interact(!Inventory.isItemSelected);
-        }
+    public virtual void OnMouseEnter() {
+        UIManager.SetHoverText(Instance.displayName);
+    }
+
+    public virtual void OnMouseExit() {
+        UIManager.ClearHoverText();
     }
 
     /// <summary>
-    /// Trigger an interaction with this object & specify the type
-    /// of interaction.
+    /// Trigger an interaction with this object.
     /// </summary>
-    public void Interact(bool examine) {
+    public virtual void Interact() {
         InteractionTarget = Instance;
         Dialogue.SerializableTree dlg = dialogue;
 
-        if (!examine) {
-            dlg = Player.UseItemDialogue;
-            //Debug.Log("Using selected item with " + InteractionTarget);
-        }
-        else if (dlg == null) {
-            dlg = Player.ExamineDialogue;
-            //Debug.Log("Examining " + InteractionTarget);
-        }
-        else {
-            //Debug.Log("Running attached dialogue.");
+        if (Inventory.SelectedItem != null && !Inventory.isObserveIconSelected) {
+            InventoryItem selected = Inventory.SelectedItem;
+
+            if (selected.Equals(this)) { dlg = null; }
+            else if (this.Equals(Inventory.ObserveItem)) {
+                dlg = null;
+                Inventory.ClearSelection(true);
+                selected.Interact();
+            }
+            else if (!validInteractions.Contains(selected)) {
+                if (GetType() == typeof(InventoryItem) && selected.validInteractions.Contains((InventoryItem)Instance)) {
+                    dlg = null;
+                    ReverseInteraction(selected);
+                }
+                else {
+                    // This is the default dialogue for invalid combinations.
+                    dlg = Player.UseItemDialogue;
+                }
+            }
         }
 
         if (dlg != null) { DialogueManager.StartDialogue(dlg); }
     }
+
+    private void ReverseInteraction(InventoryItem newTarget) {
+        Inventory.SelectItem((InventoryItem)Instance, true);
+        newTarget.Interact();
+    }
+
+    public static void CancelInteraction() {
+        InteractionTarget = null;
+    }
+
+    public void SetName(string s) {
+        Instance.DisplayName = s;
+    }
+
+    public abstract void ChangeSprite(Sprite sprite);
 }

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Dialogue {
     [System.Serializable]
-    public class Conditions : MonoBehaviour {
+    public class Conditions : NodeCache {
         #region Conditional Logic
 
         private enum Type { AND, OR, NOT }
@@ -50,69 +50,51 @@ namespace Dialogue {
             type = Type.NOT;
             validNot = true;
             notConditions.Invoke();
-            
+
             return (validAnd && validOr && validNot);
-        }
-
-        private void ResetVars() {
-            intVar = 0;
-            stringVar = null;
-        }
-
-        #endregion
-
-        #region Variable Caching
-
-        private int intVar;
-        private string stringVar;
-        private GameItem itemVar;
-
-        [EnumAction(typeof(GlobalInt))]
-        public void SetIntVar (int i) {
-            intVar = Globals.GetGlobal((GlobalInt)i);
-        }
-
-        [EnumAction(typeof(GlobalString))]
-        public void SetStringVar (int i) {
-            stringVar = Globals.GetGlobal((GlobalString)i);
-        }
-
-        public void SetItemVar (GameItem item) {
-            itemVar = item;
         }
 
         #endregion
 
         #region Conditions
 
-        public void IntIsGreaterThan (int i) {
-            isValid = intVar > i;
+        public void IntIsGreaterThan(int i) {
+            isValid = IntVar > i;
         }
 
-        public void IntIsLessThan (int i) {
-            isValid = intVar < i;
+        public void IntIsLessThan(int i) {
+            isValid = IntVar < i;
         }
 
-        public void StringEquals (string s) {
-            isValid = (stringVar == s);
+        public void IntEquals(int i) {
+            isValid = (IntVar == i);
         }
 
-        public void IntEquals (int i) {
-            isValid = (intVar == i);
+        public void StringEquals(string s) {
+            isValid = (StringVar == s);
         }
 
-        public void ItemSelected (InventoryItem item) {
-            isValid = Inventory.SelectedItem.Equals(item);
+        [EnumAction(typeof(GlobalBool))]
+        public void IsTrue(int i) {
+            isValid = Globals.GetGlobal((GlobalBool)i);
         }
 
-        public void ItemInInventory (InventoryItem item) {
+        public void ItemSelected(InventoryItem item) {
+            isValid = Inventory.SelectedItem != null && Inventory.SelectedItem.Equals(item);
+        }
+
+        public void ItemInInventory(InventoryItem item) {
             isValid = Inventory.HasItem(item);
         }
 
-        public void ItemCombination (GameItem item) {
+        public void ItemCombination(GameItem item) {
             isValid =
                 ((Inventory.SelectedItem.Equals(itemVar) && GameItem.InteractionTarget.Equals(item))
                 || (Inventory.SelectedItem.Equals(item) && GameItem.InteractionTarget.Equals(itemVar)));
+        }
+
+        public void InteractionTarget(GameItem item) {
+            isValid = GameItem.InteractionTarget != null && GameItem.InteractionTarget.Equals(item);
         }
 
         #endregion

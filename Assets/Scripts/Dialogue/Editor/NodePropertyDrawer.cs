@@ -28,6 +28,11 @@ namespace Dialogue {
             style.wordWrap = true;
             data.Text = EditorGUILayout.TextArea(data.Text, style);
 
+            EditorGUILayout.LabelField("Notes", EditorStyles.boldLabel);
+            style = new GUIStyle(EditorStyles.textArea);
+            style.wordWrap = true;
+            data.Notes = EditorGUILayout.TextArea(data.Notes, style);
+
             EditorGUI.EndDisabledGroup();
         }
     }

@@ -8,6 +8,13 @@ using UnityEngine.UI;
 /// </summary>
 public class DialogueUI : Manager<DialogueUI> {
     /// <summary>
+    /// Whether a dialogue is currently active.
+    /// </summary>
+    public static bool isShown {
+        get { return instance != null && instance.gameObject.activeInHierarchy; }
+    }
+
+    /// <summary>
     /// The line of dialogue currently being shown.
     /// </summary>
     private Dialogue.Node currentNode = null;
@@ -51,9 +58,13 @@ public class DialogueUI : Manager<DialogueUI> {
     /// Show or hide the dialogue UI.
     /// </summary>
     public void Show(bool show) {
-        UIManager.BlockInput(show);
         gameObject.SetActive(show);
-        UIManager.InputEnabled = !show;
+        UIManager.WorldInputEnabled = !show;
+        Inventory.ShowItemCursor(!show);
+        UIManager.BlockInput(show);
+        UIManager.ShowHoverText(!show);
+
+        if (!show) { Inventory.RevertSelection(); }
     }
 
     /// <summary>

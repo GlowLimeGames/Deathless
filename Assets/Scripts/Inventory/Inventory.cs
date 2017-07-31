@@ -20,7 +20,7 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// Whether the inventory is currently open.
     /// </summary>
     public static bool isShown {
-        get { return instance.gameObject.activeInHierarchy; }
+        get { return instance != null && instance.gameObject.activeInHierarchy; }
     }
 
     /// <summary>
@@ -28,17 +28,18 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// </summary>
     public static InventoryItem SelectedItem { get; private set; }
 
-    /// <summary>
-    /// Whether the player has an inventory item selected.
-    /// </summary>
-    public static bool isItemSelected {
-        get { return (SelectedItem != null); }
+    private static InventoryItem lastSelectedItem;
+
+    [SerializeField]
+    private InventoryItem observeItem;
+
+    public static InventoryItem ObserveItem { get; private set; }
+
+    public static bool isObserveIconSelected {
+        get { return (ObserveItem != null && SelectedItem == ObserveItem); }
     }
-    
-    /// <summary>
-    /// Whether the player has selected the observe icon.
-    /// </summary>
-    public static bool ObserveIconSelected { get; private set; }
+
+    private static Sprite cursorIcon;
     
     /// <summary>
     /// How long before we should close the inventory upon cursor exit.
@@ -54,6 +55,8 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     
 	public void Init () {
         SingletonInit();
+
+        ObserveItem = observeItem;
         
         // Add inventory slots to list
         foreach (InventorySlot slot in transform.GetComponentsInChildren<InventorySlot>(true)) {
@@ -69,11 +72,12 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// Open or close the inventory.
     /// </summary>
     public static void Show(bool visible) {
-        UIManager.BlockInput(visible);
+        UIManager.ClearHoverText();
         instance.gameObject.SetActive(visible);
         instance.pointerExitedCounter = -1;
+        UIManager.BlockInput(visible);
 
-        if (ObserveIconSelected) {
+        if (isObserveIconSelected) {
             ClearSelection();
         }
     }
@@ -99,7 +103,7 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// Remove the equivalent item from the inventory.
     /// </summary>
     public static void RemoveItem(InventoryItem prefab) {
-        if (isItemSelected && SelectedItem.Equals(prefab)) {
+        if (SelectedItem != null && SelectedItem.Equals(prefab)) {
             ClearSelection();
         }
 
@@ -133,28 +137,36 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
     /// <summary>
     /// Select the given item.
     /// </summary>
-    public static void SelectItem(InventoryItem item) {
+    public static void SelectItem(InventoryItem item, bool temp = false) {
+        if (temp) {
+            lastSelectedItem = SelectedItem;
+        }
+        else {
+            lastSelectedItem = null;
+            cursorIcon = (item == null ? null : item.CursorSprite);
+            ShowItemCursor(item != null);
+        }
+
         SelectedItem = item;
-        ObserveIconSelected = false;
-        Util.SetCursor(item.GetComponent<Image>().sprite);
     }
 
-    /// <summary>
-    /// Select the observe icon.
-    /// </summary>
-    public static void SelectObserveIcon(Sprite observeIcon) {
-        SelectedItem = null;
-        ObserveIconSelected = true;
-        Util.SetCursor(observeIcon);
+    public static void RevertSelection() {
+        if (lastSelectedItem != null) {
+            SelectedItem = lastSelectedItem;
+            lastSelectedItem = null;
+        }
     }
 
     /// <summary>
     /// Clear the current item or icon selection.
     /// </summary>
-    public static void ClearSelection() {
-        SelectedItem = null;
-        ObserveIconSelected = false;
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    public static void ClearSelection(bool temp = false) {
+        SelectItem(null, temp);
+    }
+
+    public static void ShowItemCursor(bool show) {
+        if (show && cursorIcon != null) { Util.SetCursor(cursorIcon); }
+        else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
     }
 
     /// <summary>

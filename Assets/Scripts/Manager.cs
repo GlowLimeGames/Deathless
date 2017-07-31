@@ -21,7 +21,7 @@ public abstract class Manager<T> : Manager where T : Manager<T> {
         if (instance == null) {
             instance = (T)this;
             if (dontDestroyOnLoad) {
-                DontDestroyOnLoad(gameObject);
+                Util.DontDestroyOnLoad(gameObject);
             }
         }
         else if (instance != this) {
@@ -30,6 +30,6 @@ public abstract class Manager<T> : Manager where T : Manager<T> {
     }
 	
 	public static void Destroy() {
-        Destroy(instance.gameObject);
+        Util.Destroy(instance.gameObject);
     }
 }

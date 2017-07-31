@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : Manager<UIManager> {
     private const string mainMenuScene = "MainMenu";
@@ -11,29 +12,27 @@ public class UIManager : Manager<UIManager> {
     [SerializeField]
     private Inventory inventory;
 
-    /// <summary>
-    /// The Input Blocker UI object in the current scene.
-    /// </summary>
     [SerializeField]
-    private GameObject inputBlocker;
+    private Text hoverText;
 
     /// <summary>
     /// Whether world input (clicking items in the world such
     /// as characters, object, and the background) is enabled.
     /// </summary>
-    public static bool InputEnabled { get; set; }
+    public static bool WorldInputEnabled { get; set; }
 
     void Start() {
         SingletonInit();
 
-        InputEnabled = true;
+        WorldInputEnabled = true;
+        ClearHoverText();
         if (inventory != null) { inventory.Init(); }
     }
 
     void Update() {
         // Handle generic input
-        if (InputEnabled && inventory != null && Input.GetMouseButtonUp(1)) {
-            if (!Inventory.isItemSelected && !Inventory.ObserveIconSelected) {
+        if (inventory != null && Input.GetMouseButtonUp(1)) {
+            if (Inventory.SelectedItem == null) {
                 Inventory.Show(!Inventory.isShown);
             }
             else {
@@ -47,7 +46,10 @@ public class UIManager : Manager<UIManager> {
     }
 
     public static void BlockInput(bool block) {
-        instance.inputBlocker.SetActive(block);
+        if (!block && !Inventory.isShown && !DialogueUI.isShown) {
+            WorldInputEnabled = (true);
+        }
+        else { WorldInputEnabled = (false); }
     }
 
     /// <summary>
@@ -57,5 +59,17 @@ public class UIManager : Manager<UIManager> {
     /// <param name="scene"></param>
     public void LoadScene(string scene) {
         GameManager.LoadScene(scene);
+    }
+
+    public static void SetHoverText(string s) {
+        instance.hoverText.text = s;
+    }
+
+    public static void ClearHoverText() {
+        SetHoverText("");
+    }
+
+    public static void ShowHoverText(bool show) {
+        instance.hoverText.gameObject.SetActive(show);
     }
 }

@@ -6,10 +6,12 @@ using UnityEngine;
 public static class Globals {
     private static Dictionary<GlobalInt, int> globalInts;
     private static Dictionary<GlobalString, string> globalStrings;
+    private static Dictionary<GlobalBool, bool> globalBools;
 
     public static void Init() {
         globalInts = InitDictionary(globalInts);
         globalStrings = InitDictionary(globalStrings);
+        globalBools = InitDictionary(globalBools);
     }
 
     private static Dictionary<E, T> InitDictionary<E, T>(Dictionary<E, T> dict) {
@@ -30,12 +32,20 @@ public static class Globals {
         return globalInts[global];
     }
 
+    public static bool GetGlobal(GlobalBool global) {
+        return globalBools[global];
+    }
+
     public static void SetGlobal(GlobalString global, string value) {
         globalStrings[global] = value;
     }
 
     public static void SetGlobal(GlobalInt global, int value) {
         globalInts[global] = value;
+    }
+
+    public static void SetGlobal(GlobalBool global, bool value) {
+        globalBools[global] = value;
     }
 }
 
@@ -45,4 +55,13 @@ public enum GlobalInt {
 
 public enum GlobalString {
     TEST_GLOBAL_STRING
+}
+
+public enum GlobalBool {
+    TEST_GLOBAL_BOOL,
+    S1_GUARDS_DISTRACTED,
+    S1_ALCOHOL_TAKEN,
+    S1_RUST_BOOZED,
+    S1_RUST_BURNT,
+    S1_VAT_TOPPLED
 }

@@ -12,12 +12,10 @@ public class Player : WorldItem {
     private bool movementEnabled = true;
 
     /// <summary>
-    /// Backing fields for ExamineDialogue and UseItemDialogue.
+    /// Backing field for UseItemDialogue.
     /// </summary>
     [SerializeField]
-    #pragma warning disable 0649
-    private Dialogue.SerializableTree examineDialogue, useItemDialogue;
-    #pragma warning restore 0649
+    private Dialogue.SerializableTree useItemDialogue;
 
     /// <summary>
     /// The current instance of the player in the scene.
@@ -46,18 +44,6 @@ public class Player : WorldItem {
     }
 
     /// <summary>
-    /// Default dialogue tree for interacting with objects.
-    /// </summary>
-    public static Dialogue.SerializableTree ExamineDialogue {
-        get {
-            if (instance != null) {
-                return instance.examineDialogue;
-            }
-            else { return null; }
-        }
-    }
-
-    /// <summary>
     /// Default dialogue tree for using objects on each other.
     /// </summary>
     public static Dialogue.SerializableTree UseItemDialogue {
@@ -73,7 +59,15 @@ public class Player : WorldItem {
     /// Moves the player to the given point, but only if player movement
     /// is currently enabled.
     /// </summary>
-    public override void MoveToPoint(Vector2 point, float speed = DEFAULT_SPEED) {
-        if (MovementEnabled) { base.MoveToPoint(point, speed); }
+    public override void MoveToPoint(Vector2 point) {
+        if (MovementEnabled) { base.MoveToPoint(point); }
+    }
+
+    public override void OnTargetReached(Transform target) {
+        base.OnTargetReached(target);
+
+        if (InteractionTarget != null) {
+            InteractionTarget.Interact();
+        }
     }
 }
