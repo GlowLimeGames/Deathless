@@ -13,7 +13,7 @@ public class DialogueEditor : EditorWindow {
     private Dictionary<int, NodeGUI> nodes;
     private int nextID;
     private bool contextMenuShown;
-    private Node copiedLink;
+    private Node copiedNode;
     private bool dirty = false;
 
     private List<BaseNode> forceExpandNodes;
@@ -159,8 +159,9 @@ public class DialogueEditor : EditorWindow {
 
             menu.AddSeparator("");
 
-            menu.AddItem(new GUIContent("Copy Link"), false, CopyLink, gui.node);
-            if (copiedLink != null) {
+            menu.AddItem(new GUIContent("Copy"), false, CopyNode, gui.node);
+            if (copiedNode != null) {
+                menu.AddItem(new GUIContent("Move Here"), false, MoveNode, gui.node);
                 menu.AddItem(new GUIContent("Paste Link"), false, PasteLink, gui.node);
             }
 
@@ -255,12 +256,16 @@ public class DialogueEditor : EditorWindow {
         gui.Remove(this);
     }
 
-    private void CopyLink(object obj) {
-        copiedLink = (Node)obj;
+    private void CopyNode(object obj) {
+        copiedNode = (Node)obj;
+    }
+
+    private void MoveNode(object obj) {
+        copiedNode.Move((Node)obj);
     }
 
     private void PasteLink(object obj) {
-        ((Node)obj).AddLink(copiedLink);
+        ((Node)obj).AddLink(copiedNode);
     }
     
     private class NodeGUI {
