@@ -17,16 +17,6 @@ public class WorldItem : GameItem {
 
     [SerializeField]
     private float minInteractionDistance = 1;
-
-    /// <summary>
-    /// The scale of the gameObject on start.
-    /// </summary>
-    private Vector3 startingScale;
-
-    /// <summary>
-    /// The z position of the gameObject on start.
-    /// </summary>
-    private float startingZPos;
     
     /// <summary>
     /// The sprite renderer attached to the gameObject.
@@ -38,11 +28,6 @@ public class WorldItem : GameItem {
     /// </summary>
     private Seeker seeker;
 
-    /// <summary>
-    /// The AIPath attached to the gameObject. Part of the A* Pathfinding Project plugin.
-    /// </summary>
-    private CustomAIPath aiPath;
-
     private Collider2D coll;
     
     /// <summary>
@@ -50,19 +35,8 @@ public class WorldItem : GameItem {
     /// </summary>
 	void Start () {
         seeker = gameObject.GetComponent<Seeker>();
-        aiPath = gameObject.GetComponent<CustomAIPath>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         coll = gameObject.GetComponent<Collider2D>();
-        
-        startingScale = transform.localScale;
-        startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
-    }
-
-    void Update() {
-        if (aiPath != null && aiPath.isMoving) {
-            UpdateScale();
-            if (Animator != null) { UpdateWalkDirection(); }
-        }
     }
     
     /// <summary>
@@ -115,12 +89,12 @@ public class WorldItem : GameItem {
     /// Initiate movement to a given point.
     /// </summary>
     public virtual void MoveToPoint(Vector2 point) {
-        if (aiPath == null) {
+        if (seeker == null) {
             Debug.LogError("Tried to move " + gameObject.name + ", but it does not have pathfinding AI. " +
                 "(Must have Seeker and CustomAIPath components attached.)");
         }
         else {
-            if (Animator != null) { Animator.SetInteger("state", (int)AnimState.WALK); }
+            if (AnimController != null) { AnimController.Walk(); }
             seeker.StartPath(transform.position, point);
         }
     }
@@ -129,40 +103,15 @@ public class WorldItem : GameItem {
     /// Called when the item successfully arrives at its target.
     /// </summary>
     public virtual void OnTargetReached(Transform target) {
-        if (Animator != null) { Animator.SetInteger("state", (int)AnimState.IDLE); }
-    }
-
-    /// <summary>
-    /// Updates the scale of the object based on its z position.
-    /// </summary>
-    protected void UpdateScale() {
-        float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(Instance.transform.position);
-
-        float camZ = Camera.main.transform.position.z;
-        float zDist = Mathf.Abs(camZ - currentZ);
-        float startingZDist = Mathf.Abs(camZ - startingZPos);
-
-        float flipModifier = Instance.transform.localScale.x < 0 ? -1 : 1;
-
-        Vector3 scale = startingScale / (startingZDist / zDist);
-        scale.x *= flipModifier;
-
-        transform.localScale = scale;
-    }
-
-    protected void UpdateWalkDirection() {
-        CardinalDirection dir = aiPath.GetDirection();
-        if (dir == CardinalDirection.WEST) { Flip(false); }
-        else if (dir == CardinalDirection.EAST) { Flip(true); }
-        
-        Animator.SetInteger("direction", (int)aiPath.GetDirection());
+        if (AnimController != null) { AnimController.Idle(); }
     }
 
     /// <summary>
     /// Set this object's sprite.
     /// </summary>
     public override void ChangeSprite(Sprite sprite) {
-        if (((WorldItem)Instance).spriteRenderer != null) {
+        if (AnimController != null) { AnimController.SetIdle(sprite); }
+        else if (((WorldItem)Instance).spriteRenderer != null) {
             ((WorldItem)Instance).spriteRenderer.sprite = sprite;
         }
     }
@@ -174,15 +123,5 @@ public class WorldItem : GameItem {
 
     public void Enable() {
         Instance.gameObject.SetActive(true);
-    }
-
-    public void Flip(bool faceRight) {
-        Vector3 scale = Instance.transform.localScale;
-        bool flip = faceRight ? (scale.x > 0) : (scale.x < 0);
-
-        if (flip) {
-            scale.x *= -1;
-            Instance.transform.localScale = scale;
-        }
     }
 }

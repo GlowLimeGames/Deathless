@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimState { IDLE = 0, WALK = 1 }
 
 /// <summary>
 /// Parent class for both inventory and world items.
@@ -30,14 +29,14 @@ public abstract class GameItem : MonoBehaviour {
         private set { displayName = value; }
     }
 
-    private Animator animator;
+    private AnimController animController;
 
-    protected Animator Animator {
+    public AnimController AnimController {
         get {
-            if (Instance.animator == null) {
-                Instance.animator = GetComponent<Animator>();
+            if (Instance.animController == null) {
+                Instance.animController = Instance.GetComponent<AnimController>();
             }
-            return animator;
+            return Instance.animController;
         }
     }
 

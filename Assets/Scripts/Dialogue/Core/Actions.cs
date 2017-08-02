@@ -96,6 +96,12 @@ namespace Dialogue {
             else { Debug.LogWarning("No WorldItem has been cached. Use SetItemVar to cache an item."); }
         }
 
+        public void PlayAnimation(AnimationClip clip) {
+            if (itemVar != null && itemVar.AnimController != null) {
+                itemVar.AnimController.PlayOneShot(clip);
+            }
+        }
+
         #endregion
     }
 }
