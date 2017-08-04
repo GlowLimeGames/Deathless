@@ -89,7 +89,7 @@ public class UIManager : Manager<UIManager> {
     }
 
     public static void SetHoverText(string s) {
-        instance.hoverText.text = s;
+        if (instance.hoverText != null) { instance.hoverText.text = s; }
     }
 
     public static void ClearHoverText() {
