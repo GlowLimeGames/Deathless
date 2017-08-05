@@ -18,6 +18,11 @@ public class UIManager : Manager<UIManager> {
     [SerializeField]
     private Sprite interactIcon;
 
+    [SerializeField]
+    private AnimController genericAnimPrefab;
+
+    public static AnimController GenericAnimPrefab { get { return instance.genericAnimPrefab; } }
+
     private static Sprite cursorIcon;
 
     /// <summary>

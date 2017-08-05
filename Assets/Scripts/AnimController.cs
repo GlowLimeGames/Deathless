@@ -17,6 +17,7 @@ public class AnimController : MonoBehaviour {
     private string current = IDLE;
     private Animator animator;
     private AnimatorOverrideController animOverride;
+    private bool temp = false;
 
     private SpriteRenderer spriteRenderer;
     private Sprite idleSprite;
@@ -26,6 +27,15 @@ public class AnimController : MonoBehaviour {
     private float startingZPos;
 
     void Start() {
+        if (animator == null) { Init(); }
+    }
+
+    public void InitTemp() {
+        temp = true;
+        Init();
+    }
+
+    void Init() {
         animator = GetComponent<Animator>();
         animOverride = animator.runtimeAnimatorController as AnimatorOverrideController;
 
@@ -37,7 +47,7 @@ public class AnimController : MonoBehaviour {
         aiPath = GetComponent<CustomAIPath>();
 
         idleSprite = spriteRenderer.sprite;
-        
+
         startingScale = transform.localScale;
         startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
     }
@@ -48,12 +58,19 @@ public class AnimController : MonoBehaviour {
             UpdateWalkDirection(aiPath.GetDirection());
         }
         else if (current == ONE_SHOT && !CurrentStateEquals(ONE_SHOT)) {
-            Idle();
+            if (temp) { Destroy(gameObject); }
+            else { Idle(); }
         }
     }
 
     private bool CurrentStateEquals(string tag) {
        return animator.GetCurrentAnimatorStateInfo(0).IsTag(tag);
+    }
+
+    public static void PlayAnimAt(AnimationClip anim, Vector3 pos) {
+        AnimController animController = Instantiate(UIManager.GenericAnimPrefab, pos, Quaternion.identity);
+        animController.InitTemp();
+        animController.PlayOneShot(anim);
     }
 
     public void PlayOneShot(AnimationClip anim) {

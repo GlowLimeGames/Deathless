@@ -6,11 +6,12 @@ namespace Dialogue {
     [System.Serializable]
     public class NodeCache : MonoBehaviour {
         #region Variable Caching
-
+        
         private int intIndex;
         private int stringIndex;
         private int boolIndex;
         protected GameItem itemVar;
+        protected Transform transformVar;
 
         protected int IntVar {
             get { return Globals.GetGlobal((GlobalInt)intIndex); }
@@ -29,6 +30,8 @@ namespace Dialogue {
 
         protected void ResetVars() {
             intIndex = stringIndex = boolIndex = -1;
+            itemVar = null;
+            transformVar = null;
         }
 
         [EnumAction(typeof(GlobalInt))]
@@ -48,6 +51,10 @@ namespace Dialogue {
 
         public void SetItemVar(GameItem item) {
             itemVar = item;
+        }
+
+        public void SetTransformVar(Transform t) {
+            transformVar = t;
         }
 
         #endregion

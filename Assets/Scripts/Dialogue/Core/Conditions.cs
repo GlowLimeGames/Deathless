@@ -58,6 +58,10 @@ namespace Dialogue {
 
         #region Conditions
 
+        public void RandomChance(float percent) {
+            isValid = percent <= Random.Range(0f, 1f);
+        }
+
         public void IntIsGreaterThan(int i) {
             isValid = IntVar > i;
         }
