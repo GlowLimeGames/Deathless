@@ -9,8 +9,38 @@ namespace Dialogue {
         [SerializeField]
         private UnityEvent actions;
 
+        private static List<Actions> queue = new List<Actions>();
+        private static Actions current {
+            get {
+                if (queue.Count > 0) { return queue[0]; }
+                else { return null; }
+            }
+        }
+        private int pendingActions = 0;
+
         public void Invoke() {
-            if (actions != null) { actions.Invoke(); }
+            if (actions != null) {
+                queue.Add(this);
+                if (current == this) { actions.Invoke(); }
+                else { Debug.Log("Please note that simultaneous Actions are not permitted. Actions will be queued and run in succession."); }
+            }
+            else { DialogueManager.Continue(); }
+        }
+
+        void Update() {
+            if (queue.Count > 0 && current.pendingActions == 0) {
+                current.CompleteActions();
+            }
+        }
+
+        private void CompleteActions() {
+            queue.Remove(this);
+            if (current != null) { current.actions.Invoke(); }
+            else { DialogueManager.Continue(); }
+        }
+
+        public static void CompletePendingAction() {
+            current.pendingActions--;
         }
 
         #region Actions
@@ -98,19 +128,33 @@ namespace Dialogue {
 
         public void PlayAnimationAtItem(AnimationClip clip) {
             if (itemVar != null && itemVar.AnimController != null) {
-                itemVar.AnimController.PlayOneShot(clip);
+                pendingActions++;
+                itemVar.AnimController.PlayOneShot(clip, true);
             }
         }
 
         public void PlayAnimationAtPosition(AnimationClip clip) {
             if (transformVar != null) {
-                Vector3 pos = transformVar.position;
-                
-                WorldItem item = transformVar.GetComponent<WorldItem>();
-                if (item != null) { pos = item.GetPosition(); }
-
-                AnimController.PlayAnimAt(clip, pos);
+                pendingActions++;
+                AnimController.PlayAnimAt(clip, GetPos(transformVar), true);
             }
+        }
+
+        public void MoveTo(Transform t) {
+            WorldItem item = itemVar as WorldItem;
+            if (item != null) {
+                pendingActions++;
+                item.MoveToPoint(GetPos(t), true);
+            }
+        }
+
+        private Vector3 GetPos(Transform t) {
+            Vector3 pos = t.position;
+
+            WorldItem item = t.GetComponent<WorldItem>();
+            if (item != null) { pos = item.GetPosition(); }
+
+            return pos;
         }
 
         #endregion

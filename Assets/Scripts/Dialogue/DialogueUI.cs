@@ -47,8 +47,8 @@ public class DialogueUI : Manager<DialogueUI> {
 
     void Update() {
         // Advance dialogue when mouse is clicked.
-        if (allowClick && Input.GetKeyUp(KeyCode.Mouse0)) {
-            DialogueManager.DisplayNext(currentNode);
+        if (UIManager.AllInputEnabled && allowClick && Input.GetKeyUp(KeyCode.Mouse0)) {
+            DialogueManager.Next(currentNode);
         }
 
         allowClick = (currentNode != null);
@@ -59,9 +59,8 @@ public class DialogueUI : Manager<DialogueUI> {
     /// </summary>
     public void Show(bool show) {
         gameObject.SetActive(show);
-        UIManager.WorldInputEnabled = !show;
         UIManager.ShowCustomCursor(!show);
-        UIManager.BlockInput(show);
+        UIManager.BlockWorldInput(show);
         UIManager.ShowHoverText(!show);
 
         if (!show) { Inventory.RevertSelection(); }
@@ -77,7 +76,7 @@ public class DialogueUI : Manager<DialogueUI> {
             lineView.SetActive(true);
         }
         else {
-            DialogueManager.DisplayNext(line);
+            DialogueManager.Next(line);
         }
     }
 

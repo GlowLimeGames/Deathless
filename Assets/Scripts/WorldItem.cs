@@ -17,6 +17,8 @@ public class WorldItem : GameItem {
 
     [SerializeField]
     private float minInteractionDistance = 1;
+
+    private bool dlgActionMovement = false;
     
     /// <summary>
     /// The sprite renderer attached to the gameObject.
@@ -88,14 +90,18 @@ public class WorldItem : GameItem {
     /// <summary>
     /// Initiate movement to a given point.
     /// </summary>
-    public virtual void MoveToPoint(Vector2 point) {
-        if (seeker == null) {
-            Debug.LogError("Tried to move " + gameObject.name + ", but it does not have pathfinding AI. " +
-                "(Must have Seeker and CustomAIPath components attached.)");
-        }
+    public virtual void MoveToPoint(Vector2 point, bool isDialogueAction = false) {
+        if (Instance != this) { ((WorldItem)Instance).MoveToPoint(point, isDialogueAction); }
         else {
-            if (AnimController != null) { AnimController.Walk(); }
-            seeker.StartPath(transform.position, point);
+            if (seeker == null) {
+                Debug.LogError("Tried to move " + gameObject.name + ", but it does not have pathfinding AI. " +
+                    "(Must have Seeker and CustomAIPath components attached.)");
+            }
+            else {
+                dlgActionMovement = isDialogueAction;
+                if (AnimController != null) { AnimController.Walk(); }
+                seeker.StartPath(transform.position, point);
+            }
         }
     }
 
@@ -103,6 +109,7 @@ public class WorldItem : GameItem {
     /// Called when the item successfully arrives at its target.
     /// </summary>
     public virtual void OnTargetReached(Transform target) {
+        if (dlgActionMovement) { global::Dialogue.Actions.CompletePendingAction(); }
         if (AnimController != null) { AnimController.Idle(); }
     }
 

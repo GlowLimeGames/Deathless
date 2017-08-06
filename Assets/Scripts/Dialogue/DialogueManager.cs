@@ -27,6 +27,7 @@ public class DialogueManager : Manager<DialogueManager> {
     }
     
     private static bool redirected;
+    private static Node currentNode;
 
     /// <summary>
     /// Begin the given dialogue tree.
@@ -47,7 +48,7 @@ public class DialogueManager : Manager<DialogueManager> {
     /// </summary>
 	private static void StartDialogue(DialogueTree dialogue) {
         UI.Show(true);
-        DisplayNext(dialogue.root);
+        Next(dialogue.root);
     }
 
     /// <summary>
@@ -65,11 +66,22 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Display the dialogue node(s) that come after the given one.
     /// </summary>
-    public static void DisplayNext(Node current) {
+    public static void Next(Node current) {
         if (current.Data.Actions != null) {
+            UIManager.BlockAllInput(true);
+            currentNode = current;
             current.Data.Actions.Invoke();
         }
+        else { DisplayNext(current); }
+    }
 
+    public static void Continue() {
+        UIManager.BlockAllInput(false);
+        DisplayNext(currentNode);
+        currentNode = null;
+    }
+
+    private static void DisplayNext(Node current) {
         if (!redirected) {
             UI.ClearDialogue();
             if (!isDialogueOver(current.Children)) {

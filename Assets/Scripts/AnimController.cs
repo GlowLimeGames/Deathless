@@ -18,6 +18,7 @@ public class AnimController : MonoBehaviour {
     private Animator animator;
     private AnimatorOverrideController animOverride;
     private bool temp = false;
+    private bool dlgAction = false;
 
     private SpriteRenderer spriteRenderer;
     private Sprite idleSprite;
@@ -42,6 +43,7 @@ public class AnimController : MonoBehaviour {
         if (animOverride == null) {
             animOverride = new AnimatorOverrideController(animator.runtimeAnimatorController);
         }
+        else { animOverride = new AnimatorOverrideController(animOverride); }
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         aiPath = GetComponent<CustomAIPath>();
@@ -58,6 +60,7 @@ public class AnimController : MonoBehaviour {
             UpdateWalkDirection(aiPath.GetDirection());
         }
         else if (current == ONE_SHOT && !CurrentStateEquals(ONE_SHOT)) {
+            if (dlgAction) { Dialogue.Actions.CompletePendingAction(); }
             if (temp) { Destroy(gameObject); }
             else { Idle(); }
         }
@@ -67,13 +70,14 @@ public class AnimController : MonoBehaviour {
        return animator.GetCurrentAnimatorStateInfo(0).IsTag(tag);
     }
 
-    public static void PlayAnimAt(AnimationClip anim, Vector3 pos) {
+    public static void PlayAnimAt(AnimationClip anim, Vector3 pos, bool isDialogueAction = false) {
         AnimController animController = Instantiate(UIManager.GenericAnimPrefab, pos, Quaternion.identity);
         animController.InitTemp();
-        animController.PlayOneShot(anim);
+        animController.PlayOneShot(anim, isDialogueAction);
     }
 
-    public void PlayOneShot(AnimationClip anim) {
+    public void PlayOneShot(AnimationClip anim, bool isDialogueAction = false) {
+        dlgAction = isDialogueAction;
         ReplaceClip(ONE_SHOT, anim);
         animator.SetTrigger(ONE_SHOT);
         current = ONE_SHOT;

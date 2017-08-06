@@ -25,28 +25,41 @@ public class UIManager : Manager<UIManager> {
 
     private static Sprite cursorIcon;
 
+    private bool worldInputEnabled;
+
     /// <summary>
     /// Whether world input (clicking items in the world such
     /// as characters, object, and the background) is enabled.
     /// </summary>
-    public static bool WorldInputEnabled { get; set; }
+    public static bool WorldInputEnabled {
+        get { return instance.worldInputEnabled && AllInputEnabled; }
+        private set { instance.worldInputEnabled = value; }
+    }
+
+    /// <summary>
+    /// Whether player input of any kind is enabled.
+    /// </summary>
+    public static bool AllInputEnabled { get; private set; }
 
     void Start() {
         SingletonInit();
 
+        AllInputEnabled = true;
         WorldInputEnabled = true;
         ClearHoverText();
         if (inventory != null) { inventory.Init(); }
     }
 
     void Update() {
-        // Handle generic input
-        if (inventory != null && Input.GetMouseButtonUp(1)) {
-            if (Inventory.SelectedItem == null && !DialogueUI.isShown) {
-                Inventory.Show(!Inventory.isShown);
-            }
-            else {
-                Inventory.ClearSelection();
+        if (AllInputEnabled) {
+            // Handle generic input
+            if (inventory != null && Input.GetMouseButtonUp(1)) {
+                if (Inventory.SelectedItem == null && !DialogueUI.isShown) {
+                    Inventory.Show(!Inventory.isShown);
+                }
+                else {
+                    Inventory.ClearSelection();
+                }
             }
         }
 
@@ -77,11 +90,15 @@ public class UIManager : Manager<UIManager> {
         else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
     }
 
-    public static void BlockInput(bool block) {
+    public static void BlockWorldInput(bool block) {
         if (!block && !Inventory.isShown && !DialogueUI.isShown) {
             WorldInputEnabled = (true);
         }
         else { WorldInputEnabled = (false); }
+    }
+
+    public static void BlockAllInput(bool block) {
+        AllInputEnabled = !block;
     }
 
     /// <summary>

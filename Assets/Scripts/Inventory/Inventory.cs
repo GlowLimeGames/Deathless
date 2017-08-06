@@ -73,7 +73,7 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
         UIManager.ClearHoverText();
         instance.gameObject.SetActive(visible);
         instance.pointerExitedCounter = -1;
-        UIManager.BlockInput(visible);
+        UIManager.BlockWorldInput(visible);
 
         if (isObserveIconSelected) {
             ClearSelection();

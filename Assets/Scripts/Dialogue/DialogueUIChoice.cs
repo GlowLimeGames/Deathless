@@ -46,6 +46,6 @@ public class DialogueUIChoice : MonoBehaviour {
     /// Should be called from the Button component on the gameObject.
     /// </summary>
     public void OnClick() {
-        DialogueManager.DisplayNext(node);
+        if (UIManager.AllInputEnabled) { DialogueManager.Next(node); }
     }
 }

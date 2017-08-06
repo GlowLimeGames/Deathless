@@ -59,8 +59,8 @@ public class Player : WorldItem {
     /// Moves the player to the given point, but only if player movement
     /// is currently enabled.
     /// </summary>
-    public override void MoveToPoint(Vector2 point) {
-        if (MovementEnabled) { base.MoveToPoint(point); }
+    public override void MoveToPoint(Vector2 point, bool isDialogueAction = false) {
+        if (MovementEnabled) { base.MoveToPoint(point, isDialogueAction); }
     }
 
     public override void OnTargetReached(Transform target) {
