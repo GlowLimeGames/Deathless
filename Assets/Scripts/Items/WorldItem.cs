@@ -180,10 +180,12 @@ public class WorldItem : GameItem {
     }
 
     public void ShowSpeechBubble(bool show) {
-        if (Instance != this) { ((WorldItem)Instance).ShowSpeechBubble(show); }
-        else if (speechBubble != null) {
-            speechBubble.SetActive(show);
+        if (Instance == this) {
+            if (speechBubble != null) {
+                speechBubble.SetActive(show);
+            }
+            else { Debug.LogWarning(gameObject.name + " is speaking but does not have a speech bubble."); }
         }
-        else { Debug.LogWarning(gameObject.name + " is speaking but does not have a speech bubble."); }
+        else if (Instance != null) { ((WorldItem)Instance).ShowSpeechBubble(show); }
     }
 }

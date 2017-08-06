@@ -13,6 +13,9 @@ public class UIManager : Manager<UIManager> {
     private Inventory inventory;
 
     [SerializeField]
+    private DialogueManager dialogueManager;
+
+    [SerializeField]
     private Text hoverText;
 
     [SerializeField]
@@ -58,13 +61,14 @@ public class UIManager : Manager<UIManager> {
         WorldInputEnabled = true;
         ClearHoverText();
         if (inventory != null) { inventory.Init(); }
+        if (dialogueManager != null) { dialogueManager.Init(); }
     }
 
     void Update() {
         if (AllInputEnabled) {
             // Handle generic input
             if (inventory != null && Input.GetMouseButtonUp(1)) {
-                if (Inventory.SelectedItem == null && !DialogueUI.isShown) {
+                if (Inventory.SelectedItem == null && !DialogueManager.isShown) {
                     Inventory.Show(!Inventory.isShown);
                 }
                 else {
@@ -107,7 +111,7 @@ public class UIManager : Manager<UIManager> {
     }
 
     public static void BlockWorldInput(bool block) {
-        if (!block && !Inventory.isShown && !DialogueUI.isShown) {
+        if (!block && !Inventory.isShown && !DialogueManager.isShown) {
             WorldInputEnabled = (true);
         }
         else { WorldInputEnabled = (false); }
