@@ -75,6 +75,7 @@ public class CustomAIPath : AIPath {
     /** Called when the AI has successfully reached its target. */
     public override void OnTargetReached() {
         GetComponent<WorldItem>().OnTargetReached(target);
+        StopImmediately();
     }
 
     public CardinalDirection GetDirection() {
@@ -94,5 +95,6 @@ public class CustomAIPath : AIPath {
 
     public void StopImmediately() {
         velocity2D = Vector2.zero;
+        canMove = false;
     }
 }

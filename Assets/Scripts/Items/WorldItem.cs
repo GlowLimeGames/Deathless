@@ -29,6 +29,7 @@ public class WorldItem : GameItem {
     /// The Seeker attached to the gameObject. Part of the A* Pathfinding Project plugin.
     /// </summary>
     private Seeker seeker;
+    private CustomAIPath aiPath;
 
     private Collider2D coll;
 
@@ -40,6 +41,7 @@ public class WorldItem : GameItem {
     /// </summary>
     void Start () {
         seeker = gameObject.GetComponent<Seeker>();
+        aiPath = gameObject.GetComponent<CustomAIPath>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         coll = gameObject.GetComponent<Collider2D>();
 
@@ -106,14 +108,27 @@ public class WorldItem : GameItem {
             else {
                 dlgActionMovement = isDialogueAction;
                 if (AnimController != null) { AnimController.Walk(); }
+                aiPath.canMove = true;
                 seeker.StartPath(transform.position, point);
             }
         }
     }
 
+    public void StopMovement() {
+        if (Instance != this) { ((WorldItem)Instance).StopMovement(); }
+        else if (aiPath != null) {
+            aiPath.StopImmediately();
+            if (AnimController != null) { AnimController.Idle(); }
+        }
+    }
+
     public void TeleportToPoint(Vector2 point) {
-        Instance.transform.position = point;
-        ((WorldItem)Instance).UpdateScale();
+        if (Instance != this) { ((WorldItem)Instance).TeleportToPoint(point); }
+        else {
+            StopMovement();
+            transform.position = point;
+            UpdateScale();
+        }
     }
 
     /// <summary>

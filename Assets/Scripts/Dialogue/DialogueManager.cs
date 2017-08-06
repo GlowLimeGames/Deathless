@@ -31,8 +31,8 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Begin the given dialogue tree.
     /// </summary>
-    public static void StartDialogue(SerializableTree dialogue) {
-        StartDialogue(LoadDialogue(dialogue));
+    public static bool StartDialogue(SerializableTree dialogue) {
+        return StartDialogue(LoadDialogue(dialogue));
     }
 
     public static void RedirectDialogue(SerializableTree dialogue) {
@@ -45,9 +45,9 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Begin the given dialogue tree.
     /// </summary>
-	private static void StartDialogue(DialogueTree dialogue) {
+	private static bool StartDialogue(DialogueTree dialogue) {
         UI.Show(true);
-        Next(dialogue.root);
+        return Next(dialogue.root);
     }
 
     /// <summary>
@@ -65,20 +65,21 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Display the dialogue node(s) that come after the given one.
     /// </summary>
-    public static void Next(Node current) {
+    public static bool Next(Node current) {
         if (current.Data.Actions != null) {
             UIManager.BlockAllInput(true);
             current.Data.Actions.Invoke(current);
+            return true;
         }
-        else { DisplayNext(current); }
+        else { return DisplayNext(current); }
     }
 
-    public static void Continue(Node current) {
+    public static bool Continue(Node current) {
         UIManager.BlockAllInput(false);
-        DisplayNext(current);
+        return DisplayNext(current);
     }
 
-    private static void DisplayNext(Node current) {
+    private static bool DisplayNext(Node current) {
         if (!redirected) {
             UI.ClearDialogue();
             if (!isDialogueOver(current.Children)) {
@@ -88,9 +89,14 @@ public class DialogueManager : Manager<DialogueManager> {
                 else {
                     DisplayNextChoice(current);
                 }
+                return true;
             }
+            else { return false; }
         }
-        else { redirected = false; }
+        else {
+            redirected = false;
+            return false;
+        }
     }
 
     /// <summary>
