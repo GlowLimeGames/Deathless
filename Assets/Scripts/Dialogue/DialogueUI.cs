@@ -71,11 +71,13 @@ public class DialogueUI : Manager<DialogueUI> {
     /// </summary>
     public void ShowLine(Dialogue.Node line) {
         if (line.Data.Text != "" && line.Data.Text != null) {
+            gameObject.SetActive(true);
             currentNode = line;
             lineText.text = line.Data.Text;
             lineView.SetActive(true);
         }
         else {
+            gameObject.SetActive(false);
             DialogueManager.Next(line);
         }
     }
@@ -84,6 +86,7 @@ public class DialogueUI : Manager<DialogueUI> {
     /// Show a set of choices.
     /// </summary>
     public void ShowChoices(List<Dialogue.Node> choices) {
+        gameObject.SetActive(true);
         foreach (Dialogue.Node choice in choices) {
             if (choice.Data.Text != "") {
                 DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
