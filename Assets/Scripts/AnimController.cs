@@ -23,9 +23,7 @@ public class AnimController : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private Sprite idleSprite;
     private CustomAIPath aiPath;
-    
-    private Vector3 startingScale;
-    private float startingZPos;
+    private WorldItem worldItem;
 
     void Start() {
         if (animator == null) { Init(); }
@@ -47,16 +45,14 @@ public class AnimController : MonoBehaviour {
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         aiPath = GetComponent<CustomAIPath>();
+        worldItem = GetComponent<WorldItem>();
 
         idleSprite = spriteRenderer.sprite;
-
-        startingScale = transform.localScale;
-        startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
     }
 
     void Update() {
         if (current == WALK && aiPath != null) {
-            UpdateScale();
+            worldItem.UpdateScale();
             UpdateWalkDirection(aiPath.GetDirection());
         }
         else if (current == ONE_SHOT && !CurrentStateEquals(ONE_SHOT)) {
@@ -131,23 +127,5 @@ public class AnimController : MonoBehaviour {
             scale.x *= -1;
             transform.localScale = scale;
         }
-    }
-
-    /// <summary>
-    /// Updates the scale of the object based on its z position.
-    /// </summary>
-    protected void UpdateScale() {
-        float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
-
-        float camZ = Camera.main.transform.position.z;
-        float zDist = Mathf.Abs(camZ - currentZ);
-        float startingZDist = Mathf.Abs(camZ - startingZPos);
-
-        float flipModifier = transform.localScale.x < 0 ? -1 : 1;
-
-        Vector3 scale = startingScale / (startingZDist / zDist);
-        scale.x *= flipModifier;
-
-        transform.localScale = scale;
     }
 }

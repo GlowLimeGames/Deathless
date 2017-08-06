@@ -148,6 +148,13 @@ namespace Dialogue {
             }
         }
 
+        public void TeleportTo(Transform t) {
+            WorldItem item = itemVar as WorldItem;
+            if (item != null) {
+                item.TeleportToPoint(GetPos(t));
+            }
+        }
+
         private Vector3 GetPos(Transform t) {
             Vector3 pos = t.position;
 

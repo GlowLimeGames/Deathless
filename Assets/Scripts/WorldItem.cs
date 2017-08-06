@@ -31,14 +31,20 @@ public class WorldItem : GameItem {
     private Seeker seeker;
 
     private Collider2D coll;
-    
+
+    private Vector3 startingScale;
+    private float startingZPos;
+
     /// <summary>
     /// Initializes fields.
     /// </summary>
-	void Start () {
+    void Start () {
         seeker = gameObject.GetComponent<Seeker>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         coll = gameObject.GetComponent<Collider2D>();
+
+        startingScale = transform.localScale;
+        startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
     }
     
     /// <summary>
@@ -105,6 +111,11 @@ public class WorldItem : GameItem {
         }
     }
 
+    public void TeleportToPoint(Vector2 point) {
+        Instance.transform.position = point;
+        ((WorldItem)Instance).UpdateScale();
+    }
+
     /// <summary>
     /// Called when the item successfully arrives at its target.
     /// </summary>
@@ -130,5 +141,23 @@ public class WorldItem : GameItem {
 
     public void Enable() {
         Instance.gameObject.SetActive(true);
+    }
+    
+    /// <summary>
+    /// Updates the scale of the object based on its z position.
+    /// </summary>
+    public void UpdateScale() {
+        float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
+
+        float camZ = Camera.main.transform.position.z;
+        float zDist = Mathf.Abs(camZ - currentZ);
+        float startingZDist = Mathf.Abs(camZ - startingZPos);
+
+        float flipModifier = transform.localScale.x < 0 ? -1 : 1;
+
+        Vector3 scale = startingScale / (startingZDist / zDist);
+        scale.x *= flipModifier;
+
+        transform.localScale = scale;
     }
 }
