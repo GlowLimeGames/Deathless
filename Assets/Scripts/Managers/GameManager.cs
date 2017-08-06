@@ -69,4 +69,8 @@ public class GameManager : Manager<GameManager> {
     public static string GetCurrentScene() {
         return SceneManager.GetActiveScene().name;
     }
+
+    public static void QuitGame() {
+        Application.Quit();
+    }
 }

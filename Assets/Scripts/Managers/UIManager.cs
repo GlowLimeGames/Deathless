@@ -77,7 +77,7 @@ public class UIManager : Manager<UIManager> {
             GameManager.LoadScene(mainMenuScene);
         }
 
-        if (blackout.gameObject.activeInHierarchy &&
+        if (blackout != null && blackout.gameObject.activeInHierarchy &&
             (System.DateTime.Now - fadeStart).TotalSeconds >= currentFadeTime) {
             blackout.gameObject.SetActive(false);
             if (dlgActionFade) { Dialogue.Actions.CompletePendingAction(); }
@@ -124,6 +124,10 @@ public class UIManager : Manager<UIManager> {
     /// <param name="scene"></param>
     public void LoadScene(string scene) {
         GameManager.LoadScene(scene);
+    }
+
+    public void QuitGame() {
+        GameManager.QuitGame();
     }
 
     public static void SetHoverText(string s) {
