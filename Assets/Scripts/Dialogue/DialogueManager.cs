@@ -106,8 +106,7 @@ public class DialogueManager : Manager<DialogueManager> {
     public static bool Next(Node current) {
         if (current.Data.Actions != null) {
             UIManager.BlockAllInput(true);
-            current.Data.Actions.Invoke(current);
-            return true;
+            return current.Data.Actions.Invoke(current);
         }
         else { return DisplayNext(current); }
     }
@@ -122,12 +121,11 @@ public class DialogueManager : Manager<DialogueManager> {
             instance.ClearDialogue();
             if (!isDialogueOver(current.Children)) {
                 if (current.Children[0].Data.Type == NodeType.LINE) {
-                    DisplayNextLine(current);
+                    return DisplayNextLine(current);
                 }
                 else {
-                    DisplayNextChoice(current);
+                    return DisplayNextChoice(current);
                 }
-                return true;
             }
             else { return false; }
         }
@@ -165,11 +163,13 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Display the first valid dialogue node that comes after the given one.
     /// </summary>
-    private static void DisplayNextLine(Node current) {
+    private static bool DisplayNextLine(Node current) {
         List<Node> lines = GetValidNodes(current.Children, false);
         if (!isDialogueOver(lines)) {
             instance.ShowLine(lines[0]);
+            return true;
         }
+        else { return false; }
     }
 
     /// <summary>
@@ -177,11 +177,13 @@ public class DialogueManager : Manager<DialogueManager> {
     /// selectable choices.
     /// </summary>
     /// <param name="current"></param>
-    private static void DisplayNextChoice(Node current) {
+    private static bool DisplayNextChoice(Node current) {
         List<Node> choices = GetValidNodes(current.Children, true);
         if (!isDialogueOver(choices)) {
             instance.ShowChoices(choices);
+            return true;
         }
+        else { return false; }
     }
     
     /// <summary>

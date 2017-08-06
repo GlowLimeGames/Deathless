@@ -20,14 +20,17 @@ namespace Dialogue {
 
         private Node currentNode;
 
-        public void Invoke(Node currentNode) {
-            if (actions != null) {
+        public bool Invoke(Node currentNode) {
+            if (actions != null && actions.GetPersistentEventCount() > 0) {
                 this.currentNode = currentNode;
                 queue.Add(this);
                 if (current == this) { actions.Invoke(); }
                 else { Debug.Log("Please note that simultaneous Actions are not permitted. Actions will be queued and run in succession."); }
+                return true;
             }
-            else { DialogueManager.Continue(currentNode); }
+            else {
+                return DialogueManager.Continue(currentNode);
+            }
         }
 
         void Update() {
