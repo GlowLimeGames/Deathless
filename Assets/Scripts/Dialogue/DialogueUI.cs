@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Dialogue;
 
 /// <summary>
 /// Handles how dialogue is displayed in-game.
 /// </summary>
 public class DialogueUI : Manager<DialogueUI> {
+    private const string SPEECH_BUBBLE_TAG = "Speech bubble";
+
     /// <summary>
     /// Whether a dialogue is currently active.
     /// </summary>
@@ -17,7 +20,9 @@ public class DialogueUI : Manager<DialogueUI> {
     /// <summary>
     /// The line of dialogue currently being shown.
     /// </summary>
-    private Dialogue.Node currentNode = null;
+    private Node currentNode = null;
+
+    private WorldItem currentSpeaker;
 
     /// <summary>
     /// Allow a click to move dialogue forward. Necessary to create a
@@ -69,12 +74,13 @@ public class DialogueUI : Manager<DialogueUI> {
     /// <summary>
     /// Show a single line of dialogue.
     /// </summary>
-    public void ShowLine(Dialogue.Node line) {
+    public void ShowLine(Node line) {
         if (line.Data.Text != "" && line.Data.Text != null) {
             gameObject.SetActive(true);
             currentNode = line;
             lineText.text = line.Data.Text;
             lineView.SetActive(true);
+            EnableSpeechBubble(line, false);
         }
         else {
             gameObject.SetActive(false);
@@ -85,9 +91,9 @@ public class DialogueUI : Manager<DialogueUI> {
     /// <summary>
     /// Show a set of choices.
     /// </summary>
-    public void ShowChoices(List<Dialogue.Node> choices) {
+    public void ShowChoices(List<Node> choices) {
         gameObject.SetActive(true);
-        foreach (Dialogue.Node choice in choices) {
+        foreach (Node choice in choices) {
             if (choice.Data.Text != "") {
                 DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
                 choiceUI.Init(choice);
@@ -95,6 +101,7 @@ public class DialogueUI : Manager<DialogueUI> {
             }
         }
         choiceView.SetActive(true);
+        EnableSpeechBubble(choices[0], true);
     }
 
     /// <summary>
@@ -108,5 +115,27 @@ public class DialogueUI : Manager<DialogueUI> {
         }
         choiceView.SetActive(false);
         lineView.SetActive(false);
+
+        if (currentSpeaker != null) {
+            currentSpeaker.ShowSpeechBubble(false);
+            currentSpeaker = null;
+        }
+    }
+    
+    private void EnableSpeechBubble(Node node, bool isChoice) {
+        if (node.Data.Speaker != null) {
+            currentSpeaker = node.Data.Speaker.GetComponent<WorldItem>();
+        }
+
+        if (currentSpeaker == null) {
+            if (!isChoice && DialogueManager.DlgInstance.Owner != null) {
+                currentSpeaker = DialogueManager.DlgInstance.Owner.GetComponent<WorldItem>();
+            }
+            else { currentSpeaker = GameManager.Player; }
+        }
+
+        if (currentSpeaker != null) {
+            currentSpeaker.ShowSpeechBubble(true);
+        }
     }
 }

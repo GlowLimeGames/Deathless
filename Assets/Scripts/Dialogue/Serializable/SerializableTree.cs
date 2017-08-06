@@ -12,6 +12,8 @@ namespace Dialogue {
         [SerializeField] [HideInInspector]
         private List<SerializableNode> links;
         
+        public GameObject Owner { get { return owner; } }
+        
         [NonSerialized]
         private Dictionary<Node, SerializableNode> tempNodes;
 

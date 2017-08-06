@@ -21,9 +21,9 @@ public class DialogueManager : Manager<DialogueManager> {
     }
 
     private SerializableTree dlgInstance;
-    private static SerializableTree DlgInstance {
+    public static SerializableTree DlgInstance {
         get { return instance.dlgInstance; }
-        set { instance.dlgInstance = value; }
+        private set { instance.dlgInstance = value; }
     }
     
     private static bool redirected;

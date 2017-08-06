@@ -18,6 +18,9 @@ public class WorldItem : GameItem {
     [SerializeField]
     private float minInteractionDistance = 1;
 
+    [SerializeField]
+    private GameObject speechBubble;
+
     private bool dlgActionMovement = false;
     
     /// <summary>
@@ -174,5 +177,13 @@ public class WorldItem : GameItem {
         scale.x *= flipModifier;
 
         transform.localScale = scale;
+    }
+
+    public void ShowSpeechBubble(bool show) {
+        if (Instance != this) { ((WorldItem)Instance).ShowSpeechBubble(show); }
+        else if (speechBubble != null) {
+            speechBubble.SetActive(show);
+        }
+        else { Debug.LogWarning(gameObject.name + " is speaking but does not have a speech bubble."); }
     }
 }
