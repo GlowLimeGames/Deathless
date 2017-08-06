@@ -27,7 +27,6 @@ public class DialogueManager : Manager<DialogueManager> {
     }
     
     private static bool redirected;
-    private static Node currentNode;
 
     /// <summary>
     /// Begin the given dialogue tree.
@@ -69,16 +68,14 @@ public class DialogueManager : Manager<DialogueManager> {
     public static void Next(Node current) {
         if (current.Data.Actions != null) {
             UIManager.BlockAllInput(true);
-            currentNode = current;
-            current.Data.Actions.Invoke();
+            current.Data.Actions.Invoke(current);
         }
         else { DisplayNext(current); }
     }
 
-    public static void Continue() {
+    public static void Continue(Node current) {
         UIManager.BlockAllInput(false);
-        DisplayNext(currentNode);
-        currentNode = null;
+        DisplayNext(current);
     }
 
     private static void DisplayNext(Node current) {

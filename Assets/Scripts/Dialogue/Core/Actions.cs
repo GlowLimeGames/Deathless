@@ -18,25 +18,28 @@ namespace Dialogue {
         }
         private int pendingActions = 0;
 
-        public void Invoke() {
+        private Node currentNode;
+
+        public void Invoke(Node currentNode) {
             if (actions != null) {
+                this.currentNode = currentNode;
                 queue.Add(this);
                 if (current == this) { actions.Invoke(); }
                 else { Debug.Log("Please note that simultaneous Actions are not permitted. Actions will be queued and run in succession."); }
             }
-            else { DialogueManager.Continue(); }
+            else { DialogueManager.Continue(currentNode); }
         }
 
         void Update() {
-            if (queue.Count > 0 && current.pendingActions == 0) {
-                current.CompleteActions();
+            if (queue.Count > 0 && current == this && pendingActions == 0) {
+                CompleteActions();
             }
         }
 
         private void CompleteActions() {
             queue.Remove(this);
             if (current != null) { current.actions.Invoke(); }
-            else { DialogueManager.Continue(); }
+            else { DialogueManager.Continue(currentNode); }
         }
 
         public static void CompletePendingAction() {
@@ -155,13 +158,14 @@ namespace Dialogue {
             }
         }
 
-        private Vector3 GetPos(Transform t) {
-            Vector3 pos = t.position;
+        public void FadeIn() {
+            pendingActions++;
+            UIManager.FadeIn(true);
+        }
 
-            WorldItem item = t.GetComponent<WorldItem>();
-            if (item != null) { pos = item.GetPosition(); }
-
-            return pos;
+        public void FadeOut() {
+            pendingActions++;
+            UIManager.FadeOut(true);
         }
 
         #endregion

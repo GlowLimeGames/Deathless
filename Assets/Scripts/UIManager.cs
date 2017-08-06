@@ -16,12 +16,22 @@ public class UIManager : Manager<UIManager> {
     private Text hoverText;
 
     [SerializeField]
+    private Image blackout;
+
+    [SerializeField]
     private Sprite interactIcon;
 
     [SerializeField]
     private AnimController genericAnimPrefab;
-
     public static AnimController GenericAnimPrefab { get { return instance.genericAnimPrefab; } }
+    
+    [SerializeField]
+    private float fadeTime = 2f;
+    public static float FadeTime { get { return instance.fadeTime; } }
+
+    private System.DateTime fadeStart;
+    private float currentFadeTime;
+    private bool dlgActionFade;
 
     private static Sprite cursorIcon;
 
@@ -65,6 +75,12 @@ public class UIManager : Manager<UIManager> {
 
         if (Input.GetKeyUp(KeyCode.Escape) && GameManager.GetCurrentScene() != mainMenuScene) {
             GameManager.LoadScene(mainMenuScene);
+        }
+
+        if (blackout.gameObject.activeInHierarchy &&
+            (System.DateTime.Now - fadeStart).TotalSeconds >= currentFadeTime) {
+            blackout.gameObject.SetActive(false);
+            if (dlgActionFade) { Dialogue.Actions.CompletePendingAction(); }
         }
     }
 
@@ -120,5 +136,34 @@ public class UIManager : Manager<UIManager> {
 
     public static void ShowHoverText(bool show) {
         instance.hoverText.gameObject.SetActive(show);
+    }
+    
+    public static void FadeOut(bool isDialogueAction) { FadeOut(FadeTime, isDialogueAction); }
+    public static void FadeOut(float duration = -1f, bool isDialogueAction = false) {
+        SetAlpha(instance.blackout, 0.01f);
+        Fade(255f, duration, isDialogueAction);
+    }
+
+    public static void FadeIn(bool isDialogueAction) { FadeIn(FadeTime, isDialogueAction); }
+    public static void FadeIn(float duration = -1f, bool isDialogueAction = false) {
+        SetAlpha(instance.blackout, 1f);
+        Fade(0f, duration, isDialogueAction);
+    }
+
+    private static void SetAlpha(Image image, float alpha) {
+        Color color = image.color;
+        color.a = alpha;
+        image.color = color;
+    }
+
+    private static void Fade(float targetAlpha, float duration, bool isDialogueAction = false) {
+        instance.dlgActionFade = isDialogueAction;
+
+        float d = (duration == -1f) ? FadeTime : duration;
+        instance.currentFadeTime = duration;
+        instance.fadeStart = System.DateTime.Now;
+
+        instance.blackout.gameObject.SetActive(true);
+        instance.blackout.CrossFadeAlpha(targetAlpha, d, false);
     }
 }

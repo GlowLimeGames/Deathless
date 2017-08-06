@@ -56,6 +56,15 @@ namespace Dialogue {
         public void SetTransformVar(Transform t) {
             transformVar = t;
         }
+        
+        protected Vector3 GetPos(Transform t) {
+            Vector3 pos = t.position;
+
+            WorldItem item = t.GetComponent<WorldItem>();
+            if (item != null) { pos = item.GetPosition(); }
+
+            return pos;
+        }
 
         #endregion
     }
