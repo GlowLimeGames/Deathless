@@ -48,9 +48,10 @@ public abstract class GameItem : MonoBehaviour {
     /// <summary>
     /// The instance of this GameItem in the current scene.
     /// </summary>
-    protected virtual GameItem Instance {
+    public virtual GameItem Instance {
         get {
-            if (instance == null) {
+            if (instance == null || instance.Equals(null)) {
+                instance = null;
                 GameItem[] items = Util.FindObjectsOfType<GameItem>(true);
                 foreach (GameItem item in items) {
                     if (item.Equals(this)) {
@@ -62,6 +63,8 @@ public abstract class GameItem : MonoBehaviour {
             return instance;
         }
     }
+
+    public bool hasInstance { get { return Instance != null; } }
 
     /// <summary>
     /// Backing field for Dialogue property.
@@ -89,8 +92,11 @@ public abstract class GameItem : MonoBehaviour {
     /// Items must be of the same runtime type to be considered equal.
     /// </summary>
     public override bool Equals(object other) {
-        return (other.GetType() == GetType() &&
+        if (other == null) { return base.Equals(other); }
+        else {
+            return (other.GetType() == GetType() &&
             ((GameItem)other).gameObject.name == gameObject.name);
+        }
     }
 
     /// <summary>

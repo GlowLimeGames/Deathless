@@ -101,6 +101,13 @@ namespace Dialogue {
             item.Enable();
         }
 
+        public void InstantiateItemAtPosition(Transform t) {
+            WorldItem item = itemVar as WorldItem;
+            if (item != null) {
+                Instantiate(item, GetPos(t), Quaternion.identity).gameObject.name = item.gameObject.name; ;
+            }
+        }
+
         public void ChangeItemName(string name) {
             if (itemVar != null) { itemVar.SetName(name); }
             else {
@@ -123,8 +130,7 @@ namespace Dialogue {
         public void ReplaceItemWith(WorldItem item) {
             if (itemVar != null) {
                 if (itemVar.GetType() == typeof(WorldItem)) {
-                    Vector3 pos = ((WorldItem)itemVar).GetPosition();
-                    Instantiate(item, pos, Quaternion.identity);
+                    Instantiate(item, GetPos(itemVar.transform), Quaternion.identity).gameObject.name = item.gameObject.name;
                     ((WorldItem)itemVar).RemoveFromWorld();
                 }
                 else { Debug.LogWarning("Cannot place an inventory item in the world."); }
@@ -169,6 +175,26 @@ namespace Dialogue {
         public void FadeOut() {
             pendingActions++;
             UIManager.FadeOut(true);
+        }
+
+        public void GhostFadeIn(WorldItem ghost) {
+            if (ghost.hasInstance) {
+                GhostFadeAnim anim = ghost.Instance.gameObject.GetComponent<GhostFadeAnim>();
+                if (anim != null) {
+                    pendingActions++;
+                    anim.StartFadeIn(true);
+                }
+            }
+        }
+
+        public void GhostFadeOut(WorldItem ghost) {
+            if (ghost.hasInstance) {
+                GhostFadeAnim anim = ghost.Instance.gameObject.GetComponent<GhostFadeAnim>();
+                if (anim != null) {
+                    pendingActions++;
+                    anim.StartFadeOut(true);
+                }
+            }
         }
 
         #endregion

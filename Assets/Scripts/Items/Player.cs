@@ -24,7 +24,7 @@ public class Player : WorldItem {
         get { return GameManager.Player; }
     }
 
-    protected override GameItem Instance {
+    public override GameItem Instance {
         get { return instance; }
     }
 

@@ -101,6 +101,10 @@ namespace Dialogue {
             isValid = GameItem.InteractionTarget != null && GameItem.InteractionTarget.Equals(item);
         }
 
+        public void ItemExistsInWorld(WorldItem item) {
+            isValid = item.hasInstance;
+        }
+
         #endregion
     }
 }
