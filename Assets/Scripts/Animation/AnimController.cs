@@ -85,9 +85,13 @@ public class AnimController : MonoBehaviour {
     }
 
     public void Idle() {
-        if (idleSprite != null) { spriteRenderer.sprite = idleSprite; }
         current = IDLE;
         animator.SetTrigger(IDLE);
+        if (idleSprite != null) {
+            spriteRenderer.sprite = idleSprite;
+            animator.StopPlayback();
+        }
+        else { animator.StartPlayback(); }
     }
 
     public void Walk() {
@@ -109,7 +113,7 @@ public class AnimController : MonoBehaviour {
         idleSprite = sprite;
         animOverride[IDLE] = anim;
         animator.runtimeAnimatorController = animOverride;
-        Idle();
+        if (current == IDLE) { Idle(); }
     }
 
     private void UpdateWalkDirection(CardinalDirection dir) {
