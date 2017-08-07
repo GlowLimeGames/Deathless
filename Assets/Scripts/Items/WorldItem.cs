@@ -143,11 +143,11 @@ public class WorldItem : GameItem {
     }
 
     /// <summary>
-    /// Set this object's sprite.
+    /// Set this object's sprite. Note that this only works for items without animators.
+    /// (Animated items must set the idle animation instead.)
     /// </summary>
     public override void ChangeSprite(Sprite sprite) {
-        if (AnimController != null) { AnimController.SetIdle(sprite); }
-        else if (((WorldItem)Instance).spriteRenderer != null) {
+        if (((WorldItem)Instance).spriteRenderer != null) {
             ((WorldItem)Instance).spriteRenderer.sprite = sprite;
         }
     }
@@ -155,10 +155,6 @@ public class WorldItem : GameItem {
     public void RemoveFromWorld() {
         Destroy(Instance.gameObject);
         World.UpdateNavGraph();
-    }
-
-    public void Enable() {
-        Instance.gameObject.SetActive(true);
     }
     
     /// <summary>

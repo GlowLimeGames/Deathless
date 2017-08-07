@@ -20,8 +20,6 @@ public class AnimController : MonoBehaviour {
     private bool temp = false;
     private bool dlgAction = false;
 
-    private SpriteRenderer spriteRenderer;
-    private Sprite idleSprite;
     private CustomAIPath aiPath;
     private WorldItem worldItem;
 
@@ -42,12 +40,9 @@ public class AnimController : MonoBehaviour {
             animOverride = new AnimatorOverrideController(animator.runtimeAnimatorController);
         }
         else { animOverride = new AnimatorOverrideController(animOverride); }
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        
         aiPath = GetComponent<CustomAIPath>();
         worldItem = GetComponent<WorldItem>();
-
-        idleSprite = spriteRenderer.sprite;
     }
 
     void Update() {
@@ -87,11 +82,6 @@ public class AnimController : MonoBehaviour {
     public void Idle() {
         current = IDLE;
         animator.SetTrigger(IDLE);
-        if (idleSprite != null) {
-            spriteRenderer.sprite = idleSprite;
-            animator.StopPlayback();
-        }
-        else { animator.StartPlayback(); }
     }
 
     public void Walk() {
@@ -101,17 +91,8 @@ public class AnimController : MonoBehaviour {
         }
     }
 
-    public void SetIdle(Sprite idle) {
-        SetIdle(null, idle);
-    }
-
     public void SetIdle(AnimationClip idle) {
-        SetIdle(idle, null);
-    }
-
-    private void SetIdle(AnimationClip anim, Sprite sprite) {
-        idleSprite = sprite;
-        animOverride[IDLE] = anim;
+        animOverride[IDLE] = idle;
         animator.runtimeAnimatorController = animOverride;
         if (current == IDLE) { Idle(); }
     }

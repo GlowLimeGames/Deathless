@@ -117,6 +117,10 @@ public abstract class GameItem : MonoBehaviour {
         UIManager.SetInteractionCursor(false);
     }
 
+    public void Enable() {
+        Instance.gameObject.SetActive(true);
+    }
+
     /// <summary>
     /// Trigger an interaction with this object.
     /// </summary>

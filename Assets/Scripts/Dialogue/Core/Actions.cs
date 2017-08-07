@@ -97,7 +97,7 @@ namespace Dialogue {
             item.RemoveFromWorld();
         }
 
-        public void EnableItem(WorldItem item) {
+        public void EnableItem(GameItem item) {
             item.Enable();
         }
 
@@ -117,10 +117,22 @@ namespace Dialogue {
         }
 
         public void ChangeItemSprite(Sprite sprite) {
-            if (itemVar!= null) { itemVar.ChangeSprite(sprite); }
+            if (itemVar!= null) {
+                itemVar.ChangeSprite(sprite);
+
+                if (itemVar.AnimController != null) {
+                    Debug.LogWarning("Changing sprites on animated items is not supported. Use ChangeItemIdle instead.");
+                }
+            }
             else {
                 Debug.LogWarning("Unable to set the sprite on this item. " +
                     "Note that you must cache an item (SetItemVar) before using this command.");
+            }
+        }
+
+        public void ChangeItemIdle(AnimationClip anim) {
+            if (itemVar != null && itemVar.AnimController != null) {
+                itemVar.AnimController.SetIdle(anim);
             }
         }
 
