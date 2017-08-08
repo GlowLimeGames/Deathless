@@ -65,5 +65,6 @@ public enum GlobalBool {
     S1_RUST_BURNT,
     S1_VAT_TOPPLED,
     S1_CAUSED_EXPLOSION,
-    S1_KILLED_GUARD
+    S1_KILLED_GUARD,
+    S1_KILLED_GHOST
 }

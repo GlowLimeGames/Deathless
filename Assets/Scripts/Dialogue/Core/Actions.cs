@@ -21,7 +21,7 @@ namespace Dialogue {
         private Node currentNode;
 
         public bool Invoke(Node currentNode) {
-            if (actions != null && actions.GetPersistentEventCount() > 0) {
+            if (actions != null && actions.GetPersistentEventCount() > 0 && !queue.Contains(this)) {
                 this.currentNode = currentNode;
                 queue.Add(this);
                 if (current == this) { actions.Invoke(); }
@@ -34,9 +34,13 @@ namespace Dialogue {
         }
 
         void Update() {
-            if (queue.Count > 0 && current == this && pendingActions == 0) {
+            if (current == this && pendingActions == 0) {
                 CompleteActions();
             }
+        }
+
+        private void OnDestroy() {
+            if (current == this) { CompleteActions(); }
         }
 
         private void CompleteActions() {
