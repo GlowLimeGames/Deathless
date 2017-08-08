@@ -89,17 +89,16 @@ namespace Dialogue {
         public Node Original { get; private set; }
         public override bool isLink { get { return true; } }
 
+        private Link(Node parent) : base(parent, null) { }
+
         private Link(Node parent, Node original) : base(parent, original.Data) {
             Original = original;
             Original.Links.Add(this);
         }
 
         public static Link Add(Node parent, Node original) {
-            if (original == null) {
-                Debug.LogError("Attempted to create a link to nothing.");
-                return null;
-            }
-            else { return new Link(parent, original); }
+            return (original == null) ?
+                new Link(parent) : new Link(parent, original);
         }
 
         public override void Replace(Node node) {
