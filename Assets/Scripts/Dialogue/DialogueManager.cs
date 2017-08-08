@@ -1,42 +1,80 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Dialogue;
 
 /// <summary>
 /// Manages dialogue trees in-game.
 /// </summary>
 public class DialogueManager : Manager<DialogueManager> {
-    /// <summary>
-    /// Backing field for UI.
-    /// </summary>
-    [SerializeField]
-    private DialogueUI ui;
-
-    /// <summary>
-    /// The DialogueUI object in the current scene.
-    /// </summary>
-    private static DialogueUI UI {
-        get { return instance.ui; }
-    }
+    private const string SPEECH_BUBBLE_TAG = "Speech bubble";
 
     private SerializableTree dlgInstance;
-    private static SerializableTree DlgInstance {
+    public static SerializableTree DlgInstance {
         get { return instance.dlgInstance; }
-        set { instance.dlgInstance = value; }
+        private set { instance.dlgInstance = value; }
     }
+
+    /// <summary>
+    /// Whether a dialogue is currently active.
+    /// </summary>
+    public static bool isShown {
+        get { return instance != null && instance.gameObject.activeInHierarchy; }
+    }
+
+    /// <summary>
+    /// The line of dialogue currently being shown.
+    /// </summary>
+    private Node currentNode = null;
+
+    private WorldItem currentSpeaker;
+
+    /// <summary>
+    /// Allow a click to move dialogue forward. Necessary to create a
+    /// single frame delay so clicks don't get registered in more than
+    /// one place.
+    /// </summary>
+    private bool allowClick = false;
+
+    /// <summary>
+    /// Various GameObjects that are part of the dialogue UI.
+    /// </summary>
+    [SerializeField]
+    #pragma warning disable 0649
+    private GameObject lineView, choiceView, choicePrefab;
+    #pragma warning restore 0649
+
+    /// <summary>
+    /// The text shown for a single line of dialogue.
+    /// </summary>
+    private Text lineText;
     
     private static bool redirected;
+
+    public void Init() {
+        SingletonInit();
+        lineText = lineView.GetComponentInChildren<Text>();
+    }
+
+    void Update() {
+        // Advance dialogue when mouse is clicked.
+        if (UIManager.AllInputEnabled && allowClick && Input.GetKeyUp(KeyCode.Mouse0)) {
+            DialogueManager.Next(currentNode);
+        }
+
+        allowClick = (currentNode != null);
+    }
 
     /// <summary>
     /// Begin the given dialogue tree.
     /// </summary>
-    public static void StartDialogue(SerializableTree dialogue) {
-        StartDialogue(LoadDialogue(dialogue));
+    public static bool StartDialogue(SerializableTree dialogue) {
+        return StartDialogue(LoadDialogue(dialogue));
     }
 
     public static void RedirectDialogue(SerializableTree dialogue) {
-        UI.ClearDialogue();
+        instance.ClearDialogue();
         if (DlgInstance != null) { DlgInstance.CleanupTempInstance(); }
         StartDialogue(dialogue);
         redirected = true;
@@ -45,9 +83,9 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Begin the given dialogue tree.
     /// </summary>
-	private static void StartDialogue(DialogueTree dialogue) {
-        UI.Show(true);
-        DisplayNext(dialogue.root);
+	private static bool StartDialogue(DialogueTree dialogue) {
+        instance.Show(true);
+        return Next(dialogue.root);
     }
 
     /// <summary>
@@ -65,23 +103,36 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Display the dialogue node(s) that come after the given one.
     /// </summary>
-    public static void DisplayNext(Node current) {
+    public static bool Next(Node current) {
         if (current.Data.Actions != null) {
-            current.Data.Actions.Invoke();
+            UIManager.BlockAllInput(true);
+            return current.Data.Actions.Invoke(current);
         }
+        else { return DisplayNext(current); }
+    }
 
+    public static bool Continue(Node current) {
+        UIManager.BlockAllInput(false);
+        return DisplayNext(current);
+    }
+
+    private static bool DisplayNext(Node current) {
         if (!redirected) {
-            UI.ClearDialogue();
+            instance.ClearDialogue();
             if (!isDialogueOver(current.Children)) {
                 if (current.Children[0].Data.Type == NodeType.LINE) {
-                    DisplayNextLine(current);
+                    return DisplayNextLine(current);
                 }
                 else {
-                    DisplayNextChoice(current);
+                    return DisplayNextChoice(current);
                 }
             }
+            else { return false; }
         }
-        else { redirected = false; }
+        else {
+            redirected = false;
+            return false;
+        }
     }
 
     /// <summary>
@@ -103,7 +154,7 @@ public class DialogueManager : Manager<DialogueManager> {
     }
 
     private static void EndDialogue () {
-        UI.Show(false);
+        instance.Show(false);
         if (DlgInstance != null) {
             DlgInstance.CleanupTempInstance();
         }
@@ -112,11 +163,13 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Display the first valid dialogue node that comes after the given one.
     /// </summary>
-    private static void DisplayNextLine(Node current) {
+    private static bool DisplayNextLine(Node current) {
         List<Node> lines = GetValidNodes(current.Children, false);
         if (!isDialogueOver(lines)) {
-            UI.ShowLine(lines[0]);
+            instance.ShowLine(lines[0]);
+            return true;
         }
+        else { return false; }
     }
 
     /// <summary>
@@ -124,11 +177,13 @@ public class DialogueManager : Manager<DialogueManager> {
     /// selectable choices.
     /// </summary>
     /// <param name="current"></param>
-    private static void DisplayNextChoice(Node current) {
+    private static bool DisplayNextChoice(Node current) {
         List<Node> choices = GetValidNodes(current.Children, true);
         if (!isDialogueOver(choices)) {
-            UI.ShowChoices(choices);
+            instance.ShowChoices(choices);
+            return true;
         }
+        else { return false; }
     }
     
     /// <summary>
@@ -143,5 +198,85 @@ public class DialogueManager : Manager<DialogueManager> {
             }
         }
         return validNodes;
+    }
+
+    /// <summary>
+    /// Show or hide the dialogue UI.
+    /// </summary>
+    public void Show(bool show) {
+        gameObject.SetActive(show);
+        UIManager.ShowCustomCursor(!show);
+        UIManager.BlockWorldInput(show);
+        UIManager.ShowHoverText(!show);
+
+        if (!show) { Inventory.RevertSelection(); }
+    }
+
+    /// <summary>
+    /// Show a single line of dialogue.
+    /// </summary>
+    public void ShowLine(Node line) {
+        if (line.Data.Text != "" && line.Data.Text != null) {
+            gameObject.SetActive(true);
+            currentNode = line;
+            lineText.text = line.Data.Text;
+            lineView.SetActive(true);
+            EnableSpeechBubble(line, false);
+        }
+        else {
+            gameObject.SetActive(false);
+            DialogueManager.Next(line);
+        }
+    }
+
+    /// <summary>
+    /// Show a set of choices.
+    /// </summary>
+    public void ShowChoices(List<Node> choices) {
+        gameObject.SetActive(true);
+        foreach (Node choice in choices) {
+            if (choice.Data.Text != "") {
+                DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
+                choiceUI.Init(choice);
+                choiceUI.transform.SetParent(choiceView.transform, false);
+            }
+        }
+        choiceView.SetActive(true);
+        EnableSpeechBubble(choices[0], true);
+    }
+
+    /// <summary>
+    /// Clear any dialogue lines or choices
+    /// currently shown.
+    /// </summary>
+    public void ClearDialogue() {
+        currentNode = null;
+        foreach (DialogueUIChoice choice in choiceView.GetComponentsInChildren<DialogueUIChoice>()) {
+            Destroy(choice.gameObject);
+        }
+        choiceView.SetActive(false);
+        lineView.SetActive(false);
+
+        if (currentSpeaker != null) {
+            currentSpeaker.ShowSpeechBubble(false);
+            currentSpeaker = null;
+        }
+    }
+
+    private void EnableSpeechBubble(Node node, bool isChoice) {
+        if (node.Data.Speaker != null) {
+            currentSpeaker = node.Data.Speaker.GetComponent<WorldItem>();
+        }
+
+        if (currentSpeaker == null) {
+            if (!isChoice && DlgInstance.Owner != null) {
+                currentSpeaker = DlgInstance.Owner.GetComponent<WorldItem>();
+            }
+            else { currentSpeaker = GameManager.Player; }
+        }
+
+        if (currentSpeaker != null) {
+            currentSpeaker.ShowSpeechBubble(true);
+        }
     }
 }

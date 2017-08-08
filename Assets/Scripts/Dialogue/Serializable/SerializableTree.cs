@@ -12,6 +12,8 @@ namespace Dialogue {
         [SerializeField] [HideInInspector]
         private List<SerializableNode> links;
         
+        public GameObject Owner { get { return owner; } }
+        
         [NonSerialized]
         private Dictionary<Node, SerializableNode> tempNodes;
 
@@ -20,10 +22,12 @@ namespace Dialogue {
 
         public void CleanupTempInstance() {
             if (prefab != null) {
-                DestroyImmediate(this.gameObject);
+                if (Application.isPlaying) { Destroy(this.gameObject); }
+                else { DestroyImmediate(this.gameObject); }
             }
             else if (instance != null && instance != this) {
-                DestroyImmediate(instance.gameObject);
+                if (Application.isPlaying) { Destroy(instance.gameObject); }
+                else { DestroyImmediate(instance.gameObject); }
             }
         }
 

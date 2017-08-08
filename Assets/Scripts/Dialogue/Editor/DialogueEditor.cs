@@ -171,6 +171,11 @@ public class DialogueEditor : EditorWindow {
             }
         }
         else {
+            menu.AddItem(new GUIContent("Move Up"), false, MoveUp, gui.node);
+            menu.AddItem(new GUIContent("Move Down"), false, MoveDown, gui.node);
+
+            menu.AddSeparator("");
+
             menu.AddItem(new GUIContent("Remove Link"), false, RemoveNode, gui);
         }
 
@@ -244,11 +249,11 @@ public class DialogueEditor : EditorWindow {
     }
 
     private void MoveUp(object obj) {
-        ((Node)obj).ChangePosition(-1);
+        ((BaseNode)obj).ChangePosition(-1);
     }
 
     private void MoveDown(object obj) {
-        ((Node)obj).ChangePosition(1);
+        ((BaseNode)obj).ChangePosition(1);
     }
 
     private void RemoveNode(object obj) {
@@ -280,6 +285,17 @@ public class DialogueEditor : EditorWindow {
 
         public void Remove(DialogueEditor editor) {
             node.Remove();
+
+            if (!node.isLink) {
+                foreach (Link link in ((Node)node).Links) {
+                    editor.GetNodeGUI(link).DestroyGUI(editor);
+                }
+            }
+
+            DestroyGUI(editor);
+        }
+
+        private void DestroyGUI(DialogueEditor editor) {
             editor.nodes.Remove(id);
             GUI.FocusControl("DummyControl");
             editor.Repaint();

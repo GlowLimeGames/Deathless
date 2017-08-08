@@ -9,8 +9,48 @@ namespace Dialogue {
         [SerializeField]
         private UnityEvent actions;
 
-        public void Invoke() {
-            if (actions != null) { actions.Invoke(); }
+        private static List<Actions> queue = new List<Actions>();
+        private static Actions current {
+            get {
+                if (queue.Count > 0) { return queue[0]; }
+                else { return null; }
+            }
+        }
+        private int pendingActions = 0;
+
+        private Node currentNode;
+
+        public bool Invoke(Node currentNode) {
+            if (actions != null && actions.GetPersistentEventCount() > 0 && !queue.Contains(this)) {
+                this.currentNode = currentNode;
+                queue.Add(this);
+                if (current == this) { actions.Invoke(); }
+                else { Debug.Log("Please note that simultaneous Actions are not permitted. Actions will be queued and run in succession."); }
+                return true;
+            }
+            else {
+                return DialogueManager.Continue(currentNode);
+            }
+        }
+
+        void Update() {
+            if (current == this && pendingActions == 0) {
+                CompleteActions();
+            }
+        }
+
+        private void OnDestroy() {
+            if (current == this) { CompleteActions(); }
+        }
+
+        private void CompleteActions() {
+            queue.Remove(this);
+            if (current != null) { current.actions.Invoke(); }
+            else { DialogueManager.Continue(currentNode); }
+        }
+
+        public static void CompletePendingAction() {
+            current.pendingActions--;
         }
 
         #region Actions
@@ -61,8 +101,15 @@ namespace Dialogue {
             item.RemoveFromWorld();
         }
 
-        public void EnableItem(WorldItem item) {
+        public void EnableItem(GameItem item) {
             item.Enable();
+        }
+
+        public void InstantiateItemAtPosition(Transform t) {
+            WorldItem item = itemVar as WorldItem;
+            if (item != null) {
+                Instantiate(item, GetPos(t), Quaternion.identity).gameObject.name = item.gameObject.name; ;
+            }
         }
 
         public void ChangeItemName(string name) {
@@ -74,10 +121,22 @@ namespace Dialogue {
         }
 
         public void ChangeItemSprite(Sprite sprite) {
-            if (itemVar!= null) { itemVar.ChangeSprite(sprite); }
+            if (itemVar!= null) {
+                itemVar.ChangeSprite(sprite);
+
+                if (itemVar.AnimController != null) {
+                    Debug.LogWarning("Changing sprites on animated items is not supported. Use ChangeItemIdle instead.");
+                }
+            }
             else {
                 Debug.LogWarning("Unable to set the sprite on this item. " +
                     "Note that you must cache an item (SetItemVar) before using this command.");
+            }
+        }
+
+        public void ChangeItemIdle(AnimationClip anim) {
+            if (itemVar != null && itemVar.AnimController != null) {
+                itemVar.AnimController.SetIdle(anim);
             }
         }
 
@@ -87,13 +146,71 @@ namespace Dialogue {
         public void ReplaceItemWith(WorldItem item) {
             if (itemVar != null) {
                 if (itemVar.GetType() == typeof(WorldItem)) {
-                    Vector3 pos = ((WorldItem)itemVar).GetPosition();
-                    Instantiate(item, pos, Quaternion.identity);
+                    Instantiate(item, GetPos(itemVar.transform), Quaternion.identity).gameObject.name = item.gameObject.name;
                     ((WorldItem)itemVar).RemoveFromWorld();
                 }
                 else { Debug.LogWarning("Cannot place an inventory item in the world."); }
             }
             else { Debug.LogWarning("No WorldItem has been cached. Use SetItemVar to cache an item."); }
+        }
+
+        public void PlayAnimationAtItem(AnimationClip clip) {
+            if (itemVar != null && itemVar.AnimController != null) {
+                pendingActions++;
+                itemVar.AnimController.PlayOneShot(clip, true);
+            }
+        }
+
+        public void PlayAnimationAtPosition(AnimationClip clip) {
+            if (transformVar != null) {
+                pendingActions++;
+                AnimController.PlayAnimAt(clip, GetPos(transformVar), true);
+            }
+        }
+
+        public void MoveTo(Transform t) {
+            WorldItem item = itemVar as WorldItem;
+            if (item != null) {
+                pendingActions++;
+                item.MoveToPoint(GetPos(t), true);
+            }
+        }
+
+        public void TeleportTo(Transform t) {
+            WorldItem item = itemVar as WorldItem;
+            if (item != null) {
+                item.TeleportToPoint(GetPos(t));
+            }
+        }
+
+        public void FadeIn() {
+            pendingActions++;
+            UIManager.FadeIn(true);
+        }
+
+        public void FadeOut() {
+            pendingActions++;
+            UIManager.FadeOut(true);
+        }
+
+        public void GhostFadeIn(WorldItem ghost) {
+            if (ghost.hasInstance) {
+                GhostFadeAnim anim = ghost.Instance.gameObject.GetComponent<GhostFadeAnim>();
+                if (anim != null) {
+                    pendingActions++;
+                    anim.StartFadeIn(true);
+                }
+            }
+        }
+
+        public void GhostFadeOut(WorldItem ghost) {
+            if (ghost.hasInstance) {
+                GhostFadeAnim anim = ghost.Instance.gameObject.GetComponent<GhostFadeAnim>();
+                if (anim != null) {
+                    pendingActions++;
+                    anim.StartFadeOut(true);
+                }
+            }
         }
 
         #endregion

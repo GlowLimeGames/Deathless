@@ -58,6 +58,10 @@ namespace Dialogue {
 
         #region Conditions
 
+        public void RandomChance(float percent) {
+            isValid = percent <= Random.Range(0f, 1f);
+        }
+
         public void IntIsGreaterThan(int i) {
             isValid = IntVar > i;
         }
@@ -95,6 +99,10 @@ namespace Dialogue {
 
         public void InteractionTarget(GameItem item) {
             isValid = GameItem.InteractionTarget != null && GameItem.InteractionTarget.Equals(item);
+        }
+
+        public void ItemExistsInWorld(WorldItem item) {
+            isValid = item.hasInstance;
         }
 
         #endregion
