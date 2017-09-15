@@ -74,6 +74,7 @@ public class DialogueEditor : EditorWindow {
                 nextID = 0;
             }
             NodeGUI.RenderNode(this, tree.root);
+            forceExpandNodes = null;
 
             NodeGUI gui = GetNodeAtPoint(Event.current.mousePosition);
             if (gui != null) {
@@ -110,9 +111,16 @@ public class DialogueEditor : EditorWindow {
 
                     dataInEditor = focused.node.Data;
                     NodeEditor.Link = focused.node.isLink;
+                    
+                    bool modifierHeld = (Application.platform == RuntimePlatform.OSXEditor) ? Event.current.command : Event.current.control;
 
                     if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Delete) {
                         focused.Remove(this);
+                        Event.current.Use();
+                    }
+                    else if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.E && modifierHeld) {
+                        focused.ExpandAll(!focused.expanded, this);
+                        Event.current.Use();
                     }
                     else if (focused.node.isLink && Event.current.clickCount == 2) {
                         SelectNode(focused.node.GetOriginal());
@@ -243,6 +251,25 @@ public class DialogueEditor : EditorWindow {
         }
     }
 
+    /// <summary>
+    /// Expands all children of the given node, recursively.
+    /// </summary>
+    private void RevealChildren(BaseNode node) {
+        if (forceExpandNodes == null) {
+            forceExpandNodes = new List<BaseNode>();
+            RevealChildren(node);
+            Repaint();
+        }
+        else {
+            forceExpandNodes.Add(node);
+            if (!node.isLink && ((Node)node).Children.Count > 0) {
+                foreach (BaseNode child in ((Node)node).Children) {
+                    RevealChildren(child);
+                }
+            }
+        }
+    }
+
     private void AddLine(object obj) {
         if (((Node)obj).Data == null) { Debug.LogWarning("Attempting to add a line to a node with no data."); }
         ((Node)obj).AddNode(NodeType.LINE);
@@ -279,12 +306,28 @@ public class DialogueEditor : EditorWindow {
     
     private class NodeGUI {
         public int id { get; private set; }
-        public bool expanded { get; set; }
+        public bool expanded { get; private set; }
         public BaseNode node { get; private set; }
         Rect rect;
 
         public NodeGUI(BaseNode node) {
             this.node = node;
+        }
+
+        /// <summary>
+        /// Expand or collapse this node and all its children, recursively.
+        /// </summary>
+        public void ExpandAll(bool expand, DialogueEditor editor) {
+            if (!node.isLink && ((Node)node).Children.Count > 0) {
+                if (expand) { editor.RevealChildren(node); }
+                else {
+                    expanded = expand;
+                    foreach (BaseNode child in ((Node)node).Children) {
+                        NodeGUI gui = editor.GetNodeGUI(child);
+                        if (gui != null) { gui.ExpandAll(expand, editor); }
+                    }
+                }
+            }
         }
 
         public void Remove(DialogueEditor editor) {
@@ -318,7 +361,6 @@ public class DialogueEditor : EditorWindow {
                     editor.nodes.Add(gui.id, gui);
                 }
                 gui.RenderNode(editor);
-                editor.forceExpandNodes = null;
             }
         }
 
@@ -328,10 +370,8 @@ public class DialogueEditor : EditorWindow {
             string text = node.Data.Text;
             if (text == "") { text = "<empty>"; }
 
-            if (editor.forceExpandNodes != null) {
-                if (editor.forceExpandNodes.Contains(node)) {
-                    expanded = true;
-                }
+            if (editor.forceExpandNodes != null && editor.forceExpandNodes.Contains(node)) {
+                expanded = true;
             }
 
             bool terminal = (node.isLink || ((Node)node).Children.Count == 0);
@@ -342,10 +382,9 @@ public class DialogueEditor : EditorWindow {
             GUIContent textContent = new GUIContent(text);
             GUIStyle style = terminal ? GetStyle(EditorStyles.label, isChoice, node.isLink) : GetStyle(EditorStyles.foldout, isChoice);
             rect = GUILayoutUtility.GetRect(textContent, style);
-
             style.fixedWidth = rect.width;
 
-            if (node.isLink || ((Node)node).Children.Count == 0) {
+            if (terminal) {
                 EditorGUI.SelectableLabel(rect, text, style);
                 EditorGUILayout.EndHorizontal();
             }
