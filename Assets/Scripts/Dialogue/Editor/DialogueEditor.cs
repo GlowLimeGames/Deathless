@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using Dialogue;
 using UnityEngine;
-//
+
 public class DialogueEditor : EditorWindow {
-    protected Vector2 scrollPos = Vector2.zero;
+    private const float INDENT_SIZE = 20;
+
+    private Vector2 scrollPos = Vector2.zero;
+    private int indentLevel;
 
     [SerializeField]
     private SerializableTree savedTree, lastSavedTree;
@@ -32,7 +35,8 @@ public class DialogueEditor : EditorWindow {
         scrollPos = GUILayout.BeginScrollView(scrollPos);
 
         EditorGUIUtility.hierarchyMode = true;
-        EditorGUI.indentLevel++;
+        indentLevel = 1;
+        
 
         GUI.SetNextControlName("DummyControl");
         GUI.Button(new Rect(0, 0, 0, 0), "", GUIStyle.none);
@@ -330,19 +334,30 @@ public class DialogueEditor : EditorWindow {
                 }
             }
 
+            bool terminal = (node.isLink || ((Node)node).Children.Count == 0);
+
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Space(editor.indentLevel * INDENT_SIZE);
+
+            GUIContent textContent = new GUIContent(text);
+            GUIStyle style = terminal ? GetStyle(EditorStyles.label, isChoice, node.isLink) : GetStyle(EditorStyles.foldout, isChoice);
+            rect = GUILayoutUtility.GetRect(textContent, style);
+
+            style.fixedWidth = rect.width;
+
             if (node.isLink || ((Node)node).Children.Count == 0) {
-                EditorGUILayout.SelectableLabel(text, GetStyle(EditorStyles.label, isChoice, node.isLink), GUILayout.Height(EditorGUIUtility.singleLineHeight));
-                rect = GUILayoutUtility.GetLastRect();
+                EditorGUI.SelectableLabel(rect, text, style);
+                EditorGUILayout.EndHorizontal();
             }
             else {
-                expanded = EditorGUILayout.Foldout(expanded, text, GetStyle(EditorStyles.foldout, isChoice));
-                rect = GUILayoutUtility.GetLastRect();
+                expanded = EditorGUI.Foldout(rect, expanded, textContent, style);
+                EditorGUILayout.EndHorizontal();
                 if (expanded) {
-                    EditorGUI.indentLevel++;
+                    editor.indentLevel++;
                     foreach (BaseNode child in ((Node)node).Children) {
                         RenderNode(editor, child);
                     }
-                    EditorGUI.indentLevel--;
+                    editor.indentLevel--;
                 }
             }
         }
@@ -364,7 +379,6 @@ public class DialogueEditor : EditorWindow {
 
             tex.SetPixels(pixels);
             tex.Apply();
-            
 
             style.normal.textColor = color;
             style.onNormal.textColor = color;
