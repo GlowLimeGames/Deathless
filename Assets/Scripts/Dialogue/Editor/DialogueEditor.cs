@@ -365,6 +365,12 @@ public class DialogueEditor : EditorWindow {
         }
 
         private void RenderNode(DialogueEditor editor) {
+            if (node.Data == null) {
+                Debug.Log("trying to render a node with null data. destroying...");
+                Remove(editor);
+                return;
+            }
+
             GUI.SetNextControlName(id.ToString());
             bool isChoice = (node.Data.Type == NodeType.CHOICE);
             string text = node.Data.Text;

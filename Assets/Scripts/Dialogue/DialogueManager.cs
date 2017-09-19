@@ -104,6 +104,9 @@ public class DialogueManager : Manager<DialogueManager> {
     /// Display the dialogue node(s) that come after the given one.
     /// </summary>
     public static bool Next(Node current) {
+        if (current.Data.Restriction == RepeatRestriction.SHOW_ONCE) {
+            current.Data.Restriction = RepeatRestriction.DONT_SHOW;
+        }
         if (current.Data.Actions != null) {
             UIManager.BlockAllInput(true);
             return current.Data.Actions.Invoke(current);
@@ -120,6 +123,9 @@ public class DialogueManager : Manager<DialogueManager> {
         if (!redirected) {
             instance.ClearDialogue();
             if (!isDialogueOver(current.Children)) {
+                if (current.Children == null) { Debug.Log("children is null"); }
+                else if (current.Children[0] == null) { Debug.Log("child 0 is null"); }
+                else if (current.Children[0].Data == null) { Debug.Log("child 0 data is null"); }
                 if (current.Children[0].Data.Type == NodeType.LINE) {
                     return DisplayNextLine(current);
                 }
@@ -193,7 +199,7 @@ public class DialogueManager : Manager<DialogueManager> {
     private static List<Node> GetValidNodes(List<BaseNode> nodes, bool getMultiple = true) {
         List<Node> validNodes = new List<Node>();
         for (int i = 0; i < nodes.Count && (getMultiple || validNodes.Count < 1); i++) {
-            if (nodes[i].Data.Conditions == null || nodes[i].Data.Conditions.isValid) {
+            if (nodes[i].Data.Restriction != RepeatRestriction.DONT_SHOW && (nodes[i].Data.Conditions == null || nodes[i].Data.Conditions.isValid)) {
                 validNodes.Add(nodes[i].GetOriginal());
             }
         }

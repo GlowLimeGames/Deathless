@@ -169,7 +169,7 @@ namespace Dialogue {
                 while (Children.Count > 0) {
                     Children[0].Remove();
                 }
-                GameObject.DestroyImmediate(Data.gameObject);
+                if (Data != null) { GameObject.DestroyImmediate(Data.gameObject); }
             }
         }
 
