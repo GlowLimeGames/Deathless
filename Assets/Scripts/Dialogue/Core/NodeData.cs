@@ -9,10 +9,17 @@ namespace Dialogue {
     public enum NodeType { LINE, CHOICE }
 
     [Serializable]
-    public enum RepeatRestriction { NONE, SHOW_ONCE, DONT_SHOW }
+    public enum RepeatRestriction { NONE, ONCE_PER_GAME, ONCE_PER_CONVO, DONT_SHOW }
 
     [Serializable]
     public class NodeData : MonoBehaviour {
+        [SerializeField]
+        private int id;
+        public int ID {
+            get { return id; }
+            set { id = value; }
+        }
+
         [SerializeField]
         private NodeType type;
         public NodeType Type {

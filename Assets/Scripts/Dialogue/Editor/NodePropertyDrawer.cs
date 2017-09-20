@@ -37,10 +37,8 @@ namespace Dialogue {
             SerializedProperty speaker = dataObject.FindProperty("speaker");
             EditorGUILayout.PropertyField(speaker);
 
-            showOnce = (data.Restriction != RepeatRestriction.NONE);
-            showOnce = EditorGUILayout.Toggle("Show only once", showOnce);
-            if (!showOnce) { data.Restriction = RepeatRestriction.NONE; }
-            else if (data.Restriction == 0) { data.Restriction = RepeatRestriction.SHOW_ONCE; }
+            SerializedProperty restriction = dataObject.FindProperty("restriction");
+            EditorGUILayout.PropertyField(restriction);
 
             EditorGUI.EndDisabledGroup();
         }

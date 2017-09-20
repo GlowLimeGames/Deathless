@@ -51,6 +51,7 @@ public class DialogueManager : Manager<DialogueManager> {
     private Text lineText;
     
     private static bool redirected;
+    private static List<int> dontRepeat = new List<int>();
 
     public void Init() {
         SingletonInit();
@@ -104,7 +105,10 @@ public class DialogueManager : Manager<DialogueManager> {
     /// Display the dialogue node(s) that come after the given one.
     /// </summary>
     public static bool Next(Node current) {
-        if (current.Data.Restriction == RepeatRestriction.SHOW_ONCE) {
+        if (current.Data.Restriction != RepeatRestriction.NONE) {
+            if (current.Data.Restriction == RepeatRestriction.ONCE_PER_GAME) {
+                dontRepeat.Add(current.Data.ID);
+            }
             current.Data.Restriction = RepeatRestriction.DONT_SHOW;
         }
         if (current.Data.Actions != null) {
@@ -199,11 +203,26 @@ public class DialogueManager : Manager<DialogueManager> {
     private static List<Node> GetValidNodes(List<BaseNode> nodes, bool getMultiple = true) {
         List<Node> validNodes = new List<Node>();
         for (int i = 0; i < nodes.Count && (getMultiple || validNodes.Count < 1); i++) {
-            if (nodes[i].Data.Restriction != RepeatRestriction.DONT_SHOW && (nodes[i].Data.Conditions == null || nodes[i].Data.Conditions.isValid)) {
+            if (isValidNode(nodes[i])) {
                 validNodes.Add(nodes[i].GetOriginal());
             }
         }
         return validNodes;
+    }
+
+    private static bool isValidNode(BaseNode node) {
+        bool valid = false;
+
+        if (node.Data.Restriction != RepeatRestriction.DONT_SHOW) {
+            if (node.Data.Restriction == RepeatRestriction.ONCE_PER_GAME && dontRepeat.Contains(node.Data.ID)) {
+                node.Data.Restriction = RepeatRestriction.DONT_SHOW;
+            }
+            else if (node.Data.Conditions == null || node.Data.Conditions.isValid) {
+                valid = true;
+            }
+        }
+
+        return valid;
     }
 
     /// <summary>

@@ -52,6 +52,8 @@ public class DialogueEditor : EditorWindow {
             if (GUILayout.Button("Save") && tree != null) {
                 savedTree = savedTree.ExportInstance(tree);
                 EditorUtility.SetDirty(savedTree);
+
+                CalculateNodeIDs();
                 
                 Debug.Log("Saved tree");
             }
@@ -153,6 +155,15 @@ public class DialogueEditor : EditorWindow {
             }
 
             dirty = false;
+        }
+    }
+
+    private static void CalculateNodeIDs() {
+        int i = 0;
+
+        foreach (NodeData data in Resources.FindObjectsOfTypeAll<NodeData>()) {
+            data.ID = i;
+            i++;
         }
     }
 
