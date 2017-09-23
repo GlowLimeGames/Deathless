@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="120">
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="125">
 	<RootPaths>
-		<ProjectRoot>/Users/joemarchuk/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/y:/Documents/Projects/Deathless/DeathlessGit/Deathless/Deathless_WwiseProject/</ProjectRoot>
-		<SourceFilesRoot>/Users/joemarchuk/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/y:/Documents/Projects/Deathless/DeathlessGit/Deathless/Deathless_WwiseProject/.cache/Mac/</SourceFilesRoot>
-		<SoundBanksRoot>/Users/joemarchuk/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/y:/Documents/Projects/Deathless/DeathlessGit/Deathless/Deathless_WwiseProject/GeneratedSoundBanks/Mac/</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Sienna\Documents\Unity Projects\Deathless\Deathless_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Sienna\Documents\Unity Projects\Deathless\Deathless_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Sienna\Documents\Unity Projects\Deathless\Deathless_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>/Users/joemarchuk/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/y:/Documents/Projects/Deathless/DeathlessGit/Deathless/Deathless_WwiseProject/GeneratedSoundBanks/Mac/</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Sienna\Documents\Unity Projects\Deathless\Deathless_WwiseProject\GeneratedSoundBanks\Mac\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -26,75 +26,75 @@
 			<IncludedMemoryFiles>
 				<File Id="16376898" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc4.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc4_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc4_53CEE377.wem</Path>
 				</File>
 				<File Id="125640084" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc6.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc6_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc6_53CEE377.wem</Path>
 				</File>
 				<File Id="243948225" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc9.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc9_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc9_53CEE377.wem</Path>
 				</File>
 				<File Id="350845668" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc15.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc15_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc15_53CEE377.wem</Path>
 				</File>
 				<File Id="371204263" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc5.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc5_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc5_53CEE377.wem</Path>
 				</File>
 				<File Id="403716558" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc16.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc16_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc16_53CEE377.wem</Path>
 				</File>
 				<File Id="422841133" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc7.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc7_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc7_53CEE377.wem</Path>
 				</File>
 				<File Id="466885208" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc1.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc1_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc1_53CEE377.wem</Path>
 				</File>
 				<File Id="469143939" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc14.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc14_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc14_53CEE377.wem</Path>
 				</File>
 				<File Id="510667868" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc2.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc2_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc2_53CEE377.wem</Path>
 				</File>
 				<File Id="547446139" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc12.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc12_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc12_53CEE377.wem</Path>
 				</File>
 				<File Id="602497015" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc3.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc3_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc3_53CEE377.wem</Path>
 				</File>
 				<File Id="602530997" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc17.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc17_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc17_53CEE377.wem</Path>
 				</File>
 				<File Id="640558775" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc11.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc11_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc11_53CEE377.wem</Path>
 				</File>
 				<File Id="864240981" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc13.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc13_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc13_53CEE377.wem</Path>
 				</File>
 				<File Id="914929029" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc8.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc8_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc8_53CEE377.wem</Path>
 				</File>
 				<File Id="969258234" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incinerator.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incinerator_4B8CC0C5.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incinerator_9452F465.wem</Path>
 				</File>
 				<File Id="1059972408" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc10.wav</ShortName>
-					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc10_9E69E797.wem</Path>
+					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc10_53CEE377.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

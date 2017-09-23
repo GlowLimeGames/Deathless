@@ -9,7 +9,17 @@ namespace Dialogue {
     public enum NodeType { LINE, CHOICE }
 
     [Serializable]
+    public enum RepeatRestriction { NONE, ONCE_PER_GAME, ONCE_PER_CONVO, DONT_SHOW }
+
+    [Serializable]
     public class NodeData : MonoBehaviour {
+        [SerializeField]
+        private int id;
+        public int ID {
+            get { return id; }
+            set { id = value; }
+        }
+
         [SerializeField]
         private NodeType type;
         public NodeType Type {
@@ -28,6 +38,13 @@ namespace Dialogue {
         public string Text {
             get { return text; }
             set { text = value; }
+        }
+
+        [SerializeField]
+        private RepeatRestriction restriction;
+        public RepeatRestriction Restriction {
+            get { return restriction; }
+            set { restriction = value; }
         }
 
         [SerializeField]
@@ -59,7 +76,6 @@ namespace Dialogue {
 
             gameObject.transform.SetParent(parentObject);
             gameObject.name = "dialogue_nodedata";
-            //gameObject.hideFlags = HideFlags.HideInHierarchy;
         } 
     }
 }
