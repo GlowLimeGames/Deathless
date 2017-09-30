@@ -44,8 +44,8 @@ namespace Dialogue {
         }
 
         protected BaseNode(Node parent, NodeData data) : this(parent) {
-            data.Validate();
             Data = data;
+            if (Data != null) { Data.Validate(); }
         }
 
         public Node GetOriginal() {
