@@ -96,5 +96,11 @@ namespace Dialogue {
             gameObject.transform.SetParent(parentObject);
             gameObject.name = "dialogue_nodedata";
         }
+
+        public bool Validate() {
+            bool valid = (Actions != null && Conditions != null);
+            if (!valid) { Debug.LogWarning("NodeData validation failed: " + Text); }
+            return valid;
+        } 
     }
 }
