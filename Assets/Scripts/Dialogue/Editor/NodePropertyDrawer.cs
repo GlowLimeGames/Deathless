@@ -9,6 +9,7 @@ namespace Dialogue {
         public static bool Link { get; set; }
         private SerializedObject dataObject;
         private NodeData lastTarget;
+        private bool showOnce;
 
         public override void OnInspectorGUI() {
             NodeData data = (NodeData)target;
@@ -27,8 +28,17 @@ namespace Dialogue {
             style = new GUIStyle(EditorStyles.textArea);
             style.wordWrap = true;
             data.Text = EditorGUILayout.TextArea(data.Text, style);
-            
-            EditorGUILayout.PropertyField(dataObject.FindProperty("action"));
+
+            EditorGUILayout.LabelField("Notes", EditorStyles.boldLabel);
+            style = new GUIStyle(EditorStyles.textArea);
+            style.wordWrap = true;
+            data.Notes = EditorGUILayout.TextArea(data.Notes, style);
+
+            SerializedProperty speaker = dataObject.FindProperty("speaker");
+            EditorGUILayout.PropertyField(speaker);
+
+            SerializedProperty restriction = dataObject.FindProperty("restriction");
+            EditorGUILayout.PropertyField(restriction);
 
             EditorGUI.EndDisabledGroup();
         }

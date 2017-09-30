@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEditor;
 using Dialogue;
 using UnityEngine;
-//
+
 public class DialogueEditor : EditorWindow {
-    protected Vector2 scrollPos = Vector2.zero;
+    private const float INDENT_SIZE = 20;
+
+    private Vector2 scrollPos = Vector2.zero;
+    private int indentLevel;
 
     [SerializeField]
     private SerializableTree savedTree, lastSavedTree;
     private DialogueTree tree;
-    private Dictionary<int, NodeGUI> nodes { get; set; }
+    private Dictionary<int, NodeGUI> nodes;
     private int nextID;
     private bool contextMenuShown;
-    private Node copiedLink;
+    private Node copiedNode;
+    private bool dirty = false;
 
     private List<BaseNode> forceExpandNodes;
     private BaseNode nodeToSelect;
@@ -28,43 +32,55 @@ public class DialogueEditor : EditorWindow {
 
     void OnGUI() {
         GUILayout.BeginVertical();
-        scrollPos = GUILayout.BeginScrollView(scrollPos);
 
         EditorGUIUtility.hierarchyMode = true;
-        EditorGUI.indentLevel++;
+        indentLevel = 1;
+        
 
         GUI.SetNextControlName("DummyControl");
         GUI.Button(new Rect(0, 0, 0, 0), "", GUIStyle.none);
 
         savedTree = (SerializableTree)EditorGUILayout.ObjectField("Dialogue Tree", savedTree, typeof(SerializableTree), true);
 
+        GUILayout.BeginHorizontal();
+
         if (savedTree == null || (lastSavedTree != null && savedTree != lastSavedTree)) {
+            Cleanup();
             tree = null;
             nodes = null;
         }
         if (savedTree != null) {
             if (GUILayout.Button("Save") && tree != null) {
-                savedTree.ExportTree(tree);
+                savedTree = savedTree.ExportInstance(tree);
                 EditorUtility.SetDirty(savedTree);
+
+                CalculateNodeIDs();
+                
                 Debug.Log("Saved tree");
             }
 
             if (GUILayout.Button("Load")) {
+                Cleanup();
                 lastSavedTree = savedTree;
-                tree = savedTree.ImportTree();
+                tree = savedTree.InstantiateTree().ImportTree();
                 if (tree == null) {
-                    tree = DialogueTester.CreateTestTree();
+                    tree = DialogueTester.CreateTestTree(savedTree.gameObject.transform);
                     Debug.Log("Created new tree");
                 }
             }
         }
 
+        GUILayout.EndHorizontal();
+        scrollPos = GUILayout.BeginScrollView(scrollPos);
+
         if (savedTree != null && tree != null) {
+            dirty = true;
             if (nodes == null) {
                 nodes = new Dictionary<int, NodeGUI>();
                 nextID = 0;
             }
             NodeGUI.RenderNode(this, tree.root);
+            forceExpandNodes = null;
 
             NodeGUI gui = GetNodeAtPoint(Event.current.mousePosition);
             if (gui != null) {
@@ -97,13 +113,20 @@ public class DialogueEditor : EditorWindow {
                     }
                 }
                 else if (focused != null && focused.node != null) {
+                    if (focused.node.Data == null) { Debug.LogWarning("DATA IS NULL"); }
+
                     dataInEditor = focused.node.Data;
                     NodeEditor.Link = focused.node.isLink;
-                    if (focused.node.Data == null) { Debug.Log("Data is null... :("); }
                     
+                    bool modifierHeld = (Application.platform == RuntimePlatform.OSXEditor) ? Event.current.command : Event.current.control;
+
                     if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Delete) {
-                        focused.node.Remove();
-                        Repaint();
+                        focused.Remove(this);
+                        Event.current.Use();
+                    }
+                    else if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.E && modifierHeld) {
+                        focused.ExpandAll(!focused.expanded, this);
+                        Event.current.Use();
                     }
                     else if (focused.node.isLink && Event.current.clickCount == 2) {
                         SelectNode(focused.node.GetOriginal());
@@ -123,6 +146,31 @@ public class DialogueEditor : EditorWindow {
         GUILayout.EndVertical();
     }
 
+    private void Cleanup() {
+        if (dirty == true) {
+            foreach (SerializableTree tree in FindObjectsOfType<SerializableTree>()) {
+                tree.CleanupTempInstance();
+            }
+
+            foreach (NodeData data in FindObjectsOfType<NodeData>()) {
+                if (data.transform.parent == null) {
+                    DestroyImmediate(data.gameObject);
+                }
+            }
+
+            dirty = false;
+        }
+    }
+
+    private static void CalculateNodeIDs() {
+        int i = 0;
+
+        foreach (NodeData data in Resources.FindObjectsOfTypeAll<NodeData>()) {
+            data.ID = i;
+            i++;
+        }
+    }
+
     private void GenerateContextMenu(NodeGUI gui) {
         contextMenuShown = true;
         GenericMenu menu = new GenericMenu();
@@ -133,8 +181,14 @@ public class DialogueEditor : EditorWindow {
 
             menu.AddSeparator("");
 
-            menu.AddItem(new GUIContent("Copy Link"), false, CopyLink, gui.node);
-            if (copiedLink != null) {
+            menu.AddItem(new GUIContent("Move Up"), false, MoveUp, gui.node);
+            menu.AddItem(new GUIContent("Move Down"), false, MoveDown, gui.node);
+
+            menu.AddSeparator("");
+
+            menu.AddItem(new GUIContent("Copy"), false, CopyNode, gui.node);
+            if (copiedNode != null) {
+                menu.AddItem(new GUIContent("Move Here"), false, MoveNode, gui.node);
                 menu.AddItem(new GUIContent("Paste Link"), false, PasteLink, gui.node);
             }
 
@@ -144,6 +198,11 @@ public class DialogueEditor : EditorWindow {
             }
         }
         else {
+            menu.AddItem(new GUIContent("Move Up"), false, MoveUp, gui.node);
+            menu.AddItem(new GUIContent("Move Down"), false, MoveDown, gui.node);
+
+            menu.AddSeparator("");
+
             menu.AddItem(new GUIContent("Remove Link"), false, RemoveNode, gui);
         }
 
@@ -207,7 +266,27 @@ public class DialogueEditor : EditorWindow {
         }
     }
 
+    /// <summary>
+    /// Expands all children of the given node, recursively.
+    /// </summary>
+    private void RevealChildren(BaseNode node) {
+        if (forceExpandNodes == null) {
+            forceExpandNodes = new List<BaseNode>();
+            RevealChildren(node);
+            Repaint();
+        }
+        else {
+            forceExpandNodes.Add(node);
+            if (!node.isLink && ((Node)node).Children.Count > 0) {
+                foreach (BaseNode child in ((Node)node).Children) {
+                    RevealChildren(child);
+                }
+            }
+        }
+    }
+
     private void AddLine(object obj) {
+        if (((Node)obj).Data == null) { Debug.LogWarning("Attempting to add a line to a node with no data."); }
         ((Node)obj).AddNode(NodeType.LINE);
     }
 
@@ -215,24 +294,34 @@ public class DialogueEditor : EditorWindow {
         ((Node)obj).AddNode(NodeType.CHOICE);
     }
 
-    private void RemoveNode(object obj) {
-        NodeGUI gui = (NodeGUI)obj;
-        nodes.Remove(gui.id);
-        gui.node.Remove();
-        GUI.FocusControl("DummyControl");
+    private void MoveUp(object obj) {
+        ((BaseNode)obj).ChangePosition(-1);
     }
 
-    private void CopyLink(object obj) {
-        copiedLink = (Node)obj;
+    private void MoveDown(object obj) {
+        ((BaseNode)obj).ChangePosition(1);
+    }
+
+    private void RemoveNode(object obj) {
+        NodeGUI gui = (NodeGUI)obj;
+        gui.Remove(this);
+    }
+
+    private void CopyNode(object obj) {
+        copiedNode = (Node)obj;
+    }
+
+    private void MoveNode(object obj) {
+        copiedNode.Move((Node)obj);
     }
 
     private void PasteLink(object obj) {
-        ((Node)obj).AddLink(copiedLink);
+        ((Node)obj).AddLink(copiedNode);
     }
     
     private class NodeGUI {
         public int id { get; private set; }
-        public bool expanded { get; set; }
+        public bool expanded { get; private set; }
         public BaseNode node { get; private set; }
         Rect rect;
 
@@ -240,42 +329,95 @@ public class DialogueEditor : EditorWindow {
             this.node = node;
         }
 
+        /// <summary>
+        /// Expand or collapse this node and all its children, recursively.
+        /// </summary>
+        public void ExpandAll(bool expand, DialogueEditor editor) {
+            if (!node.isLink && ((Node)node).Children.Count > 0) {
+                if (expand) { editor.RevealChildren(node); }
+                else {
+                    expanded = expand;
+                    foreach (BaseNode child in ((Node)node).Children) {
+                        NodeGUI gui = editor.GetNodeGUI(child);
+                        if (gui != null) { gui.ExpandAll(expand, editor); }
+                    }
+                }
+            }
+        }
+
+        public void Remove(DialogueEditor editor) {
+            node.Remove();
+
+            if (!node.isLink) {
+                foreach (Link link in ((Node)node).Links) {
+                    editor.GetNodeGUI(link).DestroyGUI(editor);
+                }
+            }
+
+            DestroyGUI(editor);
+        }
+
+        private void DestroyGUI(DialogueEditor editor) {
+            editor.nodes.Remove(id);
+            GUI.FocusControl("DummyControl");
+            editor.Repaint();
+        }
+
         public static void RenderNode(DialogueEditor editor, BaseNode node) {
             NodeGUI gui = editor.GetNodeGUI(node);
-            if (gui == null) {
-                gui = new NodeGUI(node);
-                gui.id = editor.nextID++;
-                editor.nodes.Add(gui.id, gui);
+
+            if (gui != null && gui.node.Data == null) {
+                gui.Remove(editor);
             }
-            gui.RenderNode(editor);
-            editor.forceExpandNodes = null;
+            else {
+                if (gui == null) {
+                    gui = new NodeGUI(node);
+                    gui.id = editor.nextID++;
+                    editor.nodes.Add(gui.id, gui);
+                }
+                gui.RenderNode(editor);
+            }
         }
 
         private void RenderNode(DialogueEditor editor) {
+            if (node.Data == null) {
+                Debug.Log("trying to render a node with null data. destroying...");
+                Remove(editor);
+                return;
+            }
+
             GUI.SetNextControlName(id.ToString());
             bool isChoice = (node.Data.Type == NodeType.CHOICE);
             string text = node.Data.Text;
             if (text == "") { text = "<empty>"; }
 
-            if (editor.forceExpandNodes != null) {
-                if (editor.forceExpandNodes.Contains(node)) {
-                    expanded = true;
-                }
+            if (editor.forceExpandNodes != null && editor.forceExpandNodes.Contains(node)) {
+                expanded = true;
             }
 
-            if (node.isLink || ((Node)node).Children.Count == 0) {
-                EditorGUILayout.SelectableLabel(text, GetStyle(EditorStyles.label, isChoice, node.isLink), GUILayout.Height(EditorGUIUtility.singleLineHeight));
-                rect = GUILayoutUtility.GetLastRect();
+            bool terminal = (node.isLink || ((Node)node).Children.Count == 0);
+
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Space(editor.indentLevel * INDENT_SIZE);
+
+            GUIContent textContent = new GUIContent(text);
+            GUIStyle style = terminal ? GetStyle(EditorStyles.label, isChoice, node.isLink) : GetStyle(EditorStyles.foldout, isChoice);
+            rect = GUILayoutUtility.GetRect(textContent, style);
+            style.fixedWidth = rect.width;
+
+            if (terminal) {
+                EditorGUI.SelectableLabel(rect, text, style);
+                EditorGUILayout.EndHorizontal();
             }
             else {
-                expanded = EditorGUILayout.Foldout(expanded, text, GetStyle(EditorStyles.foldout, isChoice));
-                rect = GUILayoutUtility.GetLastRect();
+                expanded = EditorGUI.Foldout(rect, expanded, textContent, style);
+                EditorGUILayout.EndHorizontal();
                 if (expanded) {
-                    EditorGUI.indentLevel++;
+                    editor.indentLevel++;
                     foreach (BaseNode child in ((Node)node).Children) {
                         RenderNode(editor, child);
                     }
-                    EditorGUI.indentLevel--;
+                    editor.indentLevel--;
                 }
             }
         }
@@ -297,7 +439,6 @@ public class DialogueEditor : EditorWindow {
 
             tex.SetPixels(pixels);
             tex.Apply();
-            
 
             style.normal.textColor = color;
             style.onNormal.textColor = color;

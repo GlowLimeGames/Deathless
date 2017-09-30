@@ -1,15 +1,24 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Dialogue {
     [Serializable]
     public enum NodeType { LINE, CHOICE }
 
     [Serializable]
+    public enum RepeatRestriction { NONE, ONCE_PER_GAME, ONCE_PER_CONVO, DONT_SHOW }
+
+    [RequireComponent(typeof(Actions))]
+    [RequireComponent(typeof(Conditions))]
+    [Serializable]
     public class NodeData : MonoBehaviour {
+        [SerializeField]
+        private int id;
+        public int ID {
+            get { return id; }
+            set { id = value; }
+        }
+
         [SerializeField]
         private NodeType type;
         public NodeType Type {
@@ -31,17 +40,40 @@ namespace Dialogue {
         }
 
         [SerializeField]
-        private Condition condition;
-        public Condition Condition {
-            get { return condition; }
-            set { condition = value; }
+        private RepeatRestriction restriction;
+        public RepeatRestriction Restriction {
+            get { return restriction; }
+            set { restriction = value; }
+        }
+
+        [SerializeField]
+        private Conditions conditions;
+        public Conditions Conditions {
+            get {
+                if (conditions == null) {
+                    conditions = gameObject.GetComponent<Conditions>();
+                }
+                if (conditions == null) {
+                    conditions = gameObject.AddComponent<Conditions>();
+                }
+                return conditions;
+            }
+            private set { conditions = value; }
         }
         
         [SerializeField]
-        private UnityEvent action;
-        public UnityEvent Action {
-            get { return action; }
-            set { action = value; }
+        private Actions actions;
+        public Actions Actions {
+            get {
+                if (actions == null) {
+                    actions = gameObject.GetComponent<Actions>();
+                }
+                if (actions == null) {
+                    actions = gameObject.AddComponent<Actions>();
+                }
+                return actions;
+            }
+            private set { actions = value; }
         }
 
         [SerializeField]
@@ -51,9 +83,24 @@ namespace Dialogue {
             set { notes = value; }
         }
 
-        public void Init(NodeType type) {
+        public void Init(NodeType type, Transform parentObject) {
             this.type = type;
             Text = "Add text here";
+
+            #if UNITY_EDITOR
+            //Adjust so NodeData component is shown before Actions & Conditions.
+            UnityEditorInternal.ComponentUtility.MoveComponentUp(this);
+            UnityEditorInternal.ComponentUtility.MoveComponentUp(this);
+            #endif
+
+            gameObject.transform.SetParent(parentObject);
+            gameObject.name = "dialogue_nodedata";
+        }
+
+        public bool Validate() {
+            bool valid = (Actions != null && Conditions != null);
+            if (!valid) { Debug.LogWarning("NodeData validation failed: " + Text); }
+            return valid;
         } 
     }
 }

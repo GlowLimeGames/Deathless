@@ -8,8 +8,8 @@
 using UnityEngine;
 using UnityEditor;
 using System;
-using System.IO;
 using System.Collections.Generic;
+using AK.Wwise.TreeView;
 
 public class AkWwiseComponentPicker : EditorWindow
 {	
@@ -36,7 +36,7 @@ public class AkWwiseComponentPicker : EditorWindow
 				pos.y = in_pos.y - (Screen.currentResolution.height / 2);
 			}
 
-			//We show a drop down window which is automatically destoyed when focus is lost
+			//We show a drop down window which is automatically destroyed when focus is lost
 			s_componentPicker.ShowAsDropDown(pos, new Vector2 (in_pos.width >= 250 ? in_pos.width : 250, Screen.currentResolution.height / 2));  
 
 			s_componentPicker.m_selectedItemGuid	= in_guid;
@@ -72,9 +72,21 @@ public class AkWwiseComponentPicker : EditorWindow
 			{
 				s_componentPicker.m_treeView.PopulateItem(s_componentPicker.m_treeView.RootItem, "Auxiliary Busses", AkWwiseProjectInfo.GetData().AuxBusWwu);
 			}
+            else if (in_type == AkWwiseProjectData.WwiseObjectType.GAMEPARAMETER)
+            {
+                s_componentPicker.m_treeView.PopulateItem(s_componentPicker.m_treeView.RootItem, "Game Parameters", AkWwiseProjectInfo.GetData().RtpcWwu);
+            }
+            else if (in_type == AkWwiseProjectData.WwiseObjectType.TRIGGER)
+            {
+                s_componentPicker.m_treeView.PopulateItem(s_componentPicker.m_treeView.RootItem, "Triggers", AkWwiseProjectInfo.GetData().TriggerWwu);
+            }
 
+            TreeViewItem item = null;
 
-			TreeViewItem item = s_componentPicker.m_treeView.GetItemByGuid(new Guid(AkUtilities.GetByteArrayProperty( in_guid[0])));
+            byte[] byteArray = AkUtilities.GetByteArrayProperty(in_guid[0]);
+            if (byteArray != null)
+                item = s_componentPicker.m_treeView.GetItemByGuid(new Guid(byteArray));
+
 			if(item != null)
 			{
 				item.ParentControl.SelectedItem = item;
@@ -134,6 +146,11 @@ public class AkWwiseComponentPicker : EditorWindow
 				{
 					m_close = true;
 				}
+                else if (GUILayout.Button("Reset"))
+                {
+                    ResetGuid();
+                    m_close = true;
+                }
 				//We must be in 'used' mode in order for this to work
 				else if(Event.current.type == EventType.used && m_treeView.LastDoubleClickedItem != null && m_type == (m_treeView.LastDoubleClickedItem.DataContext as AkWwiseTreeView.AkTreeInfo).ObjectType)
 				{
@@ -161,6 +178,24 @@ public class AkWwiseComponentPicker : EditorWindow
 		
 		m_serializedObject.ApplyModifiedProperties();
 	}
+
+    void ResetGuid()
+    {
+        m_serializedObject.Update();
+
+        byte[] emptyArray = new byte[16];
+
+        //we set the items guid
+        AkUtilities.SetByteArrayProperty(m_selectedItemGuid[0], emptyArray);
+
+        //When its a State or a Switch, we set the group's guid
+        if (m_selectedItemGuid.Length == 2)
+        {
+            AkUtilities.SetByteArrayProperty(m_selectedItemGuid[1], emptyArray);
+        }
+
+        m_serializedObject.ApplyModifiedProperties();
+    }
 
 	public void Update()
 	{

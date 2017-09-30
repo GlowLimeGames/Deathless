@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 [InitializeOnLoad]
 public class WwiseSetupWizard
@@ -188,41 +189,62 @@ public class WwiseSetupWizard
 
     private static void MigrateCurrentScene(FileInfo[] files, int migrateStart, int migrateStop)
     {
-        for (int j = 0; j < files.Length; ++j)
-        {
-            string className = Path.GetFileNameWithoutExtension(files[j].Name);
+		var objectTypeMap = new Dictionary<Type, UnityEngine.Object[]>();
 
-            // Since monobehaviour scripts need to have the same name as the class it contains, we can use it to get the type of the object.
-            Type objectType = Type.GetType(className + ", Assembly-CSharp");
+		foreach (var file in files)
+		{
+			string className = Path.GetFileNameWithoutExtension(file.Name);
 
-            if (objectType.IsSubclassOf(typeof(UnityEngine.Object)))
-            {
-                // Get all objects in the scene with the specified type.
-                UnityEngine.Object[] objects = UnityEngine.Object.FindObjectsOfType(objectType);
+			// Since monobehaviour scripts need to have the same name as the class it contains, we can use it to get the type of the object.
+			Type objectType = Type.GetType(className + ", Assembly-CSharp");
 
-                if (objects != null && objects.Length > 0)
-                {
-                    Debug.Log("WwiseUnity: Migrating for class " + className);
+			if (objectType.IsSubclassOf(typeof(UnityEngine.Object)))
+			{
+				// Get all objects in the scene with the specified type.
+				UnityEngine.Object[] objects = UnityEngine.Object.FindObjectsOfType(objectType);
 
-                    for (int k = migrateStart; k <= migrateStop; ++k)
-                    {
-                        string currentMigrate = "Migrate" + k;
+				if (objects != null && objects.Length > 0)
+					objectTypeMap[objectType] = objects;
+			}
+		}
 
-                        // Get the migration methods.
-                        MethodInfo migrateInfo = objectType.GetMethod(currentMigrate, BindingFlags.Public | BindingFlags.Instance);
+		for (int ii = migrateStart; ii <= migrateStop; ++ii)
+		{
+			string migrationMethodName = "Migrate" + ii;
+			string preMigrationMethodName = "PreMigration" + ii;
+			string postMigrationMethodName = "PostMigration" + ii;
 
-                        if (migrateInfo != null)
-                        {
-                            // Call the migration method of each object.
-                            foreach (UnityEngine.Object currentObject in objects)
-                            {
-                                migrateInfo.Invoke(currentObject, null);
-                            }
-                        }
-                    }
-                }
-            }
-        }
+			foreach (var objectTypePair in objectTypeMap)
+			{
+				Type objectType = objectTypePair.Key;
+				UnityEngine.Object[] objects = objectTypePair.Value;
+				string className = objectType.Name;
+
+				MethodInfo preMigrationMethodInfo = objectType.GetMethod(preMigrationMethodName, BindingFlags.Public | BindingFlags.Static);
+				if (preMigrationMethodInfo != null)
+				{
+					Debug.Log("WwiseUnity: PreMigration step <" + ii + "> for class <" + className + ">");
+					preMigrationMethodInfo.Invoke(null, null);
+				}
+
+				MethodInfo migrationMethodInfo = objectType.GetMethod(migrationMethodName, BindingFlags.Public | BindingFlags.Instance);
+				if (migrationMethodInfo != null)
+				{
+					Debug.Log("WwiseUnity: Migration step <" + ii + "> for class <" + className +">");
+
+					// Call the migration method of each object.
+					foreach (var currentObject in objects)
+						migrationMethodInfo.Invoke(currentObject, null);
+				}
+
+				MethodInfo postMigrationMethodInfo = objectType.GetMethod(postMigrationMethodName, BindingFlags.Public | BindingFlags.Static);
+				if (postMigrationMethodInfo != null)
+				{
+					Debug.Log("WwiseUnity: PostMigration step <" + ii + "> for class <" + className + ">");
+					postMigrationMethodInfo.Invoke(null, null);
+				}
+			}
+		}
     }
 
     public static void PerformMigration(int migrateStart, int migrateStop)
@@ -388,7 +410,7 @@ public class WwiseSetupWizard
         return true;
     }
 
-    // Disable the built-in audio listener, and add the AkAudioListener to the camera
+    // Disable the built-in audio listener, and add the AkGameObj to the camera
     private static void SetListener()
     {
         WwiseSettings settings = WwiseSettings.LoadSettings();		
@@ -402,11 +424,13 @@ public class WwiseSetupWizard
 				Component.DestroyImmediate(listener);
 			}
 
-			// Add the AkAudioListener script
-			if (Camera.main.gameObject.GetComponent<AkAudioListener>() == null)
-			{
-				Camera.main.gameObject.AddComponent<AkAudioListener>();
-			}
+            // Add the AkGameObj script
+            {
+                Camera.main.gameObject.AddComponent<AkAudioListener>();
+
+                AkGameObj akGameObj = Camera.main.gameObject.GetComponent<AkGameObj>();
+				akGameObj.isEnvironmentAware = false;
+            }
 		}
     }
 
@@ -415,12 +439,13 @@ public class WwiseSetupWizard
     {
 		if (string.IsNullOrEmpty(Settings.WwiseProjectPath))
         {
-            // Nothing to do here, because setup should succees if Wwise project is not given
+            // Nothing to do here, because setup should succeed if Wwise project is not given
             return true;
         }
 
+        Regex r = new Regex("_WwiseIntegrationTemp.*?([/\\\\])");
+        string SoundbankPath = AkUtilities.GetFullPath(r.Replace(Application.streamingAssetsPath, "$1"), Settings.SoundbankPath);
         string WprojPath = AkUtilities.GetFullPath(Application.dataPath, Settings.WwiseProjectPath);
-        string SoundbankPath = AkUtilities.GetFullPath(Application.streamingAssetsPath, Settings.SoundbankPath);
 #if UNITY_EDITOR_OSX
 		SoundbankPath = "Z:" + SoundbankPath;
 #endif

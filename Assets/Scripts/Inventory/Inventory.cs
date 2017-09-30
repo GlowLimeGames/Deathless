@@ -8,22 +8,19 @@ using UnityEngine.UI;
 /// <summary>
 /// Handles the player's inventory.
 /// </summary>
-public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler {
-    /// <summary>
-    /// The instance of the inventory in the current scene.
-    /// </summary>
-    private static Inventory instance;
-
+public class Inventory : Manager<Inventory>, IPointerClickHandler {
     /// <summary>
     /// An ordered list of all inventory slots in the inventory.
     /// </summary>
-    private static List<InventorySlot> slots = new List<InventorySlot>();
+    private List<InventorySlot> slots = new List<InventorySlot>();
+
+    public static List<InventorySlot> Slots { get { return instance.slots; } }
 
     /// <summary>
     /// Whether the inventory is currently open.
     /// </summary>
     public static bool isShown {
-        get { return instance.gameObject.activeInHierarchy; }
+        get { return instance != null && instance.gameObject.activeInHierarchy; }
     }
 
     /// <summary>
@@ -31,56 +28,48 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     /// </summary>
     public static InventoryItem SelectedItem { get; private set; }
 
-    /// <summary>
-    /// Whether the player has an inventory item selected.
-    /// </summary>
-    public static bool isItemSelected {
-        get { return (SelectedItem != null); }
+    private static InventoryItem lastSelectedItem;
+
+    [SerializeField]
+    private GameObject inventoryButton;
+
+    [SerializeField]
+    private InventoryItem observeItem;
+
+    public static InventoryItem ObserveItem { get; private set; }
+
+    public static bool isObserveIconSelected {
+        get { return (ObserveItem != null && SelectedItem == ObserveItem); }
     }
     
-    /// <summary>
-    /// Whether the player has selected the observe icon.
-    /// </summary>
-    public static bool ObserveIconSelected { get; private set; }
-    
-    /// <summary>
-    /// How long before we should close the inventory upon cursor exit.
-    /// </summary>
-    private const float POINTER_EXIT_TIMEOUT = 0.3f;
-
-    /// <summary>
-    /// How long it's been since the cursor has exited the inventory.
-    /// -1 indicates that the cursor never entered the inventory.
-    /// float.MinValue indicates that the cursor is currently inside the inventory.
-    /// </summary>
-    private float pointerExitedCounter = -1;
-    
 	public void Init () {
-        // Singleton
-        if (instance == null) {
-            instance = this;
-        }
-        else { Destroy(gameObject); }
+        SingletonInit();
+
+        ObserveItem = observeItem;
         
         // Add inventory slots to list
         foreach (InventorySlot slot in transform.GetComponentsInChildren<InventorySlot>(true)) {
-            slots.Add(slot);
+            Slots.Add(slot);
         }
 	}
 
-    void Update () {
-        CheckForPointerExitTimeout();
-    } 
+    /// <summary>
+    /// Non-static function which calls the static function Show().
+    /// Necessary to attach to Unity button OnClick().
+    /// </summary>
+    /// <param name="visible"></param>
+    public void ShowInstance(bool visible) { Show(visible); }
 
     /// <summary>
     /// Open or close the inventory.
     /// </summary>
     public static void Show(bool visible) {
-        UIManager.BlockInput(visible);
+        UIManager.ClearHoverText();
         instance.gameObject.SetActive(visible);
-        instance.pointerExitedCounter = -1;
+        UIManager.BlockWorldInput(visible);
+        instance.inventoryButton.SetActive(!visible);
 
-        if (ObserveIconSelected) {
+        if (isObserveIconSelected) {
             ClearSelection();
         }
     }
@@ -90,10 +79,11 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     /// </summary>
     public static void AddItem(InventoryItem prefab) {
         InventoryItem item = Instantiate(prefab);
+        item.name = prefab.name;
 
-        for (int i = 0; item != null && i < slots.Count; i++) {
-            if (slots[i].isEmpty) {
-                slots[i].SetItem(item);
+        for (int i = 0; item != null && i < Slots.Count; i++) {
+            if (Slots[i].isEmpty) {
+                Slots[i].SetItem(item);
                 item = null;
             }
         }
@@ -105,14 +95,14 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     /// Remove the equivalent item from the inventory.
     /// </summary>
     public static void RemoveItem(InventoryItem prefab) {
-        if (isItemSelected && SelectedItem.Equals(prefab)) {
+        if (SelectedItem != null && SelectedItem.Equals(prefab)) {
             ClearSelection();
         }
 
-        foreach (InventorySlot slot in slots) {
+        foreach (InventorySlot slot in Slots) {
             if (slot.ItemEquals(prefab)) {
                 slot.Clear();
-                CollapseItems(slots.IndexOf(slot));
+                CollapseItems(Slots.IndexOf(slot));
                 break;
             }
         }
@@ -125,13 +115,13 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     private static void CollapseItems(int startIndex = 0) {
         List<InventorySlot> emptySlots = new List<InventorySlot>();
 
-        for (int i = startIndex; i < slots.Count; i++) {
-            if (!slots[i].isEmpty && emptySlots.Count > 0) {
-                slots[i].MoveTo(emptySlots[0]);
+        for (int i = startIndex; i < Slots.Count; i++) {
+            if (!Slots[i].isEmpty && emptySlots.Count > 0) {
+                Slots[i].MoveTo(emptySlots[0]);
                 emptySlots.RemoveAt(0);
             }
-            if (slots[i].isEmpty) {
-                emptySlots.Add(slots[i]);
+            if (Slots[i].isEmpty) {
+                emptySlots.Add(Slots[i]);
             }
         }
     }
@@ -139,28 +129,32 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     /// <summary>
     /// Select the given item.
     /// </summary>
-    public static void SelectItem(InventoryItem item) {
+    public static void SelectItem(InventoryItem item, bool temp = false) {
+        if (temp) {
+            lastSelectedItem = SelectedItem;
+        }
+        else {
+            lastSelectedItem = null;
+
+            if (item == null) { UIManager.ClearCustomCursor(); }
+            else { UIManager.SetCustomCursor(item.CursorSprite); }
+        }
+
         SelectedItem = item;
-        ObserveIconSelected = false;
-        Util.SetCursor(item.GetComponent<Image>().sprite);
     }
 
-    /// <summary>
-    /// Select the observe icon.
-    /// </summary>
-    public static void SelectObserveIcon(Sprite observeIcon) {
-        SelectedItem = null;
-        ObserveIconSelected = true;
-        Util.SetCursor(observeIcon);
+    public static void RevertSelection() {
+        if (lastSelectedItem != null) {
+            SelectedItem = lastSelectedItem;
+            lastSelectedItem = null;
+        }
     }
 
     /// <summary>
     /// Clear the current item or icon selection.
     /// </summary>
-    public static void ClearSelection() {
-        SelectedItem = null;
-        ObserveIconSelected = false;
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    public static void ClearSelection(bool temp = false) {
+        SelectItem(null, temp);
     }
 
     /// <summary>
@@ -168,7 +162,7 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
     /// </summary>
     public static bool HasItem(InventoryItem prefab) {
         bool hasItem = false;
-        foreach (InventorySlot slot in slots) {
+        foreach (InventorySlot slot in Slots) {
             if (slot.ItemEquals(prefab)) {
                 hasItem = true;
                 break;
@@ -177,35 +171,9 @@ public class Inventory : MonoBehaviour, IPointerExitHandler, IPointerEnterHandle
         return hasItem;
     }
 
-    /// <summary>
-    /// Close the inventory after a buffer period once the cursor
-    /// has left its bounds.
-    /// </summary>
-    private void CheckForPointerExitTimeout() {
-        if (pointerExitedCounter > float.MinValue && Input.GetKeyUp(KeyCode.Mouse0)) {
+    public void OnPointerClick(PointerEventData eventData) {
+        if (eventData.button == PointerEventData.InputButton.Left) {
             Show(false);
         }
-        else if (pointerExitedCounter >= 0) {
-            if (pointerExitedCounter >= POINTER_EXIT_TIMEOUT) {
-                Show(false);
-            }
-            else {
-                pointerExitedCounter += Time.deltaTime;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Registers when the cursor leaves the inventory.
-    /// </summary>
-    public void OnPointerExit(PointerEventData eventData) {
-        pointerExitedCounter = 0f;
-    }
-
-    /// <summary>
-    /// Registers when the cursor enters the inventory.
-    /// </summary>
-    public void OnPointerEnter(PointerEventData eventData) {
-        pointerExitedCounter = float.MinValue;
     }
 }
