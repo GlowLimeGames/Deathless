@@ -44,6 +44,7 @@ namespace Dialogue {
         }
 
         protected BaseNode(Node parent, NodeData data) : this(parent) {
+            data.Validate();
             Data = data;
         }
 
