@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 /*Design to be able to allow you to have things
   happen in the game with dialogue-->used with unity events
   Unity is pretty limited with their event system-->so we expand on it with
@@ -68,10 +69,13 @@ namespace Dialogue {
             current.pendingActions--;
         }
 
-        //I'm not sure how this function will be called, so I'll make it non-static for now
-        public void TriggerSound( AkUniqueID event_ID, AkGameObjectID gameObject_ID ) 
+        //I'm not sure how this function will be called, so I'll make it nonstatic for now
+        //with gameobject_id-->either pass in type gameobject in postevent, and pass in 
+        //instanceofID for gameobject postevent
+        public void TriggerSound( string eventName,  GameObject gameObject_ID ) 
         {
-            AkSoundEngine.PostEvent(event_ID, gameObject_ID);
+            AkSoundEngine.PostEvent(eventName, gameObject_ID);
+            AkSoundEngine.RenderAudio();
         }
 
         
