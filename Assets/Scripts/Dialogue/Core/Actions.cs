@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/*Design to be able to allow you to have things
+  happen in the game with dialogue-->used with unity events
+  Unity is pretty limited with their event system-->so we expand on it with
+  this script.
+     */
+
 namespace Dialogue {
     [System.Serializable]
     public class Actions : NodeCache {
         [SerializeField]
+        //holds ALL OF THE ACTIONS 
         private UnityEvent actions;
-
+        //queue used to handle if game tries to trigger multiple trigger at the same time
         private static List<Actions> queue = new List<Actions>();
+        //the current action
         private static Actions current {
             get {
                 if (queue.Count > 0) { return queue[0]; }
@@ -18,8 +26,14 @@ namespace Dialogue {
         }
         private int pendingActions = 0;
 
+        //stuff with nodes is used because there's the dialogue, then we want to stop the dialogue, 
+        //let the action happen, then resume dialogue 
+        //interacting with the dialogue nodes 
         private Node currentNode;
 
+
+        //how to trigger all the actions
+       //not all actions needs the dialogue to pause, so we have stuff in the code handling that 
         public bool Invoke(Node currentNode) {
             if (actions != null && actions.GetPersistentEventCount() > 0 && !queue.Contains(this)) {
                 this.currentNode = currentNode;
@@ -32,6 +46,7 @@ namespace Dialogue {
                 return DialogueManager.Continue(currentNode);
             }
         }
+
 
         void Update() {
             if (current == this && pendingActions == 0) {
@@ -52,6 +67,14 @@ namespace Dialogue {
         public static void CompletePendingAction() {
             current.pendingActions--;
         }
+
+        //I'm not sure how this function will be called, so I'll make it non-static for now
+        public void TriggerSound( AkUniqueID event_ID, AkGameObjectID gameObject_ID ) 
+        {
+            AkSoundEngine.PostEvent(event_ID, gameObject_ID);
+        }
+
+        
 
         #region Actions
 
