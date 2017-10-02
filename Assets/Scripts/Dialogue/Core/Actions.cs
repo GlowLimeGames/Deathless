@@ -233,14 +233,15 @@ namespace Dialogue {
             }
         }
 
-        //does not work just yet
-        public void TriggerSound( AudioController audio )
+        
+        //plays sound of the event 
+        public void TriggerSound( string eventName )
         {
-          
-                Debug.Log("Inside TriggerSound fxn");
-                //AudioController audio = GetComponent<AudioController>();
+                //find gameobject that manages the audio 
+                GameObject findAudioObj = GameObject.Find("AudioManager");
+                 AudioController audio = findAudioObj.GetComponent<AudioController>();
                 audio.LoadBanks();
-                audio.PlayEvent("IncineratorAreaStart");
+                audio.PlayEvent(eventName);
           
             
         }
