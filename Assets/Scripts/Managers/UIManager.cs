@@ -16,6 +16,9 @@ public class UIManager : Manager<UIManager> {
     private DialogueManager dialogueManager;
 
     [SerializeField]
+    private GameObject[] gameButtons;
+
+    [SerializeField]
     private Text hoverText;
 
     [SerializeField]
@@ -144,6 +147,12 @@ public class UIManager : Manager<UIManager> {
 
     public static void ShowHoverText(bool show) {
         instance.hoverText.gameObject.SetActive(show);
+    }
+
+    public static void ShowGameButtons(bool show) {
+        foreach (GameObject button in instance.gameButtons) {
+            button.SetActive(show);
+        }
     }
     
     public static void FadeOut(bool isDialogueAction) { FadeOut(FadeTime, isDialogueAction); }

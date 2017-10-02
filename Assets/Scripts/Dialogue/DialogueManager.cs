@@ -233,6 +233,7 @@ public class DialogueManager : Manager<DialogueManager> {
         UIManager.ShowCustomCursor(!show);
         UIManager.BlockWorldInput(show);
         UIManager.ShowHoverText(!show);
+        UIManager.ShowGameButtons(!show);
 
         if (!show) { Inventory.RevertSelection(); }
     }

@@ -31,9 +31,6 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
     private static InventoryItem lastSelectedItem;
 
     [SerializeField]
-    private GameObject inventoryButton;
-
-    [SerializeField]
     private InventoryItem observeItem;
 
     public static InventoryItem ObserveItem { get; private set; }
@@ -67,7 +64,7 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
         UIManager.ClearHoverText();
         instance.gameObject.SetActive(visible);
         UIManager.BlockWorldInput(visible);
-        instance.inventoryButton.SetActive(!visible);
+        UIManager.ShowGameButtons(!visible);
 
         if (isObserveIconSelected) {
             ClearSelection();
