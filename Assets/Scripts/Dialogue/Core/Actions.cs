@@ -234,11 +234,11 @@ namespace Dialogue {
         }
 
         //does not work just yet
-        public void TriggerSound()
+        public void TriggerSound( AudioController audio )
         {
           
                 Debug.Log("Inside TriggerSound fxn");
-                AudioController audio = GetComponent<AudioController>();
+                //AudioController audio = GetComponent<AudioController>();
                 audio.LoadBanks();
                 audio.PlayEvent("IncineratorAreaStart");
           
