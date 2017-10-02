@@ -69,14 +69,7 @@ namespace Dialogue {
             current.pendingActions--;
         }
 
-        //I'm not sure how this function will be called, so I'll make it nonstatic for now
-        //with gameobject_id-->either pass in type gameobject in postevent, and pass in 
-        //instanceofID for gameobject postevent
-        public void TriggerSound( string eventName,  GameObject gameObject_ID ) 
-        {
-            AkSoundEngine.PostEvent(eventName, gameObject_ID);
-            AkSoundEngine.RenderAudio();
-        }
+   
 
         
 
@@ -238,6 +231,18 @@ namespace Dialogue {
                     anim.StartFadeOut(true);
                 }
             }
+        }
+
+        //does not work just yet
+        public void TriggerSound()
+        {
+          
+                Debug.Log("Inside TriggerSound fxn");
+                AudioController audio = GetComponent<AudioController>();
+                audio.LoadBanks();
+                audio.PlayEvent("IncineratorAreaStart");
+          
+            
         }
 
         #endregion
