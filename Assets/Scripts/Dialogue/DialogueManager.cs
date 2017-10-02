@@ -85,7 +85,7 @@ public class DialogueManager : Manager<DialogueManager> {
     /// Begin the given dialogue tree.
     /// </summary>
 	private static bool StartDialogue(DialogueTree dialogue) {
-        instance.Show(true);
+        Show(true);
         return Next(dialogue.root);
     }
 
@@ -164,7 +164,7 @@ public class DialogueManager : Manager<DialogueManager> {
     }
 
     private static void EndDialogue () {
-        instance.Show(false);
+        Show(false);
         if (DlgInstance != null) {
             DlgInstance.CleanupTempInstance();
         }
@@ -228,8 +228,8 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Show or hide the dialogue UI.
     /// </summary>
-    public void Show(bool show) {
-        gameObject.SetActive(show);
+    public static void Show(bool show) {
+        instance.gameObject.SetActive(show);
         UIManager.ShowCustomCursor(!show);
         UIManager.BlockWorldInput(show);
         UIManager.ShowHoverText(!show);

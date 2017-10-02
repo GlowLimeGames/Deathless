@@ -61,8 +61,8 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
     /// Open or close the inventory.
     /// </summary>
     public static void Show(bool visible) {
-        UIManager.ClearHoverText();
         instance.gameObject.SetActive(visible);
+        UIManager.ClearHoverText();
         UIManager.BlockWorldInput(visible);
         UIManager.ShowGameButtons(!visible);
 

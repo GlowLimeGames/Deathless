@@ -150,8 +150,10 @@ public class UIManager : Manager<UIManager> {
     }
 
     public static void ShowGameButtons(bool show) {
-        foreach (GameObject button in instance.gameButtons) {
-            button.SetActive(show);
+        if (!show || (!Inventory.isShown && !DialogueManager.isShown)) {
+            foreach (GameObject button in instance.gameButtons) {
+                button.SetActive(show);
+            }
         }
     }
     
