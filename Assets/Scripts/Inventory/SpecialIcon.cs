@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 /// The icon the player can use to examine items in
 /// their inventory.
 /// </summary>
-public class SpecialIcon : InventoryItem, IPointerEnterHandler, IPointerExitHandler {
+public class SpecialIcon : InventoryItem {
     /// <summary>
     /// Handle clicks to this icon. Should be called from the
     /// Button component on the gameObject.
@@ -20,13 +20,5 @@ public class SpecialIcon : InventoryItem, IPointerEnterHandler, IPointerExitHand
         else {
             Inventory.SelectItem(this);
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData) {
-        OnMouseEnter();
-    }
-
-    public void OnPointerExit(PointerEventData eventData) {
-        OnMouseExit();
     }
 }

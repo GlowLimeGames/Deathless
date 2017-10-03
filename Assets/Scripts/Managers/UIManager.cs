@@ -105,6 +105,30 @@ public class UIManager : Manager<UIManager> {
 
     public void CatchButtonPress() { catchButtonPress = true; }
 
+    public static void OnShowUIElement(bool show) {
+        UpdateCursorHover();
+        BlockWorldInput(show);
+        ShowGameButtons(!show);
+    }
+
+    private static void UpdateCursorHover() {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
+        Hoverable hitItem = null;
+
+        if (Physics.Raycast(ray, out hitInfo)) {
+            hitItem = hitInfo.collider.GetComponent<GameItem>();
+        }
+
+        if (hitItem != null) {
+            hitItem.OnHoverEnter();
+        }
+        else {
+            SetInteractionCursor(false);
+            ClearHoverText();
+        }
+    }
+
     public static void SetCustomCursor(Sprite cursor) {
         cursorIcon = cursor;
         ShowCustomCursor(true);
@@ -127,7 +151,7 @@ public class UIManager : Manager<UIManager> {
         else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
     }
 
-    public static void BlockWorldInput(bool block) {
+    private static void BlockWorldInput(bool block) {
         if (!block && !Inventory.isShown && !DialogueManager.isShown) {
             WorldInputEnabled = (true);
         }
@@ -159,11 +183,7 @@ public class UIManager : Manager<UIManager> {
         SetHoverText("");
     }
 
-    public static void ShowHoverText(bool show) {
-        instance.hoverText.gameObject.SetActive(show);
-    }
-
-    public static void ShowGameButtons(bool show) {
+    private static void ShowGameButtons(bool show) {
         if (!show || (!Inventory.isShown && !DialogueManager.isShown)) {
             foreach (GameObject button in instance.gameButtons) {
                 button.SetActive(show);

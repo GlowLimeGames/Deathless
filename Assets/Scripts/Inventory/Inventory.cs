@@ -62,9 +62,7 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
     /// </summary>
     public static void Show(bool visible) {
         instance.gameObject.SetActive(visible);
-        UIManager.ClearHoverText();
-        UIManager.BlockWorldInput(visible);
-        UIManager.ShowGameButtons(!visible);
+        UIManager.OnShowUIElement(visible);
 
         if (isObserveIconSelected) {
             ClearSelection();
