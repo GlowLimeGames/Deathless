@@ -45,6 +45,9 @@ public class DialogueManager : Manager<DialogueManager> {
     private GameObject lineView, choiceView, choicePrefab;
     #pragma warning restore 0649
 
+    [SerializeField]
+    private DialogueUIScrollView scrollView;
+
     /// <summary>
     /// The text shown for a single line of dialogue.
     /// </summary>
@@ -247,6 +250,7 @@ public class DialogueManager : Manager<DialogueManager> {
             currentNode = line;
             lineText.text = line.Data.Text;
             lineView.SetActive(true);
+            scrollView.InitializeNewContent(lineView, false);
             EnableSpeechBubble(line, false);
         }
         else {
@@ -268,6 +272,7 @@ public class DialogueManager : Manager<DialogueManager> {
             }
         }
         choiceView.SetActive(true);
+        scrollView.InitializeNewContent(choiceView, true);
         EnableSpeechBubble(choices[0], true);
     }
 
