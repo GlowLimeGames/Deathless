@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIManager : Manager<UIManager> {
     private const string mainMenuScene = "MainMenu";
@@ -41,6 +42,8 @@ public class UIManager : Manager<UIManager> {
 
     private static Sprite cursorIcon;
 
+    private bool catchButtonPress;
+
     private bool worldInputEnabled;
 
     /// <summary>
@@ -52,10 +55,15 @@ public class UIManager : Manager<UIManager> {
         private set { instance.worldInputEnabled = value; }
     }
 
+    private bool allInputEnabled;
+
     /// <summary>
     /// Whether player input of any kind is enabled.
     /// </summary>
-    public static bool AllInputEnabled { get; private set; }
+    public static bool AllInputEnabled {
+        get { return (instance.allInputEnabled && !instance.catchButtonPress); }
+        private set { instance.allInputEnabled = value; }
+    }
 
     void Start() {
         SingletonInit();
@@ -90,6 +98,12 @@ public class UIManager : Manager<UIManager> {
             if (dlgActionFade) { Dialogue.Actions.CompletePendingAction(); }
         }
     }
+
+    void LateUpdate() {
+        if (catchButtonPress) { catchButtonPress = false; }
+    }
+
+    public void CatchButtonPress() { catchButtonPress = true; }
 
     public static void SetCustomCursor(Sprite cursor) {
         cursorIcon = cursor;
