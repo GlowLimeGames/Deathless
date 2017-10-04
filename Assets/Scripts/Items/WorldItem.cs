@@ -50,6 +50,7 @@ public class WorldItem : GameItem {
 
         startingScale = transform.localScale;
         startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
+        UpdateZPos();
     }
     
     /// <summary>
@@ -131,6 +132,7 @@ public class WorldItem : GameItem {
             StopMovement();
             transform.position = point;
             UpdateScale();
+            UpdateZPos();
         }
     }
 
@@ -155,6 +157,14 @@ public class WorldItem : GameItem {
     public void RemoveFromWorld() {
         Destroy(Instance.gameObject);
         World.UpdateNavGraph();
+    }
+
+    public void UpdateZPos() {
+        float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
+
+        Vector3 pos = transform.position;
+        pos.z = currentZ;
+        transform.position = pos;
     }
     
     /// <summary>
