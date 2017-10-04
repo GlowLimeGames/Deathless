@@ -97,37 +97,19 @@ public class UIManager : Manager<UIManager> {
             blackout.gameObject.SetActive(false);
             if (dlgActionFade) { Dialogue.Actions.CompletePendingAction(); }
         }
-
-        GetCurrentlyHovered();
-    }
-
-    private static Collider2D GetCurrentlyHovered() {
-        Collider2D coll = Physics2D.OverlapPoint(Input.mousePosition);
-        if (coll != null) { Debug.Log("hit " + coll); }
-        else { Debug.Log("hit null"); }
-        return coll;
-
-        /*
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hitInfo = Physics2D.Raycast(Input.mousePosition, Vector2.zero);
-
-        Debug.Log("raycasting");
-        if (hitInfo.collider != null) {
-            Debug.Log("hit " + hitInfo.collider.gameObject.name);
-            return hitInfo.collider;
-        }
-        else { return null; }
-        */
     }
 
     public static void OnShowUIElement(bool show) {
-        UpdateCursorHover();
         BlockWorldInput(show);
         ShowGameButtons(!show);
+        UpdateCursorHover();
     }
 
     private static void UpdateCursorHover() {
-        Collider2D hitColl = GetCurrentlyHovered();
+        SetInteractionCursor(false);
+        ClearHoverText();
+
+        Collider2D hitColl = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         Hoverable hitItem = null;
 
         if (hitColl != null) {
@@ -135,12 +117,7 @@ public class UIManager : Manager<UIManager> {
         }
 
         if (hitItem != null) {
-            Debug.Log("item is gameItem");
             hitItem.OnHoverEnter();
-        }
-        else {
-            SetInteractionCursor(false);
-            ClearHoverText();
         }
     }
 
