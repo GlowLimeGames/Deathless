@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class GameButton : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler {
+public class GameButton : Hoverable {
     [SerializeField]
     private string button_name;
 
-    public void OnPointerEnter(PointerEventData eventData) {
-        UIManager.BlockWorldInput(true);
+    public override void OnHoverEnter() {
         UIManager.SetHoverText(button_name);
+        UIManager.BlockWorldInput(true);
     }
 
-    public void OnPointerExit(PointerEventData eventData) {
-        UIManager.BlockWorldInput(false);
+    public override void OnHoverExit() {
         UIManager.ClearHoverText();
+        UIManager.BlockWorldInput(false);
     }
 }

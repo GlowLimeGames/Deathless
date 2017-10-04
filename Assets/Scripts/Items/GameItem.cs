@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
-public abstract class GameItem : MonoBehaviour {
+public abstract class GameItem : Hoverable {
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>
@@ -107,12 +107,12 @@ public abstract class GameItem : MonoBehaviour {
         return gameObject.name.GetHashCode() + GetType().GetHashCode();
     }
 
-    public virtual void OnMouseEnter() {
+    public override void OnHoverEnter() {
         UIManager.SetHoverText(Instance.displayName);
         UIManager.SetInteractionCursor(true);
     }
 
-    public virtual void OnMouseExit() {
+    public override void OnHoverExit() {
         UIManager.ClearHoverText();
         UIManager.SetInteractionCursor(false);
     }

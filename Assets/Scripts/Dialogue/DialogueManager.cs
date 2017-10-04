@@ -234,9 +234,7 @@ public class DialogueManager : Manager<DialogueManager> {
     public static void Show(bool show) {
         instance.gameObject.SetActive(show);
         UIManager.ShowCustomCursor(!show);
-        UIManager.BlockWorldInput(show);
-        UIManager.ShowHoverText(!show);
-        UIManager.ShowGameButtons(!show);
+        UIManager.OnShowUIElement(show);
 
         if (!show) { Inventory.RevertSelection(); }
     }

@@ -61,7 +61,7 @@ public class UIManager : Manager<UIManager> {
     /// Whether player input of any kind is enabled.
     /// </summary>
     public static bool AllInputEnabled {
-        get { return (instance.allInputEnabled && !instance.catchButtonPress); }
+        get { return (instance.allInputEnabled); }
         private set { instance.allInputEnabled = value; }
     }
 
@@ -99,11 +99,27 @@ public class UIManager : Manager<UIManager> {
         }
     }
 
-    void LateUpdate() {
-        if (catchButtonPress) { catchButtonPress = false; }
+    public static void OnShowUIElement(bool show) {
+        BlockWorldInput(show);
+        ShowGameButtons(!show);
+        UpdateCursorHover();
     }
 
-    public void CatchButtonPress() { catchButtonPress = true; }
+    private static void UpdateCursorHover() {
+        SetInteractionCursor(false);
+        ClearHoverText();
+
+        Collider2D hitColl = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        Hoverable hitItem = null;
+
+        if (hitColl != null) {
+            hitItem = hitColl.GetComponent<GameItem>();
+        }
+
+        if (hitItem != null) {
+            hitItem.OnHoverEnter();
+        }
+    }
 
     public static void SetCustomCursor(Sprite cursor) {
         cursorIcon = cursor;
@@ -159,11 +175,7 @@ public class UIManager : Manager<UIManager> {
         SetHoverText("");
     }
 
-    public static void ShowHoverText(bool show) {
-        instance.hoverText.gameObject.SetActive(show);
-    }
-
-    public static void ShowGameButtons(bool show) {
+    private static void ShowGameButtons(bool show) {
         if (!show || (!Inventory.isShown && !DialogueManager.isShown)) {
             foreach (GameObject button in instance.gameButtons) {
                 button.SetActive(show);
