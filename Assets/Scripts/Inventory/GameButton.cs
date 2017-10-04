@@ -6,9 +6,11 @@ public class GameButton : Hoverable {
 
     public override void OnHoverEnter() {
         UIManager.SetHoverText(button_name);
+        UIManager.BlockWorldInput(true);
     }
 
     public override void OnHoverExit() {
         UIManager.ClearHoverText();
+        UIManager.BlockWorldInput(false);
     }
 }

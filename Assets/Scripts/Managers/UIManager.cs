@@ -61,7 +61,7 @@ public class UIManager : Manager<UIManager> {
     /// Whether player input of any kind is enabled.
     /// </summary>
     public static bool AllInputEnabled {
-        get { return (instance.allInputEnabled && !instance.catchButtonPress); }
+        get { return (instance.allInputEnabled); }
         private set { instance.allInputEnabled = value; }
     }
 
@@ -97,13 +97,28 @@ public class UIManager : Manager<UIManager> {
             blackout.gameObject.SetActive(false);
             if (dlgActionFade) { Dialogue.Actions.CompletePendingAction(); }
         }
+
+        GetCurrentlyHovered();
     }
 
-    void LateUpdate() {
-        if (catchButtonPress) { catchButtonPress = false; }
-    }
+    private static Collider2D GetCurrentlyHovered() {
+        Collider2D coll = Physics2D.OverlapPoint(Input.mousePosition);
+        if (coll != null) { Debug.Log("hit " + coll); }
+        else { Debug.Log("hit null"); }
+        return coll;
 
-    public void CatchButtonPress() { catchButtonPress = true; }
+        /*
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hitInfo = Physics2D.Raycast(Input.mousePosition, Vector2.zero);
+
+        Debug.Log("raycasting");
+        if (hitInfo.collider != null) {
+            Debug.Log("hit " + hitInfo.collider.gameObject.name);
+            return hitInfo.collider;
+        }
+        else { return null; }
+        */
+    }
 
     public static void OnShowUIElement(bool show) {
         UpdateCursorHover();
@@ -112,15 +127,15 @@ public class UIManager : Manager<UIManager> {
     }
 
     private static void UpdateCursorHover() {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
+        Collider2D hitColl = GetCurrentlyHovered();
         Hoverable hitItem = null;
 
-        if (Physics.Raycast(ray, out hitInfo)) {
-            hitItem = hitInfo.collider.GetComponent<GameItem>();
+        if (hitColl != null) {
+            hitItem = hitColl.GetComponent<GameItem>();
         }
 
         if (hitItem != null) {
+            Debug.Log("item is gameItem");
             hitItem.OnHoverEnter();
         }
         else {
@@ -151,7 +166,7 @@ public class UIManager : Manager<UIManager> {
         else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
     }
 
-    private static void BlockWorldInput(bool block) {
+    public static void BlockWorldInput(bool block) {
         if (!block && !Inventory.isShown && !DialogueManager.isShown) {
             WorldInputEnabled = (true);
         }
