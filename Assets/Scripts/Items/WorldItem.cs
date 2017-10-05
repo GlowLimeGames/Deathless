@@ -16,6 +16,9 @@ public class WorldItem : GameItem {
     private bool interactable;
 
     [SerializeField]
+    private bool freezeZPosition;
+
+    [SerializeField]
     private float minInteractionDistance = 1;
 
     [SerializeField]
@@ -47,9 +50,10 @@ public class WorldItem : GameItem {
         aiPath = gameObject.GetComponent<CustomAIPath>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         coll = gameObject.GetComponent<Collider2D>();
-
+        
         startingScale = transform.localScale;
         startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
+        UpdateZPos();
     }
     
     /// <summary>
@@ -130,7 +134,7 @@ public class WorldItem : GameItem {
         else {
             StopMovement();
             transform.position = point;
-            UpdateScale();
+            UpdateZPos();
         }
     }
 
@@ -156,20 +160,26 @@ public class WorldItem : GameItem {
         Destroy(Instance.gameObject);
         World.UpdateNavGraph();
     }
+
+    public void UpdateZPos() {
+        if (!freezeZPosition) {
+            float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
+            transform.position = new Vector3(transform.position.x, transform.position.y, currentZ);
+            UpdateScale(currentZ);
+        }
+    }
     
     /// <summary>
     /// Updates the scale of the object based on its z position.
     /// </summary>
-    public void UpdateScale() {
-        float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
-
+    private void UpdateScale(float zPos) {
         float camZ = Camera.main.transform.position.z;
-        float zDist = Mathf.Abs(camZ - currentZ);
+        float zDist = Mathf.Abs(camZ - zPos);
         float startingZDist = Mathf.Abs(camZ - startingZPos);
 
         float flipModifier = transform.localScale.x < 0 ? -1 : 1;
 
-        Vector3 scale = startingScale / (startingZDist / zDist);
+        Vector3 scale = startingScale * (startingZDist / zDist);
         scale.x *= flipModifier;
 
         transform.localScale = scale;
