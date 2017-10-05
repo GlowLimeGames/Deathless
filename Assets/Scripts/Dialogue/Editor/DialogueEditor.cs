@@ -158,7 +158,11 @@ public class DialogueEditor : EditorWindow {
                 }
             }
 
+            GUI.FocusControl("DummyControl");
+
             dirty = false;
+
+            Repaint();
         }
     }
 
