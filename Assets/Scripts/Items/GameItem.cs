@@ -7,10 +7,31 @@ using UnityEngine;
 /// Parent class for both inventory and world items.
 /// </summary>
 public abstract class GameItem : MonoBehaviour {
+
+    /*
+     *Property for whether this GameItem is inanimate or not
+     */
+    private bool isAnimate;
+
+    //check if this game item is animate
+    public bool isAnimate() {
+        return isAnimate;
+    }
+
+    //mutator: change bool condition of isAnimate
+    public void setAnimate( bool newValue ) {
+        isAnimate = newValue;
+    }
+
+
+
+
+
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>
     public static GameItem InteractionTarget { get; protected set; }
+
 
     /// <summary>
     /// Backing field for ItemName.
