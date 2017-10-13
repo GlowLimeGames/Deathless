@@ -69,7 +69,10 @@ namespace Dialogue {
             current.pendingActions--;
         }
 
+<<<<<<< HEAD
    
+=======
+>>>>>>> GameItem
 
         
 

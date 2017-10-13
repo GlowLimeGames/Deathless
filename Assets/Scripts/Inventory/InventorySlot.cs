@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// A slot for a single item in the player's inventory.
 /// </summary>
-public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class InventorySlot : Hoverable {
     /// <summary>
     /// Whether there is anything in this slot.
     /// </summary>
@@ -76,13 +76,13 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData) {
+    public override void OnHoverEnter() {
         if (!isEmpty) {
-            item.OnMouseEnter();
+            item.OnHoverEnter();
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData) {
-        if (!isEmpty) { item.OnMouseExit(); }
+    public override void OnHoverExit() {
+        if (!isEmpty) { item.OnHoverExit(); }
     }
 }

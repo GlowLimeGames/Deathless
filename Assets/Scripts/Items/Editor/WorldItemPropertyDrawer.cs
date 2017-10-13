@@ -7,15 +7,18 @@ using UnityEngine;
 [CustomEditor(typeof(WorldItem))]
 public class WorldItemPropertyDrawer : Editor {
     SerializedProperty interactable;
+    SerializedProperty animate;
 
     private void OnEnable() {
         interactable = serializedObject.FindProperty("interactable");
+        animate = serializedObject.FindProperty("isAnimate");
     }
 
     public override void OnInspectorGUI() {
         serializedObject.Update();
         
         interactable.boolValue = EditorGUILayout.Toggle("Interactable", interactable.boolValue);
+        animate.boolValue = EditorGUILayout.Toggle("IsAnimate", animate.boolValue);
         serializedObject.ApplyModifiedProperties();
 
         if (interactable.boolValue) {

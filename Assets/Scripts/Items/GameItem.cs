@@ -6,11 +6,33 @@ using UnityEngine;
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
-public abstract class GameItem : MonoBehaviour {
+public abstract class GameItem : Hoverable {
+    /*
+     *Property for whether this GameItem is inanimate or not
+     */
+    [SerializeField][HideInInspector]
+    private bool isAnimate;
+
+    //check if this game item is animate
+    public bool checkAnimate()
+    {
+        return isAnimate;
+    }
+
+    //mutator: change bool condition of isAnimate
+    public void setAnimate(bool newValue)
+    {
+        isAnimate = newValue;
+    }
+
+
+
+
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>
     public static GameItem InteractionTarget { get; protected set; }
+
 
     /// <summary>
     /// Backing field for ItemName.
@@ -107,12 +129,12 @@ public abstract class GameItem : MonoBehaviour {
         return gameObject.name.GetHashCode() + GetType().GetHashCode();
     }
 
-    public virtual void OnMouseEnter() {
+    public override void OnHoverEnter() {
         UIManager.SetHoverText(Instance.displayName);
         UIManager.SetInteractionCursor(true);
     }
 
-    public virtual void OnMouseExit() {
+    public override void OnHoverExit() {
         UIManager.ClearHoverText();
         UIManager.SetInteractionCursor(false);
     }

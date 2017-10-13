@@ -14,13 +14,36 @@ public class ZDepthMap : MonoBehaviour {
         sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
-    public float GetZDepthAtWorldPoint (Vector2 point) {
+    public bool GetZDepthAtWorldPoint(Vector2 point, out float zPos) {
+        Color color = GetColorAtPoint(point);
+        if (color.a == 0) {
+            zPos = 0;
+            return false;
+        }
         float grayscaleVal = GetColorAtPoint(point).grayscale;
 
         float diff = (maxZDepth - minZDepth);
-        float depth = minZDepth + (diff * grayscaleVal);
+        float depth = minZDepth + (diff * (1 - grayscaleVal));
 
-        return depth;
+        zPos = depth;
+        return true;
+    }
+
+    private bool isPointOnZMap(Vector2 point) {
+        return sprite.bounds.Contains(point);
+    }
+
+    public float GetZDepthAtWorldPoint (Vector3 position) {
+        float zPos = position.z;
+
+        if (isPointOnZMap(position)) {
+            float grayscaleVal = GetColorAtPoint(position).grayscale;
+
+            float diff = (maxZDepth - minZDepth);
+            zPos = minZDepth + (diff * (1 - grayscaleVal));
+        }
+
+        return zPos;
     }
 
     private Color GetColorAtPoint (Vector2 point) {
