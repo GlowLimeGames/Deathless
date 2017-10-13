@@ -230,17 +230,43 @@ namespace Dialogue {
             }
         }
 
-        
+        //helper function for all sound-related funcions
+        //load all sound banks and help access the functions in AudioController.cs
+        private static AudioController LoadAudioController() {
+            //Audio Manager is the name of the gameobject that will control all audio 
+            //name is of object is bound to change--so maybe make this general next time
+            GameObject findAudioObj = GameObject.Find("AudioManager");
+            AudioController audio = findAudioObj.GetComponent<AudioController>();
+            audio.LoadBanks();
+            return audio;
+
+        }
         //plays sound of the event 
         public void TriggerSound( string eventName )
         {
-                //find gameobject that manages the audio 
-                GameObject findAudioObj = GameObject.Find("AudioManager");
-                 AudioController audio = findAudioObj.GetComponent<AudioController>();
+                AudioController audio = LoadAudioController();
                 audio.LoadBanks();
                 audio.PlayEvent(eventName);
           
             
+        }
+        //pause sound of event 
+        public void PauseSound(string eventName) {
+            AudioController audio = LoadAudioController();
+            audio.PauseEvent(eventName);
+        }
+
+        //resume sound 
+        public void ResumeSound(string eventName) {
+            AudioController audio = LoadAudioController();
+            audio.ResumeEvent(eventName);
+        }
+
+        //Completely stops the sound in the game 
+        public void StopSound(string eventName) {
+            AudioController audio = LoadAudioController();
+            audio.StopEvent(eventName);
+
         }
 
         #endregion
