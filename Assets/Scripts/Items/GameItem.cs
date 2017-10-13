@@ -12,10 +12,12 @@ public abstract class GameItem : MonoBehaviour {
     /*
      *Property for whether this GameItem is inanimate or not
      */
+    
+     [SerializeField]
     private bool isAnimate;
 
     //check if this game item is animate
-    public bool isAnimate() {
+    public bool checkAnimate() {
         return isAnimate;
     }
 
@@ -25,12 +27,7 @@ public abstract class GameItem : MonoBehaviour {
     }
 
 
-
-
-
-=======
 public abstract class GameItem : Hoverable {
->>>>>>> 61b88d5786339bbe183629964fb7920ad0212f1e
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>

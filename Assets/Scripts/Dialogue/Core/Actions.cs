@@ -68,11 +68,6 @@ namespace Dialogue {
             current.pendingActions--;
         }
 
-        //I'm not sure how this function will be called, so I'll make it non-static for now
-        public void TriggerSound( AkUniqueID event_ID, AkGameObjectID gameObject_ID ) 
-        {
-            AkSoundEngine.PostEvent(event_ID, gameObject_ID);
-        }
 
         
 
