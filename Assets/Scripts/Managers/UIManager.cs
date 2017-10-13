@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIManager : Manager<UIManager> {
     private const string mainMenuScene = "MainMenu";
@@ -14,6 +15,9 @@ public class UIManager : Manager<UIManager> {
 
     [SerializeField]
     private DialogueManager dialogueManager;
+
+    [SerializeField]
+    private GameObject[] gameButtons;
 
     [SerializeField]
     private Text hoverText;
@@ -38,6 +42,8 @@ public class UIManager : Manager<UIManager> {
 
     private static Sprite cursorIcon;
 
+    private bool catchButtonPress;
+
     private bool worldInputEnabled;
 
     /// <summary>
@@ -49,10 +55,15 @@ public class UIManager : Manager<UIManager> {
         private set { instance.worldInputEnabled = value; }
     }
 
+    private bool allInputEnabled;
+
     /// <summary>
     /// Whether player input of any kind is enabled.
     /// </summary>
-    public static bool AllInputEnabled { get; private set; }
+    public static bool AllInputEnabled {
+        get { return (instance.allInputEnabled); }
+        private set { instance.allInputEnabled = value; }
+    }
 
     void Start() {
         SingletonInit();
@@ -85,6 +96,28 @@ public class UIManager : Manager<UIManager> {
             (System.DateTime.Now - fadeStart).TotalSeconds >= currentFadeTime) {
             blackout.gameObject.SetActive(false);
             if (dlgActionFade) { Dialogue.Actions.CompletePendingAction(); }
+        }
+    }
+
+    public static void OnShowUIElement(bool show) {
+        BlockWorldInput(show);
+        ShowGameButtons(!show);
+        UpdateCursorHover();
+    }
+
+    private static void UpdateCursorHover() {
+        SetInteractionCursor(false);
+        ClearHoverText();
+
+        Collider2D hitColl = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        Hoverable hitItem = null;
+
+        if (hitColl != null) {
+            hitItem = hitColl.GetComponent<GameItem>();
+        }
+
+        if (hitItem != null) {
+            hitItem.OnHoverEnter();
         }
     }
 
@@ -142,8 +175,12 @@ public class UIManager : Manager<UIManager> {
         SetHoverText("");
     }
 
-    public static void ShowHoverText(bool show) {
-        instance.hoverText.gameObject.SetActive(show);
+    private static void ShowGameButtons(bool show) {
+        if (!show || (!Inventory.isShown && !DialogueManager.isShown)) {
+            foreach (GameObject button in instance.gameButtons) {
+                button.SetActive(show);
+            }
+        }
     }
     
     public static void FadeOut(bool isDialogueAction) { FadeOut(FadeTime, isDialogueAction); }

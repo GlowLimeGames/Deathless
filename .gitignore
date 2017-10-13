@@ -34,5 +34,4 @@ sysinfo.txt
 
 # Wwise project cache
 */AkWwiseProjectData.asset
-*AkWwiseProjectData.asset
-Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset
+/Assets/Wwise/Editor/ProjectData*

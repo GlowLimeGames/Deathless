@@ -47,7 +47,7 @@ public class AnimController : MonoBehaviour {
 
     void Update() {
         if (current == WALK && aiPath != null) {
-            worldItem.UpdateScale();
+            worldItem.UpdateZPos();
             UpdateWalkDirection(aiPath.GetDirection());
         }
         else if (current == ONE_SHOT && !CurrentStateEquals(ONE_SHOT)) {

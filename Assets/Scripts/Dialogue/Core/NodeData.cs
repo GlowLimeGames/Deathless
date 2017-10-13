@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Dialogue {
     [Serializable]
@@ -11,6 +8,8 @@ namespace Dialogue {
     [Serializable]
     public enum RepeatRestriction { NONE, ONCE_PER_GAME, ONCE_PER_CONVO, DONT_SHOW }
 
+    [RequireComponent(typeof(Actions))]
+    [RequireComponent(typeof(Conditions))]
     [Serializable]
     public class NodeData : MonoBehaviour {
         [SerializeField]
@@ -50,15 +49,31 @@ namespace Dialogue {
         [SerializeField]
         private Conditions conditions;
         public Conditions Conditions {
-            get { return conditions; }
-            set { conditions = value; }
+            get {
+                if (conditions == null) {
+                    conditions = gameObject.GetComponent<Conditions>();
+                }
+                if (conditions == null) {
+                    conditions = gameObject.AddComponent<Conditions>();
+                }
+                return conditions;
+            }
+            private set { conditions = value; }
         }
         
         [SerializeField]
         private Actions actions;
         public Actions Actions {
-            get { return actions; }
-            set { actions = value; }
+            get {
+                if (actions == null) {
+                    actions = gameObject.GetComponent<Actions>();
+                }
+                if (actions == null) {
+                    actions = gameObject.AddComponent<Actions>();
+                }
+                return actions;
+            }
+            private set { actions = value; }
         }
 
         [SerializeField]
@@ -71,11 +86,21 @@ namespace Dialogue {
         public void Init(NodeType type, Transform parentObject) {
             this.type = type;
             Text = "Add text here";
-            Conditions = gameObject.AddComponent<Conditions>();
-            Actions = gameObject.AddComponent<Actions>();
+
+            #if UNITY_EDITOR
+            //Adjust so NodeData component is shown before Actions & Conditions.
+            UnityEditorInternal.ComponentUtility.MoveComponentUp(this);
+            UnityEditorInternal.ComponentUtility.MoveComponentUp(this);
+            #endif
 
             gameObject.transform.SetParent(parentObject);
             gameObject.name = "dialogue_nodedata";
+        }
+
+        public bool Validate() {
+            bool valid = (Actions != null && Conditions != null);
+            if (!valid) { Debug.LogWarning("NodeData validation failed: " + Text); }
+            return valid;
         } 
     }
 }

@@ -32,7 +32,6 @@ public class DialogueEditor : EditorWindow {
 
     void OnGUI() {
         GUILayout.BeginVertical();
-        scrollPos = GUILayout.BeginScrollView(scrollPos);
 
         EditorGUIUtility.hierarchyMode = true;
         indentLevel = 1;
@@ -42,6 +41,8 @@ public class DialogueEditor : EditorWindow {
         GUI.Button(new Rect(0, 0, 0, 0), "", GUIStyle.none);
 
         savedTree = (SerializableTree)EditorGUILayout.ObjectField("Dialogue Tree", savedTree, typeof(SerializableTree), true);
+
+        GUILayout.BeginHorizontal();
 
         if (savedTree == null || (lastSavedTree != null && savedTree != lastSavedTree)) {
             Cleanup();
@@ -61,13 +62,17 @@ public class DialogueEditor : EditorWindow {
             if (GUILayout.Button("Load")) {
                 Cleanup();
                 lastSavedTree = savedTree;
-                tree = savedTree.InstantiateTree().ImportTree();
+                SerializableTree treeInstance = savedTree.InstantiateTree();
+                tree = treeInstance.ImportTree();
                 if (tree == null) {
-                    tree = DialogueTester.CreateTestTree(savedTree.gameObject.transform);
+                    tree = DialogueTester.CreateTestTree(treeInstance.gameObject.transform);
                     Debug.Log("Created new tree");
                 }
             }
         }
+
+        GUILayout.EndHorizontal();
+        scrollPos = GUILayout.BeginScrollView(scrollPos);
 
         if (savedTree != null && tree != null) {
             dirty = true;
@@ -154,7 +159,11 @@ public class DialogueEditor : EditorWindow {
                 }
             }
 
+            GUI.FocusControl("DummyControl");
+
             dirty = false;
+
+            Repaint();
         }
     }
 

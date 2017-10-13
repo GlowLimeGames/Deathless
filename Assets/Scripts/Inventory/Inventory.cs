@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Handles the player's inventory.
 /// </summary>
-public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterHandler {
+public class Inventory : Manager<Inventory>, IPointerClickHandler {
     /// <summary>
     /// An ordered list of all inventory slots in the inventory.
     /// </summary>
@@ -39,18 +39,6 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
         get { return (ObserveItem != null && SelectedItem == ObserveItem); }
     }
     
-    /// <summary>
-    /// How long before we should close the inventory upon cursor exit.
-    /// </summary>
-    private const float POINTER_EXIT_TIMEOUT = 0.3f;
-
-    /// <summary>
-    /// How long it's been since the cursor has exited the inventory.
-    /// -1 indicates that the cursor never entered the inventory.
-    /// float.MinValue indicates that the cursor is currently inside the inventory.
-    /// </summary>
-    private float pointerExitedCounter = -1;
-    
 	public void Init () {
         SingletonInit();
 
@@ -62,18 +50,19 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
         }
 	}
 
-    void Update () {
-        CheckForPointerExitTimeout();
-    }
+    /// <summary>
+    /// Non-static function which calls the static function Show().
+    /// Necessary to attach to Unity button OnClick().
+    /// </summary>
+    /// <param name="visible"></param>
+    public void ShowInstance(bool visible) { Show(visible); }
 
     /// <summary>
     /// Open or close the inventory.
     /// </summary>
     public static void Show(bool visible) {
-        UIManager.ClearHoverText();
         instance.gameObject.SetActive(visible);
-        instance.pointerExitedCounter = -1;
-        UIManager.BlockWorldInput(visible);
+        UIManager.OnShowUIElement(visible);
 
         if (isObserveIconSelected) {
             ClearSelection();
@@ -177,35 +166,9 @@ public class Inventory : Manager<Inventory>, IPointerExitHandler, IPointerEnterH
         return hasItem;
     }
 
-    /// <summary>
-    /// Close the inventory after a buffer period once the cursor
-    /// has left its bounds.
-    /// </summary>
-    private void CheckForPointerExitTimeout() {
-        if (pointerExitedCounter > float.MinValue && Input.GetKeyUp(KeyCode.Mouse0)) {
+    public void OnPointerClick(PointerEventData eventData) {
+        if (eventData.button == PointerEventData.InputButton.Left) {
             Show(false);
         }
-        else if (pointerExitedCounter >= 0) {
-            if (pointerExitedCounter >= POINTER_EXIT_TIMEOUT) {
-                Show(false);
-            }
-            else {
-                pointerExitedCounter += Time.deltaTime;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Registers when the cursor leaves the inventory.
-    /// </summary>
-    public void OnPointerExit(PointerEventData eventData) {
-        pointerExitedCounter = 0f;
-    }
-
-    /// <summary>
-    /// Registers when the cursor enters the inventory.
-    /// </summary>
-    public void OnPointerEnter(PointerEventData eventData) {
-        pointerExitedCounter = float.MinValue;
     }
 }
