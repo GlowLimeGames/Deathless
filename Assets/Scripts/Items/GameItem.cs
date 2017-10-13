@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
-<<<<<<< HEAD
+
 public abstract class GameItem : MonoBehaviour {
 
     /*
