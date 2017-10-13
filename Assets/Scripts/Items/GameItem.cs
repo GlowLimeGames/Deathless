@@ -10,7 +10,7 @@ public abstract class GameItem : Hoverable {
     /*
      *Property for whether this GameItem is inanimate or not
      */
-    [SerializeField]
+    [SerializeField][HideInInspector]
     private bool isAnimate;
 
     //check if this game item is animate
