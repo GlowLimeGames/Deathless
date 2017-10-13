@@ -9,7 +9,6 @@ using UnityEngine.Events;
   Unity is pretty limited with their event system-->so we expand on it with
   this script.
      */
-
 namespace Dialogue {
     [System.Serializable]
     public class Actions : NodeCache {
@@ -69,12 +68,7 @@ namespace Dialogue {
             current.pendingActions--;
         }
 
-<<<<<<< HEAD
-   
-=======
->>>>>>> GameItem
 
-        
 
         #region Actions
 
