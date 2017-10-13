@@ -1385,7 +1385,7 @@
 										<Property Name="HFDamping" Type="Real32" Value="3.7"/>
 										<Property Name="PreDelay" Type="Real32" Value="18"/>
 										<Property Name="Quality" Type="int32" Value="12"/>
-										<Property Name="ReverbLevel" Type="Real32" Value="-23"/>
+										<Property Name="ReverbLevel" Type="Real32" Value="-25"/>
 										<Property Name="RoomSize" Type="Real32" Value="20"/>
 									</PropertyList>
 								</Effect>

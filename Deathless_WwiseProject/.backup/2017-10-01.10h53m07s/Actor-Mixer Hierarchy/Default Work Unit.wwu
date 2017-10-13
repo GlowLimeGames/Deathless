@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{265233C3-D6D8-444F-AF48-6D70DC6B1F86}" SchemaVersion="80">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{265233C3-D6D8-444F-AF48-6D70DC6B1F86}" PersistMode="Standalone">
+			<ChildrenList>
+				<WorkUnit Name="IncineratorArea" ID="{82431660-1859-4E88-8B62-BD1550ECC6AE}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

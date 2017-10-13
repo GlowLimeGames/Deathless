@@ -3,425 +3,93 @@
 	<AudioObjects>
 		<WorkUnit Name="IncineratorArea" ID="{82431660-1859-4E88-8B62-BD1550ECC6AE}" OwnerID="{265233C3-D6D8-444F-AF48-6D70DC6B1F86}" PersistMode="Nested">
 			<ChildrenList>
-				<Sound Name="dl_sfx_bg_incinerator_ambiance_incinerator" ID="{309832BA-541B-4EC8-9A51-91FB846053B2}" ShortID="382994242">
+				<BlendContainer Name="Ambiance" ID="{D152E9DF-73D3-4DDE-980F-D4E3F3F72A94}" ShortID="871300238">
 					<PropertyList>
-						<Property Name="Highpass" Type="int16">
-							<ValueList>
-								<Value>12</Value>
-							</ValueList>
-						</Property>
-						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>41</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-10</Value>
-							</ValueList>
-						</Property>
+						<Property Name="BlendBehavior" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incinerator" ID="{20DFD930-B9F7-4C6C-BE04-30104BD671A5}" ShortID="969258234">
-							<Language>SFX</Language>
-							<AudioFile>dl_sfx_bg_incinerator_ambiance_incinerator.wav</AudioFile>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incinerator" ID="{20DFD930-B9F7-4C6C-BE04-30104BD671A5}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<RandomSequenceContainer Name="IncineratorBGs" ID="{4169B142-D47F-4772-B483-ACE24FB73B6A}" ShortID="716185898">
-					<PropertyList>
-						<Property Name="InitialDelay" Type="Real64">
-							<ValueList>
-								<Value>4</Value>
-							</ValueList>
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{80285167-8165-4EF1-BF8B-9F0E7337DF3D}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="16"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>22</Value>
-							</ValueList>
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{197186A0-92AA-4CA9-893F-8551F17B81ED}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="16"/>
-											<Property Name="Min" Type="Real64" Value="-11"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-						<Property Name="Pitch" Type="int32">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{3E4005ED-DE8C-42A7-8A38-906D5A5B3576}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="177"/>
-											<Property Name="Min" Type="Real64" Value="-152"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{54D58A9C-B600-44EC-9B2E-42595E525C86}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="12"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-7</Value>
-							</ValueList>
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{46A9A697-149C-4839-8DBE-F3F62A2BA3AA}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="4"/>
-											<Property Name="Min" Type="Real64" Value="-4"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc14" ID="{702E8723-171F-47AA-A022-4247F1FF9895}" ShortID="123109333">
+						<RandomSequenceContainer Name="IncineratorBGs_01" ID="{93822183-EA97-446C-8718-F566145BE438}" ShortID="798887495">
 							<PropertyList>
 								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>3.5</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
-											<Modifier Name="" ID="{ED75B691-6890-4B0D-82F2-4CDF1048B88D}"/>
-										</ModifierInfo>
-									</ModifierList>
-								</Property>
-								<Property Name="Pitch" Type="int32">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{7CD8CEF8-CDDF-4A86-9BAE-99AD5CFB16D0}"/>
-										</ModifierInfo>
-									</ModifierList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc14" ID="{E4C05B4D-0652-434D-AF4C-3A133BD4456A}" ShortID="469143939">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc14.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc14" ID="{E4C05B4D-0652-434D-AF4C-3A133BD4456A}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc9" ID="{D659AD74-5D3C-4A6F-82AB-3C81BE28F0A8}" ShortID="730723516">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc9" ID="{803CC72C-074A-4FD7-942E-3819E4B3B2D2}" ShortID="243948225">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc9.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc9" ID="{803CC72C-074A-4FD7-942E-3819E4B3B2D2}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc12" ID="{7C5391FD-6ECD-48EC-B570-AF0580422D5C}" ShortID="205310845">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc12" ID="{00A26372-C2D5-4E4F-9F84-DF93DBBA1279}" ShortID="547446139">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc12.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc12" ID="{00A26372-C2D5-4E4F-9F84-DF93DBBA1279}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc11" ID="{9014887D-2104-49BE-85B5-24F26E1CB3EC}" ShortID="804035072">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc11" ID="{7AFB257C-2C7B-4E02-8682-15F7DE2A990A}" ShortID="640558775">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc11.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc11" ID="{7AFB257C-2C7B-4E02-8682-15F7DE2A990A}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc10" ID="{52C30227-A94E-4361-A45D-920ED7ED5F20}" ShortID="859830341">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc10" ID="{C0263323-9294-425B-B9F7-B2965FDEC98E}" ShortID="1059972408">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc10.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc10" ID="{C0263323-9294-425B-B9F7-B2965FDEC98E}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc13" ID="{2C905708-57A5-4EC0-8E2F-D41B4203A788}" ShortID="695459939">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc13" ID="{A51CC8F9-6C1B-44A0-8644-5C9DE38A83FA}" ShortID="864240981">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc13.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc13" ID="{A51CC8F9-6C1B-44A0-8644-5C9DE38A83FA}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc15" ID="{AB68742C-53B8-43B8-958D-D5840034B209}" ShortID="608409165">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc15" ID="{C6EA5493-8C5C-4D3A-9D23-89E890AE5C40}" ShortID="350845668">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc15.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc15" ID="{C6EA5493-8C5C-4D3A-9D23-89E890AE5C40}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc16" ID="{AD5582F3-CA46-4DB6-8562-03ED93984B70}" ShortID="338694082">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc16" ID="{974CE0A5-2F9E-4CD6-A69B-621AE7C7DA13}" ShortID="403716558">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc16.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc16" ID="{974CE0A5-2F9E-4CD6-A69B-621AE7C7DA13}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc17" ID="{D6AF1F83-ABBE-4F39-85EB-D690906DD869}" ShortID="1055042582">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc17" ID="{A60D6FC3-D282-4DED-8C29-8B5B4AA43972}" ShortID="602530997">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc17.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc17" ID="{A60D6FC3-D282-4DED-8C29-8B5B4AA43972}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</RandomSequenceContainer>
-				<RandomSequenceContainer Name="IncineratorBGs_01" ID="{93822183-EA97-446C-8718-F566145BE438}" ShortID="798887495">
-					<PropertyList>
-						<Property Name="InitialDelay" Type="Real64">
-							<ValueList>
-								<Value>3.5</Value>
-							</ValueList>
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{699CE549-7ADD-456D-9555-72B486E8702D}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="12"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>18</Value>
-							</ValueList>
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{C095504C-EC8F-492C-AA99-AFA65AB2639D}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="16"/>
-											<Property Name="Min" Type="Real64" Value="-11"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-						<Property Name="Pitch" Type="int32">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{7FC875A8-25EA-473A-9E7A-83BADA2F332C}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="227"/>
-											<Property Name="Min" Type="Real64" Value="-202"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{5F1EF081-8F14-439F-A612-F902C965609E}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="12"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-7</Value>
-							</ValueList>
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{E68FF658-FE22-4968-86A0-CD37BD5D87C4}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="4"/>
-											<Property Name="Min" Type="Real64" Value="-4"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc2" ID="{441EE6AF-1B34-4B44-AA98-ECEB310849B7}" ShortID="533865511">
-							<PropertyList>
-								<Property Name="InitialDelay" Type="Real64">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{3F9169B4-B673-4E1F-9F57-126DF590EC1A}"/>
-										</ModifierInfo>
-									</ModifierList>
-								</Property>
-								<Property Name="Pitch" Type="int32">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{DB6924A2-C8A0-406A-8294-B9B7FCBCABF0}">
+											<Modifier Name="" ID="{699CE549-7ADD-456D-9555-72B486E8702D}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="12"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>18</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{C095504C-EC8F-492C-AA99-AFA65AB2639D}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="16"/>
+													<Property Name="Min" Type="Real64" Value="-11"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{7FC875A8-25EA-473A-9E7A-83BADA2F332C}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="227"/>
+													<Property Name="Min" Type="Real64" Value="-202"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{5F1EF081-8F14-439F-A612-F902C965609E}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="12"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{E68FF658-FE22-4968-86A0-CD37BD5D87C4}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="4"/>
+													<Property Name="Min" Type="Real64" Value="-4"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
@@ -437,108 +105,654 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc2" ID="{0C22CDAB-7AF5-4C5C-AB30-C119F114260A}" ShortID="510667868">
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc2" ID="{441EE6AF-1B34-4B44-AA98-ECEB310849B7}" ShortID="533865511">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{3F9169B4-B673-4E1F-9F57-126DF590EC1A}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{DB6924A2-C8A0-406A-8294-B9B7FCBCABF0}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc2" ID="{0C22CDAB-7AF5-4C5C-AB30-C119F114260A}" ShortID="510667868">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc2.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc2" ID="{0C22CDAB-7AF5-4C5C-AB30-C119F114260A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc6" ID="{F64A75F3-6CC5-4D2A-9881-44637C6BCC3C}" ShortID="638276976">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{14581AD5-3863-4ED5-B711-CC8BA09ED552}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Weight" Type="Real64">
+											<ValueList>
+												<Value>55</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc6" ID="{2E9CC71D-A10C-410B-82F6-436598DBF09F}" ShortID="125640084">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc6.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc6" ID="{2E9CC71D-A10C-410B-82F6-436598DBF09F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc1" ID="{1C57AF9C-E0DF-404F-A171-3A2F654FC39C}" ShortID="22269633">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc1" ID="{638A7096-68D0-4521-B006-85A481A37668}" ShortID="466885208">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc1.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc1" ID="{638A7096-68D0-4521-B006-85A481A37668}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc3" ID="{FCB0F764-87DC-4CF9-A318-35F20CEF4542}" ShortID="239540546">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc3" ID="{020E213E-3E1D-46CE-BCDA-73B09EC50AF1}" ShortID="602497015">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc3.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc3" ID="{020E213E-3E1D-46CE-BCDA-73B09EC50AF1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc5" ID="{2BF1A2A2-DD7D-4A54-B7AA-C376D0B6C02B}" ShortID="435626608">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>13</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>9</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Weight" Type="Real64">
+											<ValueList>
+												<Value>39</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc5" ID="{FF6AB2EA-5240-49E0-A32F-3C7798FAC8B5}" ShortID="371204263">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc5.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc5" ID="{FF6AB2EA-5240-49E0-A32F-3C7798FAC8B5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc4" ID="{A537F8EB-4FD3-4A55-8E6B-8C93B21BFE92}" ShortID="29778929">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc4" ID="{FCF7B436-8F8E-44D9-B0D5-73464505C364}" ShortID="16376898">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc4.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc4" ID="{FCF7B436-8F8E-44D9-B0D5-73464505C364}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc7" ID="{58DACD44-326C-4A1D-829B-DA2CD9805BD2}" ShortID="477003421">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc7" ID="{B21A4024-D1FE-41AC-B7B7-C739807A1CB8}" ShortID="422841133">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc7.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc7" ID="{B21A4024-D1FE-41AC-B7B7-C739807A1CB8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc8" ID="{B476C4A4-8178-4CD7-82AD-1CF08A95ECD6}" ShortID="252447088">
+									<PropertyList>
+										<Property Name="Weight" Type="Real64">
+											<ValueList>
+												<Value>38</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc8" ID="{9BAD42BB-DCA1-48E6-B8CB-B0D58845CC81}" ShortID="914929029">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc8.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc8" ID="{9BAD42BB-DCA1-48E6-B8CB-B0D58845CC81}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="IncineratorBGs" ID="{4169B142-D47F-4772-B483-ACE24FB73B6A}" ShortID="716185898">
+							<PropertyList>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{80285167-8165-4EF1-BF8B-9F0E7337DF3D}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="16"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>22</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{197186A0-92AA-4CA9-893F-8551F17B81ED}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="16"/>
+													<Property Name="Min" Type="Real64" Value="-11"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{3E4005ED-DE8C-42A7-8A38-906D5A5B3576}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="177"/>
+													<Property Name="Min" Type="Real64" Value="-152"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{54D58A9C-B600-44EC-9B2E-42595E525C86}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="12"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{46A9A697-149C-4839-8DBE-F3F62A2BA3AA}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="4"/>
+													<Property Name="Min" Type="Real64" Value="-4"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc14" ID="{702E8723-171F-47AA-A022-4247F1FF9895}" ShortID="123109333">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{ED75B691-6890-4B0D-82F2-4CDF1048B88D}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{7CD8CEF8-CDDF-4A86-9BAE-99AD5CFB16D0}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc14" ID="{E4C05B4D-0652-434D-AF4C-3A133BD4456A}" ShortID="469143939">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc14.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc14" ID="{E4C05B4D-0652-434D-AF4C-3A133BD4456A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc9" ID="{D659AD74-5D3C-4A6F-82AB-3C81BE28F0A8}" ShortID="730723516">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc9" ID="{803CC72C-074A-4FD7-942E-3819E4B3B2D2}" ShortID="243948225">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc9.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc9" ID="{803CC72C-074A-4FD7-942E-3819E4B3B2D2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc12" ID="{7C5391FD-6ECD-48EC-B570-AF0580422D5C}" ShortID="205310845">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc12" ID="{00A26372-C2D5-4E4F-9F84-DF93DBBA1279}" ShortID="547446139">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc12.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc12" ID="{00A26372-C2D5-4E4F-9F84-DF93DBBA1279}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc11" ID="{9014887D-2104-49BE-85B5-24F26E1CB3EC}" ShortID="804035072">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc11" ID="{7AFB257C-2C7B-4E02-8682-15F7DE2A990A}" ShortID="640558775">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc11.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc11" ID="{7AFB257C-2C7B-4E02-8682-15F7DE2A990A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc10" ID="{52C30227-A94E-4361-A45D-920ED7ED5F20}" ShortID="859830341">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc10" ID="{C0263323-9294-425B-B9F7-B2965FDEC98E}" ShortID="1059972408">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc10.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc10" ID="{C0263323-9294-425B-B9F7-B2965FDEC98E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc13" ID="{2C905708-57A5-4EC0-8E2F-D41B4203A788}" ShortID="695459939">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc13" ID="{A51CC8F9-6C1B-44A0-8644-5C9DE38A83FA}" ShortID="864240981">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc13.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc13" ID="{A51CC8F9-6C1B-44A0-8644-5C9DE38A83FA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc15" ID="{AB68742C-53B8-43B8-958D-D5840034B209}" ShortID="608409165">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc15" ID="{C6EA5493-8C5C-4D3A-9D23-89E890AE5C40}" ShortID="350845668">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc15.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc15" ID="{C6EA5493-8C5C-4D3A-9D23-89E890AE5C40}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc16" ID="{AD5582F3-CA46-4DB6-8562-03ED93984B70}" ShortID="338694082">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc16" ID="{974CE0A5-2F9E-4CD6-A69B-621AE7C7DA13}" ShortID="403716558">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc16.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc16" ID="{974CE0A5-2F9E-4CD6-A69B-621AE7C7DA13}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc17" ID="{D6AF1F83-ABBE-4F39-85EB-D690906DD869}" ShortID="1055042582">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc17" ID="{A60D6FC3-D282-4DED-8C29-8B5B4AA43972}" ShortID="602530997">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc17.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc17" ID="{A60D6FC3-D282-4DED-8C29-8B5B4AA43972}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<Sound Name="dl_sfx_bg_incinerator_ambiance_incinerator" ID="{309832BA-541B-4EC8-9A51-91FB846053B2}" ShortID="382994242">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>41</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incinerator" ID="{20DFD930-B9F7-4C6C-BE04-30104BD671A5}" ShortID="969258234">
 									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc2.wav</AudioFile>
+									<AudioFile>dl_sfx_bg_incinerator_ambiance_incinerator.wav</AudioFile>
+								</AudioFileSource>
+								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{265942FD-1EFE-4D71-BF8A-8F44326C7989}" ShortID="675911660">
+									<Language>SFX</Language>
+									<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_01.wav</AudioFile>
+								</AudioFileSource>
+								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{9E4A0900-CF41-465A-883A-CCC9607047E6}" ShortID="935221074">
+									<Language>SFX</Language>
+									<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_02.wav</AudioFile>
+								</AudioFileSource>
+								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{96C03BE2-F942-4ABF-B1D5-7FAD38857946}" ShortID="550009148">
+									<Language>SFX</Language>
+									<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_03.wav</AudioFile>
+								</AudioFileSource>
+								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{DA4ACC42-D5E7-4669-8312-2065C00BFDD9}" ShortID="324417070">
+									<Language>SFX</Language>
+									<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_04.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc2" ID="{0C22CDAB-7AF5-4C5C-AB30-C119F114260A}" Platform="Linked"/>
+								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incinerator" ID="{20DFD930-B9F7-4C6C-BE04-30104BD671A5}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc6" ID="{F64A75F3-6CC5-4D2A-9881-44637C6BCC3C}" ShortID="638276976">
+					</ChildrenList>
+				</BlendContainer>
+				<BlendContainer Name="Corpses_01" ID="{2E777386-A377-4514-B018-1311FF652438}" ShortID="817514902">
+					<PropertyList>
+						<Property Name="BlendBehavior" Type="int16" Value="1"/>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>46</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<RTPCList>
+								<RTPC Name="" ID="{217AB8BE-B0A4-4F14-8997-CBD8917BCBAC}" ShortID="1056276280">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="DistanceToCorpse_01" ID="{C6266203-6CD7-4EB4-B53D-24924372B16C}" WorkUnitID="{C86261F4-16B7-4193-8D43-C59FD4A1419D}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{96555C46-F44B-4CAE-8A35-7B94F336BAAA}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="1"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>1.99372</XPos>
+												<YPos>0</YPos>
+												<Flags>0</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>6.01466</XPos>
+												<YPos>-17.28324</YPos>
+												<Flags>0</Flags>
+												<SegmentShape>Exp3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>8</XPos>
+												<YPos>-25.69832</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+							<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Moans" ID="{3E33430A-C51B-428A-B0B8-09452A1EAB7F}" ShortID="632019958">
 							<PropertyList>
 								<Property Name="InitialDelay" Type="Real64">
 									<ModifierList>
 										<ModifierInfo>
-											<Modifier Name="" ID="{14581AD5-3863-4ED5-B711-CC8BA09ED552}"/>
+											<Modifier Name="" ID="{0A8CF527-F145-4873-9802-39D01F44599F}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="2"/>
+												</PropertyList>
+											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
-								<Property Name="Weight" Type="Real64">
+								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+								<Property Name="PlayMechanismInfiniteOrNumberOfLoops" Type="int16" Value="0"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismLoopCount" Type="int32" Value="1"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RenderEffect0" Type="bool">
 									<ValueList>
-										<Value>55</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc6" ID="{2E9CC71D-A10C-410B-82F6-436598DBF09F}" ShortID="125640084">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc6.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc6" ID="{2E9CC71D-A10C-410B-82F6-436598DBF09F}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc1" ID="{1C57AF9C-E0DF-404F-A171-3A2F654FC39C}" ShortID="22269633">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc1" ID="{638A7096-68D0-4521-B006-85A481A37668}" ShortID="466885208">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc1.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc1" ID="{638A7096-68D0-4521-B006-85A481A37668}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc3" ID="{FCB0F764-87DC-4CF9-A318-35F20CEF4542}" ShortID="239540546">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>5</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc3" ID="{020E213E-3E1D-46CE-BCDA-73B09EC50AF1}" ShortID="602497015">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc3.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc3" ID="{020E213E-3E1D-46CE-BCDA-73B09EC50AF1}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc5" ID="{2BF1A2A2-DD7D-4A54-B7AA-C376D0B6C02B}" ShortID="435626608">
-							<PropertyList>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>13</Value>
+										<Value>True</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>9</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Weight" Type="Real64">
-									<ValueList>
-										<Value>39</Value>
+										<Value>3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -547,43 +761,95 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc5" ID="{FF6AB2EA-5240-49E0-A32F-3C7798FAC8B5}" ShortID="371204263">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc5.wav</AudioFile>
-								</AudioFileSource>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{0572B103-3870-40BC-91D1-E0B24CF2DC35}" ShortID="724088087">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{7D737AB1-CA9A-4480-803A-B99C874F0552}" ShortID="722373531">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{7D737AB1-CA9A-4480-803A-B99C874F0552}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{E11E0D12-4085-4424-B677-D0B491E6FCF1}" ShortID="393796376">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{76E700E0-930B-4932-808D-9EDA9C57ECD6}" ShortID="102699890">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_02.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{76E700E0-930B-4932-808D-9EDA9C57ECD6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{1E90DBD1-D9F8-489F-A645-B6E938E53552}" ShortID="163713458">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{4103CC10-9429-4482-A377-3123B2ABECE3}" ShortID="497556889">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_03.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{4103CC10-9429-4482-A377-3123B2ABECE3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{6322EFB7-A402-49C5-B955-E5BC06700DD7}" ShortID="53964610">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{9EA40AA5-DD4F-4E37-BBC3-B65C9C8D6BDD}" ShortID="45453408">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_04.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{9EA40AA5-DD4F-4E37-BBC3-B65C9C8D6BDD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc5" ID="{FF6AB2EA-5240-49E0-A32F-3C7798FAC8B5}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc4" ID="{A537F8EB-4FD3-4A55-8E6B-8C93B21BFE92}" ShortID="29778929">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc4" ID="{FCF7B436-8F8E-44D9-B0D5-73464505C364}" ShortID="16376898">
-									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc4.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc4" ID="{FCF7B436-8F8E-44D9-B0D5-73464505C364}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc7" ID="{58DACD44-326C-4A1D-829B-DA2CD9805BD2}" ShortID="477003421">
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="HelpAndCoffs" ID="{99B39CD2-87DB-49B0-9FFC-62C2CFB12930}" ShortID="922153789">
 							<PropertyList>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>4</Value>
+										<Value>-8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -592,43 +858,1168 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc7" ID="{B21A4024-D1FE-41AC-B7B7-C739807A1CB8}" ShortID="422841133">
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02" ID="{F11CE758-59AE-42B0-B12D-06F2242C4416}" ShortID="314221107">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02" ID="{BF9B9DFF-8943-4E14-96F0-EBDA5956AD9A}" ShortID="448345354">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02" ID="{BF9B9DFF-8943-4E14-96F0-EBDA5956AD9A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01" ID="{9B5F3BC1-420A-4C94-B7AF-4AA1CFA70FBA}" ShortID="221179649">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{DCF096B4-853B-4819-B5EB-2994B0D5ECDE}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="5"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01" ID="{F5C305C6-D0DA-4A66-95B0-E48BC80E9575}" ShortID="140611530">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01" ID="{F5C305C6-D0DA-4A66-95B0-E48BC80E9575}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03" ID="{663B1235-5AA6-4673-94C3-EF514BE9ABEB}" ShortID="493444504">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03" ID="{B86F8BE3-F7CD-46A5-B448-1826D12BB2B0}" ShortID="296435267">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03" ID="{B86F8BE3-F7CD-46A5-B448-1826D12BB2B0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08" ID="{E53552A5-1E2E-4E73-BB17-8D18BB148F09}" ShortID="601424586">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08" ID="{51DBC17C-8040-4FD2-BB29-69FA96B38C7D}" ShortID="831519662">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08" ID="{51DBC17C-8040-4FD2-BB29-69FA96B38C7D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{7282942F-C9EB-46E1-95E7-6D28BA0A5BEF}">
+							<PropertyList>
+								<Property Name="PanY" Type="Real64" Value="-4.44089209850063E-16"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
+				</BlendContainer>
+				<BlendContainer Name="Corpses_02" ID="{ACF0A8A4-FCAE-4BAB-A03F-C5628F28DC19}" ShortID="1054124544">
+					<PropertyList>
+						<Property Name="BlendBehavior" Type="int16" Value="1"/>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>46</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<RTPCList>
+								<RTPC Name="" ID="{65CD15D7-DD6A-4FB4-AEF9-C9F75854E62F}" ShortID="149657694">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="DistanceToCorpse_02" ID="{C9D6012D-E660-421F-A995-98DEA4863C6C}" WorkUnitID="{C86261F4-16B7-4193-8D43-C59FD4A1419D}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{5CB9C5F6-7665-4380-A004-840417551604}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="1"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>1.99372</XPos>
+												<YPos>0</YPos>
+												<Flags>0</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>6.01466</XPos>
+												<YPos>-17.28324</YPos>
+												<Flags>0</Flags>
+												<SegmentShape>Exp3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>8</XPos>
+												<YPos>-25.69832</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+							<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Moans" ID="{03C80661-EA56-4FF7-A01F-534DF1793DD3}" ShortID="301014731">
+							<PropertyList>
+								<Property Name="InitialDelay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{B20D719D-C962-4052-B401-97DC654C70EF}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+								<Property Name="PlayMechanismInfiniteOrNumberOfLoops" Type="int16" Value="0"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismLoopCount" Type="int32" Value="1"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RenderEffect0" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{3E437A6C-8514-49A4-9793-E4C0669567E1}" ShortID="351833847">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{12BEEDCC-D1D4-4B9F-9269-49A993C41E31}" ShortID="221679928">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_01.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="722373531"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{12BEEDCC-D1D4-4B9F-9269-49A993C41E31}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{1A6F9158-8593-489F-BD4F-7A7E682834E0}" ShortID="36179610">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{3118B57D-9082-47BE-B270-E1D60FAA556A}" ShortID="575668044">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_02.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="102699890"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{3118B57D-9082-47BE-B270-E1D60FAA556A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{12165356-E12A-44BD-81C8-E8528999F878}" ShortID="309754081">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{F3FDCDEF-D3C5-4BDD-B78E-DBB1084F1348}" ShortID="689919597">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_03.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="497556889"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{F3FDCDEF-D3C5-4BDD-B78E-DBB1084F1348}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{6028017E-3AEC-4D2E-B60B-EBD158F1007D}" ShortID="1045012662">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{49BB5B1D-FE0E-4F47-A803-C409DD2861C9}" ShortID="175921022">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_04.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="45453408"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{49BB5B1D-FE0E-4F47-A803-C409DD2861C9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="HelpAndCoffs" ID="{088FD9F1-D180-42FC-AE60-25BBDD405CB6}" ShortID="67529857">
+							<PropertyList>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02" ID="{BEBC71CE-D0AD-4479-BFE6-5ED803076251}" ShortID="404935408">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02" ID="{6842CA33-FA7E-4A28-A0DF-CDF2F1DA04EB}" ShortID="180013386">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="448345354"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02" ID="{6842CA33-FA7E-4A28-A0DF-CDF2F1DA04EB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01" ID="{879B4E99-C58E-4CAA-9C30-9D3DA25C5C12}" ShortID="350799087">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{B60772F3-D55B-44BE-B3AC-8D3EBC6D099D}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="5"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01" ID="{D99F1088-C17F-4D58-B8CC-41A4655D6BD1}" ShortID="178540496">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="140611530"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01" ID="{D99F1088-C17F-4D58-B8CC-41A4655D6BD1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03" ID="{3940AFF4-5ED1-499B-B07A-1AE4CF39B5D9}" ShortID="860647428">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03" ID="{6E7DC083-9F94-452C-80E3-2F4DAA4A2E62}" ShortID="586258403">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="296435267"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03" ID="{6E7DC083-9F94-452C-80E3-2F4DAA4A2E62}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08" ID="{C0BD4FD3-35C6-4EA4-80FC-1FE518BCBB31}" ShortID="318735363">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08" ID="{723886E6-A508-4E5C-9A8A-100498897510}" ShortID="371214122">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="831519662"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08" ID="{723886E6-A508-4E5C-9A8A-100498897510}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{0DD84E5A-583C-462A-BD59-A9551ECD7358}"/>
+					</PositioningInfo>
+				</BlendContainer>
+				<BlendContainer Name="Corpses_03" ID="{E36D317C-C8CE-4274-90CC-4AF39D1E7012}" ShortID="719945629">
+					<PropertyList>
+						<Property Name="BlendBehavior" Type="int16" Value="1"/>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>46</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<RTPCList>
+								<RTPC Name="" ID="{43BACCD1-ABFE-48FE-B0ED-AF94515A58C8}" ShortID="1053099139">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="DistanceToCorpse_03" ID="{F8A60522-EFFF-47CE-91C1-54C313D2520B}" WorkUnitID="{C86261F4-16B7-4193-8D43-C59FD4A1419D}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{6ADB6428-C152-4A33-8587-912F34B728F8}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="1"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>1.99372</XPos>
+												<YPos>0</YPos>
+												<Flags>0</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>6.01466</XPos>
+												<YPos>-17.28324</YPos>
+												<Flags>0</Flags>
+												<SegmentShape>Exp3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>8</XPos>
+												<YPos>-25.69832</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+							<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Moans" ID="{802754CB-2D54-485F-A0EB-55D3DFEEFF8E}" ShortID="1040075492">
+							<PropertyList>
+								<Property Name="InitialDelay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{C82F65FE-49CD-43A6-8095-E971EBEFCDB8}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+								<Property Name="PlayMechanismInfiniteOrNumberOfLoops" Type="int16" Value="0"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismLoopCount" Type="int32" Value="1"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RenderEffect0" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{F872514D-051E-49B6-82DA-25031483288B}" ShortID="500440025">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{7B533DE6-1930-45C9-A86B-0A94C8F45AA8}" ShortID="528805616">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_01.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="722373531"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_01" ID="{7B533DE6-1930-45C9-A86B-0A94C8F45AA8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{F3505A5E-D857-42C2-96D1-296B9509D3C7}" ShortID="201763289">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{9E711DB2-A84A-4181-834B-8A983EF0E03D}" ShortID="31110921">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_02.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="102699890"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_02" ID="{9E711DB2-A84A-4181-834B-8A983EF0E03D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{67AD1DE9-C8EE-4096-8C05-4C3A0E2FE3F1}" ShortID="162373055">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{D3B17AAC-1960-4CFD-86EA-A0265EF71BED}" ShortID="569740204">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_03.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="497556889"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_03" ID="{D3B17AAC-1960-4CFD-86EA-A0265EF71BED}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{ECE81860-A6B3-4F9F-82C8-F10C26096F92}" ShortID="825457168">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{75B64F16-B32C-4468-83F6-4E99E82D0ADE}" ShortID="192394395">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_moan_04.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="45453408"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_moan_04" ID="{75B64F16-B32C-4468-83F6-4E99E82D0ADE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="HelpAndCoffs" ID="{59B0BFD0-1CA6-41B9-AFF7-7CC0426784C9}" ShortID="394534708">
+							<PropertyList>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02" ID="{5F5AD1A8-CE09-4BD3-9791-B2B5AA5DA43A}" ShortID="714120279">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F0DBF78C-ADFF-4E76-9BC4-4278B678B5C5}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="300"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02" ID="{03BA6D96-B422-41D6-AA97-9396EC50B3FF}" ShortID="705607530">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="448345354"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02" ID="{03BA6D96-B422-41D6-AA97-9396EC50B3FF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01" ID="{F5E2AF1B-6C94-4482-BCE9-2C5E5B0A1006}" ShortID="214928988">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{DFACA6C0-0D7C-4870-8F28-BD6848D39F15}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="5"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{DE02E3C2-A989-4BF6-AB59-92FF50920B2B}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="300"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01" ID="{D24AD228-5EC7-4087-BCCC-2D826B935A5D}" ShortID="508422148">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="140611530"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01" ID="{D24AD228-5EC7-4087-BCCC-2D826B935A5D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03" ID="{B0C1CE19-218B-42CE-8F7A-1C5ED4DF3871}" ShortID="502232308">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{281ABDD6-7F69-450B-962F-43D03AB4FF8E}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="300"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03" ID="{FED309BB-3506-4876-9C93-00FF2BDF5485}" ShortID="496790898">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="296435267"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03" ID="{FED309BB-3506-4876-9C93-00FF2BDF5485}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08" ID="{439F2047-C6FA-4DF4-A556-B03CF2D3D124}" ShortID="468858441">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{FF6FF79E-942B-489E-B789-AC71BFF987A2}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="300"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08" ID="{8A7FE6D3-24D4-42E0-A89C-FD9938D8A3FC}" ShortID="1069472006">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="831519662"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08" ID="{8A7FE6D3-24D4-42E0-A89C-FD9938D8A3FC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</BlendContainer>
+				<BlendContainer Name="Incinerator" ID="{B11A3176-AD55-46E8-8071-D01B7A2C916B}" ShortID="977869492">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Incinerator_Texture" ID="{975814A4-578B-47F3-AEF0-FDFC6F285CB5}" ShortID="603902079">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_06" ID="{148B87F6-4866-4541-AFC9-3F0B5E7DF7DE}" ShortID="272933618">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{39E58426-6833-443A-99F2-B91B527373F7}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="202"/>
+															<Property Name="Min" Type="Real64" Value="-303"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+											<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_06" ID="{5B73884E-6A34-473F-97D3-9E72EE5479A9}" ShortID="746672929">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_06.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="799211175"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_06" ID="{5B73884E-6A34-473F-97D3-9E72EE5479A9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_04" ID="{597D14F5-3CC2-4872-A0EF-B9E9A2D68AA2}" ShortID="148855236">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{231BFFAD-0A0F-44D7-9929-9CADC235B70B}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="328"/>
+															<Property Name="Min" Type="Real64" Value="-227"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+											<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_04" ID="{E1E6DE28-0C16-4591-9311-DAAEC4284D3B}" ShortID="986597779">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_04.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="360629612"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_04" ID="{E1E6DE28-0C16-4591-9311-DAAEC4284D3B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_05" ID="{D260FAE5-8597-458C-8444-A5EC6B6CFF61}" ShortID="493321969">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{4EC3CA99-C04D-43B8-B406-6BE94978FB07}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="51"/>
+															<Property Name="Min" Type="Real64" Value="-253"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+											<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_05" ID="{4CD7D426-25D4-40E1-9F9A-D1694C5BBE6F}" ShortID="631808430">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_05.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="591544655"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_05" ID="{4CD7D426-25D4-40E1-9F9A-D1694C5BBE6F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_07" ID="{C663ECE5-70AC-4AD1-B5F2-080AE656523F}" ShortID="376452785">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E72314D2-50B0-4BCF-8484-BF6F6C9799A9}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="76"/>
+															<Property Name="Min" Type="Real64" Value="-253"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+											<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_07" ID="{E9CB9551-6645-401B-9B10-6A868BC7198A}" ShortID="194026608">
+											<Language>SFX</Language>
+											<AudioFile>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_07.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="1067442612"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_07" ID="{E9CB9551-6645-401B-9B10-6A868BC7198A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Screams" ID="{0DDE34FC-0D22-42F5-9820-14266E7DFAEE}" ShortID="781157181">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</BlendContainer>
+				<RandomSequenceContainer Name="Footsteps_Concrete" ID="{9EEB200A-2AEC-4D3F-8756-8A7F6E8BC2D3}" ShortID="456382980">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{FBDCD54B-AF4F-445F-8712-6932CEAD7CB0}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="300"/>
+											<Property Name="Min" Type="Real64" Value="-300"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-12</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+							<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="dl_sfx_foley_footstepConcrete1" ID="{C0B60D19-2D88-4351-B418-18397ACAD895}" ShortID="325622989">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="dl_sfx_foley_footstepConcrete1" ID="{64429919-8047-4BD9-B359-59399FBDB4E3}" ShortID="758849410">
 									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc7.wav</AudioFile>
+									<AudioFile>dl_sfx_foley_footstepConcrete1.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc7" ID="{B21A4024-D1FE-41AC-B7B7-C739807A1CB8}" Platform="Linked"/>
+								<ActiveSource Name="dl_sfx_foley_footstepConcrete1" ID="{64429919-8047-4BD9-B359-59399FBDB4E3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="dl_sfx_bg_incinerator_ambiance_incineratormisc8" ID="{B476C4A4-8178-4CD7-82AD-1CF08A95ECD6}" ShortID="252447088">
-							<PropertyList>
-								<Property Name="Weight" Type="Real64">
-									<ValueList>
-										<Value>38</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
+						<Sound Name="dl_sfx_foley_footstepConcrete2" ID="{84C2F1D6-D888-4E55-AC76-A1AD0D2DA416}" ShortID="1008458643">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Incinerator Area" ID="{19A4578A-D69C-4251-9F7D-3CA24D06615B}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc8" ID="{9BAD42BB-DCA1-48E6-B8CB-B0D58845CC81}" ShortID="914929029">
+								<AudioFileSource Name="dl_sfx_foley_footstepConcrete2" ID="{822BA41E-622A-4927-8559-DE7911EC3EF4}" ShortID="875484048">
 									<Language>SFX</Language>
-									<AudioFile>dl_sfx_bg_incinerator_ambiance_incineratormisc8.wav</AudioFile>
+									<AudioFile>dl_sfx_foley_footstepConcrete2.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="dl_sfx_bg_incinerator_ambiance_incineratormisc8" ID="{9BAD42BB-DCA1-48E6-B8CB-B0D58845CC81}" Platform="Linked"/>
+								<ActiveSource Name="dl_sfx_foley_footstepConcrete2" ID="{822BA41E-622A-4927-8559-DE7911EC3EF4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="dl_sfx_foley_footstepConcrete3" ID="{D7A9C8F9-00CE-432F-885E-DAE78A80D247}" ShortID="353887430">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="dl_sfx_foley_footstepConcrete3" ID="{6168B8C0-1193-4F55-A320-D71205489E63}" ShortID="17901150">
+									<Language>SFX</Language>
+									<AudioFile>dl_sfx_foley_footstepConcrete3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="dl_sfx_foley_footstepConcrete3" ID="{6168B8C0-1193-4F55-A320-D71205489E63}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="dl_sfx_foley_footstepConcrete4" ID="{B0677AD7-F676-414C-8ACA-2644246E2C7B}" ShortID="1049019857">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="dl_sfx_foley_footstepConcrete4" ID="{437489AA-19B3-4BA0-A8C5-F58418538B0D}" ShortID="486157805">
+									<Language>SFX</Language>
+									<AudioFile>dl_sfx_foley_footstepConcrete4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="dl_sfx_foley_footstepConcrete4" ID="{437489AA-19B3-4BA0-A8C5-F58418538B0D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="dl_sfx_foley_footstepConcrete5" ID="{4BEBAFE2-E0BC-453F-9F26-0235C3EA1555}" ShortID="820276730">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="dl_sfx_foley_footstepConcrete5" ID="{C03A22DD-57CA-4CF4-AC3A-CC23211244C5}" ShortID="435226966">
+									<Language>SFX</Language>
+									<AudioFile>dl_sfx_foley_footstepConcrete5.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="dl_sfx_foley_footstepConcrete5" ID="{C03A22DD-57CA-4CF4-AC3A-CC23211244C5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="dl_sfx_foley_footstepConcrete6" ID="{EB541B0F-A89D-4A69-81A1-1B57978E2394}" ShortID="81667161">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="dl_sfx_foley_footstepConcrete6" ID="{1B7DCF5F-6590-4805-B572-8EC81D65E0CA}" ShortID="769375675">
+									<Language>SFX</Language>
+									<AudioFile>dl_sfx_foley_footstepConcrete6.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="dl_sfx_foley_footstepConcrete6" ID="{1B7DCF5F-6590-4805-B572-8EC81D65E0CA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="dl_sfx_foley_footstepConcrete7" ID="{1386E06A-EADD-4205-9A19-B69278BF2BE8}" ShortID="368458087">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="dl_sfx_foley_footstepConcrete7" ID="{6021B6FE-B194-4DFD-9919-31FB910D4C52}" ShortID="315679016">
+									<Language>SFX</Language>
+									<AudioFile>dl_sfx_foley_footstepConcrete7.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="dl_sfx_foley_footstepConcrete7" ID="{6021B6FE-B194-4DFD-9919-31FB910D4C52}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

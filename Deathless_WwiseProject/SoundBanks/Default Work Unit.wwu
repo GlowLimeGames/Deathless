@@ -5,7 +5,13 @@
 			<ChildrenList>
 				<SoundBank Name="Incinerator" ID="{D705D665-8109-4654-8049-2FCCF4CC4FEE}">
 					<ObjectInclusionList>
-						<ObjectRef Name="IncineratorAreaStart" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_Start" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_PlayFootsteps" ID="{A2D342F1-A287-4143-9659-DAD30739F783}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_Corpse_01" ID="{664DE440-6113-418E-B92D-83D7C145CCB2}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_Corpse_03" ID="{1BCD1D7C-4172-41A5-A15B-9D10AAB4F1E1}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_Corpse_02" ID="{842BF99C-5F2D-4A6B-84C6-C384CB925E26}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_Incinerators" ID="{9D194A33-07DC-4F8E-97F9-2799450F18C8}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_StopFootsteps" ID="{798E61A2-EAA1-4FC4-818F-37A67E92FBD0}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

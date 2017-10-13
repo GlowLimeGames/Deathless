@@ -1,53 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ValidationCache Version="1" SchemaVersion="75">
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="2710498432" DateHigh="30583583"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Actor-Mixer Hierarchy\IncineratorArea.wwu" DateLow="1285661952" DateHigh="30583588"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="755400320" DateHigh="30583580"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Deathless_WwiseProject.crossover.wsettings" DateLow="2545596544" DateHigh="30583586"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Deathless_WwiseProject.wproj" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Effects\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Effects\Factory Effects.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Events\Default Work Unit.wwu" DateLow="2710498432" DateHigh="30583583"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="755400320" DateHigh="30583580"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Presets\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Queries\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Queries\Factory Queries.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="895596544" DateHigh="30583586"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\States\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Switches\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless\Deathless_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="2980367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="2341672960" DateHigh="30578115"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Deathless_WwiseProject.wproj" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Effects\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Effects\Factory Effects.wwu" DateLow="2341672960" DateHigh="30578115"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Events\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Presets\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Queries\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Queries\Factory Queries.wwu" DateLow="2341672960" DateHigh="30578115"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\States\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Switches\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
-	<ValidationCacheItem File="Y:\Documents\Projects\Deathless\DeathlessGit\Deathless_WwiseIntegrationTemp\Deathless_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="2610367616" DateHigh="30583579"/>
+<ValidationCache Version="1" SchemaVersion="80">
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Actor-Mixer Hierarchy\IncineratorArea.wwu" DateLow="3000271360" DateHigh="30622715"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Deathless_WwiseProject.crossover.wsettings" DateLow="2802945664" DateHigh="30622491"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Deathless_WwiseProject.wproj" DateLow="1932676608" DateHigh="30622177"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Effects\Factory Effects.wwu" DateLow="3000271360" DateHigh="30622715"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Events\Default Work Unit.wwu" DateLow="3310205952" DateHigh="30622713"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="3044519168" DateHigh="30622692"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1932676608" DateHigh="30622177"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Interactive Music Hierarchy\IncineratorAreaMX.wwu" DateLow="3428897792" DateHigh="30622673"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="1378122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Presets\Default Work Unit.wwu" DateLow="1388122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1388122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Queries\Factory Queries.wwu" DateLow="1388122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="3310205952" DateHigh="30622713"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="3000271360" DateHigh="30622715"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\States\Default Work Unit.wwu" DateLow="1388122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1388122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1388122624" DateHigh="30620356"/>
+	<ValidationCacheItem File="Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1388122624" DateHigh="30620356"/>
 </ValidationCache>

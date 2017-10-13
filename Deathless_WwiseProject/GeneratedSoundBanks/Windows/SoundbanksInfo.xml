@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="125">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Sienna\Documents\Unity Projects\Deathless\Deathless_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Sienna\Documents\Unity Projects\Deathless\Deathless_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Sienna\Documents\Unity Projects\Deathless\Deathless_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>/Users/maxime/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/Unity PJT/Deathless/Deathless_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Users/maxime/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/Unity PJT/Deathless/Deathless_WwiseProject/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/maxime/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/Unity PJT/Deathless/Deathless_WwiseProject/GeneratedSoundBanks/Windows/</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Sienna\Documents\Unity Projects\Deathless\Deathless_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>/Users/maxime/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/Unity PJT/Deathless/Deathless_WwiseProject/GeneratedSoundBanks/Windows/</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,80 +21,146 @@
 			<ShortName>Incinerator</ShortName>
 			<Path>Incinerator.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3256731940" Name="IncineratorAreaStart" ObjectPath="\Events\Default Work Unit\IncineratorAreaStart"/>
+				<Event Id="4263198299" Name="IncineratorArea_Corpse_01" ObjectPath="\Events\Default Work Unit\IncineratorArea_Corpse_01"/>
+				<Event Id="4263198296" Name="IncineratorArea_Corpse_02" ObjectPath="\Events\Default Work Unit\IncineratorArea_Corpse_02"/>
+				<Event Id="4263198297" Name="IncineratorArea_Corpse_03" ObjectPath="\Events\Default Work Unit\IncineratorArea_Corpse_03"/>
+				<Event Id="103633432" Name="IncineratorArea_Incinerators" ObjectPath="\Events\Default Work Unit\IncineratorArea_Incinerators" MaxAttenuation="0.000000"/>
+				<Event Id="2012575842" Name="IncineratorArea_PlayFootsteps" ObjectPath="\Events\Default Work Unit\IncineratorArea_PlayFootsteps"/>
+				<Event Id="1640926013" Name="IncineratorArea_Start" ObjectPath="\Events\Default Work Unit\IncineratorArea_Start"/>
+				<Event Id="2330997336" Name="IncineratorArea_StopFootsteps" ObjectPath="\Events\Default Work Unit\IncineratorArea_StopFootsteps" MaxAttenuation="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="16376898" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc4.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc4_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc4_53CEE377.wem</Path>
+				</File>
+				<File Id="17901150" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete3.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete3_53CEE377.wem</Path>
+				</File>
+				<File Id="45453408" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_moan_04.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_moan_04_53CEE377.wem</Path>
+				</File>
+				<File Id="102699890" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_moan_02.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_moan_02_53CEE377.wem</Path>
 				</File>
 				<File Id="125640084" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc6.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc6_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc6_53CEE377.wem</Path>
+				</File>
+				<File Id="140611530" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_01_53CEE377.wem</Path>
 				</File>
 				<File Id="243948225" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc9.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc9_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc9_53CEE377.wem</Path>
+				</File>
+				<File Id="296435267" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_03_53CEE377.wem</Path>
+				</File>
+				<File Id="315679016" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete7.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete7_53CEE377.wem</Path>
 				</File>
 				<File Id="350845668" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc15.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc15_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc15_53CEE377.wem</Path>
 				</File>
 				<File Id="371204263" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc5.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc5_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc5_53CEE377.wem</Path>
 				</File>
 				<File Id="403716558" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc16.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc16_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc16_53CEE377.wem</Path>
 				</File>
 				<File Id="422841133" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc7.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc7_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc7_53CEE377.wem</Path>
+				</File>
+				<File Id="435226966" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete5.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete5_53CEE377.wem</Path>
+				</File>
+				<File Id="448345354" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_02_53CEE377.wem</Path>
 				</File>
 				<File Id="466885208" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc1.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc1_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc1_53CEE377.wem</Path>
 				</File>
 				<File Id="469143939" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc14.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc14_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc14_53CEE377.wem</Path>
+				</File>
+				<File Id="486157805" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete4.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete4_53CEE377.wem</Path>
+				</File>
+				<File Id="497556889" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_moan_03.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_moan_03_53CEE377.wem</Path>
 				</File>
 				<File Id="510667868" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc2.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc2_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc2_53CEE377.wem</Path>
 				</File>
 				<File Id="547446139" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc12.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc12_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc12_53CEE377.wem</Path>
 				</File>
 				<File Id="602497015" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc3.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc3_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc3_53CEE377.wem</Path>
 				</File>
 				<File Id="602530997" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc17.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc17_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc17_53CEE377.wem</Path>
 				</File>
 				<File Id="640558775" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc11.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc11_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc11_53CEE377.wem</Path>
+				</File>
+				<File Id="722373531" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_moan_01.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_moan_01_53CEE377.wem</Path>
+				</File>
+				<File Id="758849410" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete1.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete1_53CEE377.wem</Path>
+				</File>
+				<File Id="769375675" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete6.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete6_53CEE377.wem</Path>
+				</File>
+				<File Id="831519662" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_HelpAndCoffs_08_53CEE377.wem</Path>
 				</File>
 				<File Id="864240981" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc13.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc13_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc13_53CEE377.wem</Path>
+				</File>
+				<File Id="875484048" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete2.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete2_53CEE377.wem</Path>
 				</File>
 				<File Id="914929029" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc8.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc8_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc8_53CEE377.wem</Path>
 				</File>
 				<File Id="969258234" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incinerator.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incinerator_9452F465.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incinerator_9452F465.wem</Path>
 				</File>
 				<File Id="1059972408" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc10.wav</ShortName>
-					<Path>SFX\dl_sfx_bg_incinerator_ambiance_incineratormisc10_53CEE377.wem</Path>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc10_53CEE377.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
