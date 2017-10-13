@@ -245,7 +245,6 @@ namespace Dialogue {
         public void TriggerSound( string eventName )
         {
                 AudioController audio = LoadAudioController();
-                audio.LoadBanks();
                 audio.PlayEvent(eventName);
           
             
