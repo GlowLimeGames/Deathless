@@ -128,9 +128,12 @@ public class UIManager : Manager<UIManager> {
 
     public static void SetInteractionCursor(bool show) {
         if (show) {
-            if (cursorIcon == null) { SetCustomCursor(instance.interactIcon); }
-        }
-        else if (cursorIcon == instance.interactIcon) { ClearCustomCursor(); }
+            if (cursorIcon == null) { 
+				SetCustomCursor(instance.interactIcon); 
+			}
+        } else if (cursorIcon == instance.interactIcon) { 
+			ClearCustomCursor(); 
+		}
     }
 
     public static void ClearCustomCursor() {
