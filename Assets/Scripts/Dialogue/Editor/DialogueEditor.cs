@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class DialogueEditor : EditorWindow {
     private const float INDENT_SIZE = 20;
+    private const string DUMMY_CONTROL = "DummyControl";
 
     private Vector2 scrollPos = Vector2.zero;
     private int indentLevel;
@@ -35,116 +36,132 @@ public class DialogueEditor : EditorWindow {
 
         EditorGUIUtility.hierarchyMode = true;
         indentLevel = 1;
-        
 
-        GUI.SetNextControlName("DummyControl");
+        GUI.SetNextControlName(DUMMY_CONTROL);
         GUI.Button(new Rect(0, 0, 0, 0), "", GUIStyle.none);
 
         savedTree = (SerializableTree)EditorGUILayout.ObjectField("Dialogue Tree", savedTree, typeof(SerializableTree), true);
+        
+        CheckTreeHasChanged();
 
-        GUILayout.BeginHorizontal();
+        if (savedTree != null) {
+            ShowSaveLoadButtons();
 
-        if (savedTree == null || (lastSavedTree != null && savedTree != lastSavedTree)) {
+            scrollPos = GUILayout.BeginScrollView(scrollPos);
+
+            if (tree != null) {
+                dirty = true;
+                if (nodes == null) {
+                    nodes = new Dictionary<int, NodeGUI>();
+                    nextID = 0;
+                }
+                NodeGUI.RenderNode(this, tree.root);
+                forceExpandNodes = null;
+
+                HandleMouseClick();
+
+                if (focusedWindow == this) {
+                    NodeGUI focused = GetNodeGUI(GUI.GetNameOfFocusedControl());
+                    if (nodeToSelect != null) {
+                        if (focused == GetNodeGUI(nodeToSelect)) {
+                            nodeToSelect = null;
+                        }
+                        else {
+                            SelectNode(nodeToSelect);
+                        }
+                    }
+                    else if (focused != null && focused.node != null) {
+                        HandleButtonPress(focused);
+                    }
+                    else { dataInEditor = null; }
+
+                    if (dataInEditor != null) {
+                        Selection.activeGameObject = dataInEditor.gameObject;
+                    }
+                }
+            }
+            GUILayout.EndScrollView();
+        }
+        GUILayout.EndVertical();
+    }
+
+    private bool CheckTreeHasChanged() {
+        bool changed = (savedTree == null || (lastSavedTree != null && savedTree != lastSavedTree));
+        if (changed) {
             Cleanup();
             tree = null;
             nodes = null;
         }
-        if (savedTree != null) {
-            if (GUILayout.Button("Save") && tree != null) {
-                savedTree = savedTree.ExportInstance(tree);
-                EditorUtility.SetDirty(savedTree);
+        return changed;
+    }
 
-                CalculateNodeIDs();
-                
-                Debug.Log("Saved tree");
-            }
+    private void ShowSaveLoadButtons() {
+        GUILayout.BeginHorizontal();
 
-            if (GUILayout.Button("Load")) {
-                Cleanup();
-                lastSavedTree = savedTree;
-                SerializableTree treeInstance = savedTree.InstantiateTree();
-                tree = treeInstance.ImportTree();
-                if (tree == null) {
-                    tree = DialogueTester.CreateTestTree(treeInstance.gameObject.transform);
-                    Debug.Log("Created new tree");
-                }
+        if (GUILayout.Button("Save") && tree != null) {
+            savedTree = savedTree.ExportInstance(tree);
+            EditorUtility.SetDirty(savedTree);
+
+            CalculateNodeIDs();
+
+            Debug.Log("Saved tree");
+        }
+
+        if (GUILayout.Button("Load")) {
+            Cleanup();
+            lastSavedTree = savedTree;
+            SerializableTree treeInstance = savedTree.InstantiateTree();
+            tree = treeInstance.ImportTree();
+            if (tree == null) {
+                tree = DialogueTester.CreateTestTree(treeInstance.gameObject.transform);
+                Debug.Log("Created new tree");
             }
         }
 
         GUILayout.EndHorizontal();
-        scrollPos = GUILayout.BeginScrollView(scrollPos);
+    }
 
-        if (savedTree != null && tree != null) {
-            dirty = true;
-            if (nodes == null) {
-                nodes = new Dictionary<int, NodeGUI>();
-                nextID = 0;
-            }
-            NodeGUI.RenderNode(this, tree.root);
-            forceExpandNodes = null;
-
-            NodeGUI gui = GetNodeAtPoint(Event.current.mousePosition);
-            if (gui != null) {
-                switch (Event.current.type) {
-                    case EventType.MouseDown:
-                        if (contextMenuShown) {
-                            GUI.FocusControl("DummyControl");
-                            dataInEditor = null;
-                            contextMenuShown = false;
-                            Event.current.Use();
-                        }
-                        break;
-                    case EventType.MouseUp:
-                        if (Event.current.button == 1) {
-                            GenerateContextMenu(gui);
-                            Event.current.Use();
-                        }
-                        break;
-                }
-            }
-
-            if (focusedWindow == this) {
-                NodeGUI focused = GetNodeGUI(GUI.GetNameOfFocusedControl());
-                if (nodeToSelect != null) {
-                    if (focused == GetNodeGUI(nodeToSelect)) {
-                        nodeToSelect = null;
-                    }
-                    else {
-                        SelectNode(nodeToSelect);
-                    }
-                }
-                else if (focused != null && focused.node != null) {
-                    if (focused.node.Data == null) { Debug.LogWarning("DATA IS NULL"); }
-
-                    dataInEditor = focused.node.Data;
-                    NodeEditor.Link = focused.node.isLink;
-                    
-                    bool modifierHeld = (Application.platform == RuntimePlatform.OSXEditor) ? Event.current.command : Event.current.control;
-
-                    if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Delete) {
-                        focused.Remove(this);
+    private void HandleMouseClick() {
+        NodeGUI gui = GetNodeAtPoint(Event.current.mousePosition);
+        if (gui != null) {
+            switch (Event.current.type) {
+                case EventType.MouseDown:
+                    if (contextMenuShown) {
+                        GUI.FocusControl(DUMMY_CONTROL);
+                        dataInEditor = null;
+                        contextMenuShown = false;
                         Event.current.Use();
                     }
-                    else if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.E && modifierHeld) {
-                        focused.ExpandAll(!focused.expanded, this);
+                    break;
+                case EventType.MouseUp:
+                    if (Event.current.button == 1) {
+                        GenerateContextMenu(gui);
                         Event.current.Use();
                     }
-                    else if (focused.node.isLink && Event.current.clickCount == 2) {
-                        SelectNode(focused.node.GetOriginal());
-                    }
-                }
-                else { dataInEditor = null; }
-
-                if (dataInEditor != null) {
-                    Selection.activeGameObject = dataInEditor.gameObject;
-                    NodeEditor[] editors = Resources.FindObjectsOfTypeAll<NodeEditor>();
-                    foreach (NodeEditor editor in editors) { editor.Repaint(); }
-                }
+                    break;
             }
         }
+    }
 
-        GUILayout.EndScrollView();
-        GUILayout.EndVertical();
+    private void HandleButtonPress(NodeGUI focused) {
+        if (focused.node.Data == null) { Debug.LogWarning("DATA IS NULL"); }
+
+        dataInEditor = focused.node.Data;
+        NodeEditor.Link = focused.node.isLink;
+
+        bool modifierHeld = (Application.platform == RuntimePlatform.OSXEditor) ? Event.current.command : Event.current.control;
+
+        if (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Delete) {
+            focused.Remove(this);
+            Event.current.Use();
+        }
+        else if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.E && modifierHeld) {
+            focused.ExpandAll(!focused.expanded, this);
+            Event.current.Use();
+        }
+        else if (focused.node.isLink && Event.current.clickCount == 2) {
+            SelectNode(focused.node.GetOriginal());
+        }
     }
 
     private void Cleanup() {
@@ -159,7 +176,7 @@ public class DialogueEditor : EditorWindow {
                 }
             }
 
-            GUI.FocusControl("DummyControl");
+            GUI.FocusControl(DUMMY_CONTROL);
 
             dirty = false;
 
@@ -364,7 +381,7 @@ public class DialogueEditor : EditorWindow {
 
         private void DestroyGUI(DialogueEditor editor) {
             editor.nodes.Remove(id);
-            GUI.FocusControl("DummyControl");
+            GUI.FocusControl(DUMMY_CONTROL);
             editor.Repaint();
         }
 
