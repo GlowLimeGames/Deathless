@@ -45,7 +45,12 @@ namespace Dialogue {
 
         protected BaseNode(Node parent, NodeData data) : this(parent) {
             Data = data;
-            if (Data != null) { Data.Validate(); }
+            if (Data != null) {
+                Data.ValidateComponents();
+                if (parent != null && parent.Data != null) {
+                    Data.ValidateParent(parent.Data);
+                }
+            }
         }
 
         public Node GetOriginal() {
@@ -67,6 +72,7 @@ namespace Dialogue {
             Parent.Children.Remove(this);
             Parent = newParent;
             Parent.Children.Add(this);
+            Data.gameObject.transform.SetParent(Parent.Data.gameObject.transform);
         }
 
         public void ChangePosition(int change) {

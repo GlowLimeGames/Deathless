@@ -55,7 +55,7 @@ public class DialogueEditor : EditorWindow {
                     nodes = new Dictionary<int, NodeGUI>();
                     nextID = 0;
                 }
-                NodeGUI.RenderNode(this, tree.root);
+                NodeGUI.RenderAllNodes(this, tree.root);
                 forceExpandNodes = null;
 
                 HandleMouseClick();
@@ -385,11 +385,22 @@ public class DialogueEditor : EditorWindow {
             editor.Repaint();
         }
 
-        public static void RenderNode(DialogueEditor editor, BaseNode node) {
+        public static void RenderAllNodes(DialogueEditor editor, BaseNode root) {
+            List<NodeGUI> removeNodes = new List<NodeGUI>();
+
+            RenderNode(editor, root, removeNodes);
+
+            foreach (NodeGUI gui in removeNodes) {
+                gui.Remove(editor);
+            }
+        }
+
+        private static void RenderNode(DialogueEditor editor, BaseNode node, List<NodeGUI> removeNodes) {
             NodeGUI gui = editor.GetNodeGUI(node);
 
             if (gui != null && gui.node.Data == null) {
-                gui.Remove(editor);
+                Debug.Log("trying to render a node with null data. destroying...");
+                removeNodes.Add(gui);
             }
             else {
                 if (gui == null) {
@@ -397,14 +408,14 @@ public class DialogueEditor : EditorWindow {
                     gui.id = editor.nextID++;
                     editor.nodes.Add(gui.id, gui);
                 }
-                gui.RenderNode(editor);
+                gui.RenderNode(editor, removeNodes);
             }
         }
 
-        private void RenderNode(DialogueEditor editor) {
+        private void RenderNode(DialogueEditor editor, List<NodeGUI> removeNodes) {
             if (node.Data == null) {
                 Debug.Log("trying to render a node with null data. destroying...");
-                Remove(editor);
+                removeNodes.Add(this);
                 return;
             }
 
@@ -437,7 +448,7 @@ public class DialogueEditor : EditorWindow {
                 if (expanded) {
                     editor.indentLevel++;
                     foreach (BaseNode child in ((Node)node).Children) {
-                        RenderNode(editor, child);
+                        RenderNode(editor, child, removeNodes);
                     }
                     editor.indentLevel--;
                 }
