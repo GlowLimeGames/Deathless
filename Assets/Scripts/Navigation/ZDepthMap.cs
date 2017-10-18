@@ -37,7 +37,6 @@ public class ZDepthMap : MonoBehaviour {
         float zPos = position.z;
 
         if (isPointOnZMap(position)) {
-            Color color = GetColorAtPoint(position);
             float grayscaleVal = GetColorAtPoint(position).grayscale;
 
             float diff = (maxZDepth - minZDepth);

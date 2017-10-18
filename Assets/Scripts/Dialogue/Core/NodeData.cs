@@ -97,10 +97,24 @@ namespace Dialogue {
             gameObject.name = "dialogue_nodedata";
         }
 
-        public bool Validate() {
+        public bool ValidateComponents() {
             bool valid = (Actions != null && Conditions != null);
-            if (!valid) { Debug.LogWarning("NodeData validation failed: " + Text); }
+
+            if (!valid) { Debug.LogWarning("NodeData component validation failed: " + Text); }
             return valid;
-        } 
+        }
+        
+        public bool ValidateParent(NodeData parent) {
+            bool valid = (gameObject.transform.parent == parent.gameObject.transform);
+
+            if (!valid) {
+                Debug.Log("NodeData has incorrect parent. Attempting to fix...");
+                gameObject.transform.SetParent(parent.gameObject.transform);
+                valid = (gameObject.transform.parent == parent.gameObject.transform);
+            }
+            if (!valid) { Debug.LogWarning("Failed to fix NodeData parentage: " + Text); }
+
+            return valid;
+        }
     }
 }
