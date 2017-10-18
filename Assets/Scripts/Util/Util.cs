@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//RANDOM TEST CHANGE
-
 /// <summary>
 /// Contains static utility functions.
 /// </summary>
