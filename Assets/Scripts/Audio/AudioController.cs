@@ -16,7 +16,7 @@ public class AudioController : Manager<AudioController> {
     
     void Start()
     {
-        SingletonInit();
+        
         LoadBanks();
     }
 
@@ -36,7 +36,7 @@ public class AudioController : Manager<AudioController> {
     {
         
         Debug.Log("Currently playing event");
-        AkSoundEngine.PostEvent(eventName, gameObject);
+        AkSoundEngine.PostEvent(eventName, instance.gameObject);
         AkSoundEngine.RenderAudio();
         
     }
@@ -48,7 +48,7 @@ public class AudioController : Manager<AudioController> {
         uint eventID; //this is used to stop event in Ak
         eventID = AkSoundEngine.GetIDFromString(eventName);
         //default curve of stopping event is log, but can change later 
-        AkSoundEngine.ExecuteActionOnEvent(eventID, AkActionOnEventType.AkActionOnEventType_Stop, gameObject, fadeout * 100, AkCurveInterpolation.AkCurveInterpolation_Log1);
+        AkSoundEngine.ExecuteActionOnEvent(eventID, AkActionOnEventType.AkActionOnEventType_Stop, instance.gameObject, fadeout * 100, AkCurveInterpolation.AkCurveInterpolation_Log1);
         AkSoundEngine.RenderAudio();
     }
 
@@ -58,7 +58,7 @@ public class AudioController : Manager<AudioController> {
         uint eventID; //this is used to stop event in Ak
         eventID = AkSoundEngine.GetIDFromString(eventName);
         //default curve of stopping event is log, but can change later 
-        AkSoundEngine.ExecuteActionOnEvent(eventID, AkActionOnEventType.AkActionOnEventType_Pause, gameObject, fadeout * 100, AkCurveInterpolation.AkCurveInterpolation_Log1);
+        AkSoundEngine.ExecuteActionOnEvent(eventID, AkActionOnEventType.AkActionOnEventType_Pause, instance.gameObject, fadeout * 100, AkCurveInterpolation.AkCurveInterpolation_Log1);
         AkSoundEngine.RenderAudio();
        
     }
@@ -69,7 +69,7 @@ public class AudioController : Manager<AudioController> {
         uint eventID; //this is used to stop event in Ak
         eventID = AkSoundEngine.GetIDFromString(eventName);
         //default curve of stopping event is log, but can change later 
-        AkSoundEngine.ExecuteActionOnEvent(eventID, AkActionOnEventType.AkActionOnEventType_Resume, gameObject, fadeout * 100, AkCurveInterpolation.AkCurveInterpolation_Log1);
+        AkSoundEngine.ExecuteActionOnEvent(eventID, AkActionOnEventType.AkActionOnEventType_Resume, instance.gameObject, fadeout * 100, AkCurveInterpolation.AkCurveInterpolation_Log1);
         AkSoundEngine.RenderAudio();
     }
 }//end of class
