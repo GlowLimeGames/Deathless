@@ -5,13 +5,25 @@ using UnityEngine;
 /** The master audio manager--loads banks and 
  contains functions that will start, stop, pause, resume sound events*/
     
-public class AudioController : MonoBehaviour {
+    /**Parent this to Manager.cs */
+public class AudioController : Manager<AudioController> {
 
+
+    //create start() function and call loadbanks()
     uint bankID;
     //used in stop,resume, pause event functions
     //give value of fadeout to know how much to fade in and out of the sound
     public int fadeout; 
+
+
+    void Start()
+    {
+        LoadBanks();
+
+
+    }
     //load banks; currently will hardcode in bankss
+    //possibly take in a string--name of the soundbank 
     public void LoadBanks()
     {
         AkSoundEngine.LoadBank("Incinerator", AkSoundEngine.AK_DEFAULT_POOL_ID, out bankID);
