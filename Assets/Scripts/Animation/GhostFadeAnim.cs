@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class GhostFadeAnim : MonoBehaviour {
 
-	public float fadeRate;
+	[SerializeField]
+	private float fadeRate;
 
-	public float fadeDelay;
+	[SerializeField]
+	private float fadeDelay;
+
+	[SerializeField]
+	private float minFade = 2f;
+
+	[SerializeField]
+	private float maxFade = 5f;
 
     private bool fadeIn;
-
     private System.DateTime delayStart;
 
     private SpriteRenderer spriteRenderer;
-
     private SpriteRenderer SpriteRenderer {
         get {
             if (spriteRenderer == null) {
@@ -36,55 +42,44 @@ public class GhostFadeAnim : MonoBehaviour {
     void Update() {
         Color color = SpriteRenderer.color;
 
-		//original line: works at all
-		if (delayStart != default(System.DateTime) &&
-		(System.DateTime.Now - delayStart).TotalSeconds >= fadeDelay) {
-			//original line: works at all
-			delayStart = default(System.DateTime);
-		}
+        if (delayStart != default(System.DateTime) &&
+            (System.DateTime.Now - delayStart).TotalSeconds >= fadeDelay) {
+            delayStart = default(System.DateTime);
+        }
 
         if (fadeIn) {
             color.a += Time.deltaTime / fadeRate;
             if (color.a > 0.99f) {
 				RandomizeFade ();
-                if (dlgFade) { 
-					CompleteDialogueAction(); 
-				}
+                if (dlgFade) { CompleteDialogueAction(); }
                 delayStart = System.DateTime.Now;
                 fadeIn = false;
             }
-        } else if (delayStart == default(System.DateTime)) {
+        }
+        else if (delayStart == default(System.DateTime)) {
             color.a -= Time.deltaTime / fadeRate;
             if (color.a < 0.01f) {
-                if (dlgFade) { 
-					CompleteDialogueAction(); 
-				}
+                if (dlgFade) { CompleteDialogueAction(); }
                 fadeIn = true;
             }
         }
-
         SpriteRenderer.color = color;
     }
 		
 	//randomizes fade time and fade delay for ghosts before each fade
 	float RandomizeFade() {
-		float flt = Random.Range (2f, 5f);
+		float flt = Random.Range (minFade, maxFade);
 		fadeDelay = flt;
 		fadeRate = flt;
-		print (fadeRate);
 		return flt;
 	}
 
-    public void StartFadeIn(bool isDialogueAction = false) { 
-		StartFade(0.01f, true, isDialogueAction); 
-	}
+    public void StartFadeIn(bool isDialogueAction = false) { StartFade(0.01f, true, isDialogueAction); }
 
-    public void StartFadeOut(bool isDialogueAction = false) { 
-		StartFade(0.99f, false, isDialogueAction);
-	}
+    public void StartFadeOut(bool isDialogueAction = false) { StartFade(0.99f, false, isDialogueAction); }
 
     private void StartFade(float startAlpha, bool fadeIn, bool isDialogueAction) {
-        Color color = SpriteRenderer.color; 
+        Color color = SpriteRenderer.color;
         color.a = startAlpha;
         SpriteRenderer.color = color;
 
