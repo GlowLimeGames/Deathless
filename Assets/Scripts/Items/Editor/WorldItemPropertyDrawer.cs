@@ -8,7 +8,7 @@ using UnityEngine;
 public class WorldItemPropertyDrawer : Editor {
     SerializedProperty interactable;
     SerializedProperty animate;
-
+    //possibly create the serializedproperty of zpos calculation here 
     private void OnEnable() {
         interactable = serializedObject.FindProperty("interactable");
         animate = serializedObject.FindProperty("isAnimate");
