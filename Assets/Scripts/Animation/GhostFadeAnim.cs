@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class GhostFadeAnim : MonoBehaviour {
 
-	[SerializeField]
 	private float fadeRate;
 
-	[SerializeField]
 	private float fadeDelay;
 
 	[SerializeField]
