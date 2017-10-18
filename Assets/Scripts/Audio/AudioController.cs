@@ -5,33 +5,36 @@ using UnityEngine;
 /** The master audio manager--loads banks and 
  contains functions that will start, stop, pause, resume sound events*/
     
-    /**Parent this to Manager.cs */
+
 public class AudioController : Manager<AudioController> {
-
-
-    //create start() function and call loadbanks()
-    uint bankID;
+ 
+    private static uint bankID;
     //used in stop,resume, pause event functions
     //give value of fadeout to know how much to fade in and out of the sound
-    public int fadeout; 
+    public static int fadeout;  
 
-
+    
     void Start()
     {
+        SingletonInit();
         LoadBanks();
-
-
     }
+
+    
+    
+    //have them reference the instance 
     //load banks; currently will hardcode in bankss
     //possibly take in a string--name of the soundbank 
-    public void LoadBanks()
+    public static void LoadBanks()
     {
+       
         AkSoundEngine.LoadBank("Incinerator", AkSoundEngine.AK_DEFAULT_POOL_ID, out bankID);
     }
 
     //plays the event 
-    public void PlayEvent( string eventName )
+    public static void PlayEvent( string eventName )
     {
+        
         Debug.Log("Currently playing event");
         AkSoundEngine.PostEvent(eventName, gameObject);
         AkSoundEngine.RenderAudio();
@@ -39,7 +42,7 @@ public class AudioController : Manager<AudioController> {
     }
 
     //Stops the sound event
-    public void StopEvent( string eventName )
+    public static void StopEvent( string eventName )
     {
         Debug.Log("Stopping event");
         uint eventID; //this is used to stop event in Ak
@@ -49,7 +52,7 @@ public class AudioController : Manager<AudioController> {
         AkSoundEngine.RenderAudio();
     }
 
-    public void PauseEvent(string eventName)
+    public static void PauseEvent(string eventName)
     {
         Debug.Log("pausing event");
         uint eventID; //this is used to stop event in Ak
@@ -60,7 +63,7 @@ public class AudioController : Manager<AudioController> {
        
     }
 
-    public void ResumeEvent(string eventName)
+    public static void ResumeEvent(string eventName)
     {
         Debug.Log("resuming event");
         uint eventID; //this is used to stop event in Ak
