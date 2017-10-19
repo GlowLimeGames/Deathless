@@ -140,7 +140,7 @@ public class UIManager : Manager<UIManager> {
     
 	public static void ShowCustomCursor(bool show) {
 		if (show && cursorIcon != null) {
-			Cursor.SetCursor (cursorIcon.texture, Vector2.zero, CursorMode.Auto);
+            Util.SetCursor(cursorIcon);
 		} else { 
 			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); 
 		}
