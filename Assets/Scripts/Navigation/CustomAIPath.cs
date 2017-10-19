@@ -78,15 +78,15 @@ public class CustomAIPath : AIPath {
         StopImmediately();
     }
 
-    public CardinalDirection GetDirection() {
+    public CardinalDirection GetDirection(bool allowNS = true) {
         CardinalDirection cardinalDir;
-        
-        if (Mathf.Abs(direction.y) > (Mathf.Abs(direction.x) * 2)) {
+
+        if (allowNS && Mathf.Abs(direction.y) > (Mathf.Abs(direction.x) * 2)) {
             if (direction.y > 0) { cardinalDir = CardinalDirection.NORTH; }
             else { cardinalDir = CardinalDirection.SOUTH; }
         }
         else {
-            if (direction.x > 0) { cardinalDir = CardinalDirection.EAST; }
+            if (direction.x > 0f) { cardinalDir = CardinalDirection.EAST; }
             else { cardinalDir = CardinalDirection.WEST; }
         }
 
