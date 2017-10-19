@@ -72,7 +72,14 @@ namespace Dialogue {
             Parent.Children.Remove(this);
             Parent = newParent;
             Parent.Children.Add(this);
-            Data.gameObject.transform.SetParent(Parent.Data.gameObject.transform);
+
+            if (Data != null && Parent.Data != null) {
+                Data.gameObject.transform.SetParent(Parent.Data.gameObject.transform);
+            }
+            else {
+                Debug.LogWarning("Failed to properly move data object " + Data + " to parent object " + Parent.Data + "./n" +
+                                 "Move incomplete and likely buggy.");
+            }
         }
 
         public void ChangePosition(int change) {
