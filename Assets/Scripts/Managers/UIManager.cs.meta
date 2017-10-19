@@ -1,10 +1,17 @@
 fileFormatVersion: 2
 guid: ffd3c16cc68ccab468c88a16754157ea
-timeCreated: 1493422351
+timeCreated: 1507837829
 licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - inventory: {instanceID: 0}
+  - dialogueManager: {instanceID: 0}
+  - hoverText: {instanceID: 0}
+  - blackout: {instanceID: 0}
+  - interactIcon: {fileID: 21300000, guid: 3174bf397f112084baed791833a11d07, type: 3}
+  - genericAnimPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
