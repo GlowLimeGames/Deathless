@@ -45,6 +45,9 @@ public class DialogueManager : Manager<DialogueManager> {
     private GameObject lineView, choiceView, choicePrefab;
     #pragma warning restore 0649
 
+    [SerializeField]
+    private DialogueUIScrollView scrollView;
+
     /// <summary>
     /// The text shown for a single line of dialogue.
     /// </summary>
@@ -85,7 +88,7 @@ public class DialogueManager : Manager<DialogueManager> {
     /// Begin the given dialogue tree.
     /// </summary>
 	private static bool StartDialogue(DialogueTree dialogue) {
-        instance.Show(true);
+        Show(true);
         return Next(dialogue.root);
     }
 
@@ -164,7 +167,7 @@ public class DialogueManager : Manager<DialogueManager> {
     }
 
     private static void EndDialogue () {
-        instance.Show(false);
+        Show(false);
         if (DlgInstance != null) {
             DlgInstance.CleanupTempInstance();
         }
@@ -228,11 +231,10 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Show or hide the dialogue UI.
     /// </summary>
-    public void Show(bool show) {
-        gameObject.SetActive(show);
+    public static void Show(bool show) {
+        instance.gameObject.SetActive(show);
         UIManager.ShowCustomCursor(!show);
-        UIManager.BlockWorldInput(show);
-        UIManager.ShowHoverText(!show);
+        UIManager.OnShowUIElement(show);
 
         if (!show) { Inventory.RevertSelection(); }
     }
@@ -246,6 +248,7 @@ public class DialogueManager : Manager<DialogueManager> {
             currentNode = line;
             lineText.text = line.Data.Text;
             lineView.SetActive(true);
+            scrollView.InitializeNewContent(lineView, false);
             EnableSpeechBubble(line, false);
         }
         else {
@@ -267,6 +270,7 @@ public class DialogueManager : Manager<DialogueManager> {
             }
         }
         choiceView.SetActive(true);
+        scrollView.InitializeNewContent(choiceView, true);
         EnableSpeechBubble(choices[0], true);
     }
 
