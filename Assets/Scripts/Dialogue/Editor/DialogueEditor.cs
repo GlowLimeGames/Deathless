@@ -188,6 +188,7 @@ public class DialogueEditor : EditorWindow {
     private void Cleanup() {
         StaticCleanup();
         GUI.FocusControl(DUMMY_CONTROL);
+        nodes = null;
         GetWindow<DialogueEditor>().Repaint();
     }
 
