@@ -156,7 +156,7 @@ public class DialogueEditor : EditorWindow {
         if (focused.node.Data == null) { Debug.LogWarning("DATA IS NULL"); }
 
         dataInEditor = focused.node.Data;
-        NodeEditor.Link = focused.node.isLink;
+        NodeEditor.Editable = !focused.node.isLink && focused.node.Parent != null;
 
         bool modifierHeld = (Application.platform == RuntimePlatform.OSXEditor) ? Event.current.command : Event.current.control;
 

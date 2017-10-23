@@ -87,6 +87,7 @@ namespace Dialogue {
         private bool endDialogue;
         public bool EndDialogue {
             get { return endDialogue; }
+            set { endDialogue = value; }
         }
 
         public void Init(NodeType type, Transform parentObject) {
