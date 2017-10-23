@@ -47,7 +47,7 @@ namespace Dialogue {
             Data = data;
             if (Data != null) {
                 Data.ValidateComponents();
-                if (parent != null && parent.Data != null) {
+                if (!isLink && parent != null && parent.Data != null) {
                     Data.ValidateParent(parent.Data);
                 }
             }
@@ -74,7 +74,7 @@ namespace Dialogue {
             Parent.Children.Add(this);
 
             if (Data != null && Parent.Data != null) {
-                Data.gameObject.transform.SetParent(Parent.Data.gameObject.transform);
+                if (!isLink) { Data.gameObject.transform.SetParent(Parent.Data.gameObject.transform); }
             }
             else {
                 Debug.LogWarning("Failed to properly move data object " + Data + " to parent object " + Parent.Data + "./n" +
