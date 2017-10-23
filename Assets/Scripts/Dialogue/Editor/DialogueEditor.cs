@@ -430,7 +430,10 @@ public class DialogueEditor : EditorWindow {
             GUI.SetNextControlName(id.ToString());
             bool isChoice = (node.Data.Type == NodeType.CHOICE);
             string text = node.Data.Text;
-            if (text == "") { text = "<empty>"; }
+            if (text == "") {
+                if (node.Data.Notes == "") { text = "<empty>"; }
+                else { text = "<<" + node.Data.Notes + ">>"; }
+            }
 
             if (editor.forceExpandNodes != null && editor.forceExpandNodes.Contains(node)) {
                 expanded = true;
