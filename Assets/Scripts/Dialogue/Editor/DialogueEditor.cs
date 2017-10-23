@@ -435,6 +435,8 @@ public class DialogueEditor : EditorWindow {
                 else { text = "<<" + node.Data.Notes + ">>"; }
             }
 
+            if (!node.isBranchComplete()) { text += "*"; }
+
             if (editor.forceExpandNodes != null && editor.forceExpandNodes.Contains(node)) {
                 expanded = true;
             }

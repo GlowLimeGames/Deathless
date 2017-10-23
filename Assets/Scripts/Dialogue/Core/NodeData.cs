@@ -83,6 +83,12 @@ namespace Dialogue {
             set { notes = value; }
         }
 
+        [SerializeField]
+        private bool endDialogue;
+        public bool EndDialogue {
+            get { return endDialogue; }
+        }
+
         public void Init(NodeType type, Transform parentObject) {
             this.type = type;
             Text = "Add text here";

@@ -97,6 +97,26 @@ namespace Dialogue {
         public virtual void Remove() {
             Parent.Children.Remove(this);
         }
+
+        public bool isBranchComplete() {
+            bool complete = true;
+
+            if (!isLink && !Data.EndDialogue) {
+                Node node = (Node)this;
+
+                if (node.Children.Count == 0) {
+                    complete = false;
+                }
+
+                for (int i = 0; complete == true && i < node.Children.Count; i++) {
+                    if (!node.Children[i].isBranchComplete()) {
+                        complete = false;
+                    }
+                }
+            }
+
+            return complete;
+        }
     }
     
     public class Link : BaseNode {
