@@ -2,40 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
 public abstract class GameItem : Hoverable {
-    /*
-     *Property for whether this GameItem is inanimate or not
-     */
-    [SerializeField][HideInInspector]
-    private bool isAnimate;
-
-    //check if this game item is animate
-    public bool checkAnimate()
-    {
-        return isAnimate;
-    }
-
-    //mutator: change bool condition of isAnimate
-    public void setAnimate(bool newValue)
-    {
-        isAnimate = newValue;
-    }
-
-
-
-
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>
     public static GameItem InteractionTarget { get; protected set; }
 
+    /// <summary>
+    /// Backing field for IsAnimate.
+    /// </summary>
+    [SerializeField]
+    private bool isAnimate;
 
     /// <summary>
-    /// Backing field for ItemName.
+    /// Whether this GameItem is considered animate.
+    /// (Generally true for NPCs, false for items.)
+    /// </summary>
+    public bool IsAnimate {
+        get { return Instance.isAnimate; }
+        private set { Instance.isAnimate = value; }
+    }
+
+    /// <summary>
+    /// Backing field for DisplayName.
     /// </summary>
     [SerializeField]
     private string displayName;
@@ -45,10 +37,10 @@ public abstract class GameItem : Hoverable {
     /// </summary>
     public string DisplayName {
         get {
-            if (displayName == null) { return "NULL"; }
-            else { return displayName; }
+            if (Instance.displayName == null) { return "NULL"; }
+            else { return Instance.displayName; }
         }
-        private set { displayName = value; }
+        private set { Instance.displayName = value; }
     }
 
     private AnimController animController;
@@ -130,7 +122,7 @@ public abstract class GameItem : Hoverable {
     }
 
     public override void OnHoverEnter() {
-        UIManager.SetHoverText(Instance.displayName);
+        UIManager.SetHoverText(DisplayName);
         UIManager.SetInteractionCursor(true);
     }
 
@@ -184,7 +176,7 @@ public abstract class GameItem : Hoverable {
     }
 
     public void SetName(string s) {
-        Instance.DisplayName = s;
+        DisplayName = s;
     }
 
     public abstract void ChangeSprite(Sprite sprite);
