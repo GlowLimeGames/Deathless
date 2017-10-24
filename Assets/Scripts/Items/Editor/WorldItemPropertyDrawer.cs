@@ -7,11 +7,12 @@ using UnityEngine;
 [CustomEditor(typeof(WorldItem))]
 public class WorldItemPropertyDrawer : Editor {
     SerializedProperty interactable;
-
-    //possibly create the serializedproperty of zpos calculation here 
+    
     private void OnEnable()
     {
         interactable = serializedObject.FindProperty("interactable");
+        
+       
     }        
 
 
@@ -20,6 +21,14 @@ public class WorldItemPropertyDrawer : Editor {
         
         interactable.boolValue = EditorGUILayout.Toggle("Interactable", interactable.boolValue);
         serializedObject.ApplyModifiedProperties();
+
+        if (GUILayout.Button("Calculate Z-Pos")) {
+            //getting nullreferenceexception
+           ( (WorldItem) target).UpdateZPos();
+           
+         
+        }
+        
 
         if (interactable.boolValue) {
             DrawDefaultInspector();

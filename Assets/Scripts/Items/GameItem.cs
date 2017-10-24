@@ -7,9 +7,9 @@ using UnityEngine;
 /// </summary>
 public abstract class GameItem : Hoverable {
 
-    /*
-     *Property for whether this GameItem is inanimate or not
-     */
+    ///<summary>
+    ///Property for whether this GameItem is inanimate or not
+    ///</summary>
     [SerializeField]
     private bool isAnimate {
         get { return isAnimate;  }
