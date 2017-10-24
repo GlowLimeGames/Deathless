@@ -14,13 +14,13 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
     /// </summary>
     private List<InventorySlot> slots = new List<InventorySlot>();
 
-    public static List<InventorySlot> Slots { get { return instance.slots; } }
+    public static List<InventorySlot> Slots { get { return Instance.slots; } }
 
     /// <summary>
     /// Whether the inventory is currently open.
     /// </summary>
     public static bool isShown {
-        get { return instance != null && instance.gameObject.activeInHierarchy; }
+        get { return Instance != null && Instance.gameObject.activeInHierarchy; }
     }
 
     /// <summary>
@@ -61,7 +61,7 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
     /// Open or close the inventory.
     /// </summary>
     public static void Show(bool visible) {
-        instance.gameObject.SetActive(visible);
+        Instance.gameObject.SetActive(visible);
         UIManager.OnShowUIElement(visible);
 
         if (isObserveIconSelected) {
