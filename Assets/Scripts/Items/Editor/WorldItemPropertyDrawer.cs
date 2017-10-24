@@ -9,9 +9,10 @@ public class WorldItemPropertyDrawer : Editor {
     SerializedProperty interactable;
 
     //possibly create the serializedproperty of zpos calculation here 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         interactable = serializedObject.FindProperty("interactable");
-        
+    }        
 
 
     public override void OnInspectorGUI() {
