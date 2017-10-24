@@ -18,7 +18,6 @@ public class DialogueEditor : EditorWindow {
     private int nextID;
     private bool contextMenuShown;
     private Node copiedNode;
-    private bool dirty = false;
 
     private List<BaseNode> forceExpandNodes;
     private BaseNode nodeToSelect;
@@ -28,7 +27,18 @@ public class DialogueEditor : EditorWindow {
 
     [MenuItem("Window/Dialogue Editor")]
     public static void ShowWindow() {
-        GetWindow(typeof(DialogueEditor));
+        GetWindow<DialogueEditor>();
+    }
+
+    private void OnDestroy() { StaticCleanup(); }
+
+    [UnityEditor.Callbacks.DidReloadScripts]
+    private static void OnScriptReload() {
+        DialogueEditor[] dlgEditorWindows = Resources.FindObjectsOfTypeAll<DialogueEditor>();
+        if (dlgEditorWindows.Length > 0) {
+            dlgEditorWindows[0].Cleanup();
+        }
+        else { StaticCleanup(); }
     }
 
     void OnGUI() {
@@ -49,8 +59,7 @@ public class DialogueEditor : EditorWindow {
 
             scrollPos = GUILayout.BeginScrollView(scrollPos);
 
-            if (tree != null) {
-                dirty = true;
+            if (tree != null && tree.root.Data != null) {
                 if (nodes == null) {
                     nodes = new Dictionary<int, NodeGUI>();
                     nextID = 0;
@@ -98,7 +107,7 @@ public class DialogueEditor : EditorWindow {
     private void ShowSaveLoadButtons() {
         GUILayout.BeginHorizontal();
 
-        if (GUILayout.Button("Save") && tree != null) {
+        if (GUILayout.Button("Save") && tree != null && tree.root.Data != null) {
             savedTree = savedTree.ExportInstance(tree);
             EditorUtility.SetDirty(savedTree);
 
@@ -147,7 +156,7 @@ public class DialogueEditor : EditorWindow {
         if (focused.node.Data == null) { Debug.LogWarning("DATA IS NULL"); }
 
         dataInEditor = focused.node.Data;
-        NodeEditor.Link = focused.node.isLink;
+        NodeEditor.Editable = !focused.node.isLink && focused.node.Parent != null;
 
         bool modifierHeld = (Application.platform == RuntimePlatform.OSXEditor) ? Event.current.command : Event.current.control;
 
@@ -164,24 +173,23 @@ public class DialogueEditor : EditorWindow {
         }
     }
 
-    private void Cleanup() {
-        if (dirty == true) {
-            foreach (SerializableTree tree in FindObjectsOfType<SerializableTree>()) {
-                tree.CleanupTempInstance();
-            }
-
-            foreach (NodeData data in FindObjectsOfType<NodeData>()) {
-                if (data.transform.parent == null) {
-                    DestroyImmediate(data.gameObject);
-                }
-            }
-
-            GUI.FocusControl(DUMMY_CONTROL);
-
-            dirty = false;
-
-            Repaint();
+    private static void StaticCleanup() {
+        foreach (SerializableTree tree in FindObjectsOfType<SerializableTree>()) {
+            tree.CleanupTempInstance();
         }
+
+        foreach (NodeData data in FindObjectsOfType<NodeData>()) {
+            if (data.transform.parent == null) {
+                DestroyImmediate(data.gameObject);
+            }
+        }
+    }
+
+    private void Cleanup() {
+        StaticCleanup();
+        GUI.FocusControl(DUMMY_CONTROL);
+        nodes = null;
+        GetWindow<DialogueEditor>().Repaint();
     }
 
     private static void CalculateNodeIDs() {
@@ -422,7 +430,12 @@ public class DialogueEditor : EditorWindow {
             GUI.SetNextControlName(id.ToString());
             bool isChoice = (node.Data.Type == NodeType.CHOICE);
             string text = node.Data.Text;
-            if (text == "") { text = "<empty>"; }
+            if (text == "") {
+                if (node.Data.Notes == "") { text = "<empty>"; }
+                else { text = "<<" + node.Data.Notes + ">>"; }
+            }
+
+            if (!node.isBranchComplete()) { text += "*"; }
 
             if (editor.forceExpandNodes != null && editor.forceExpandNodes.Contains(node)) {
                 expanded = true;

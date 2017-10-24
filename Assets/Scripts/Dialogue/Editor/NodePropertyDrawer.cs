@@ -6,7 +6,7 @@ using UnityEditor;
 namespace Dialogue {
     [UnityEditor.CustomEditor(typeof(NodeData))]
     public class NodeEditor : Editor {
-        public static bool Link { get; set; }
+        public static bool Editable { get; set; }
         private SerializedObject dataObject;
         private NodeData lastTarget;
         private bool showOnce;
@@ -22,7 +22,7 @@ namespace Dialogue {
 
             GUIStyle style;
 
-            EditorGUI.BeginDisabledGroup(Link);
+            EditorGUI.BeginDisabledGroup(!Editable);
             
             EditorGUILayout.LabelField("Text", EditorStyles.boldLabel);
             style = new GUIStyle(EditorStyles.textArea);
@@ -39,6 +39,8 @@ namespace Dialogue {
 
             SerializedProperty restriction = dataObject.FindProperty("restriction");
             EditorGUILayout.PropertyField(restriction);
+            
+            data.EndDialogue = EditorGUILayout.Toggle("End Dialogue", data.EndDialogue);
 
             EditorGUI.EndDisabledGroup();
         }
