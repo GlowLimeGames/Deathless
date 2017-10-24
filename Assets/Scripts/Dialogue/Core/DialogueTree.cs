@@ -45,7 +45,12 @@ namespace Dialogue {
 
         protected BaseNode(Node parent, NodeData data) : this(parent) {
             Data = data;
-            if (Data != null) { Data.Validate(); }
+            if (Data != null) {
+                Data.ValidateComponents();
+                if (parent != null && parent.Data != null) {
+                    Data.ValidateParent(parent.Data);
+                }
+            }
         }
 
         public Node GetOriginal() {
@@ -67,6 +72,14 @@ namespace Dialogue {
             Parent.Children.Remove(this);
             Parent = newParent;
             Parent.Children.Add(this);
+
+            if (Data != null && Parent.Data != null) {
+                Data.gameObject.transform.SetParent(Parent.Data.gameObject.transform);
+            }
+            else {
+                Debug.LogWarning("Failed to properly move data object " + Data + " to parent object " + Parent.Data + "./n" +
+                                 "Move incomplete and likely buggy.");
+            }
         }
 
         public void ChangePosition(int change) {

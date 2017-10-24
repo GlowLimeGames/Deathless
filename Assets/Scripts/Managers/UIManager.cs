@@ -138,10 +138,13 @@ public class UIManager : Manager<UIManager> {
         ShowCustomCursor(false);
     }
     
-    public static void ShowCustomCursor(bool show) {
-        if (show && cursorIcon != null) { Util.SetCursor(cursorIcon); }
-        else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
-    }
+	public static void ShowCustomCursor(bool show) {
+		if (show && cursorIcon != null) {
+            Util.SetCursor(cursorIcon);
+		} else { 
+			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); 
+		}
+	}
 
     public static void BlockWorldInput(bool block) {
         if (!block && !Inventory.isShown && !DialogueManager.isShown) {
