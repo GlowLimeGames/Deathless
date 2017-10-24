@@ -12,15 +12,15 @@ public class DialogueManager : Manager<DialogueManager> {
 
     private SerializableTree dlgInstance;
     public static SerializableTree DlgInstance {
-        get { return instance.dlgInstance; }
-        private set { instance.dlgInstance = value; }
+        get { return Instance.dlgInstance; }
+        private set { Instance.dlgInstance = value; }
     }
 
     /// <summary>
     /// Whether a dialogue is currently active.
     /// </summary>
     public static bool isShown {
-        get { return instance != null && instance.gameObject.activeInHierarchy; }
+        get { return Instance != null && Instance.gameObject.activeInHierarchy; }
     }
 
     /// <summary>
@@ -78,7 +78,7 @@ public class DialogueManager : Manager<DialogueManager> {
     }
 
     public static void RedirectDialogue(SerializableTree dialogue) {
-        instance.ClearDialogue();
+        Instance.ClearDialogue();
         if (DlgInstance != null) { DlgInstance.CleanupTempInstance(); }
         StartDialogue(dialogue);
         redirected = true;
@@ -128,7 +128,7 @@ public class DialogueManager : Manager<DialogueManager> {
 
     private static bool DisplayNext(Node current) {
         if (!redirected) {
-            instance.ClearDialogue();
+            Instance.ClearDialogue();
             if (!isDialogueOver(current.Children)) {
                 if (current.Children == null) { Debug.Log("children is null"); }
                 else if (current.Children[0] == null) { Debug.Log("child 0 is null"); }
@@ -179,7 +179,7 @@ public class DialogueManager : Manager<DialogueManager> {
     private static bool DisplayNextLine(Node current) {
         List<Node> lines = GetValidNodes(current.Children, false);
         if (!isDialogueOver(lines)) {
-            instance.ShowLine(lines[0]);
+            Instance.ShowLine(lines[0]);
             return true;
         }
         else { return false; }
@@ -193,7 +193,7 @@ public class DialogueManager : Manager<DialogueManager> {
     private static bool DisplayNextChoice(Node current) {
         List<Node> choices = GetValidNodes(current.Children, true);
         if (!isDialogueOver(choices)) {
-            instance.ShowChoices(choices);
+            Instance.ShowChoices(choices);
             return true;
         }
         else { return false; }
@@ -232,7 +232,7 @@ public class DialogueManager : Manager<DialogueManager> {
     /// Show or hide the dialogue UI.
     /// </summary>
     public static void Show(bool show) {
-        instance.gameObject.SetActive(show);
+        Instance.gameObject.SetActive(show);
         UIManager.ShowCustomCursor(!show);
         UIManager.OnShowUIElement(show);
 
