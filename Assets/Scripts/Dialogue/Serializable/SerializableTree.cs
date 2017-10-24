@@ -18,10 +18,10 @@ namespace Dialogue {
         private Dictionary<Node, SerializableNode> tempNodes;
 
         [NonSerialized]
-        SerializableTree instance, prefab;
+        SerializableTree instance;
 
         public void CleanupTempInstance() {
-            if (prefab != null) {
+            if (gameObject.activeInHierarchy) {
                 if (Application.isPlaying) { Destroy(this.gameObject); }
                 else { DestroyImmediate(this.gameObject); }
             }
@@ -43,7 +43,6 @@ namespace Dialogue {
                 #if UNITY_EDITOR
                     newPrefab = UnityEditor.PrefabUtility.ReplacePrefab(instance.gameObject, this, UnityEditor.ReplacePrefabOptions.ConnectToPrefab).GetComponent<SerializableTree>();
                     newPrefab.instance = instance;
-                    instance.prefab = newPrefab;
                 #endif
 
                 return newPrefab;
@@ -95,7 +94,6 @@ namespace Dialogue {
             else {
                 instance = Instantiate(this);
                 instance.name = this.name;
-                instance.prefab = this;
             }
 
             tree = instance;
@@ -111,7 +109,6 @@ namespace Dialogue {
 
                 if (instance == null) { instance = Instantiate(this); }
                 instance.name = this.name;
-                instance.prefab = this;
             }
             return instance;
         }
