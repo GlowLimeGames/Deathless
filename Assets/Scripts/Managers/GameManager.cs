@@ -11,7 +11,12 @@ public class GameManager : Manager<GameManager> {
     /// The Player object in the current scene.
     /// </summary>
     public static Player Player {
-        get { return instance.player; }
+        get {
+            if (Instance.player == null) {
+                Instance.player = FindObjectOfType<Player>();
+            }
+            return Instance.player;
+        }
     }
 
     /// <summary>
@@ -23,7 +28,11 @@ public class GameManager : Manager<GameManager> {
     /// The ZDepthMap in the current scene.
     /// </summary>
     public static ZDepthMap ZDepthMap {
-        get { return instance.zDepthMap; }
+        get {
+            if (Instance.zDepthMap == null) {
+                Instance.zDepthMap = FindObjectOfType<ZDepthMap>();
+            }
+            return Instance.zDepthMap; }
     }
 
     /// <summary>
@@ -33,30 +42,8 @@ public class GameManager : Manager<GameManager> {
     
 	void Awake() {
         SingletonInit();
-        InitFields();
-        SceneManager.sceneLoaded += OnSceneLoaded;
         Globals.Init();
 	}
-
-    /// <summary>
-    /// Initialize fields with objects found in the
-    /// current scene.
-    /// </summary>
-    void InitFields() {
-        if (player == null) {
-            player = FindObjectOfType<Player>();
-        }
-        if (zDepthMap == null) {
-            zDepthMap = FindObjectOfType<ZDepthMap>();
-        }
-    }
-
-    /// <summary>
-    /// Called when the Unity SceneManager finishes loading a scene.
-    /// </summary>>
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        InitFields();
-    }
 
     /// <summary>
     /// Load a different game scene.

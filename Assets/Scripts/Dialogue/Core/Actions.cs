@@ -2,39 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-
-/*Design to be able to allow you to have things
-  happen in the game with dialogue-->used with unity events
-  Unity is pretty limited with their event system-->so we expand on it with
-  this script.
-     */
-
+ 
 namespace Dialogue {
+    /// <summary>
+    /// Designed to be able to allow you to have things happen in the game with dialogue.
+    /// Used with unity events (Unity is pretty limited with their event system,
+    /// so we expand on it with this script).
+    /// </summary>
     [System.Serializable]
     public class Actions : NodeCache {
+        /// <summary>
+        /// Holds ALL OF THE ACTIONS for a node of dialogue.
+        /// </summary>
         [SerializeField]
-        //holds ALL OF THE ACTIONS 
         private UnityEvent actions;
-        //queue used to handle if game tries to trigger multiple trigger at the same time
+
+        /// <summary>
+        /// Queue used to handle if game tries to trigger multiple trigger at the same time.
+        /// </summary>
         private static List<Actions> queue = new List<Actions>();
-        //the current action
+
+        /// <summary>
+        /// Returns the instance of Actions that has its actions currently running.
+        /// </summary>
         private static Actions current {
             get {
                 if (queue.Count > 0) { return queue[0]; }
                 else { return null; }
             }
         }
-        private int pendingActions = 0;
 
-        //stuff with nodes is used because there's the dialogue, then we want to stop the dialogue, 
-        //let the action happen, then resume dialogue 
-        //interacting with the dialogue nodes 
+        private int pendingActions = 0;
+        
+        /// <summary>
+        /// The current node of dialogue running. Allows us to resume dialogue
+        /// after completing actions.
+        /// </summary>
         private Node currentNode;
 
-
-        //how to trigger all the actions
-       //not all actions needs the dialogue to pause, so we have stuff in the code handling that 
+        /// <summary>
+        /// Trigger all the actions. Note: not all actions needs the dialogue to pause, so we have stuff in the code handling that.
+        /// </summary>
         public bool Invoke(Node currentNode) {
             if (actions != null && actions.GetPersistentEventCount() > 0 && !queue.Contains(this)) {
                 this.currentNode = currentNode;
@@ -47,8 +55,7 @@ namespace Dialogue {
                 return DialogueManager.Continue(currentNode);
             }
         }
-
-
+        
         void Update() {
             if (current == this && pendingActions == 0) {
                 CompleteActions();
@@ -69,17 +76,7 @@ namespace Dialogue {
             current.pendingActions--;
         }
 
-        //I'm not sure how this function will be called, so I'll make it nonstatic for now
-        //with gameobject_id-->either pass in type gameobject in postevent, and pass in 
-        //instanceofID for gameobject postevent
-        public void TriggerSound( string eventName,  GameObject gameObject_ID ) 
-        {
-            AkSoundEngine.PostEvent(eventName, gameObject_ID);
-            AkSoundEngine.RenderAudio();
-        }
-
         
-
         #region Actions
 
         [EnumAction(typeof(GlobalBool))]
@@ -238,6 +235,22 @@ namespace Dialogue {
                     anim.StartFadeOut(true);
                 }
             }
+        }
+        
+        public void TriggerSound(string eventName) {
+            AudioController.PlayEvent(eventName); 
+        }
+        
+        public void PauseSound(string eventName) {
+            AudioController.PauseEvent(eventName);
+        }
+        
+        public void ResumeSound(string eventName) {
+            AudioController.ResumeEvent(eventName);
+        }
+        
+        public void StopSound(string eventName) {
+            AudioController.StopEvent(eventName);
         }
 
         #endregion

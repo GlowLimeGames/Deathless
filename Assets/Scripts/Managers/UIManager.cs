@@ -30,11 +30,11 @@ public class UIManager : Manager<UIManager> {
 
     [SerializeField]
     private AnimController genericAnimPrefab;
-    public static AnimController GenericAnimPrefab { get { return instance.genericAnimPrefab; } }
+    public static AnimController GenericAnimPrefab { get { return Instance.genericAnimPrefab; } }
     
     [SerializeField]
     private float fadeTime = 2f;
-    public static float FadeTime { get { return instance.fadeTime; } }
+    public static float FadeTime { get { return Instance.fadeTime; } }
 
     private System.DateTime fadeStart;
     private float currentFadeTime;
@@ -51,8 +51,8 @@ public class UIManager : Manager<UIManager> {
     /// as characters, object, and the background) is enabled.
     /// </summary>
     public static bool WorldInputEnabled {
-        get { return instance.worldInputEnabled && AllInputEnabled; }
-        private set { instance.worldInputEnabled = value; }
+        get { return Instance.worldInputEnabled && AllInputEnabled; }
+        private set { Instance.worldInputEnabled = value; }
     }
 
     private bool allInputEnabled;
@@ -61,8 +61,8 @@ public class UIManager : Manager<UIManager> {
     /// Whether player input of any kind is enabled.
     /// </summary>
     public static bool AllInputEnabled {
-        get { return (instance.allInputEnabled); }
-        private set { instance.allInputEnabled = value; }
+        get { return (Instance.allInputEnabled); }
+        private set { Instance.allInputEnabled = value; }
     }
 
     void Start() {
@@ -128,9 +128,9 @@ public class UIManager : Manager<UIManager> {
 
     public static void SetInteractionCursor(bool show) {
         if (show) {
-            if (cursorIcon == null) { SetCustomCursor(instance.interactIcon); }
+            if (cursorIcon == null) { SetCustomCursor(Instance.interactIcon); }
         }
-        else if (cursorIcon == instance.interactIcon) { ClearCustomCursor(); }
+        else if (cursorIcon == Instance.interactIcon) { ClearCustomCursor(); }
     }
 
     public static void ClearCustomCursor() {
@@ -138,10 +138,13 @@ public class UIManager : Manager<UIManager> {
         ShowCustomCursor(false);
     }
     
-    public static void ShowCustomCursor(bool show) {
-        if (show && cursorIcon != null) { Util.SetCursor(cursorIcon); }
-        else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
-    }
+	public static void ShowCustomCursor(bool show) {
+		if (show && cursorIcon != null) {
+            Util.SetCursor(cursorIcon);
+		} else { 
+			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); 
+		}
+	}
 
     public static void BlockWorldInput(bool block) {
         if (!block && !Inventory.isShown && !DialogueManager.isShown) {
@@ -168,7 +171,7 @@ public class UIManager : Manager<UIManager> {
     }
 
     public static void SetHoverText(string s) {
-        if (instance.hoverText != null) { instance.hoverText.text = s; }
+        if (Instance.hoverText != null) { Instance.hoverText.text = s; }
     }
 
     public static void ClearHoverText() {
@@ -177,7 +180,7 @@ public class UIManager : Manager<UIManager> {
 
     private static void ShowGameButtons(bool show) {
         if (!show || (!Inventory.isShown && !DialogueManager.isShown)) {
-            foreach (GameObject button in instance.gameButtons) {
+            foreach (GameObject button in Instance.gameButtons) {
                 button.SetActive(show);
             }
         }
@@ -185,13 +188,13 @@ public class UIManager : Manager<UIManager> {
     
     public static void FadeOut(bool isDialogueAction) { FadeOut(FadeTime, isDialogueAction); }
     public static void FadeOut(float duration = -1f, bool isDialogueAction = false) {
-        SetAlpha(instance.blackout, 0.01f);
+        SetAlpha(Instance.blackout, 0.01f);
         Fade(255f, duration, isDialogueAction);
     }
 
     public static void FadeIn(bool isDialogueAction) { FadeIn(FadeTime, isDialogueAction); }
     public static void FadeIn(float duration = -1f, bool isDialogueAction = false) {
-        SetAlpha(instance.blackout, 1f);
+        SetAlpha(Instance.blackout, 1f);
         Fade(0f, duration, isDialogueAction);
     }
 
@@ -202,13 +205,13 @@ public class UIManager : Manager<UIManager> {
     }
 
     private static void Fade(float targetAlpha, float duration, bool isDialogueAction = false) {
-        instance.dlgActionFade = isDialogueAction;
+        Instance.dlgActionFade = isDialogueAction;
 
         float d = (duration == -1f) ? FadeTime : duration;
-        instance.currentFadeTime = duration;
-        instance.fadeStart = System.DateTime.Now;
+        Instance.currentFadeTime = duration;
+        Instance.fadeStart = System.DateTime.Now;
 
-        instance.blackout.gameObject.SetActive(true);
-        instance.blackout.CrossFadeAlpha(targetAlpha, d, false);
+        Instance.blackout.gameObject.SetActive(true);
+        Instance.blackout.CrossFadeAlpha(targetAlpha, d, false);
     }
 }

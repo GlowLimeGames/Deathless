@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostFadeAnim : MonoBehaviour {
-    [SerializeField]
-    private float fadeRate = 2f;
-    [SerializeField]
-    private float fadeDelay = 2f;
+
+	private float fadeRate;
+
+	private float fadeDelay;
+
+	[SerializeField]
+	private float minFade = 2f;
+
+	[SerializeField]
+	private float maxFade = 5f;
 
     private bool fadeIn;
     private System.DateTime delayStart;
@@ -27,6 +33,7 @@ public class GhostFadeAnim : MonoBehaviour {
         if (spriteRenderer == null) {
             spriteRenderer = GetComponent<SpriteRenderer>();
             delayStart = System.DateTime.Now;
+			RandomizeFade ();
         }
     }
 
@@ -41,6 +48,7 @@ public class GhostFadeAnim : MonoBehaviour {
         if (fadeIn) {
             color.a += Time.deltaTime / fadeRate;
             if (color.a > 0.99f) {
+				RandomizeFade ();
                 if (dlgFade) { CompleteDialogueAction(); }
                 delayStart = System.DateTime.Now;
                 fadeIn = false;
@@ -55,6 +63,14 @@ public class GhostFadeAnim : MonoBehaviour {
         }
         SpriteRenderer.color = color;
     }
+		
+	//randomizes fade time and fade delay for ghosts before each fade
+	float RandomizeFade() {
+		float flt = Random.Range (minFade, maxFade);
+		fadeDelay = flt;
+		fadeRate = flt;
+		return flt;
+	}
 
     public void StartFadeIn(bool isDialogueAction = false) { StartFade(0.01f, true, isDialogueAction); }
 
