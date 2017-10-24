@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
 public abstract class GameItem : Hoverable {
+
     /*
      *Property for whether this GameItem is inanimate or not
      */
@@ -23,9 +23,9 @@ public abstract class GameItem : Hoverable {
     /// </summary>
     public static GameItem InteractionTarget { get; protected set; }
 
-
+   
     /// <summary>
-    /// Backing field for ItemName.
+    /// Backing field for DisplayName.
     /// </summary>
     [SerializeField]
     private string displayName;
@@ -35,10 +35,10 @@ public abstract class GameItem : Hoverable {
     /// </summary>
     public string DisplayName {
         get {
-            if (displayName == null) { return "NULL"; }
-            else { return displayName; }
+            if (Instance.displayName == null) { return "NULL"; }
+            else { return Instance.displayName; }
         }
-        private set { displayName = value; }
+        private set { Instance.displayName = value; }
     }
 
     private AnimController animController;
@@ -120,7 +120,7 @@ public abstract class GameItem : Hoverable {
     }
 
     public override void OnHoverEnter() {
-        UIManager.SetHoverText(Instance.displayName);
+        UIManager.SetHoverText(DisplayName);
         UIManager.SetInteractionCursor(true);
     }
 
@@ -174,7 +174,7 @@ public abstract class GameItem : Hoverable {
     }
 
     public void SetName(string s) {
-        Instance.DisplayName = s;
+        DisplayName = s;
     }
 
     public abstract void ChangeSprite(Sprite sprite);
