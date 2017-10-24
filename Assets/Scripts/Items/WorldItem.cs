@@ -161,11 +161,11 @@ public class WorldItem : GameItem {
         World.UpdateNavGraph();
     }
 
-    public void UpdateZPos() {
+    public void UpdateZPos(bool updateScale = true) {
         if (!freezeZPosition) {
             float currentZ = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
             transform.position = new Vector3(transform.position.x, transform.position.y, currentZ);
-            UpdateScale(currentZ);
+            if (updateScale) { UpdateScale(currentZ); }
         }
     }
     
