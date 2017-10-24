@@ -10,21 +10,11 @@ public abstract class GameItem : Hoverable {
     /*
      *Property for whether this GameItem is inanimate or not
      */
-    [SerializeField][HideInInspector]
-    private bool isAnimate;
-
-    //check if this game item is animate
-    public bool checkAnimate()
-    {
-        return isAnimate;
+    [SerializeField]
+    private bool isAnimate {
+        get { return isAnimate;  }
+        set { isAnimate = value;  }
     }
-
-    //mutator: change bool condition of isAnimate
-    public void setAnimate(bool newValue)
-    {
-        isAnimate = newValue;
-    }
-
 
 
 
