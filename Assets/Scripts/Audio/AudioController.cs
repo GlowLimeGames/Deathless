@@ -25,12 +25,12 @@ public class AudioController : Manager<AudioController> {
         uint eventID = AkSoundEngine.GetIDFromString(eventName);
         
         //default curve of event action is log, but can change later 
-        AkSoundEngine.ExecuteActionOnEvent(eventID, action, instance.gameObject, fadeout, AkCurveInterpolation.AkCurveInterpolation_Log1);
+        AkSoundEngine.ExecuteActionOnEvent(eventID, action, Instance.gameObject, fadeout, AkCurveInterpolation.AkCurveInterpolation_Log1);
         AkSoundEngine.RenderAudio();
     }
     
     public static void PlayEvent(string eventName) {
-        AkSoundEngine.PostEvent(eventName, instance.gameObject);
+        AkSoundEngine.PostEvent(eventName, Instance.gameObject);
         AkSoundEngine.RenderAudio();
     }
     

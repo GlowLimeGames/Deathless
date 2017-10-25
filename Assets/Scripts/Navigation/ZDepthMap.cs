@@ -10,8 +10,14 @@ public class ZDepthMap : MonoBehaviour {
 
     private Sprite sprite;
 
-    void Awake() {
-        sprite = GetComponent<SpriteRenderer>().sprite;
+    private Sprite Sprite {
+        get {
+            if (sprite == null) {
+                sprite = GetComponent<SpriteRenderer>().sprite;
+            }
+            return sprite;
+        }
+        set { sprite = value; }
     }
 
     public bool GetZDepthAtWorldPoint(Vector2 point, out float zPos) {
@@ -30,7 +36,7 @@ public class ZDepthMap : MonoBehaviour {
     }
 
     private bool isPointOnZMap(Vector2 point) {
-        return sprite.bounds.Contains(point);
+        return Sprite.bounds.Contains(point);
     }
 
     public float GetZDepthAtWorldPoint (Vector3 position) {
@@ -49,9 +55,9 @@ public class ZDepthMap : MonoBehaviour {
     private Color GetColorAtPoint (Vector2 point) {
         Vector2 pos = transform.InverseTransformPoint(point);
 
-        int x = Mathf.RoundToInt(pos.x * sprite.pixelsPerUnit);
-        int y = Mathf.RoundToInt(pos.y * sprite.pixelsPerUnit);
+        int x = Mathf.RoundToInt(pos.x * Sprite.pixelsPerUnit);
+        int y = Mathf.RoundToInt(pos.y * Sprite.pixelsPerUnit);
 
-        return sprite.texture.GetPixel(x, y);
+        return Sprite.texture.GetPixel(x, y);
     }
 }
