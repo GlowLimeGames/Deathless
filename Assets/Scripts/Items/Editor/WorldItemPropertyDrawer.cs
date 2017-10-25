@@ -23,10 +23,7 @@ public class WorldItemPropertyDrawer : Editor {
         serializedObject.ApplyModifiedProperties();
 
         if (GUILayout.Button("Calculate Z-Pos")) {
-            //getting nullreferenceexception
-           ( (WorldItem) target).UpdateZPos();
-           
-         
+           ( (WorldItem) target).UpdateZPos(false);
         }
         
 
