@@ -24,6 +24,9 @@ public class WorldItem : GameItem {
     [SerializeField]
     private GameObject speechBubble;
 
+    [SerializeField]
+    private string footstepAudioEvent = "IncineratorArea_PlayFootsteps";
+
     private bool dlgActionMovement = false;
     
     /// <summary>
@@ -117,8 +120,14 @@ public class WorldItem : GameItem {
                 if (AnimController != null) { AnimController.Walk(); }
                 aiPath.canMove = true;
                 seeker.StartPath(transform.position, point);
+
+                InvokeRepeating("PlayFootsteps", 0f, 0.3f);
             }
         }
+    }
+    
+    private void PlayFootsteps() {
+        AudioController.PlayEvent(footstepAudioEvent);
     }
 
     public void StopMovement() {
@@ -126,6 +135,7 @@ public class WorldItem : GameItem {
         else if (aiPath != null) {
             aiPath.StopImmediately();
             if (AnimController != null) { AnimController.Idle(); }
+            CancelInvoke("PlayFootsteps");
         }
     }
 
@@ -143,7 +153,7 @@ public class WorldItem : GameItem {
     /// </summary>
     public virtual void OnTargetReached(Transform target) {
         if (dlgActionMovement) { global::Dialogue.Actions.CompletePendingAction(); }
-        if (AnimController != null) { AnimController.Idle(); }
+        StopMovement();
     }
 
     /// <summary>
