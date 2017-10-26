@@ -16,7 +16,9 @@ namespace AK
         static const AkUniqueID INCINERATORAREA_CORPSE_01 = 4263198299U;
         static const AkUniqueID INCINERATORAREA_CORPSE_02 = 4263198296U;
         static const AkUniqueID INCINERATORAREA_CORPSE_03 = 4263198297U;
+        static const AkUniqueID INCINERATORAREA_GHOSTSOB = 1580874168U;
         static const AkUniqueID INCINERATORAREA_INCINERATORS = 103633432U;
+        static const AkUniqueID INCINERATORAREA_MXAMB = 3069348512U;
         static const AkUniqueID INCINERATORAREA_PLAYFOOTSTEPS = 2012575842U;
         static const AkUniqueID INCINERATORAREA_START = 1640926013U;
         static const AkUniqueID INCINERATORAREA_STOPFOOTSTEPS = 2330997336U;
@@ -27,12 +29,15 @@ namespace AK
         static const AkUniqueID DISTANCETOCORPSE_01 = 1185747271U;
         static const AkUniqueID DISTANCETOCORPSE_02 = 1185747268U;
         static const AkUniqueID DISTANCETOCORPSE_03 = 1185747269U;
+        static const AkUniqueID DISTANCETOFURNACE = 3601735389U;
+        static const AkUniqueID DISTANCETOGHOST = 3569817764U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID INCINERATOR = 2193956003U;
+        static const AkUniqueID INCINERATOR_MX = 849815669U;
+        static const AkUniqueID INCINERATOR_SFX = 937002135U;
     } // namespace BANKS
 
     namespace BUSSES

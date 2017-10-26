@@ -30,6 +30,13 @@
 					</Playlist>
 				</MusicPlaylistContainer>
 				<MusicPlaylistContainer Name="MusicTextures" ID="{82705C62-830E-4065-81F5-729E31B4311A}" ShortID="126148949">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-7</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
@@ -40,6 +47,20 @@
 					</ReferenceList>
 					<ChildrenList>
 						<MusicSegment Name="AmbroiseTheme" ID="{699DE622-2510-4C8C-BDEC-8B839069CEFB}" ShortID="965253985">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{C62B0D41-69F1-4001-B04E-B43F3C47F3E2}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
@@ -59,6 +80,13 @@
 							</CueList>
 						</MusicSegment>
 						<MusicSegment Name="MainTitleTheme" ID="{E9276E12-F2B0-4FA2-A28F-61C17FF3B474}" ShortID="339241030">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
@@ -77,6 +105,564 @@
 								</MusicCue>
 							</CueList>
 						</MusicSegment>
+						<MusicSegment Name="MXtexturesHarp" ID="{AF8F0756-BD4F-4307-8DAA-32595CA1A80B}" ShortID="332835586">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="45459.9780701754"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="MXtexturesHarpTrack" ID="{8D4648B9-3BD2-49A5-B0A1-A10CAD2F78F7}" ShortID="459953499">
+									<PropertyList>
+										<Property Name="MusicTrackType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Incinerator_MX_Chord Arp 9 v1_0" ID="{D5A10D4A-E29B-44B2-81D8-D0C083195335}" ShortID="975588678">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Chord Arp 9 v1.0.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="Incinerator_MX_Chord Arp 13 v1_0" ID="{B628E102-300C-415D-BF44-FB0B8791B046}" ShortID="278505635">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Chord Arp 13 v1.0.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="Incinerator_MX_Chord Arp 14 v1_0" ID="{DC609449-DE3B-49F1-8D41-8FE393757D37}" ShortID="852937020">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Chord Arp 14 v1.0.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{88185FD7-C279-4CC5-899A-8197CD8730B0}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{51751094-694E-40C8-8904-E8415CAB6993}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Chord Arp 9 v1_0" ID="{2DD959C7-8EB5-44C9-AEB7-2A1FFAE1053A}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Chord Arp 9 v1_0" ID="{D5A10D4A-E29B-44B2-81D8-D0C083195335}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+										<MusicTrackSequence Name="" ID="{5D4A8591-28F6-44AD-A2CE-155DB8C390DF}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Chord Arp 13 v1_0" ID="{F0CCF7BA-38C0-4CBB-ADFD-658E74629916}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Chord Arp 13 v1_0" ID="{B628E102-300C-415D-BF44-FB0B8791B046}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+										<MusicTrackSequence Name="" ID="{5D34BD59-6A5F-4B95-AB6B-7CCB6C748600}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Chord Arp 14 v1_0" ID="{9D06C426-98B8-47C9-8072-042747E71FD0}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="6000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Chord Arp 14 v1_0" ID="{DC609449-DE3B-49F1-8D41-8FE393757D37}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+										<MusicTrackSequence Name="" ID="{C10F166B-CA1B-4D55-9B3B-34015EC8A702}"/>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{4102B47B-6B23-4BD2-8E17-2EF81DEC0F80}"/>
+								<MusicCue Name="Exit Cue" ID="{B25E3C15-27E4-426E-81CE-785995B3A4BE}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="7960.9375"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="MXtexturesRattle" ID="{AB9BAC77-C68E-4F36-9348-72742B43FC46}" ShortID="913199001">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="37333.3333333333"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="MxTexturesRattleTrack" ID="{7D2B4850-D77E-4BA9-BFFB-54826B08AAE0}" ShortID="618603282">
+									<PropertyList>
+										<Property Name="MusicTrackType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Incinerator_MX_Rattling Chord 1 v1_0" ID="{68300997-5947-4880-B0C0-71669D3C53B2}" ShortID="933034312">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Rattling Chord 1 v1.0.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="Incinerator_MX_Rattling Chord 2 v1_0" ID="{13E1E080-51BB-4AAD-99F3-A1571B376C05}" ShortID="1069066200">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Rattling Chord 2 v1.0.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="Incinerator_MX_Rattling Chord 4 v1_0" ID="{07047302-FABF-4DD7-A1D9-DF0C5AB49DF5}" ShortID="60464570">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Rattling Chord 4 v1.0.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="Incinerator_MX_Rattling Chord 5 v1_0" ID="{6904B227-C143-45D5-A2DA-380538513E91}" ShortID="646070642">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Rattling Chord 5 v1.0.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{3095DC3A-E0DA-43E0-A50F-622061DAE856}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{FC21DCE4-27E6-43DE-A4D3-1F2B6C3B2A90}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Rattling Chord 1 v1_0" ID="{E9BCB123-2B00-4F1D-A191-53948E3139BA}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Rattling Chord 1 v1_0" ID="{68300997-5947-4880-B0C0-71669D3C53B2}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+										<MusicTrackSequence Name="" ID="{015A6432-8829-4C1A-9243-EB29396CB5F1}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Rattling Chord 2 v1_0" ID="{390898AD-B895-4ACC-89ED-ED16855159B7}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Rattling Chord 2 v1_0" ID="{13E1E080-51BB-4AAD-99F3-A1571B376C05}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+										<MusicTrackSequence Name="" ID="{4C67B826-C6C2-4210-AB6F-534B4840388C}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Rattling Chord 4 v1_0" ID="{6AF1DB31-6442-4CD8-B690-D0D41F17AB27}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="10666.6666666667"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+														<Property Name="PlayAt" Type="Real64" Value="-1.38777878078145E-14"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Rattling Chord 4 v1_0" ID="{07047302-FABF-4DD7-A1D9-DF0C5AB49DF5}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+										<MusicTrackSequence Name="" ID="{F3B46EF8-A93D-413E-B81D-A55C777685D1}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Rattling Chord 5 v1_0" ID="{83146333-8F24-44F6-81FB-B896944F49F0}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="10666.6666666667"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Rattling Chord 5 v1_0" ID="{6904B227-C143-45D5-A2DA-380538513E91}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{138D73C3-5980-4CB7-B38C-A61D73473DAF}"/>
+								<MusicCue Name="Exit Cue" ID="{694ED5C2-8E86-48C5-83DD-1D9E2FDAC1FC}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="10658.7171052632"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="MXTexturesGong" ID="{75F72C75-8108-496A-B0A5-B656412AD2AB}" ShortID="250517098">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="68030.701754386"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="MXTexturesGongTrack" ID="{B5DBCF74-61B5-4E86-83A9-7447E37E8B23}" ShortID="446389560">
+									<PropertyList>
+										<Property Name="MusicTrackType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Incinerator_MX_Long Gong 1 v1_0" ID="{2A48E807-51B5-4A57-B98E-68DCB82204CF}" ShortID="118550679">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Long Gong 1 v1.0.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="Incinerator_MX_Long Gong 8 v1_0" ID="{835F0596-28BA-44EF-BD85-D311D837C0AC}" ShortID="932593580">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Long Gong 8 v1.0.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="Incinerator_MX_Long Gong 11 v1_0" ID="{3E5998B0-A392-46F3-AF4C-753118D0A486}" ShortID="1015934493">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Long Gong 11 v1.0.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="Incinerator_MX_Long Gong 13 v1_0" ID="{A9262F85-AB58-4ED8-A91E-2273D1CB1707}" ShortID="700966238">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_MX_Long Gong 13 v1.0.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{C80C3F34-C706-4219-BB7A-D41767C9EB5D}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{485D49E3-2993-47D2-837E-7F2F342B0C0D}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Long Gong 1 v1_0" ID="{1E033B9E-B093-4B47-A37A-A22C2A4793E3}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="14008.2236842106"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Long Gong 1 v1_0" ID="{2A48E807-51B5-4A57-B98E-68DCB82204CF}"/>
+													<PropertyCurveList>
+														<PropertyCurve PropertyName="Highpass">
+															<Curve Name="" ID="{2FB2DCC2-373A-4BBC-A71A-CD2E257ECBE7}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>14.00822</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</PropertyCurve>
+														<PropertyCurve PropertyName="Lowpass">
+															<Curve Name="" ID="{B33D81DA-5D92-4EC7-B618-B3D1BFAC88F3}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>14.00822</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</PropertyCurve>
+														<PropertyCurve PropertyName="Volume">
+															<Curve Name="" ID="{3C4AAB24-C027-4AB6-9EA8-29855F9CE31E}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>14.00822</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</PropertyCurve>
+													</PropertyCurveList>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+										<MusicTrackSequence Name="" ID="{0D54706D-8CE8-414B-B1B4-4AA9F1F89478}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Long Gong 11 v1_0" ID="{02627F96-7FA6-463A-8DF0-9A3DB08FFCAD}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="14000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Long Gong 11 v1_0" ID="{3E5998B0-A392-46F3-AF4C-753118D0A486}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+										<MusicTrackSequence Name="" ID="{187E58BE-37B4-48BB-8B9B-8E6FEDE11A9D}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Long Gong 8 v1_0" ID="{F3458F47-217B-46B7-A327-C24FC1B0699B}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="14001.6447368421"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Long Gong 8 v1_0" ID="{835F0596-28BA-44EF-BD85-D311D837C0AC}"/>
+													<PropertyCurveList>
+														<PropertyCurve PropertyName="Highpass">
+															<Curve Name="" ID="{9E13669F-A95B-4920-BDE7-DA9EEE8692D1}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>14.00164</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</PropertyCurve>
+														<PropertyCurve PropertyName="Lowpass">
+															<Curve Name="" ID="{D9D4282C-DCD5-4A9E-B815-0DF436DD7ACD}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>14.00164</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</PropertyCurve>
+														<PropertyCurve PropertyName="Volume">
+															<Curve Name="" ID="{F597532D-1C10-470D-AD0D-9DA58CC1A96E}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>14.00164</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</PropertyCurve>
+													</PropertyCurveList>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+										<MusicTrackSequence Name="" ID="{33C931F0-6428-4EE8-A372-24BF2F912867}">
+											<ClipList>
+												<MusicClip Name="Incinerator_MX_Long Gong 13 v1_0" ID="{61E2F883-E9EF-48A1-8841-3931CD7F9776}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="14000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Incinerator_MX_Long Gong 13 v1_0" ID="{A9262F85-AB58-4ED8-A91E-2273D1CB1707}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{5B544A83-2AED-47AF-91CB-9E32E17E4CE4}"/>
+								<MusicCue Name="Exit Cue" ID="{F90D73B4-FCDE-4524-9E72-4A44B8E01DD4}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="13939.3503289474"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="Silence01" ID="{6B01EBF6-8AD8-4CF1-B397-455B8917CF14}" ShortID="631383664">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="22225.6315789474"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="SilenceTrck" ID="{13A7D220-AAD2-46D1-BD31-468C8C574038}" ShortID="487826534">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Silence_01" ID="{96BBF8CA-DE6B-4956-914F-CFB08E16F138}" ShortID="207608928">
+											<Language>SFX</Language>
+											<AudioFile>Silence_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{FCD45CEA-9948-4F3C-8A02-4EF68789AAD6}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{276BCDAE-86F3-4026-ABA1-8464D99A2F66}">
+											<ClipList>
+												<MusicClip Name="Silence_01" ID="{BCF4C9EC-9846-4F6D-885A-6AC802164D00}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="6419.625"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Silence_01" ID="{96BBF8CA-DE6B-4956-914F-CFB08E16F138}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{6586CE81-C489-4794-AE6E-517A9388202D}"/>
+								<MusicCue Name="Exit Cue" ID="{332141EE-EBA7-4BD0-9AA4-4009F7871332}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="6417.76315789474"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="Silence02" ID="{BAFA2765-672C-4836-97DD-A922209E7E2C}" ShortID="623013973">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="15670.0416666667"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="Silence02Trck" ID="{CE387BCF-00C4-4C5D-96AB-114C6AECEE41}" ShortID="898615544">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Silence_02" ID="{37C4B49C-171F-4CCB-A5F0-C206EAB8E0ED}" ShortID="246799156">
+											<Language>SFX</Language>
+											<AudioFile>Silence_02.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{20BFA84A-3472-4CCE-B489-B7C53E65DD8C}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{E0BCB5C4-2B1B-42DF-B3DF-712F1AEF8587}">
+											<ClipList>
+												<MusicClip Name="Silence_02" ID="{FE74ADEE-B781-41F2-81E2-B6F6EDFB8283}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="15670.0416666667"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Silence_02" ID="{37C4B49C-171F-4CCB-A5F0-C206EAB8E0ED}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{022905C6-C76A-48D3-B04D-7BA7EB731922}"/>
+								<MusicCue Name="Exit Cue" ID="{1F664E07-6FDA-4AD7-A7EC-7E29AD9047F6}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="15621.2993421053"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
 					</ChildrenList>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{F5F4EEAF-671D-48A3-A25E-DF6FA7522CA6}">
@@ -85,7 +671,28 @@
 							</PropertyList>
 							<ChildrenList>
 								<MusicTransition Name="Transition" ID="{6FD873CF-610B-4821-9638-00B875CF2A34}">
-									<TransitionInfo/>
+									<PropertyList>
+										<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+										<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo>
+										<SourceFadeOut>
+											<MusicFade Name="Source Fade-out" ID="{DA8C731F-C1A0-4996-9E3F-038850ED9CD7}">
+												<PropertyList>
+													<Property Name="FadeTime" Type="Real64" Value="2.3"/>
+													<Property Name="FadeType" Type="int16" Value="1"/>
+												</PropertyList>
+											</MusicFade>
+										</SourceFadeOut>
+										<DestinationFadeIn>
+											<MusicFade Name="Destination Fade-in" ID="{422236D7-51EF-4106-926D-A424EB83E646}">
+												<PropertyList>
+													<Property Name="FadeCurve" Type="int16" Value="6"/>
+													<Property Name="FadeTime" Type="Real64" Value="1.6"/>
+												</PropertyList>
+											</MusicFade>
+										</DestinationFadeIn>
+									</TransitionInfo>
 								</MusicTransition>
 							</ChildrenList>
 							<TransitionInfo/>
@@ -94,7 +701,7 @@
 					<Playlist>
 						<MusicPlaylistItem Name="" ID="{C1A03C31-1962-4283-BF98-BB398A3D25F1}" ShortID="832388315">
 							<PropertyList>
-								<Property Name="PlayMode" Type="int16" Value="2"/>
+								<Property Name="LoopCount" Type="int16" Value="0"/>
 							</PropertyList>
 							<ChildrenList>
 								<MusicPlaylistItem Name="" ID="{F14F6C2B-53F6-4B14-AFBD-F8220048440F}" ShortID="1043900109">
@@ -118,6 +725,52 @@
 										</Property>
 									</PropertyList>
 									<SegmentRef Name="MainTitleTheme" ID="{E9276E12-F2B0-4FA2-A28F-61C17FF3B474}"/>
+								</MusicPlaylistItem>
+								<MusicPlaylistItem Name="" ID="{84A42BC4-5A16-4610-AFE9-2157891D15AF}" ShortID="235325493">
+									<PropertyList>
+										<Property Name="PlayMode" Type="int16" Value="3"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{9D05AD77-D13D-424A-BDB8-CE5AA98276D7}" ShortID="899326522">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="MXTexturesGong" ID="{75F72C75-8108-496A-B0A5-B656412AD2AB}"/>
+										</MusicPlaylistItem>
+										<MusicPlaylistItem Name="" ID="{72DBCCC4-AE80-4561-A2DB-F3DE5E992377}" ShortID="1060339176">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="MXtexturesHarp" ID="{AF8F0756-BD4F-4307-8DAA-32595CA1A80B}"/>
+										</MusicPlaylistItem>
+										<MusicPlaylistItem Name="" ID="{956A99F9-5441-489C-BD39-7B1E82266787}" ShortID="332541674">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="MXtexturesRattle" ID="{AB9BAC77-C68E-4F36-9348-72742B43FC46}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+								<MusicPlaylistItem Name="" ID="{3B4815A7-041B-43A0-BB9F-9F076C3BE51D}" ShortID="418842819">
+									<PropertyList>
+										<Property Name="PlayMode" Type="int16" Value="3"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{18B1D36C-45E9-4CA2-AA17-E0C16F78CC86}" ShortID="937272139">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="Silence01" ID="{6B01EBF6-8AD8-4CF1-B397-455B8917CF14}"/>
+										</MusicPlaylistItem>
+										<MusicPlaylistItem Name="" ID="{26A408A5-1848-4387-A55F-15CDBE7D50AB}" ShortID="423721439">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="Silence02" ID="{BAFA2765-672C-4836-97DD-A922209E7E2C}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
 								</MusicPlaylistItem>
 							</ChildrenList>
 						</MusicPlaylistItem>

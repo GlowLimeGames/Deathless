@@ -95,7 +95,32 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="IncineratorArea_Incinerators" ID="{9D194A33-07DC-4F8E-97F9-2799450F18C8}"/>
+				<Event Name="IncineratorArea_Incinerators" ID="{9D194A33-07DC-4F8E-97F9-2799450F18C8}">
+					<ChildrenList>
+						<Action Name="" ID="{8155740E-BE0C-46BE-83A8-59C6CB424A29}" ShortID="240810622">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{B2BFD4D1-95C6-45C7-9B88-0EB9A4BE3302}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="4"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Incinerator_Furnace" ID="{7EEC3182-F524-4EE2-931E-73FD73EC929C}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="IncineratorArea_StopFootsteps" ID="{798E61A2-EAA1-4FC4-818F-37A67E92FBD0}">
 					<ChildrenList>
 						<Action Name="" ID="{C9A521F3-8993-4BE6-B499-AD5CBD6C96E4}" ShortID="380107408">
@@ -105,6 +130,46 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Footsteps_Concrete" ID="{9EEB200A-2AEC-4D3F-8756-8A7F6E8BC2D3}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_GhostSob" ID="{0CF93CB9-B458-402C-9BD7-45CA389FEF90}">
+					<ChildrenList>
+						<Action Name="" ID="{59034235-EF17-4F99-B026-FFBD8AED82F2}" ShortID="315579178">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ghost_Sad" ID="{3CDDC55D-6E01-41C0-866F-110E2CBA62A1}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_MXAmb" ID="{729D1B9A-4C4B-4DB3-81D5-3E39C2BE3EB8}">
+					<ChildrenList>
+						<Action Name="" ID="{80B89A3C-0498-4BC3-BEF3-8E28020498B4}" ShortID="733077259">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{DD2547AD-9E2D-4B59-8FEF-D43273387192}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="15"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MusicTextures" ID="{82705C62-830E-4065-81F5-729E31B4311A}" WorkUnitID="{D46D78C8-D73B-45CD-B49D-0A1CF13D4279}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
