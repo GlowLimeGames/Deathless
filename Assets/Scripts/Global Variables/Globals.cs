@@ -1,7 +1,43 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+
+/// <summary>
+/// A list of all Global boolean variables.
+/// PLEASE NOTE that it is important that the numeric value
+/// of each entry is not changed.
+/// </summary>
+public enum GlobalBool {
+    S1_GUARDS_DISTRACTED = 1,
+    S1_ALCOHOL_TAKEN = 2,
+    S1_RUST_BOOZED = 3,
+    S1_RUST_BURNT = 4,
+    S1_VAT_TOPPLED = 5,
+    S1_CAUSED_EXPLOSION = 6,
+    S1_KILLED_GUARD = 7,
+    S1_KILLED_GHOST = 8,
+    S1_AMBROSE_INTRO_TOPIC_ESCAPE = 9,
+    S1_AMBROSE_INTRO_TOPIC_DESTROY = 10,
+    S1_CULTIST_INTRO_COMPLETE = 11,
+    S1_TOPIC_ARK = 12,
+    S1_TOPIC_MORTALIST = 13
+}
+
+/// <summary>
+/// A list of all Global int variables.
+/// PLEASE NOTE that it is important that the numeric value
+/// of each entry is not changed.
+/// </summary>
+public enum GlobalInt {
+    S1_JASON_DLG_STATE = 0
+}
+
+/// <summary>
+/// A list of all Global string variables.
+/// PLEASE NOTE that it is important that the numeric value
+/// of each entry is not changed.
+/// </summary>
+public enum GlobalString {
+}
 
 public static class Globals {
     private static Dictionary<GlobalInt, int> globalInts;
@@ -47,29 +83,4 @@ public static class Globals {
     public static void SetGlobal(GlobalBool global, bool value) {
         globalBools[global] = value;
     }
-}
-
-public enum GlobalInt {
-    TEST_GLOBAL_INT
-}
-
-public enum GlobalString {
-    TEST_GLOBAL_STRING
-}
-
-public enum GlobalBool {
-    TEST_GLOBAL_BOOL,
-    S1_GUARDS_DISTRACTED,
-    S1_ALCOHOL_TAKEN,
-    S1_RUST_BOOZED,
-    S1_RUST_BURNT,
-    S1_VAT_TOPPLED,
-    S1_CAUSED_EXPLOSION,
-    S1_KILLED_GUARD,
-    S1_KILLED_GHOST,
-    S1_AMBROSE_INTRO_TOPIC_ESCAPE,
-    S1_AMBROSE_INTRO_TOPIC_DESTROY,
-    S1_CULTIST_INTRO_COMPLETE,
-    S1_TOPIC_ARK,
-    S1_TOPIC_MORTALIST
 }

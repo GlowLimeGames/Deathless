@@ -14,7 +14,6 @@ public abstract class GameItem : Hoverable {
     /// <summary>
     /// Property for whether this GameItem is inanimate or not
     /// </summary>
-    [SerializeField]
     public bool IsAnimate {
         get { return Instance.isAnimate; }
         private set { Instance.isAnimate = value; }

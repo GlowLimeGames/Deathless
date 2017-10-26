@@ -132,7 +132,8 @@ namespace Dialogue {
         public void InstantiateItemAtPosition(Transform t) {
             WorldItem item = itemVar as WorldItem;
             if (item != null) {
-                Instantiate(item, GetPos(t), Quaternion.identity).gameObject.name = item.gameObject.name; ;
+                Instantiate(item, GetPos(t), Quaternion.identity).gameObject.name = item.gameObject.name;
+                World.UpdateNavGraph();
             }
         }
 

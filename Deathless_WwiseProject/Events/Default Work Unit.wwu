@@ -3,7 +3,7 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{45795174-1EAD-48A5-948B-875014D6D5E4}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="IncineratorAreaStart" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}">
+				<Event Name="IncineratorArea_Start" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}">
 					<ChildrenList>
 						<Action Name="" ID="{90D08EA6-D2AE-4B8C-88E8-E4F04B2E2CE2}" ShortID="1056561516">
 							<PropertyList>
@@ -34,6 +34,77 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="dl_sfx_bg_incinerator_ambiance_incinerator" ID="{309832BA-541B-4EC8-9A51-91FB846053B2}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_PlayFootsteps" ID="{A2D342F1-A287-4143-9659-DAD30739F783}">
+					<ChildrenList>
+						<Action Name="" ID="{AC50C2B2-75EB-409E-97F6-A87C45E53DD7}" ShortID="572202141">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps_Concrete" ID="{9EEB200A-2AEC-4D3F-8756-8A7F6E8BC2D3}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_Corpse_01" ID="{664DE440-6113-418E-B92D-83D7C145CCB2}">
+					<ChildrenList>
+						<Action Name="" ID="{3B57BB34-720D-48CC-AB0A-4CF024A8BCC0}" ShortID="468431902">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Corpses_01" ID="{2E777386-A377-4514-B018-1311FF652438}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_Corpse_02" ID="{842BF99C-5F2D-4A6B-84C6-C384CB925E26}">
+					<ChildrenList>
+						<Action Name="" ID="{D22B519E-3473-49E7-B3C4-6194F3F70B9E}" ShortID="788573733">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Corpses_02" ID="{ACF0A8A4-FCAE-4BAB-A03F-C5628F28DC19}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_Corpse_03" ID="{1BCD1D7C-4172-41A5-A15B-9D10AAB4F1E1}">
+					<ChildrenList>
+						<Action Name="" ID="{AB2FBC34-AB9F-4716-B59A-026556544B0F}" ShortID="285644778">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Corpses_03" ID="{E36D317C-C8CE-4274-90CC-4AF39D1E7012}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_Incinerators" ID="{9D194A33-07DC-4F8E-97F9-2799450F18C8}"/>
+				<Event Name="IncineratorArea_StopFootsteps" ID="{798E61A2-EAA1-4FC4-818F-37A67E92FBD0}">
+					<ChildrenList>
+						<Action Name="" ID="{C9A521F3-8993-4BE6-B499-AD5CBD6C96E4}" ShortID="380107408">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps_Concrete" ID="{9EEB200A-2AEC-4D3F-8756-8A7F6E8BC2D3}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
