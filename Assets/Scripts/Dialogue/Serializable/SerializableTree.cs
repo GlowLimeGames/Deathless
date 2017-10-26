@@ -121,6 +121,7 @@ namespace Dialogue {
                 imported.owner = owner;
                 ImportChildNodes(imported.root, nodes[0]);
                 ImportLinks();
+                imported.ValidateTree();
             }
 
             return imported;
