@@ -84,6 +84,7 @@ public class GhostFadeAnim : MonoBehaviour {
         this.fadeIn = fadeIn;
         dlgFade = isDialogueAction;
         delayStart = default(System.DateTime);
+        RandomizeFade();
     }
 
     private void CompleteDialogueAction() {
