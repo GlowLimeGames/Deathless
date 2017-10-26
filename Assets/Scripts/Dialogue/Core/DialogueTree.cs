@@ -15,6 +15,10 @@ namespace Dialogue {
         public DialogueTree(NodeData rootData) {
             root = Node.CreateRoot(rootData);
         }
+
+        public bool ValidateTree() {
+            return root.ValidateNodeRecursively();
+        }
     }
     
     public abstract class BaseNode {
@@ -45,12 +49,42 @@ namespace Dialogue {
 
         protected BaseNode(Node parent, NodeData data) : this(parent) {
             Data = data;
-            if (Data != null) {
-                Data.ValidateComponents();
-                if (!isLink && parent != null && parent.Data != null) {
-                    Data.ValidateParent(parent.Data);
+        }
+
+        public bool ValidateNodeRecursively(bool valid = true) {
+            valid = ValidateNode(valid);
+            
+            if (!isLink && ((Node)this).Children != null) {
+                foreach (BaseNode child in ((Node)this).Children) {
+                    valid = child.ValidateNodeRecursively(valid);
                 }
             }
+
+            return valid;
+        }
+
+        private bool ValidateNode(bool valid) {
+            if (Data == null) {
+                valid = false;
+                Debug.LogWarning("Node validation failed: node does not have any data.");
+            }
+            else {
+                if (!Data.ValidateComponents()) {
+                    valid = false;
+                }
+
+                if (!isLink) {
+                    if (Data.EndDialogue && ((Node)this).Children != null && ((Node)this).Children.Count > 0) {
+                        Data.EndDialogue = false;
+                        Debug.Log("Please note! Dialogue nodes with children are NOT end nodes and should not be marked as such! Fixing...");
+                    }
+                    if (Parent != null && Parent.Data != null && !Data.ValidateParent(Parent.Data)) {
+                        valid = false;
+                    }
+                }
+            }
+
+            return valid;
         }
 
         public Node GetOriginal() {
