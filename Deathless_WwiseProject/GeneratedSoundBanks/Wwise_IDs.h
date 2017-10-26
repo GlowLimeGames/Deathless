@@ -13,8 +13,20 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID INCINERATORAREASTART = 3256731940U;
+        static const AkUniqueID INCINERATORAREA_CORPSE_01 = 4263198299U;
+        static const AkUniqueID INCINERATORAREA_CORPSE_02 = 4263198296U;
+        static const AkUniqueID INCINERATORAREA_CORPSE_03 = 4263198297U;
+        static const AkUniqueID INCINERATORAREA_INCINERATORS = 103633432U;
+        static const AkUniqueID INCINERATORAREA_PLAYFOOTSTEPS = 2012575842U;
+        static const AkUniqueID INCINERATORAREA_START = 1640926013U;
     } // namespace EVENTS
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID DISTANCETOCORPSE_01 = 1185747271U;
+        static const AkUniqueID DISTANCETOCORPSE_02 = 1185747268U;
+        static const AkUniqueID DISTANCETOCORPSE_03 = 1185747269U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {

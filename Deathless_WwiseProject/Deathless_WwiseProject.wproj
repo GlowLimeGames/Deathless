@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="Project" SchemaVersion="80" WwiseVersion="v2017.1.1" WwiseBuild="6340">
+<WwiseDocument Type="Project" SchemaVersion="80" WwiseVersion="v2017.1.0" WwiseBuild="6302">
 	<ProjectInfo>
 		<Project Name="Deathless_WwiseProject" ID="{DFCD94DA-5603-48DA-B3BB-666319BA1E9C}">
 			<Platforms>
@@ -8635,7 +8635,7 @@
 						</Property>
 					</PropertyList>
 				</SharedPropertyList>
-				<SharedPropertyList ClassName="" PluginType="3" CompanyID="0" PluginID="127">
+				<SharedPropertyList ClassName="Wwise Convolution Reverb" PluginType="3" CompanyID="0" PluginID="127">
 					<PropertyList>
 						<Property Name="AlgoTypeSelect" Type="int32">
 							<ValueList>
@@ -8643,6 +8643,11 @@
 							</ValueList>
 						</Property>
 						<Property Name="CenterLevel" Type="Real32">
+							<ValueList>
+								<Value>0</Value>
+							</ValueList>
+						</Property>
+						<Property Name="ChannelConfigOverride" Type="int64">
 							<ValueList>
 								<Value>0</Value>
 							</ValueList>
@@ -8775,11 +8780,6 @@
 						<Property Name="SoundEngineSampleRateMac" Type="int32">
 							<ValueList>
 								<Value>48000</Value>
-							</ValueList>
-						</Property>
-						<Property Name="SoundEngineSampleRateWiiUSW" Type="int32">
-							<ValueList>
-								<Value>32000</Value>
 							</ValueList>
 						</Property>
 						<Property Name="SoundEngineSampleRateiOS" Type="int32">
@@ -9376,6 +9376,20 @@
 						<Property Name="OverSampling" Type="bool">
 							<ValueList>
 								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+				</SharedPropertyList>
+				<SharedPropertyList ClassName="Microsoft HRTF" PluginType="3" CompanyID="0" PluginID="170">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+						<Property Name="RoomSize" Type="int32">
+							<ValueList>
+								<Value>3</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
