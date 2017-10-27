@@ -1,28 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Parent class for both inventory and world items.
 /// </summary>
 public abstract class GameItem : Hoverable {
-
-    ///<summary>
-    ///Property for whether this GameItem is inanimate or not
-    ///</summary>
     [SerializeField]
-    private bool isAnimate {
-        get { return isAnimate;  }
-        set { isAnimate = value;  }
+    private bool isAnimate;
+
+    /// <summary>
+    /// Property for whether this GameItem is inanimate or not
+    /// </summary>
+    public bool IsAnimate {
+        get { return Instance.isAnimate; }
+        private set { Instance.isAnimate = value; }
     }
-
-
 
     /// <summary>
     /// The item that the player has interacted with.
     /// </summary>
     public static GameItem InteractionTarget { get; protected set; }
-
    
     /// <summary>
     /// Backing field for DisplayName.

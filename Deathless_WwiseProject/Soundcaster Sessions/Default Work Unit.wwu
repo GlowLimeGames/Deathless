@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{6BD4912F-E928-4F86-8EA8-4BF0E76B58E2}" SchemaVersion="80">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{6BD4912F-E928-4F86-8EA8-4BF0E76B58E2}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{6BD4912F-E928-4F86-8EA8-4BF0E76B58E2}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Test" ID="{A4B0E6CE-285B-435E-A820-5C2DC2417746}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="IncineratorArea_Start" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="IncineratorArea_PlayFootsteps" ID="{A2D342F1-A287-4143-9659-DAD30739F783}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="IncineratorArea_Corpse_01" ID="{664DE440-6113-418E-B92D-83D7C145CCB2}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="DistanceToCorpse_02" ID="{C9D6012D-E660-421F-A995-98DEA4863C6C}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DistanceToFurnace" ID="{E69F62DB-A2B9-42DC-A63F-C859203AF7C6}"/>
+							<Value>0.0628272251308953</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DistanceToghost" ID="{87EC5F0B-4713-44F9-9F59-74DF90D10E3E}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DistanceToCorpse_03" ID="{F8A60522-EFFF-47CE-91C1-54C313D2520B}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DistanceToCorpse_01" ID="{C6266203-6CD7-4EB4-B53D-24924372B16C}"/>
+							<Value>0</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>
