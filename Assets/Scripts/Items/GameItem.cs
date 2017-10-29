@@ -8,6 +8,7 @@ public abstract class GameItem : Hoverable {
 
 
 
+
     /// <summary>
     /// Backing field for IsAnimate
     /// </summary>
