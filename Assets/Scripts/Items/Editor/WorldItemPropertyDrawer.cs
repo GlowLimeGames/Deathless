@@ -21,12 +21,9 @@ public class WorldItemPropertyDrawer : Editor {
         
         interactable.boolValue = EditorGUILayout.Toggle("Interactable", interactable.boolValue);
         serializedObject.ApplyModifiedProperties();
-
         if (GUILayout.Button("Calculate Z-Pos")) {
            ( (WorldItem) target).UpdateZPos(false);
         }
-        
-
         if (interactable.boolValue) {
             DrawDefaultInspector();
         }

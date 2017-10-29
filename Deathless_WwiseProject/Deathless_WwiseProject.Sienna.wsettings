@@ -21,9 +21,9 @@
 				<Property Name="General\LatestLanguage" Type="int32" Value="684519430"/>
 				<Property Name="General\LatestPlatform" Type="string" Value="Android"/>
 				<Property Name="General\SourceControlPluginID" Type="string" Value="{C403A906-0C19-4ED5-808E-748707065301}"/>
-				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value=""/>
-				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value=""/>
-				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value=""/>
+				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="d3ODhggoIE+9/GrMFvI4fiWv1wZLypFHovx9d85a65o="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="Beq1oLw3p02xlXG5TYIjEmXWBdcJgVRGgEkvzPTMT+4="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
@@ -62,13 +62,19 @@
 				<Property Name="ProjectExplorer\x64_Expanded_6_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_7_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_8_1" Type="string" Value=""/>
-				<Property Name="SoundBank Manager\x64_Expand States" Type="string" Value=""/>
+				<Property Name="RTPC\GameParameterSimValue\{87EC5F0B-4713-44F9-9F59-74DF90D10E3E}" Type="Real64" Value="8"/>
+				<Property Name="RTPC\GameParameterSimValue\{C6266203-6CD7-4EB4-B53D-24924372B16C}" Type="Real64" Value="8"/>
+				<Property Name="RTPC\GameParameterSimValue\{C9D6012D-E660-421F-A995-98DEA4863C6C}" Type="Real64" Value="8"/>
+				<Property Name="RTPC\GameParameterSimValue\{E69F62DB-A2B9-42DC-A63F-C859203AF7C6}" Type="Real64" Value="8"/>
+				<Property Name="RTPC\GameParameterSimValue\{F8A60522-EFFF-47CE-91C1-54C313D2520B}" Type="Real64" Value="8"/>
+				<Property Name="SoundBank Manager\x64_Expand States" Type="string" Value="0S3ZncZi+k+M606hxB1j3w=="/>
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="GeneratedSoundBanks\"/>
+				<Property Name="SoundBankPathUserOverride" Type="bool" Value="True"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
-						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
+						<Value Platform="Windows">..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</Value>
 						<Value Platform="Android">GeneratedSoundBanks\Android\</Value>
-						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
+						<Value Platform="Mac">..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">

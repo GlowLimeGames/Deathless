@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{C86261F4-16B7-4193-8D43-C59FD4A1419D}" SchemaVersion="80">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{C86261F4-16B7-4193-8D43-C59FD4A1419D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{C86261F4-16B7-4193-8D43-C59FD4A1419D}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="DistanceToCorpse_01" ID="{C6266203-6CD7-4EB4-B53D-24924372B16C}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="8"/>
+						<Property Name="Max" Type="Real64" Value="8"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="DistanceToCorpse_02" ID="{C9D6012D-E660-421F-A995-98DEA4863C6C}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="8"/>
+						<Property Name="Max" Type="Real64" Value="8"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="DistanceToCorpse_03" ID="{F8A60522-EFFF-47CE-91C1-54C313D2520B}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="8"/>
+						<Property Name="Max" Type="Real64" Value="8"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="DistanceToFurnace" ID="{E69F62DB-A2B9-42DC-A63F-C859203AF7C6}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="8"/>
+						<Property Name="Max" Type="Real64" Value="15"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="DistanceToghost" ID="{87EC5F0B-4713-44F9-9F59-74DF90D10E3E}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="8"/>
+						<Property Name="Max" Type="Real64" Value="8"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>
