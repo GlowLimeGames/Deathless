@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 /// Contains static utility functions.
 /// </summary>
 public static class Util {
+
     private static List<GameObject> dontDestroyOnLoad = new List<GameObject>();
 
     /// <summary>
@@ -28,11 +29,19 @@ public static class Util {
         return newText;
     }
 
+	//takes a texture, changes its height and width to a certain fraction of screen height
+	private static int ResizeCursorSprite(Texture2D spit, int size) {
+		int spitSize = Screen.height / size;
+		TextureScale.Bilinear(spit, spitSize, spitSize);
+		return spitSize;
+	}
+
     /// <summary>
     /// Set the player's cursor to the given sprite.
     /// </summary>
-    public static void SetCursor(Sprite sprite) {
+	public static void SetCursor(Sprite sprite, int size) {
         Texture2D texture = CreateCursorTexture(sprite);
+		ResizeCursorSprite (texture, size);
         Vector2 hotspot = new Vector2(texture.width / 2, texture.height / 2);
         Cursor.SetCursor(texture, hotspot, CursorMode.Auto);
     }

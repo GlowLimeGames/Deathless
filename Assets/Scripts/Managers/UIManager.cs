@@ -99,6 +99,8 @@ public class UIManager : Manager<UIManager> {
         }
     }
 
+
+
     public static void OnShowUIElement(bool show) {
         BlockWorldInput(show);
         ShowGameButtons(!show);
@@ -140,7 +142,7 @@ public class UIManager : Manager<UIManager> {
     
 	public static void ShowCustomCursor(bool show) {
 		if (show && cursorIcon != null) {
-            Util.SetCursor(cursorIcon);
+			Util.SetCursor(cursorIcon, 20);
 		} else { 
 			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); 
 		}
