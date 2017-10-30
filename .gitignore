@@ -37,3 +37,4 @@ sysinfo.txt
 /Assets/Wwise/Editor/ProjectData*
 /Assets/Wwise/Editor/ProjectData/**
 /Assets/Wwise/Deployment/Plugins/**/*.*.meta
+*.icloud
