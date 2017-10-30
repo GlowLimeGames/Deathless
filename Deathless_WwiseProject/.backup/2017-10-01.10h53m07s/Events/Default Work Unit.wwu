@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{45795174-1EAD-48A5-948B-875014D6D5E4}" SchemaVersion="80">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{45795174-1EAD-48A5-948B-875014D6D5E4}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="IncineratorAreaStart" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}">
+					<ChildrenList>
+						<Action Name="" ID="{90D08EA6-D2AE-4B8C-88E8-E4F04B2E2CE2}" ShortID="1056561516">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="FadeCurve" Type="int16" Value="6"/>
+								<Property Name="FadeTime" Type="Real64" Value="4.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="IncineratorBGs" ID="{4169B142-D47F-4772-B483-ACE24FB73B6A}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{BB3B461E-B6DF-4464-AE7C-F535ED6B7917}" ShortID="925944896">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="IncineratorBGs_01" ID="{93822183-EA97-446C-8718-F566145BE438}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{79293BBE-98FF-473B-8107-5F43D9EEE7DD}" ShortID="683849836">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="dl_sfx_bg_incinerator_ambiance_incinerator" ID="{309832BA-541B-4EC8-9A51-91FB846053B2}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
