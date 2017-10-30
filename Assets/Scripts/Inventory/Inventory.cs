@@ -84,6 +84,7 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
         }
 
         if (item != null) { Debug.LogWarning("Failed to add item to inventory: " + item); }
+        PopupNewInventoryItem.GetNewItem(prefab);
     }
 
     /// <summary>
