@@ -38,17 +38,17 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
     public static bool isObserveIconSelected {
         get { return (ObserveItem != null && SelectedItem == ObserveItem); }
     }
-    
-	public void Init () {
+
+    public void Init() {
         SingletonInit();
 
         ObserveItem = observeItem;
-        
+
         // Add inventory slots to list
         foreach (InventorySlot slot in transform.GetComponentsInChildren<InventorySlot>(true)) {
             Slots.Add(slot);
         }
-	}
+    }
 
     /// <summary>
     /// Non-static function which calls the static function Show().
@@ -82,9 +82,19 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
                 item = null;
             }
         }
-
+        
         if (item != null) { Debug.LogWarning("Failed to add item to inventory: " + item); }
-        PopupNewInventoryItem.GetNewItem(prefab);
+        PopupInventoryItem(prefab);
+    }
+
+    public static void PopupInventoryItem(InventoryItem prefab) {
+
+        /*InventoryItem item = Instantiate(prefab);
+         SpriteRenderer spriteRenderer = item.GetComponent<SpriteRenderer>();
+         spriteRenderer.transform.position = new Vector3(-1f, 1.02f, 1.0f); */
+        GameObject childofInventoryButton = GameObject.Find("Added Item");
+        Image image = childofInventoryButton.GetComponent<Image>();
+        image.sprite = prefab.GetComponent<Image>().sprite;
     }
 
     /// <summary>
