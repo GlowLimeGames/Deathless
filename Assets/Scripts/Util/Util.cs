@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 /// Contains static utility functions.
 /// </summary>
 public static class Util {
-
     private static List<GameObject> dontDestroyOnLoad = new List<GameObject>();
 
     /// <summary>
@@ -29,11 +28,13 @@ public static class Util {
         return newText;
     }
 
-	//takes a texture, changes its height and width to a certain fraction of screen height
-	private static int ResizeCursorSprite(Texture2D spit, int size) {
-		int spitSize = Screen.height / size;
-		TextureScale.Bilinear(spit, spitSize, spitSize);
-		return spitSize;
+    /// <summary>
+    /// Takes a texture, changes its height and width to a certain fraction of screen height (1/size).
+    /// </summary>
+    private static int ResizeCursorSprite(Texture2D texture, int size) {
+		int pixelSize = Screen.height / size;
+		TextureScale.Bilinear(texture, pixelSize, pixelSize);
+		return pixelSize;
 	}
 
     /// <summary>
