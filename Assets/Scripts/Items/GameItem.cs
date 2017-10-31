@@ -5,10 +5,6 @@ using UnityEngine;
 /// Parent class for both inventory and world items.
 /// </summary>
 public abstract class GameItem : Hoverable {
-
-
-
-
     /// <summary>
     /// Backing field for IsAnimate
     /// </summary>
