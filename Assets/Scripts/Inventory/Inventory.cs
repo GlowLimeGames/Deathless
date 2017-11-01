@@ -89,12 +89,13 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
 
     public static void PopupInventoryItem(InventoryItem prefab) {
 
-        /*InventoryItem item = Instantiate(prefab);
+       InventoryItem item = Instantiate(prefab);
          SpriteRenderer spriteRenderer = item.GetComponent<SpriteRenderer>();
-         spriteRenderer.transform.position = new Vector3(-1f, 1.02f, 1.0f); */
+         spriteRenderer.transform.position = new Vector3(-1f, 1.02f, 1.0f);
+         /*
         GameObject childofInventoryButton = GameObject.Find("Added Item");
         Image image = childofInventoryButton.GetComponent<Image>();
-        image.sprite = prefab.GetComponent<Image>().sprite;
+        image.sprite = prefab.GetComponent<Image>().sprite;*/
     }
 
     /// <summary>
