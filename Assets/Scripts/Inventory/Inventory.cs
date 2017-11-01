@@ -84,18 +84,9 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
         }
         
         if (item != null) { Debug.LogWarning("Failed to add item to inventory: " + item); }
-        PopupInventoryItem(prefab);
-    }
-
-    public static void PopupInventoryItem(InventoryItem prefab) {
-
-       InventoryItem item = Instantiate(prefab);
-         SpriteRenderer spriteRenderer = item.GetComponent<SpriteRenderer>();
-         spriteRenderer.transform.position = new Vector3(-1f, 1.02f, 1.0f);
-         /*
-        GameObject childofInventoryButton = GameObject.Find("Added Item");
-        Image image = childofInventoryButton.GetComponent<Image>();
-        image.sprite = prefab.GetComponent<Image>().sprite;*/
+        //PopupInventoryItem(prefab);
+        //call a function from UI Image script that I will create 
+        PopupInventoryItem.renderItemSprite(prefab);
     }
 
     /// <summary>
