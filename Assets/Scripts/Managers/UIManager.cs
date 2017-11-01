@@ -8,6 +8,12 @@ public class UIManager : Manager<UIManager> {
     private const string mainMenuScene = "MainMenu";
 
     /// <summary>
+    /// The size of custom cursors as a fraction of 
+    /// screen height (1/CURSOR_SIZE).
+    /// </summary>
+    private const int CURSOR_SIZE = 20;
+
+    /// <summary>
     /// The Inventory UI object in the current scene.
     /// </summary>
     [SerializeField]
@@ -98,7 +104,7 @@ public class UIManager : Manager<UIManager> {
             if (dlgActionFade) { Dialogue.Actions.CompletePendingAction(); }
         }
     }
-
+    
     public static void OnShowUIElement(bool show) {
         BlockWorldInput(show);
         ShowGameButtons(!show);
@@ -140,7 +146,7 @@ public class UIManager : Manager<UIManager> {
     
 	public static void ShowCustomCursor(bool show) {
 		if (show && cursorIcon != null) {
-            Util.SetCursor(cursorIcon);
+			Util.SetCursor(cursorIcon, CURSOR_SIZE);
 		} else { 
 			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); 
 		}
