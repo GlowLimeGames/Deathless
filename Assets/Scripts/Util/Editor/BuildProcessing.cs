@@ -5,6 +5,8 @@ public static class BuildProcessing {
     private const string MAC = "Mac";
     private const string WINDOWS = "Windows";
 
+    // PreBuild methods are called from Unity Cloud Build
+    // Build target -> Advanced Options -> Pre-Export Method
     public static void PreBuildMac() { MoveSoundBanks(MAC); }
     public static void PreBuildWindows() { MoveSoundBanks(WINDOWS); }
 
