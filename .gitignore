@@ -34,7 +34,7 @@ sysinfo.txt
 *.icloud
 
 # Wwise stuff we don't need to track
-*.wsettings
+*.validationcache
 /WwiseUnityIntegration_*_Src.zip
 /Deathless_WwiseProject/.cache/**
 /Deathless_WwiseProject/.backup/**
