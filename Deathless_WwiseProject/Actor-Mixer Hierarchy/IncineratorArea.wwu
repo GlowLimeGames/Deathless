@@ -1907,6 +1907,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Incinerator_Artifact_AfterDeath_01" ID="{D089BC6E-E0E7-4229-BA27-0C07B36C319C}" ShortID="899009043">
+									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
@@ -2037,6 +2044,25 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Incinerator_Artifact_AfterDeath_07" ID="{67AD5AE5-BA2C-433C-95C8-274349676F39}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Incinerator_Artifact_AfterDeath_01-01" ID="{ECC97561-7176-4AF2-81DE-55D8748D94E6}" ShortID="1033747140">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Incinerator_Artifact_AfterDeath_01-01" ID="{09591872-601A-4B46-8EC9-87941A1D61C5}" ShortID="1006801742">
+											<Language>SFX</Language>
+											<AudioFile>Incinerator_Artifact_AfterDeath_01-01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Incinerator_Artifact_AfterDeath_01-01" ID="{09591872-601A-4B46-8EC9-87941A1D61C5}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -11077,6 +11103,20 @@
 															<AudioFile>dl_sfx_bg_incinerator_Ball_bang_02.wav</AudioFile>
 															<ConvertedFileIDList>
 																<File ID="885050315"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+														<AudioFileSource Name="dl_sfx_bg_incinerator_Ball_bang_04" ID="{C9B27040-81AC-4AED-B073-CA175DEB49C9}" ShortID="709663420">
+															<Language>SFX</Language>
+															<AudioFile>dl_sfx_bg_incinerator_Ball_bang_04.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="613618413"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+														<AudioFileSource Name="dl_sfx_bg_incinerator_Ball_bang_03" ID="{FADC1A47-9778-4E01-8751-07E99EA8300E}" ShortID="234569152">
+															<Language>SFX</Language>
+															<AudioFile>dl_sfx_bg_incinerator_Ball_bang_03.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="871811336"/>
 															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
