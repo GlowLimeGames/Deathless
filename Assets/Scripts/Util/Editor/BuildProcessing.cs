@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 
-public class WwiseBuildProcess {
+public static class BuildProcessing {
     private const string MAC = "Mac";
     private const string WINDOWS = "Windows";
 
