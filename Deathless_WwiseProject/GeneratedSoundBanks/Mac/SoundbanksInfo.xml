@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="125">
+	<RootPaths>
+		<ProjectRoot>/Users/maxime/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/Unity PJT/Deathless/Deathless_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Users/maxime/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/Unity PJT/Deathless/Deathless_WwiseProject/.cache/Mac/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/maxime/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/Unity PJT/Deathless/Deathless_WwiseProject/GeneratedSoundBanks/Mac/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/maxime/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/Unity PJT/Deathless/Deathless_WwiseProject/GeneratedSoundBanks/Mac/</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="849815669" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Incinerator_MX</ObjectPath>
+			<ShortName>Incinerator_MX</ShortName>
+			<Path>Incinerator_MX.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2665091793" Name="IncineratorArea_MX_Amb" ObjectPath="\Events\Default Work Unit\IncineratorArea_MX_Amb"/>
+				<Event Id="2454824528" Name="IncineratorArea_MX_Ambrose" ObjectPath="\Events\Default Work Unit\IncineratorArea_MX_Ambrose"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="60464570" Language="SFX">
+					<ShortName>Incinerator_MX_Rattling Chord 4 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Rattling Chord 4 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="118550679" Language="SFX">
+					<ShortName>Incinerator_MX_Long Gong 1 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Long Gong 1 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="172970656" Language="SFX">
+					<ShortName>Ambrose_IT1.wav</ShortName>
+					<Path>SFX/Ambrose_IT1_9452F465_20544D82.wem</Path>
+				</File>
+				<File Id="207608928" Language="SFX">
+					<ShortName>Silence_01.wav</ShortName>
+					<Path>SFX/Silence_01_9452F465.wem</Path>
+				</File>
+				<File Id="246799156" Language="SFX">
+					<ShortName>Silence_02.wav</ShortName>
+					<Path>SFX/Silence_02_9452F465.wem</Path>
+				</File>
+				<File Id="278505635" Language="SFX">
+					<ShortName>Incinerator_MX_Chord Arp 13 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Chord Arp 13 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="646070642" Language="SFX">
+					<ShortName>Incinerator_MX_Rattling Chord 5 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Rattling Chord 5 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="700966238" Language="SFX">
+					<ShortName>Incinerator_MX_Long Gong 13 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Long Gong 13 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="852937020" Language="SFX">
+					<ShortName>Incinerator_MX_Chord Arp 14 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Chord Arp 14 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="932593580" Language="SFX">
+					<ShortName>Incinerator_MX_Long Gong 8 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Long Gong 8 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="933034312" Language="SFX">
+					<ShortName>Incinerator_MX_Rattling Chord 1 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Rattling Chord 1 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="975588678" Language="SFX">
+					<ShortName>Incinerator_MX_Chord Arp 9 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Chord Arp 9 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="1015934493" Language="SFX">
+					<ShortName>Incinerator_MX_Long Gong 11 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Long Gong 11 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="1069066200" Language="SFX">
+					<ShortName>Incinerator_MX_Rattling Chord 2 v1.0.wav</ShortName>
+					<Path>SFX/Incinerator_MX_Rattling Chord 2 v1.0_9452F465.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="937002135" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Incinerator_SFX</ObjectPath>
+			<ShortName>Incinerator_SFX</ShortName>
+			<Path>Incinerator_SFX.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2012575842" Name="IncineratorArea_PlayFootsteps" ObjectPath="\Events\Default Work Unit\IncineratorArea_PlayFootsteps"/>
+				<Event Id="4149116740" Name="IncineratorArea_SFX_GhostSob" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_GhostSob" MaxAttenuation="15.000000"/>
+				<Event Id="3123981436" Name="IncineratorArea_SFX_Incinerators" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_Incinerators"/>
+				<Event Id="3718798577" Name="IncineratorArea_SFX_Start" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_Start"/>
+				<Event Id="2447014480" Name="IncineratorArea_SFX_VatAmb" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_VatAmb"/>
+				<Event Id="2330997336" Name="IncineratorArea_StopFootsteps" ObjectPath="\Events\Default Work Unit\IncineratorArea_StopFootsteps" MaxAttenuation="0.000000"/>
+				<Event Id="3729471074" Name="IncineratorArea_UI_DeathTag" ObjectPath="\Events\Default Work Unit\IncineratorArea_UI_DeathTag"/>
+				<Event Id="964843201" Name="IncineratorArea_UI_Execute" ObjectPath="\Events\Default Work Unit\IncineratorArea_UI_Execute"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="12626138" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_10.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_10_53CEE377.wem</Path>
+				</File>
+				<File Id="16376898" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc4.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc4_53CEE377.wem</Path>
+				</File>
+				<File Id="16753148" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_Burning_02.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_Burning_02_53CEE377.wem</Path>
+				</File>
+				<File Id="17245395" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_17.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_17_53CEE377.wem</Path>
+				</File>
+				<File Id="17901150" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete3.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete3_53CEE377.wem</Path>
+				</File>
+				<File Id="20134010" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_08.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_08_53CEE377.wem</Path>
+				</File>
+				<File Id="31814415" Language="SFX">
+					<ShortName>Placeholder_VATBlood48.wav</ShortName>
+					<Path>SFX/Placeholder_VATBlood48_9452F465.wem</Path>
+				</File>
+				<File Id="38724820" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_03.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_03_53CEE377.wem</Path>
+				</File>
+				<File Id="84457572" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale02_03.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale02_03_53CEE377.wem</Path>
+				</File>
+				<File Id="87175552" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_06.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_06_53CEE377.wem</Path>
+				</File>
+				<File Id="117607484" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale02_06.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale02_06_53CEE377.wem</Path>
+				</File>
+				<File Id="125640084" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc6.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc6_53CEE377.wem</Path>
+				</File>
+				<File Id="129445189" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale02_05.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale02_05_53CEE377.wem</Path>
+				</File>
+				<File Id="141627022" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_16.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_16_53CEE377.wem</Path>
+				</File>
+				<File Id="152927097" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_05.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_05_53CEE377.wem</Path>
+				</File>
+				<File Id="172800182" Language="SFX">
+					<ShortName>Sob_01.wav</ShortName>
+					<Path>SFX/Sob_01_53CEE377.wem</Path>
+				</File>
+				<File Id="175378748" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale02_02.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale02_02_53CEE377.wem</Path>
+				</File>
+				<File Id="185104296" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_01.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_01_53CEE377.wem</Path>
+				</File>
+				<File Id="196872065" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_14.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_14_53CEE377.wem</Path>
+				</File>
+				<File Id="196883904" Language="SFX">
+					<ShortName>Sob_06.wav</ShortName>
+					<Path>SFX/Sob_06_53CEE377.wem</Path>
+				</File>
+				<File Id="209952199" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_08.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_08_53CEE377.wem</Path>
+				</File>
+				<File Id="217431193" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_07.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_07_53CEE377.wem</Path>
+				</File>
+				<File Id="219896839" Language="SFX">
+					<ShortName>Sob_07.wav</ShortName>
+					<Path>SFX/Sob_07_53CEE377.wem</Path>
+				</File>
+				<File Id="231532735" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_13.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_13_53CEE377.wem</Path>
+				</File>
+				<File Id="243948225" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc9.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc9_53CEE377.wem</Path>
+				</File>
+				<File Id="257353620" Language="SFX">
+					<ShortName>Incinerator_Artifact_AfterDeath_07.wav</ShortName>
+					<Path>SFX/Incinerator_Artifact_AfterDeath_07_53CEE377.wem</Path>
+				</File>
+				<File Id="257944776" Language="SFX">
+					<ShortName>Incinerator_Artifact_AfterDeath_03.wav</ShortName>
+					<Path>SFX/Incinerator_Artifact_AfterDeath_03_53CEE377.wem</Path>
+				</File>
+				<File Id="261718713" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_04.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_04_53CEE377.wem</Path>
+				</File>
+				<File Id="273335053" Language="SFX">
+					<ShortName>Snif_02.wav</ShortName>
+					<Path>SFX/Snif_02_53CEE377.wem</Path>
+				</File>
+				<File Id="305402639" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_Burning_03.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_Burning_03_53CEE377.wem</Path>
+				</File>
+				<File Id="315679016" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete7.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete7_53CEE377.wem</Path>
+				</File>
+				<File Id="322332134" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_05.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_05_53CEE377.wem</Path>
+				</File>
+				<File Id="324903865" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_12.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_12_53CEE377.wem</Path>
+				</File>
+				<File Id="328298409" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_09.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_09_53CEE377.wem</Path>
+				</File>
+				<File Id="329489387" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_bang_01.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_bang_01_53CEE377.wem</Path>
+				</File>
+				<File Id="329928625" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_15.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_15_53CEE377.wem</Path>
+				</File>
+				<File Id="346642472" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale02_04.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale02_04_53CEE377.wem</Path>
+				</File>
+				<File Id="350845668" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc15.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc15_53CEE377.wem</Path>
+				</File>
+				<File Id="371204263" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc5.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc5_53CEE377.wem</Path>
+				</File>
+				<File Id="394625846" Language="SFX">
+					<ShortName>Incinerator_Artifact_AfterDeath_06.wav</ShortName>
+					<Path>SFX/Incinerator_Artifact_AfterDeath_06_53CEE377.wem</Path>
+				</File>
+				<File Id="403716558" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc16.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc16_53CEE377.wem</Path>
+				</File>
+				<File Id="422841133" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc7.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc7_53CEE377.wem</Path>
+				</File>
+				<File Id="428321153" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_02.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_02_53CEE377.wem</Path>
+				</File>
+				<File Id="435226966" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete5.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete5_53CEE377.wem</Path>
+				</File>
+				<File Id="466885208" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc1.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc1_53CEE377.wem</Path>
+				</File>
+				<File Id="469143939" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc14.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc14_53CEE377.wem</Path>
+				</File>
+				<File Id="470286388" Language="SFX">
+					<ShortName>Snif_06.wav</ShortName>
+					<Path>SFX/Snif_06_53CEE377.wem</Path>
+				</File>
+				<File Id="482542424" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_07.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_07_53CEE377.wem</Path>
+				</File>
+				<File Id="486157805" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete4.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete4_53CEE377.wem</Path>
+				</File>
+				<File Id="502781925" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_05.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_05_53CEE377.wem</Path>
+				</File>
+				<File Id="510667868" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc2.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc2_53CEE377.wem</Path>
+				</File>
+				<File Id="519779239" Language="SFX">
+					<ShortName>Incinerator_Artifact_AfterDeath_05.wav</ShortName>
+					<Path>SFX/Incinerator_Artifact_AfterDeath_05_53CEE377.wem</Path>
+				</File>
+				<File Id="535144775" Language="SFX">
+					<ShortName>Sob_05.wav</ShortName>
+					<Path>SFX/Sob_05_53CEE377.wem</Path>
+				</File>
+				<File Id="541484726" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_11.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_11_53CEE377.wem</Path>
+				</File>
+				<File Id="547446139" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc12.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc12_53CEE377.wem</Path>
+				</File>
+				<File Id="596323415" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale02_01.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale02_01_53CEE377.wem</Path>
+				</File>
+				<File Id="602497015" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc3.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc3_53CEE377.wem</Path>
+				</File>
+				<File Id="602530997" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc17.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc17_53CEE377.wem</Path>
+				</File>
+				<File Id="613618413" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_bang_04.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_bang_04_53CEE377.wem</Path>
+				</File>
+				<File Id="639817159" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_10.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_10_53CEE377.wem</Path>
+				</File>
+				<File Id="640558775" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc11.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc11_53CEE377.wem</Path>
+				</File>
+				<File Id="654930715" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_02.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_02_53CEE377.wem</Path>
+				</File>
+				<File Id="655116712" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_01.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_01_53CEE377.wem</Path>
+				</File>
+				<File Id="673904214" Language="SFX">
+					<ShortName>dl_kill execute.wav</ShortName>
+					<Path>SFX/dl_kill execute_53CEE377.wem</Path>
+				</File>
+				<File Id="674474522" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_06.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_06_53CEE377.wem</Path>
+				</File>
+				<File Id="701044091" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_09.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_09_53CEE377.wem</Path>
+				</File>
+				<File Id="746159181" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_01.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_01_53CEE377.wem</Path>
+				</File>
+				<File Id="758849410" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete1.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete1_53CEE377.wem</Path>
+				</File>
+				<File Id="769375675" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete6.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete6_53CEE377.wem</Path>
+				</File>
+				<File Id="801798325" Language="SFX">
+					<ShortName>Snif_04.wav</ShortName>
+					<Path>SFX/Snif_04_53CEE377.wem</Path>
+				</File>
+				<File Id="801980159" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_11.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_11_53CEE377.wem</Path>
+				</File>
+				<File Id="816002864" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_11.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_11_53CEE377.wem</Path>
+				</File>
+				<File Id="826637035" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_10.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_10_53CEE377.wem</Path>
+				</File>
+				<File Id="835383907" Language="SFX">
+					<ShortName>Incinerator_Artifact_AfterDeath_04.wav</ShortName>
+					<Path>SFX/Incinerator_Artifact_AfterDeath_04_53CEE377.wem</Path>
+				</File>
+				<File Id="840425881" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_Burning_01.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_Burning_01_53CEE377.wem</Path>
+				</File>
+				<File Id="857201394" Language="SFX">
+					<ShortName>dl_kill tag.wav</ShortName>
+					<Path>SFX/dl_kill tag_53CEE377.wem</Path>
+				</File>
+				<File Id="864240981" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc13.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc13_53CEE377.wem</Path>
+				</File>
+				<File Id="869644879" Language="SFX">
+					<ShortName>Snif_05.wav</ShortName>
+					<Path>SFX/Snif_05_53CEE377.wem</Path>
+				</File>
+				<File Id="871811336" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_bang_03.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_bang_03_53CEE377.wem</Path>
+				</File>
+				<File Id="874948026" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale02_07.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale02_07_53CEE377.wem</Path>
+				</File>
+				<File Id="875484048" Language="SFX">
+					<ShortName>dl_sfx_foley_footstepConcrete2.wav</ShortName>
+					<Path>SFX/dl_sfx_foley_footstepConcrete2_53CEE377.wem</Path>
+				</File>
+				<File Id="900917525" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_03.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_03_53CEE377.wem</Path>
+				</File>
+				<File Id="903444121" Language="SFX">
+					<ShortName>Sob_03.wav</ShortName>
+					<Path>SFX/Sob_03_53CEE377.wem</Path>
+				</File>
+				<File Id="914929029" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc8.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc8_53CEE377.wem</Path>
+				</File>
+				<File Id="926188814" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_09.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_09_53CEE377.wem</Path>
+				</File>
+				<File Id="936544003" Language="SFX">
+					<ShortName>Sob_02.wav</ShortName>
+					<Path>SFX/Sob_02_53CEE377.wem</Path>
+				</File>
+				<File Id="943877175" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_04.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_04_53CEE377.wem</Path>
+				</File>
+				<File Id="957987906" Language="SFX">
+					<ShortName>Snif_03.wav</ShortName>
+					<Path>SFX/Snif_03_53CEE377.wem</Path>
+				</File>
+				<File Id="969258234" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incinerator.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incinerator_9452F465.wem</Path>
+				</File>
+				<File Id="986934128" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale01_06.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale01_06_53CEE377.wem</Path>
+				</File>
+				<File Id="997305233" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_07.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_07_53CEE377.wem</Path>
+				</File>
+				<File Id="1006801742" Language="SFX">
+					<ShortName>Incinerator_Artifact_AfterDeath_01-01.wav</ShortName>
+					<Path>SFX/Incinerator_Artifact_AfterDeath_01-01_53CEE377.wem</Path>
+				</File>
+				<File Id="1016102328" Language="SFX">
+					<ShortName>Incinerator_Artifact_AfterDeath_02.wav</ShortName>
+					<Path>SFX/Incinerator_Artifact_AfterDeath_02_53CEE377.wem</Path>
+				</File>
+				<File Id="1028261055" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_04.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_04_53CEE377.wem</Path>
+				</File>
+				<File Id="1055335279" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_02.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_02_53CEE377.wem</Path>
+				</File>
+				<File Id="1055421531" Language="SFX">
+					<ShortName>Sob_04.wav</ShortName>
+					<Path>SFX/Sob_04_53CEE377.wem</Path>
+				</File>
+				<File Id="1058231991" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_03.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_03_53CEE377.wem</Path>
+				</File>
+				<File Id="1059972408" Language="SFX">
+					<ShortName>dl_sfx_bg_incinerator_ambiance_incineratormisc10.wav</ShortName>
+					<Path>SFX/dl_sfx_bg_incinerator_ambiance_incineratormisc10_53CEE377.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2444976825" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Incinerator_SFX_Events</ObjectPath>
+			<ShortName>Incinerator_SFX_Events</ShortName>
+			<Path>Incinerator_SFX_Events.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1223189741" Name="IncineratorArea_SFX_BoozeOnDoor" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_BoozeOnDoor"/>
+				<Event Id="3335150109" Name="IncineratorArea_SFX_DoorIgnite" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_DoorIgnite"/>
+				<Event Id="1931230811" Name="IncineratorArea_SFX_DoorOpen" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_DoorOpen"/>
+				<Event Id="3418875787" Name="IncineratorArea_SFX_GasExplosion" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_GasExplosion"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="25130061" Language="SFX">
+					<ShortName>PlaceholderExplosion.wav</ShortName>
+					<Path>SFX/PlaceholderExplosion_53CEE377_20544D82.wem</Path>
+				</File>
+				<File Id="183400500" Language="SFX">
+					<ShortName>Placeholder_DoorIgnite.wav</ShortName>
+					<Path>SFX/Placeholder_DoorIgnite_53CEE377.wem</Path>
+				</File>
+				<File Id="240356869" Language="SFX">
+					<ShortName>Placeholder_BoozeDoor.wav</ShortName>
+					<Path>SFX/Placeholder_BoozeDoor_53CEE377.wem</Path>
+				</File>
+				<File Id="408073237" Language="SFX">
+					<ShortName>Placeholder_DoorOpen.wav</ShortName>
+					<Path>SFX/Placeholder_DoorOpen_53CEE377_20544D82.wem</Path>
+				</File>
+				<File Id="826333608" Language="SFX">
+					<ShortName>Placeholder_Debris.wav</ShortName>
+					<Path>SFX/Placeholder_Debris_53CEE377_20544D82.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

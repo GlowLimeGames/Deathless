@@ -1,0 +1,20 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2454824528	IncineratorArea_MX_Ambrose			\Default Work Unit\IncineratorArea_MX_Ambrose	
+	2665091793	IncineratorArea_MX_Amb			\Default Work Unit\IncineratorArea_MX_Amb	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	60464570	MxTexturesRattleTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Rattling Chord 4 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXtexturesRattle\MxTexturesRattleTrack		1881664
+	118550679	MXTexturesGongTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Long Gong 1 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXTexturesGong\MXTexturesGongTrack		4233664
+	172970656	Ambrose_IT1	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Ambrose_IT1_9452F465_20544D82.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\ThemeAmbroise\Ambrose_IT1\Ambrose_IT1		16838720
+	207608928	SilenceTrck	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Silence_01_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\Silence01\SilenceTrck		1232632
+	246799156	Silence02Trck	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Silence_02_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\Silence02\Silence02Trck		3008712
+	278505635	MXtexturesHarpTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Chord Arp 13 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXtexturesHarp\MXtexturesHarpTrack		1411264
+	646070642	MxTexturesRattleTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Rattling Chord 5 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXtexturesRattle\MxTexturesRattleTrack		1881664
+	700966238	MXTexturesGongTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Long Gong 13 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXTexturesGong\MXTexturesGongTrack		2469664
+	852937020	MXtexturesHarpTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Chord Arp 14 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXtexturesHarp\MXtexturesHarpTrack		1058464
+	932593580	MXTexturesGongTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Long Gong 8 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXTexturesGong\MXTexturesGongTrack		2822464
+	933034312	MxTexturesRattleTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Rattling Chord 1 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXtexturesRattle\MxTexturesRattleTrack		1411264
+	975588678	MXtexturesHarpTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Chord Arp 9 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXtexturesHarp\MXtexturesHarpTrack		1411264
+	1015934493	MXTexturesGongTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Long Gong 11 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXTexturesGong\MXTexturesGongTrack		2469664
+	1069066200	MxTexturesRattleTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Windows\SFX\Incinerator_MX_Rattling Chord 2 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXtexturesRattle\MxTexturesRattleTrack		1411264
+
