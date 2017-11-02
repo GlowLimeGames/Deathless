@@ -8,14 +8,15 @@
 			</Language>
 			<Language ID="393239870">
 				<File Name="Incinerator" Hash="718074055" Timestamp="131523563450000000"/>
-				<File Name="Incinerator_MX" Hash="586891354" Timestamp="131540682350000000"/>
-				<File Name="Incinerator_SFX" Hash="1573445025" Timestamp="131540682350000000"/>
-				<File Name="Init" Hash="1432679852" Timestamp="131540682350000000"/>
+				<File Name="Incinerator_MX" Hash="1998095591" Timestamp="131541342100000000"/>
+				<File Name="Incinerator_SFX" Hash="1290927088" Timestamp="131541342960000000"/>
+				<File Name="Incinerator_SFX_Events" Hash="3761181947" Timestamp="131541342960000000"/>
+				<File Name="Init" Hash="1432679852" Timestamp="131541342100000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="583433771" Timestamp="131540682350000000"/>
+				<File Name="" Hash="3759977143" Timestamp="131541342960000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
@@ -36,14 +37,15 @@
 	<Platform GUID="{86837377-2808-4F20-BDFC-6ACC16F2387E}">
 		<Banks>
 			<Language ID="393239870">
-				<File Name="Incinerator_MX" Hash="586891354" Timestamp="131540682340000000"/>
-				<File Name="Incinerator_SFX" Hash="1573445025" Timestamp="131540682340000000"/>
-				<File Name="Init" Hash="3291444350" Timestamp="131540682340000000"/>
+				<File Name="Incinerator_MX" Hash="1998095591" Timestamp="131541342080000000"/>
+				<File Name="Incinerator_SFX" Hash="1290927088" Timestamp="131541342960000000"/>
+				<File Name="Incinerator_SFX_Events" Hash="3761181947" Timestamp="131541342960000000"/>
+				<File Name="Init" Hash="3291444350" Timestamp="131541342080000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="1787144729" Timestamp="131540682340000000"/>
+				<File Name="" Hash="1877559901" Timestamp="131541342960000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>

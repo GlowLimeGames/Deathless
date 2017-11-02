@@ -17,10 +17,6 @@ namespace AK
         static const AkUniqueID INCINERATORAREA_MX_AMBROSE = 2454824528U;
         static const AkUniqueID INCINERATORAREA_PLAYFOOTSTEPS = 2012575842U;
         static const AkUniqueID INCINERATORAREA_SFX_BOOZEONDOOR = 1223189741U;
-        static const AkUniqueID INCINERATORAREA_SFX_CORPSE_01 = 2378436775U;
-        static const AkUniqueID INCINERATORAREA_SFX_CORPSE_02 = 2378436772U;
-        static const AkUniqueID INCINERATORAREA_SFX_CORPSE_03 = 2378436773U;
-        static const AkUniqueID INCINERATORAREA_SFX_DOORBOOZE = 309220262U;
         static const AkUniqueID INCINERATORAREA_SFX_DOORIGNITE = 3335150109U;
         static const AkUniqueID INCINERATORAREA_SFX_DOOROPEN = 1931230811U;
         static const AkUniqueID INCINERATORAREA_SFX_GASEXPLOSION = 3418875787U;
@@ -47,6 +43,7 @@ namespace AK
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID INCINERATOR_MX = 849815669U;
         static const AkUniqueID INCINERATOR_SFX = 937002135U;
+        static const AkUniqueID INCINERATOR_SFX_EVENTS = 2444976825U;
     } // namespace BANKS
 
     namespace BUSSES

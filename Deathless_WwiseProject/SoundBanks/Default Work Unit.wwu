@@ -4,15 +4,53 @@
 		<WorkUnit Name="Default Work Unit" ID="{9DD92DD1-62C6-4FFA-8CEB-4EA1C41D63DF}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundBank Name="Incinerator_SFX" ID="{D705D665-8109-4654-8049-2FCCF4CC4FEE}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>100000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
-						<ObjectRef Name="IncineratorArea" ID="{82431660-1859-4E88-8B62-BD1550ECC6AE}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_SFX_GhostSob" ID="{0CF93CB9-B458-402C-9BD7-45CA389FEF90}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_SFX_Start" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_PlayFootsteps" ID="{A2D342F1-A287-4143-9659-DAD30739F783}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_UI_Execute" ID="{9170229B-49A4-4656-B55A-9B4654A2FB6F}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_UI_DeathTag" ID="{857569BF-1C5C-4BDF-B130-6E30F79837EA}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_SFX_VatAmb" ID="{8DB67C5C-3F96-4EC3-ADA1-F1BA6C0871CC}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_SFX_Incinerators" ID="{9D194A33-07DC-4F8E-97F9-2799450F18C8}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_StopFootsteps" ID="{798E61A2-EAA1-4FC4-818F-37A67E92FBD0}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Incinerator_MX" ID="{A0B5EA05-37BC-4DA7-B195-71B94D822312}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>100000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Default Work Unit" ID="{86B97756-68E5-4219-9C43-47DFB7B5CFBB}" WorkUnitID="{86B97756-68E5-4219-9C43-47DFB7B5CFBB}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Incinerator_SFX_Events" ID="{8B9569B8-C915-43BD-AA9D-12BFB8C538F6}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>100000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ObjectInclusionList>
+						<ObjectRef Name="IncineratorArea_SFX_BoozeOnDoor" ID="{A6C30229-5B64-4049-AE36-DAFF50AF0463}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_SFX_DoorOpen" ID="{85803FDA-919C-40A2-A135-7CFE8619088B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_SFX_GasExplosion" ID="{132E8A92-9D21-44D1-B682-565C3436CA88}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_SFX_DoorIgnite" ID="{39F21799-D1F7-4ABE-B22C-B4B44FEF15BC}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
