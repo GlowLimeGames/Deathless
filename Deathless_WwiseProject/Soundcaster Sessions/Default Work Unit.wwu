@@ -6,12 +6,16 @@
 				<SoundcasterSession Name="Test" ID="{A4B0E6CE-285B-435E-A820-5C2DC2417746}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="IncineratorArea_SFX_GasExplosion" ID="{132E8A92-9D21-44D1-B682-565C3436CA88}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<ObjectRef Name="IncineratorArea_SFX_DoorIgnite" ID="{39F21799-D1F7-4ABE-B22C-B4B44FEF15BC}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="IncineratorArea_SFX_Incinerators" ID="{9D194A33-07DC-4F8E-97F9-2799450F18C8}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
-							<Position X="2" Y="1"/>
+							<ObjectRef Name="IncineratorArea_SFX_DoorBooze" ID="{7CFA5797-A89A-4151-AFF8-B3B6AE08598A}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="IncineratorArea_SFX_DoorOpen" ID="{85803FDA-919C-40A2-A135-7CFE8619088B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<Position X="1" Y="0"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">

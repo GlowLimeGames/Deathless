@@ -259,7 +259,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="IncineratorArea_SFX_DoorCrash" ID="{85803FDA-919C-40A2-A135-7CFE8619088B}">
+				<Event Name="IncineratorArea_SFX_DoorOpen" ID="{85803FDA-919C-40A2-A135-7CFE8619088B}">
 					<ChildrenList>
 						<Action Name="" ID="{741658A8-2518-4163-B44D-B696811DE4AD}" ShortID="293611618">
 							<PropertyList>
@@ -267,7 +267,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Placeholder_DoorCrash" ID="{0823A712-41BA-44FD-8C07-CC54C514CAEF}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+									<ObjectRef Name="Placeholder_DoorOpen" ID="{0823A712-41BA-44FD-8C07-CC54C514CAEF}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

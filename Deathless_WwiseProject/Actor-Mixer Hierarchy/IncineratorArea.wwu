@@ -12178,7 +12178,7 @@
 						<ActiveSource Name="Placeholder_BoozeDoor" ID="{368EFC11-19B4-4D2E-86F9-B0D3B49CAF14}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="Placeholder_DoorCrash" ID="{0823A712-41BA-44FD-8C07-CC54C514CAEF}" ShortID="697546701">
+				<Sound Name="Placeholder_DoorOpen" ID="{0823A712-41BA-44FD-8C07-CC54C514CAEF}" ShortID="697546701">
 					<PropertyList>
 						<Property Name="RenderEffect0" Type="bool">
 							<ValueList>
@@ -12202,9 +12202,13 @@
 							<Language>SFX</Language>
 							<AudioFile>Placeholder_DoorCrash.wav</AudioFile>
 						</AudioFileSource>
+						<AudioFileSource Name="Placeholder_DoorOpen" ID="{6457C85F-D576-433C-8456-7C46237E109E}" ShortID="408073237">
+							<Language>SFX</Language>
+							<AudioFile>Placeholder_DoorOpen.wav</AudioFile>
+						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="Placeholder_DoorCrash" ID="{306DF88F-63E5-49E5-847D-5AA9C81F5C21}" Platform="Linked"/>
+						<ActiveSource Name="Placeholder_DoorOpen" ID="{6457C85F-D576-433C-8456-7C46237E109E}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Placeholder_DoorIgnite" ID="{28FF5F33-DEA1-4E0E-8751-ACED328B77FF}" ShortID="763674433">
