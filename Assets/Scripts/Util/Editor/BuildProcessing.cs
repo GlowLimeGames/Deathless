@@ -8,10 +8,10 @@ public static class BuildProcessing {
 
     // PreBuild methods are called from Unity Cloud Build
     // Build target -> Advanced Options -> Pre-Export Method
-    [UnityEditor.MenuItem("File/Copy Wwise Soundbanks/Mac")]
+    [UnityEditor.MenuItem("Assets/Wwise/Copy Soundbanks to Project/Mac")]
     public static void PreBuildMac() { MoveSoundBanks(MAC); }
 
-    [UnityEditor.MenuItem("File/Copy Wwise Soundbanks/Windows")]
+    [UnityEditor.MenuItem("Assets/Wwise/Copy Soundbanks to Project/Windows")]
     public static void PreBuildWindows() { MoveSoundBanks(WINDOWS); }
 
     /// <summary>
@@ -28,5 +28,6 @@ public static class BuildProcessing {
         if (!AkUtilities.DirectoryCopy(sourceSoundBankFolder, destinationSoundBankFolder, true)) {
             Debug.LogError("WwiseUnity: The soundbank folder for the " + wwisePlatformString + " platform doesn't exist. Make sure it was generated in your Wwise project");
         }
+        UnityEditor.AssetDatabase.Refresh();
     }
 }
