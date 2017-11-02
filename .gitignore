@@ -43,5 +43,8 @@ sysinfo.txt
 /Assets/Wwise/Editor/ProjectData.meta
 /Assets/Wwise/Editor/ProjectData/**
 /Assets/Wwise/Deployment/Plugins/**/*.*.meta
-/Assets/StreamingAssets/Audio/GeneratedSoundBanks/**
-/Assets/StreamingAssets/Audio/GeneratedSoundBanks.meta
+/Assets/WwiseSettings.xml
+/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/**
+/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac.meta
+/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/**
+/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows.meta
