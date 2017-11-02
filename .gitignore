@@ -37,4 +37,10 @@ sysinfo.txt
 #*/AkWwiseProjectData.asset
 /Assets/Wwise/Editor/ProjectData*
 /Assets/Wwise/Editor/ProjectData/**
+
+# Wwise generated metafiles
 /Assets/Wwise/Deployment/Plugins/**/*.*.meta
+
+# Wwise generated soundbanks
+/Deathless_WwiseProject/GeneratedSoundBanks/**
+/Assets/StreamingAssets/Audio/GeneratedSoundBanks/**
