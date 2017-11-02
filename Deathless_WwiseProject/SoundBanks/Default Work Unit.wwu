@@ -12,7 +12,7 @@
 				</SoundBank>
 				<SoundBank Name="Incinerator_MX" ID="{A0B5EA05-37BC-4DA7-B195-71B94D822312}">
 					<ObjectInclusionList>
-						<ObjectRef Name="IncineratorAreaMX" ID="{D46D78C8-D73B-45CD-B49D-0A1CF13D4279}" WorkUnitID="{D46D78C8-D73B-45CD-B49D-0A1CF13D4279}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Default Work Unit" ID="{86B97756-68E5-4219-9C43-47DFB7B5CFBB}" WorkUnitID="{86B97756-68E5-4219-9C43-47DFB7B5CFBB}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
