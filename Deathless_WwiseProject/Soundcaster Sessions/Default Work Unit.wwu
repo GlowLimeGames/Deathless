@@ -6,7 +6,7 @@
 				<SoundcasterSession Name="Test" ID="{A4B0E6CE-285B-435E-A820-5C2DC2417746}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="IncineratorArea_Start" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<ObjectRef Name="IncineratorArea_SFX_Start" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
@@ -14,7 +14,7 @@
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="IncineratorArea_Corpse_01" ID="{664DE440-6113-418E-B92D-83D7C145CCB2}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<ObjectRef Name="IncineratorArea_SFX_Corpse_01" ID="{664DE440-6113-418E-B92D-83D7C145CCB2}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
 							<Position X="1" Y="0"/>
 						</Module>
 					</ModuleList>
@@ -25,7 +25,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DistanceToFurnace" ID="{E69F62DB-A2B9-42DC-A63F-C859203AF7C6}"/>
-							<Value>0.0628272251308953</Value>
+							<Value>2.33691311371836E-316</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DistanceToghost" ID="{87EC5F0B-4713-44F9-9F59-74DF90D10E3E}"/>
