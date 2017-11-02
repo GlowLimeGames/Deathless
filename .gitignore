@@ -33,14 +33,15 @@ sysinfo.txt
 *.DS_Store
 *.icloud
 
-# Wwise project cache
-#*/AkWwiseProjectData.asset
-/Assets/Wwise/Editor/ProjectData*
-/Assets/Wwise/Editor/ProjectData/**
-
-# Wwise generated metafiles
-/Assets/Wwise/Deployment/Plugins/**/*.*.meta
-
-# Wwise generated soundbanks
+# Wwise stuff we don't need to track
+*.validationcache
+*.wsettings
+/WwiseUnityIntegration_*_Src.zip
+/Deathless_WwiseProject/.cache/**
+/Deathless_WwiseProject/.backup/**
 /Deathless_WwiseProject/GeneratedSoundBanks/**
+/Assets/Wwise/Editor/ProjectData.meta
+/Assets/Wwise/Editor/ProjectData/**
+/Assets/Wwise/Deployment/Plugins/**/*.*.meta
 /Assets/StreamingAssets/Audio/GeneratedSoundBanks/**
+/Assets/StreamingAssets/Audio/GeneratedSoundBanks.meta
