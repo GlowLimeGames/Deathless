@@ -11,6 +11,9 @@ public class UIManager : Manager<UIManager> {
     /// </summary>
     private const int CURSOR_SIZE = 20;
 
+    [SerializeField]
+    private GameObject pauseMenu;
+
     /// <summary>
     /// The Inventory UI object in the current scene.
     /// </summary>
@@ -46,7 +49,11 @@ public class UIManager : Manager<UIManager> {
 
     private static Sprite cursorIcon;
 
-    private bool catchButtonPress;
+    public static bool GamePaused {
+        get {
+            return (Time.timeScale == 0);
+        }
+    }
 
     private bool worldInputEnabled;
 
@@ -92,8 +99,9 @@ public class UIManager : Manager<UIManager> {
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Escape) && GameManager.GetCurrentScene() != GameManager.MAIN_MENU_SCENE) {
-            GameManager.LoadScene(GameManager.MAIN_MENU_SCENE);
+        if ((Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Space))
+            && GameManager.GetCurrentScene() != GameManager.MAIN_MENU_SCENE) {
+            Pause(!GamePaused);
         }
 
         if (blackout != null && blackout.gameObject.activeInHierarchy &&
@@ -159,6 +167,12 @@ public class UIManager : Manager<UIManager> {
 
     public static void BlockAllInput(bool block) {
         AllInputEnabled = !block;
+    }
+
+    public void Pause(bool pause) {
+        Time.timeScale = pause ? 0 : 1;
+        OnShowUIElement(pause);
+        pauseMenu.SetActive(pause);
     }
 
     /// <summary>
