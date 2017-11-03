@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 /// High-level management of game systems and objects.
 /// </summary>
 public class GameManager : Manager<GameManager> {
+    public const string MAIN_MENU_SCENE = "MainMenu";
+
     /// <summary>
     /// The Player object in the current scene.
     /// </summary>
@@ -43,6 +45,7 @@ public class GameManager : Manager<GameManager> {
 	void Awake() {
         SingletonInit();
         Globals.Init();
+        SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
     /// <summary>
@@ -53,11 +56,21 @@ public class GameManager : Manager<GameManager> {
         SceneManager.LoadScene(scene);
     }
 
+    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (scene.name == MAIN_MENU_SCENE) {
+            ResetGameData();
+        }
+    }
+
     public static string GetCurrentScene() {
         return SceneManager.GetActiveScene().name;
     }
 
     public static void QuitGame() {
         Application.Quit();
+    }
+
+    private static void ResetGameData() {
+        DialogueManager.ResetOneShotDialogue();
     }
 }
