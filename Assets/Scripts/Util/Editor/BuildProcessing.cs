@@ -18,9 +18,23 @@ public static class BuildProcessing {
     /// Based on AkExampleAppBuilderBase.Build
     /// </summary>
     private static void MoveSoundBanks(string wwisePlatformString) {
-        Debug.Log("Wwise project path: " + WwiseSetupWizard.Settings.WwiseProjectPath);
+        //get Wwise project file (.wproj) path
+        string wwiseProjFile = Path.Combine(Application.dataPath, WwiseSetupWizard.Settings.WwiseProjectPath).Replace('/', Path.DirectorySeparatorChar);
+        Debug.Log("Full Wwise project path: " + wwiseProjFile);
 
-        string sourceSoundBankFolder = Path.Combine(WWISE_PROJECT_PATH, AkBasePathGetter.GetPlatformBasePath());
+        //get Wwise project root folder path
+        string wwiseProjectFolder;
+        int lastIndex = wwiseProjFile.LastIndexOf(Path.DirectorySeparatorChar);
+        if (lastIndex < 0) {
+            Debug.LogWarning("Did not find directory separator. Using hardcoded directory instead.");
+            wwiseProjectFolder = WWISE_PROJECT_PATH;
+        }
+        else {
+            wwiseProjectFolder = wwiseProjFile.Remove(lastIndex);
+        }
+        Debug.Log("Wwise folder: " + wwiseProjectFolder);
+
+        string sourceSoundBankFolder = Path.Combine(wwiseProjectFolder, AkBasePathGetter.GetPlatformBasePath());
         string destinationSoundBankFolder = Path.Combine(Application.dataPath + Path.DirectorySeparatorChar + "StreamingAssets",
                                                                 Path.Combine(WwiseSetupWizard.Settings.SoundbankPath, wwisePlatformString));
 
