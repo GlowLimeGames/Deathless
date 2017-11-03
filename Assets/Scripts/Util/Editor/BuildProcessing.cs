@@ -2,7 +2,6 @@
 using System.IO;
 
 public static class BuildProcessing {
-    private const string WWISE_PROJECT_PATH = "../Deathless_WwiseProject/";
     private const string MAC = "Mac";
     private const string WINDOWS = "Windows";
 
@@ -18,27 +17,14 @@ public static class BuildProcessing {
     /// Based on AkExampleAppBuilderBase.Build
     /// </summary>
     private static void MoveSoundBanks(string wwisePlatformString) {
-        //get Wwise project file (.wproj) path
         string wwiseProjFile = Path.Combine(Application.dataPath, WwiseSetupWizard.Settings.WwiseProjectPath).Replace('/', Path.DirectorySeparatorChar);
-        Debug.Log("Full Wwise project path: " + wwiseProjFile);
-
-        //get Wwise project root folder path
-        string wwiseProjectFolder;
-        int lastIndex = wwiseProjFile.LastIndexOf(Path.DirectorySeparatorChar);
-        if (lastIndex < 0) {
-            Debug.LogWarning("Did not find directory separator. Using hardcoded directory instead.");
-            wwiseProjectFolder = WWISE_PROJECT_PATH;
-        }
-        else {
-            wwiseProjectFolder = wwiseProjFile.Remove(lastIndex);
-        }
-        Debug.Log("Wwise folder: " + wwiseProjectFolder);
+        string wwiseProjectFolder = wwiseProjFile.Remove(wwiseProjFile.LastIndexOf(Path.DirectorySeparatorChar));
 
         string sourceSoundBankFolder = Path.Combine(wwiseProjectFolder, AkBasePathGetter.GetPlatformBasePath());
         string destinationSoundBankFolder = Path.Combine(Application.dataPath + Path.DirectorySeparatorChar + "StreamingAssets",
-                                                                Path.Combine(WwiseSetupWizard.Settings.SoundbankPath, wwisePlatformString));
+                                                         Path.Combine(WwiseSetupWizard.Settings.SoundbankPath, wwisePlatformString));
 
-        Debug.Log("Copying soundbanks from " + sourceSoundBankFolder + " to " + destinationSoundBankFolder);
+        Debug.Log("Copying soundbanks from: " + sourceSoundBankFolder + "\nto: " + destinationSoundBankFolder);
         if (!AkUtilities.DirectoryCopy(sourceSoundBankFolder, destinationSoundBankFolder, true)) {
             Debug.LogError("WwiseUnity: The soundbank folder for the " + wwisePlatformString + " platform doesn't exist. Make sure it was generated in your Wwise project");
         }
