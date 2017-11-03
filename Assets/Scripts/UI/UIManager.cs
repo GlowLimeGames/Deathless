@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class UIManager : Manager<UIManager> {
-    private const string mainMenuScene = "MainMenu";
-
     /// <summary>
     /// The size of custom cursors as a fraction of 
     /// screen height (1/CURSOR_SIZE).
@@ -94,8 +92,8 @@ public class UIManager : Manager<UIManager> {
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Escape) && GameManager.GetCurrentScene() != mainMenuScene) {
-            GameManager.LoadScene(mainMenuScene);
+        if (Input.GetKeyUp(KeyCode.Escape) && GameManager.GetCurrentScene() != GameManager.MAIN_MENU_SCENE) {
+            GameManager.LoadScene(GameManager.MAIN_MENU_SCENE);
         }
 
         if (blackout != null && blackout.gameObject.activeInHierarchy &&
