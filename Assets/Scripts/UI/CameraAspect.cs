@@ -3,7 +3,7 @@
 public class CameraAspect : MonoBehaviour {
     private const float ASPECT_RATIO = 16f / 9f;
 
-    void Start() { ScaleCamera(); }
+    void Awake() { ScaleCamera(); }
 
     private void ScaleCamera() {
         float currentaspect = (float)Screen.width / Screen.height;
