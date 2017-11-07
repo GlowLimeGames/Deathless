@@ -266,17 +266,25 @@ public class DialogueManager : Manager<DialogueManager> {
     /// </summary>
     public void ShowChoices(List<Node> choices) {
         gameObject.SetActive(true);
-        foreach (Node choice in choices) {
-            if (choice.Data.Text != "") {
-                DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
-                choiceUI.Init(choice);
-                choiceUI.transform.SetParent(choiceView.transform, false);
-            }
-        }
+		StartCoroutine (HelpShowChoices (choices));
         choiceView.SetActive(true);
         scrollView.InitializeNewContent(choiceView, true);
         EnableSpeechBubble(choices[0], true);
     }
+
+	/// <summary>
+	/// Helps ShowChoices() to include a brief pause without making it an IEnumerator.
+	/// </summary>
+	IEnumerator HelpShowChoices(List<Node> ch) {
+		yield return new WaitForSeconds (1);
+		foreach (Node choice in ch) {
+			if (choice.Data.Text != "") {
+				DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
+				choiceUI.Init(choice);
+				choiceUI.transform.SetParent(choiceView.transform, false);
+			}
+		}
+	}
 
     /// <summary>
     /// Clear any dialogue lines or choices
