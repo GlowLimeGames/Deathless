@@ -1,17 +1,18 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PopupInventoryItem : MonoBehaviour {
-    //make this into a queue or a list in case we need to process more than one image
-    //currently trying to work with one item 
-    //i might just be able to make this a local variable to renderItemSprite
+
+    //used to access the image component for this script
     private static Image gameObjectImage;
+    //boolean to keep track whether renderItemSprite has been called
+    //checks if item image has been rendered yet
     private static bool itemRendered = false;
+
    
-    int counter = 0;
-    int animationLoop = 0;
+   
 
     void Start() {
         gameObjectImage = gameObject.GetComponent<Image>();
@@ -31,35 +32,43 @@ public class PopupInventoryItem : MonoBehaviour {
         color.a = 1;
         gameObjectImage.color = color;
         itemRendered = true;
-    
+        
     }
-    //use coroutine 
-    private void AnimateItemSprite() {
-        int counter = 0;
-        int animationLoop = 0;
-    }
-   
+
+    //I originally wanted to call startcoroutine inside renderItemSprite, but because
+    //StartCoroutine cannot be called in static context, I am calling it in Update function (which might be part of my problem)
     private void Update() {
-        if (itemRendered) {
-           if (counter >= 0 || counter < 60) {
-                gameObjectImage.transform.Translate(0.0f, 10.0f * Time.deltaTime, 0.0f);
-                Debug.Log("if " + counter);
-                counter++;
-            }
-           if (counter >= 60) {
-                gameObjectImage.transform.Translate(0.0f, -20.0f* Time.deltaTime  , 0.0f); 
-                Debug.Log("else if " + counter);
-                counter++;
-            }
-            if (counter > 200 && animationLoop != 2) {
-                counter = 0;
-                animationLoop++;
-            }
-            else if (counter > 200 && animationLoop == 2) {
-                gameObjectImage.sprite = null;
-                itemRendered = false;
-            }
+        if (itemRendered) { StartCoroutine(AnimateSprite()); } 
+    }
+
+   private IEnumerator GoUp() {
+        for (int i = 0; i < 4; i++) {
+            gameObjectImage.transform.Translate(0.0f, 10.0f * Time.deltaTime, 0.0f);
+            yield return new WaitForSeconds(0.2f);
         }
         
-    }//end of Update
+     }
+
+    private IEnumerator GoDown() {
+        for (int i = 0; i < 4; i++) {
+            gameObjectImage.transform.Translate(0.0f, -10.5f * Time.deltaTime, 0.0f);
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    private IEnumerator AnimateSprite() {
+        int animationLoop = 0;
+        //animate the up and down motion just 4 times
+        while (animationLoop < 4) {
+            StartCoroutine(GoUp());
+            StartCoroutine(GoDown());
+           yield return new WaitForSeconds(0.1f);
+        }
+        //delete sprite image from Image component
+        gameObjectImage.sprite = null;
+        Color currcolor = gameObjectImage.color;
+        currcolor.a = 0;
+        gameObjectImage.color = currcolor;
+        itemRendered = false;
+    }
 }

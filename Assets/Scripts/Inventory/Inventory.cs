@@ -82,10 +82,7 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
                 item = null;
             }
         }
-        
         if (item != null) { Debug.LogWarning("Failed to add item to inventory: " + item); }
-        //PopupInventoryItem(prefab);
-        //call a function from UI Image script that I will create 
         PopupInventoryItem.renderItemSprite(prefab);
     }
 
