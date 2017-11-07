@@ -9,11 +9,16 @@ public class PopupInventoryItem : MonoBehaviour {
     //i might just be able to make this a local variable to renderItemSprite
     private static Image gameObjectImage;
     private static bool itemRendered = false;
+   
     int counter = 0;
     int animationLoop = 0;
 
     void Start() {
-        gameObjectImage = gameObject.GetComponent<Image>();   
+        gameObjectImage = gameObject.GetComponent<Image>();
+        //set image initially to transparent
+        Color color = gameObjectImage.color;
+        color.a = 0;
+        gameObjectImage.color = color;
     }
     /// <summary>
     /// attach the prefab's sprite to current object's sprite in image component and render it
@@ -22,8 +27,16 @@ public class PopupInventoryItem : MonoBehaviour {
         // if not currently in a dialogue: !isDialogueAction
         Image prefabImage = prefab.GetComponent<Image>();
         gameObjectImage.sprite = prefabImage.sprite;
+        Color color = gameObjectImage.color;
+        color.a = 1;
+        gameObjectImage.color = color;
         itemRendered = true;
     
+    }
+    //use coroutine 
+    private void AnimateItemSprite() {
+        int counter = 0;
+        int animationLoop = 0;
     }
    
     private void Update() {
