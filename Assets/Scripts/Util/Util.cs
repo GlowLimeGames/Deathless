@@ -48,6 +48,28 @@ public static class Util {
     }
 
     /// <summary>
+    /// Similar to GameObject.FindObjectOfType but allows for
+    /// the inclusion of inactive objects.
+    /// </summary>
+    public static T FindObjectOfType<T>(bool includeInactive) where T : Component {
+        T result = null;
+
+        foreach (GameObject obj in SceneManager.GetActiveScene().GetRootGameObjects()) {
+            result = obj.GetComponentInChildren<T>(includeInactive);
+            if (result != null) { return result; }
+        }
+
+        foreach (GameObject obj in dontDestroyOnLoad) {
+            if (obj != null) {
+                result = obj.GetComponentInChildren<T>(includeInactive);
+                if (result != null) { return result; }
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>
     /// Similar to GameObject.FindObjectsOfType but allows for
     /// the inclusion of inactive objects.
     /// </summary>

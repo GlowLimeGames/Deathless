@@ -223,7 +223,7 @@ namespace Dialogue {
                 GhostFadeAnim anim = ghost.Instance.gameObject.GetComponent<GhostFadeAnim>();
                 if (anim != null) {
                     pendingActions++;
-                    anim.StartFadeIn(true);
+                    anim.StartGhostFade(true, true);
                 }
             }
         }
@@ -233,7 +233,7 @@ namespace Dialogue {
                 GhostFadeAnim anim = ghost.Instance.gameObject.GetComponent<GhostFadeAnim>();
                 if (anim != null) {
                     pendingActions++;
-                    anim.StartFadeOut(true);
+                    anim.StartGhostFade(false, true);
                 }
             }
         }

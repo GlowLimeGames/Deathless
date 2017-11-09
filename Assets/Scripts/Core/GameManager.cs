@@ -60,6 +60,10 @@ public class GameManager : Manager<GameManager> {
         if (scene.name == MAIN_MENU_SCENE) {
             ResetGameData();
         }
+        else {
+            Intro intro = Util.FindObjectOfType<Intro>(true);
+            if (intro != null) { intro.gameObject.SetActive(true); }
+        }
     }
 
     public static string GetCurrentScene() {
