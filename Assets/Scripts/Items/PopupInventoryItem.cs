@@ -1,19 +1,15 @@
 ﻿using System.Collections;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PopupInventoryItem : MonoBehaviour {
-
     //used to access the image component for this script
     private static Image gameObjectImage;
+
     //boolean to keep track whether renderItemSprite has been called
     //checks if item image has been rendered yet
     private static bool itemRendered = false;
-
-   
-   
-
+    
     void Start() {
         gameObjectImage = gameObject.GetComponent<Image>();
         //set image initially to transparent
@@ -21,6 +17,7 @@ public class PopupInventoryItem : MonoBehaviour {
         color.a = 0;
         gameObjectImage.color = color;
     }
+
     /// <summary>
     /// attach the prefab's sprite to current object's sprite in image component and render it
     /// </summary>
@@ -32,7 +29,6 @@ public class PopupInventoryItem : MonoBehaviour {
         color.a = 1;
         gameObjectImage.color = color;
         itemRendered = true;
-        
     }
 
     //I originally wanted to call startcoroutine inside renderItemSprite, but because
@@ -57,18 +53,17 @@ public class PopupInventoryItem : MonoBehaviour {
     }
 
     private IEnumerator AnimateSprite() {
-        int animationLoop = 0;
+        itemRendered = false;
         //animate the up and down motion just 4 times
-        while (animationLoop < 4) {
-            StartCoroutine(GoUp());
-            StartCoroutine(GoDown());
-           yield return new WaitForSeconds(0.1f);
+        for (int animLoop = 0; animLoop < 4; animLoop++) {
+            yield return StartCoroutine(GoUp());
+            yield return StartCoroutine(GoDown());
+            yield return new WaitForSeconds(0.1f);
         }
         //delete sprite image from Image component
         gameObjectImage.sprite = null;
         Color currcolor = gameObjectImage.color;
         currcolor.a = 0;
         gameObjectImage.color = currcolor;
-        itemRendered = false;
     }
 }
