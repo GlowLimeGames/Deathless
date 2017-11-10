@@ -16,6 +16,10 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
 
     public static List<InventorySlot> Slots { get { return Instance.slots; } }
 
+    [SerializeField]
+    private PopupInventoryItem popupItem;
+    public static PopupInventoryItem PopupItem { get { return Instance.popupItem; } }
+
     /// <summary>
     /// Whether the inventory is currently open.
     /// </summary>

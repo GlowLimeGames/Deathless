@@ -61,8 +61,8 @@ public class GameManager : Manager<GameManager> {
             ResetGameData();
         }
         else {
-            Intro intro = Util.FindObjectOfType<Intro>(true);
-            if (intro != null) { intro.gameObject.SetActive(true); }
+           // Intro intro = Util.FindObjectOfType<Intro>(true);
+            //if (intro != null) { intro.gameObject.SetActive(true); }
         }
     }
 

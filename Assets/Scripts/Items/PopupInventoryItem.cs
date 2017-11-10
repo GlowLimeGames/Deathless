@@ -44,7 +44,8 @@ public class PopupInventoryItem : MonoBehaviour {
         Debug.Log("GoUp");
         for (int i = 0; i < 15; i++) {
             gameObjectImage.transform.Translate(0.0f, bounceMagnitude * Time.deltaTime, 0.0f);
-            yield return new WaitForSeconds(speedOfBounce);
+            //yield return new WaitForSeconds(speedOfBounce);
+            yield return null;
         }
      }
 
@@ -52,7 +53,8 @@ public class PopupInventoryItem : MonoBehaviour {
         Debug.Log("Go Down");
         for (int i = 0; i < 15; i++) {
             gameObjectImage.transform.Translate(0.0f, -bounceMagnitude * Time.deltaTime, 0.0f);
-            yield return new WaitForSeconds(speedOfBounce);
+            //yield return new WaitForSeconds(speedOfBounce);
+            yield return null;
         }
     }
 
@@ -60,11 +62,6 @@ public class PopupInventoryItem : MonoBehaviour {
         itemRendered = false;
         //animate the up and down motion just 4 times
         for (int animLoop = 0; animLoop < 4; animLoop++) {
-            Debug.Log("what up");
-            if (DialogueManager.isShown) {
-                Debug.Log("Inside dialogue active");
-                yield return null;
-            }
             yield return StartCoroutine(GoUp());
             yield return StartCoroutine(GoDown());
             yield return new WaitForSeconds(0.1f);
@@ -75,6 +72,20 @@ public class PopupInventoryItem : MonoBehaviour {
         Color currcolor = gameObjectImage.color;
         currcolor.a = 0;
         gameObjectImage.color = currcolor;
+    }
+
+    public void StopAnimation(bool dialogueActive) {
+        if (dialogueActive) {
+            StopAllCoroutines();
+            SetImageActive(true);
+        } 
+    }
+
+    private void SetImageActive(bool destroyImage ) {
+        if (destroyImage) {
+            gameObjectImage.enabled = false;
+        }
+        else { gameObjectImage.enabled = true; }
     }
 
     //stopanimation
