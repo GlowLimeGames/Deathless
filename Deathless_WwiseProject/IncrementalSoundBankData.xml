@@ -8,52 +8,44 @@
 			</Language>
 			<Language ID="393239870">
 				<File Name="Incinerator" Hash="718074055" Timestamp="131523563450000000"/>
-				<File Name="Incinerator_MX" Hash="1123307721" Timestamp="131535477202020080"/>
-				<File Name="Incinerator_SFX" Hash="1751920073" Timestamp="131535477341175837"/>
-				<File Name="Init" Hash="1432679852" Timestamp="131535477341355867"/>
+				<File Name="Incinerator_MX" Hash="1998095591" Timestamp="131541342100000000"/>
+				<File Name="Incinerator_SFX" Hash="1290927088" Timestamp="131541342960000000"/>
+				<File Name="Incinerator_SFX_Events" Hash="3761181947" Timestamp="131541342960000000"/>
+				<File Name="Init" Hash="1432679852" Timestamp="131541342100000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="1240971187" Timestamp="131535477341405867"/>
+				<File Name="" Hash="3759977143" Timestamp="131541342960000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
 	<Platform GUID="{602ABDAC-885C-4E9B-835A-832A76581990}">
 		<Banks>
-			<Language ID="0">
-				<File Name="Incinerator" Hash="2775070666" Timestamp="131355513170000000"/>
-				<File Name="Init" Hash="2127831791" Timestamp="131355493010000000"/>
-			</Language>
 			<Language ID="393239870">
-				<File Name="Incinerator" Hash="718074055" Timestamp="131523562490000000"/>
-				<File Name="Incinerator_MX" Hash="1753098914" Timestamp="131535047620000000"/>
-				<File Name="Incinerator_SFX" Hash="3214377111" Timestamp="131535047620000000"/>
-				<File Name="Init" Hash="8622196" Timestamp="131535044600000000"/>
+				<File Name="Incinerator_MX" Hash="586891354" Timestamp="131540682330000000"/>
+				<File Name="Incinerator_SFX" Hash="1573445025" Timestamp="131540682330000000"/>
+				<File Name="Init" Hash="8622196" Timestamp="131540682330000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="3707902179" Timestamp="131535047620000000"/>
+				<File Name="" Hash="4108288997" Timestamp="131540682330000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
 	<Platform GUID="{86837377-2808-4F20-BDFC-6ACC16F2387E}">
 		<Banks>
-			<Language ID="0">
-				<File Name="Incinerator" Hash="2775070666" Timestamp="131355513170000000"/>
-				<File Name="Init" Hash="1982699813" Timestamp="131355493010000000"/>
-			</Language>
 			<Language ID="393239870">
-				<File Name="Incinerator" Hash="718074055" Timestamp="131523563450000000"/>
-				<File Name="Incinerator_MX" Hash="1123307721" Timestamp="131535477097892873"/>
-				<File Name="Incinerator_SFX" Hash="1751920073" Timestamp="131535477163800887"/>
-				<File Name="Init" Hash="3291444350" Timestamp="131535477164125907"/>
+				<File Name="Incinerator_MX" Hash="1998095591" Timestamp="131541342080000000"/>
+				<File Name="Incinerator_SFX" Hash="1290927088" Timestamp="131541342960000000"/>
+				<File Name="Incinerator_SFX_Events" Hash="3761181947" Timestamp="131541342960000000"/>
+				<File Name="Init" Hash="3291444350" Timestamp="131541342080000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="214096173" Timestamp="131535477164200905"/>
+				<File Name="" Hash="1877559901" Timestamp="131541342960000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>

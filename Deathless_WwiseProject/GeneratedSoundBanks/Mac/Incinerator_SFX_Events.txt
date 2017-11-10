@@ -1,0 +1,13 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1223189741	IncineratorArea_SFX_BoozeOnDoor			\Default Work Unit\IncineratorArea_SFX_BoozeOnDoor	
+	1931230811	IncineratorArea_SFX_DoorOpen			\Default Work Unit\IncineratorArea_SFX_DoorOpen	
+	3335150109	IncineratorArea_SFX_DoorIgnite			\Default Work Unit\IncineratorArea_SFX_DoorIgnite	
+	3418875787	IncineratorArea_SFX_GasExplosion			\Default Work Unit\IncineratorArea_SFX_GasExplosion	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	25130061	Explosion_Gas	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\PlaceholderExplosion_53CEE377_20544D82.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\Placeholder_GasExplosion\Explosion_Gas		2484284
+	183400500	Placeholder_DoorIgnite	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Placeholder_DoorIgnite_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\Placeholder_DoorIgnite		1269384
+	240356869	Placeholder_BoozeDoor	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Placeholder_BoozeDoor_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\Placeholder_BoozeDoor		958268
+	408073237	Placeholder_DoorOpen	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Placeholder_DoorOpen_53CEE377_20544D82.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\Placeholder_DoorOpen		3991612
+	826333608	Placeholder_Debris	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Placeholder_Debris_53CEE377_20544D82.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\Placeholder_GasExplosion\Placeholder_Debris		2846780
+

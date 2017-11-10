@@ -61,7 +61,7 @@ public class PopupInventoryItem : MonoBehaviour {
         //animate the up and down motion just 4 times
         for (int animLoop = 0; animLoop < 4; animLoop++) {
             Debug.Log("what up");
-            while (DialogueManager.isShown) {
+            if (DialogueManager.isShown) {
                 Debug.Log("Inside dialogue active");
                 yield return null;
             }
@@ -76,4 +76,7 @@ public class PopupInventoryItem : MonoBehaviour {
         currcolor.a = 0;
         gameObjectImage.color = currcolor;
     }
+
+    //stopanimation
+    //stopallcoroutines
 }

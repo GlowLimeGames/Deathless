@@ -3,7 +3,7 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{45795174-1EAD-48A5-948B-875014D6D5E4}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="IncineratorArea_Start" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}">
+				<Event Name="IncineratorArea_SFX_Start" ID="{FCF83A24-335E-4118-9F1E-5456B4CC1C29}">
 					<ChildrenList>
 						<Action Name="" ID="{90D08EA6-D2AE-4B8C-88E8-E4F04B2E2CE2}" ShortID="1056561516">
 							<PropertyList>
@@ -53,7 +53,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="IncineratorArea_Corpse_01" ID="{664DE440-6113-418E-B92D-83D7C145CCB2}">
+				<Event Name="IncineratorArea_SFX_Corpse_01" ID="{664DE440-6113-418E-B92D-83D7C145CCB2}">
 					<ChildrenList>
 						<Action Name="" ID="{3B57BB34-720D-48CC-AB0A-4CF024A8BCC0}" ShortID="468431902">
 							<PropertyList>
@@ -67,7 +67,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="IncineratorArea_Corpse_02" ID="{842BF99C-5F2D-4A6B-84C6-C384CB925E26}">
+				<Event Name="IncineratorArea_SFX_Corpse_02" ID="{842BF99C-5F2D-4A6B-84C6-C384CB925E26}">
 					<ChildrenList>
 						<Action Name="" ID="{D22B519E-3473-49E7-B3C4-6194F3F70B9E}" ShortID="788573733">
 							<PropertyList>
@@ -81,7 +81,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="IncineratorArea_Corpse_03" ID="{1BCD1D7C-4172-41A5-A15B-9D10AAB4F1E1}">
+				<Event Name="IncineratorArea_SFX_Corpse_03" ID="{1BCD1D7C-4172-41A5-A15B-9D10AAB4F1E1}">
 					<ChildrenList>
 						<Action Name="" ID="{AB2FBC34-AB9F-4716-B59A-026556544B0F}" ShortID="285644778">
 							<PropertyList>
@@ -95,7 +95,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="IncineratorArea_Incinerators" ID="{9D194A33-07DC-4F8E-97F9-2799450F18C8}">
+				<Event Name="IncineratorArea_SFX_Incinerators" ID="{9D194A33-07DC-4F8E-97F9-2799450F18C8}">
 					<ChildrenList>
 						<Action Name="" ID="{8155740E-BE0C-46BE-83A8-59C6CB424A29}" ShortID="240810622">
 							<PropertyList>
@@ -135,7 +135,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="IncineratorArea_GhostSob" ID="{0CF93CB9-B458-402C-9BD7-45CA389FEF90}">
+				<Event Name="IncineratorArea_SFX_GhostSob" ID="{0CF93CB9-B458-402C-9BD7-45CA389FEF90}">
 					<ChildrenList>
 						<Action Name="" ID="{59034235-EF17-4F99-B026-FFBD8AED82F2}" ShortID="315579178">
 							<PropertyList>
@@ -149,7 +149,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="IncineratorArea_MXAmb" ID="{729D1B9A-4C4B-4DB3-81D5-3E39C2BE3EB8}">
+				<Event Name="IncineratorArea_MX_Amb" ID="{729D1B9A-4C4B-4DB3-81D5-3E39C2BE3EB8}">
 					<ChildrenList>
 						<Action Name="" ID="{80B89A3C-0498-4BC3-BEF3-8E28020498B4}" ShortID="733077259">
 							<PropertyList>
@@ -170,6 +170,132 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="MusicTextures" ID="{82705C62-830E-4065-81F5-729E31B4311A}" WorkUnitID="{D46D78C8-D73B-45CD-B49D-0A1CF13D4279}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_UI_DeathTag" ID="{857569BF-1C5C-4BDF-B130-6E30F79837EA}">
+					<ChildrenList>
+						<Action Name="" ID="{05FB9CB5-C37C-42B8-9295-2ED1477F5693}" ShortID="1307161">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="dl_deathsound_tag" ID="{D0FBBE05-5334-4A80-9345-A3ED92C05483}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_UI_Execute" ID="{9170229B-49A4-4656-B55A-9B4654A2FB6F}">
+					<ChildrenList>
+						<Action Name="" ID="{BA3F9BF1-0D9F-46C1-A6FC-7A0FEDBB6672}" ShortID="440400376">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="dl_deathsound_death" ID="{B4FA85C2-227A-42E2-A9A9-FA5B6A454C64}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_GasExplosion" ID="{132E8A92-9D21-44D1-B682-565C3436CA88}">
+					<ChildrenList>
+						<Action Name="" ID="{3EBB6892-404E-44E9-9EA4-2DBD6545E9FE}" ShortID="839825260">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Placeholder_GasExplosion" ID="{2BDDBB76-0E17-4BBF-910E-3D7E9C26977E}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_VatAmb" ID="{8DB67C5C-3F96-4EC3-ADA1-F1BA6C0871CC}">
+					<ChildrenList>
+						<Action Name="" ID="{C4FAB782-20D9-4E5C-8198-4389011F5F07}" ShortID="727676193">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Placeholder_VATBlood" ID="{ED70A225-E260-4B60-B96A-9B8E6BF225D3}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_MX_Ambrose" ID="{73227086-2DEA-4085-9F3D-2072E31C9135}">
+					<ChildrenList>
+						<Action Name="" ID="{17927CF2-29BE-41C7-BCF7-5D4F482EE06F}" ShortID="299575925">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ambrose_IT1" ID="{CF90301D-447A-4995-80C3-23BA1936A399}" WorkUnitID="{D46D78C8-D73B-45CD-B49D-0A1CF13D4279}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_BoozeOnDoor" ID="{A6C30229-5B64-4049-AE36-DAFF50AF0463}">
+					<ChildrenList>
+						<Action Name="" ID="{9346937F-32B4-467F-BEB8-49F98803730A}" ShortID="578321139">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Placeholder_BoozeDoor" ID="{681D2312-B272-4DC5-A7DD-706E863A7878}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_DoorOpen" ID="{85803FDA-919C-40A2-A135-7CFE8619088B}">
+					<ChildrenList>
+						<Action Name="" ID="{741658A8-2518-4163-B44D-B696811DE4AD}" ShortID="293611618">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Placeholder_DoorOpen" ID="{0823A712-41BA-44FD-8C07-CC54C514CAEF}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_DoorBooze" ID="{7CFA5797-A89A-4151-AFF8-B3B6AE08598A}">
+					<ChildrenList>
+						<Action Name="" ID="{1A49F28B-82E1-48F2-AA13-7EAD1CEA9D61}" ShortID="642890577">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Placeholder_BoozeDoor" ID="{681D2312-B272-4DC5-A7DD-706E863A7878}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_DoorIgnite" ID="{39F21799-D1F7-4ABE-B22C-B4B44FEF15BC}">
+					<ChildrenList>
+						<Action Name="" ID="{6D218F6D-65CF-4576-BFB9-8E3568DE6251}" ShortID="969583545">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Placeholder_DoorIgnite" ID="{28FF5F33-DEA1-4E0E-8751-ACED328B77FF}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -24,7 +24,7 @@
 				<GameParameter Name="DistanceToFurnace" ID="{E69F62DB-A2B9-42DC-A63F-C859203AF7C6}">
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="8"/>
-						<Property Name="Max" Type="Real64" Value="15"/>
+						<Property Name="Max" Type="Real64" Value="8"/>
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="DistanceToghost" ID="{87EC5F0B-4713-44F9-9F59-74DF90D10E3E}">

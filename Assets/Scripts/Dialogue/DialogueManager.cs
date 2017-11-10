@@ -70,6 +70,10 @@ public class DialogueManager : Manager<DialogueManager> {
         allowClick = (currentNode != null);
     }
 
+    public static void ResetOneShotDialogue() {
+        dontRepeat = new List<int>();
+    }
+
     /// <summary>
     /// Begin the given dialogue tree.
     /// </summary>
