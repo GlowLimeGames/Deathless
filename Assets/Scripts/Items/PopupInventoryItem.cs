@@ -3,19 +3,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PopupInventoryItem : MonoBehaviour {
-    //used to access the image component for this script
     private static Image gameObjectImage;
-
-    //boolean to keep track whether renderItemSprite has been called
     //checks if item image has been rendered yet
     private static bool itemRendered = false;
-    
+    [SerializeField]
+    private float speedOfBounce;
+    [SerializeField]
+    private float bounceMagnitude; 
+
     void Start() {
         gameObjectImage = gameObject.GetComponent<Image>();
         //set image initially to transparent
         Color color = gameObjectImage.color;
         color.a = 0;
         gameObjectImage.color = color;
+        speedOfBounce = 0.03f;
+        bounceMagnitude = 20.0f;
     }
 
     /// <summary>
@@ -38,17 +41,18 @@ public class PopupInventoryItem : MonoBehaviour {
     }
 
    private IEnumerator GoUp() {
-        for (int i = 0; i < 4; i++) {
-            gameObjectImage.transform.Translate(0.0f, 10.0f * Time.deltaTime, 0.0f);
-            yield return new WaitForSeconds(0.2f);
+        Debug.Log("GoUp");
+        for (int i = 0; i < 15; i++) {
+            gameObjectImage.transform.Translate(0.0f, bounceMagnitude * Time.deltaTime, 0.0f);
+            yield return new WaitForSeconds(speedOfBounce);
         }
-        
      }
 
     private IEnumerator GoDown() {
-        for (int i = 0; i < 4; i++) {
-            gameObjectImage.transform.Translate(0.0f, -10.5f * Time.deltaTime, 0.0f);
-            yield return new WaitForSeconds(0.2f);
+        Debug.Log("Go Down");
+        for (int i = 0; i < 15; i++) {
+            gameObjectImage.transform.Translate(0.0f, -bounceMagnitude * Time.deltaTime, 0.0f);
+            yield return new WaitForSeconds(speedOfBounce);
         }
     }
 
@@ -56,11 +60,17 @@ public class PopupInventoryItem : MonoBehaviour {
         itemRendered = false;
         //animate the up and down motion just 4 times
         for (int animLoop = 0; animLoop < 4; animLoop++) {
+            Debug.Log("what up");
+            while (DialogueManager.isShown) {
+                Debug.Log("Inside dialogue active");
+                yield return null;
+            }
             yield return StartCoroutine(GoUp());
             yield return StartCoroutine(GoDown());
             yield return new WaitForSeconds(0.1f);
         }
         //delete sprite image from Image component
+        //create separate method for this
         gameObjectImage.sprite = null;
         Color currcolor = gameObjectImage.color;
         currcolor.a = 0;
