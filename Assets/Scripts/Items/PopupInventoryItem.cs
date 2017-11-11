@@ -1,12 +1,11 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PopupInventoryItem : MonoBehaviour {
     private static Image gameObjectImage;
-    private static Vector3 originalPos; 
-
-    //checks if item image has been rendered yet
+    private static Vector3 originalPos;
     private static bool itemRendered = false;
     [SerializeField]
     private float bounceMagnitude;
@@ -31,14 +30,12 @@ public class PopupInventoryItem : MonoBehaviour {
         itemRendered = true;
     }
 
-   
     private void Update() {
         if (itemRendered) { StartCoroutine(AnimateSprite()); } 
     }
 
    private IEnumerator GoUp() {
         float currHeight = gameObjectImage.transform.position.y;
-        Debug.Log("currHeight in GoUp: " + currHeight);
         while (currHeight < maxHeight) {
             gameObjectImage.transform.Translate(0.0f, bounceMagnitude * Time.deltaTime, 0.0f);
             currHeight = gameObjectImage.transform.position.y;
@@ -54,11 +51,13 @@ public class PopupInventoryItem : MonoBehaviour {
             yield return null;
         }
     }
-
+    /// <summary>
+    /// Animate the item sprite in an up and down motion
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator AnimateSprite() {
         itemRendered = false;
-        //animate the up and down motion just 4 times
-        for (int animLoop = 0; animLoop < 4; animLoop++) {
+        for (int animLoop = 0; animLoop < 3; animLoop++) {
             yield return StartCoroutine(GoUp());
             yield return StartCoroutine(GoDown());
             yield return new WaitForSeconds(0.1f);
@@ -67,24 +66,38 @@ public class PopupInventoryItem : MonoBehaviour {
         SetImageActive(false);
         ResetImagePosition();
     }
-
-    public bool StopAnimation(bool dialogueActive) {
-        if (dialogueActive) {
+    /// <summary>
+    /// stops animation of the item 
+    /// </summary>
+    /// <param name="active">determines whether to activate stop animation</param>
+    /// <returns></returns>
+    public bool StopAnimation(bool active) {
+        if (active) {
             StopAllCoroutines();
             return true;
         }
         return false;
     }
+    /// <summary>
+    /// assigns sprite to popup item sprite
+    /// </summary>
+    /// <param name="sprite"></param>
     public static void SetImageSprite(Sprite sprite) {
         gameObjectImage.sprite = sprite;
     }
 
+    /// <summary>
+    /// Set whether sprite is visible in-game or not
+    /// </summary>
+    /// <param name="active"></param>
     public static void SetImageActive(bool active) {
         Color currcolor = gameObjectImage.color;
         currcolor.a = (active) ? 1 : 0;
         gameObjectImage.color = currcolor;
     }
-
+    /// <summary>
+    /// after each animation, reset the popup item position to its original position
+    /// </summary>
     public static void ResetImagePosition() {
         gameObjectImage.transform.position = originalPos;
     }
