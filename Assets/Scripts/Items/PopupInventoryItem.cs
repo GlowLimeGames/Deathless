@@ -9,16 +9,16 @@ public class PopupInventoryItem : MonoBehaviour {
     //checks if item image has been rendered yet
     private static bool itemRendered = false;
     [SerializeField]
-    private float speedOfBounce;
+    private float bounceMagnitude;
     [SerializeField]
-    private float bounceMagnitude; 
+    private float maxHeight;
 
     void Start() {
         gameObjectImage = gameObject.GetComponent<Image>();
         originalPos = new Vector3(gameObjectImage.transform.position.x, gameObjectImage.transform.position.y, gameObjectImage.transform.position.z);
         SetImageActive(false);
-        speedOfBounce = 0.03f;
-        bounceMagnitude = 20.0f; 
+        bounceMagnitude = 1.0f;
+        maxHeight = 5.0f;
     }
 
     /// <summary>
@@ -37,15 +37,20 @@ public class PopupInventoryItem : MonoBehaviour {
     }
 
    private IEnumerator GoUp() {
-        for (int i = 0; i < 15; i++) {
+        float currHeight = gameObjectImage.transform.position.y;
+        Debug.Log("currHeight in GoUp: " + currHeight);
+        while (currHeight < maxHeight) {
             gameObjectImage.transform.Translate(0.0f, bounceMagnitude * Time.deltaTime, 0.0f);
+            currHeight = gameObjectImage.transform.position.y;
             yield return null;
         }
      }
 
     private IEnumerator GoDown() {
-        for (int i = 0; i < 15; i++) {
+        float currHeight = gameObjectImage.transform.position.y;
+        while (currHeight > originalPos.y) {
             gameObjectImage.transform.Translate(0.0f, -bounceMagnitude * Time.deltaTime, 0.0f);
+            currHeight = gameObjectImage.transform.position.y;
             yield return null;
         }
     }
