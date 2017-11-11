@@ -101,7 +101,11 @@ public class UIManager : Manager<UIManager> {
         BlockWorldInput(show);
         ShowGameButtons(!show);
         UpdateCursorHover();
-        Inventory.PopupItem.StopAnimation(show);
+        bool stopped = Inventory.PopupItem.StopAnimation(show);
+        if (stopped) {
+            PopupInventoryItem.SetImageSprite(null);
+            PopupInventoryItem.SetImageActive(false);
+        }
     }
 
     private static void UpdateCursorHover() {

@@ -13,47 +13,36 @@ public class PopupInventoryItem : MonoBehaviour {
 
     void Start() {
         gameObjectImage = gameObject.GetComponent<Image>();
-        //set image initially to transparent
-        Color color = gameObjectImage.color;
-        color.a = 0;
-        gameObjectImage.color = color;
+        SetImageActive(false);
         speedOfBounce = 0.03f;
-        bounceMagnitude = 20.0f;
+        bounceMagnitude = 20.0f; 
     }
 
     /// <summary>
     /// attach the prefab's sprite to current object's sprite in image component and render it
     /// </summary>
     public static void renderItemSprite(InventoryItem prefab) {
-        // if not currently in a dialogue: !isDialogueAction
         Image prefabImage = prefab.GetComponent<Image>();
-        gameObjectImage.sprite = prefabImage.sprite;
-        Color color = gameObjectImage.color;
-        color.a = 1;
-        gameObjectImage.color = color;
+        SetImageSprite(prefabImage.sprite);
+        SetImageActive(true);
         itemRendered = true;
     }
 
-    //I originally wanted to call startcoroutine inside renderItemSprite, but because
-    //StartCoroutine cannot be called in static context, I am calling it in Update function (which might be part of my problem)
+   
     private void Update() {
         if (itemRendered) { StartCoroutine(AnimateSprite()); } 
     }
 
    private IEnumerator GoUp() {
-        Debug.Log("GoUp");
         for (int i = 0; i < 15; i++) {
             gameObjectImage.transform.Translate(0.0f, bounceMagnitude * Time.deltaTime, 0.0f);
-            //yield return new WaitForSeconds(speedOfBounce);
             yield return null;
         }
      }
 
     private IEnumerator GoDown() {
-        Debug.Log("Go Down");
         for (int i = 0; i < 15; i++) {
             gameObjectImage.transform.Translate(0.0f, -bounceMagnitude * Time.deltaTime, 0.0f);
-            //yield return new WaitForSeconds(speedOfBounce);
             yield return null;
         }
     }
@@ -66,28 +55,26 @@ public class PopupInventoryItem : MonoBehaviour {
             yield return StartCoroutine(GoDown());
             yield return new WaitForSeconds(0.1f);
         }
-        //delete sprite image from Image component
-        //create separate method for this
-        gameObjectImage.sprite = null;
+        SetImageSprite(null);
+        SetImageActive(false);
+    }
+
+    public bool StopAnimation(bool dialogueActive) {
+        if (dialogueActive) {
+            StopAllCoroutines();
+            Debug.Log("stop"); 
+            return true;
+        }
+        return false;
+    }
+    public static void SetImageSprite(Sprite sprite) {
+        gameObjectImage.sprite = sprite;
+    }
+
+    public static void SetImageActive(bool active) {
         Color currcolor = gameObjectImage.color;
-        currcolor.a = 0;
+        currcolor.a = (active) ? 1 : 0;
         gameObjectImage.color = currcolor;
     }
 
-    public void StopAnimation(bool dialogueActive) {
-        if (dialogueActive) {
-            StopAllCoroutines();
-            SetImageActive(true);
-        } 
-    }
-
-    private void SetImageActive(bool destroyImage ) {
-        if (destroyImage) {
-            gameObjectImage.enabled = false;
-        }
-        else { gameObjectImage.enabled = true; }
-    }
-
-    //stopanimation
-    //stopallcoroutines
 }
