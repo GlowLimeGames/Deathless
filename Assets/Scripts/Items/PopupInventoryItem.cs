@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class PopupInventoryItem : MonoBehaviour {
     private static Image gameObjectImage;
+    private static Vector3 originalPos; 
+
     //checks if item image has been rendered yet
     private static bool itemRendered = false;
     [SerializeField]
@@ -13,6 +15,7 @@ public class PopupInventoryItem : MonoBehaviour {
 
     void Start() {
         gameObjectImage = gameObject.GetComponent<Image>();
+        originalPos = new Vector3(gameObjectImage.transform.position.x, gameObjectImage.transform.position.y, gameObjectImage.transform.position.z);
         SetImageActive(false);
         speedOfBounce = 0.03f;
         bounceMagnitude = 20.0f; 
@@ -57,12 +60,12 @@ public class PopupInventoryItem : MonoBehaviour {
         }
         SetImageSprite(null);
         SetImageActive(false);
+        ResetImagePosition();
     }
 
     public bool StopAnimation(bool dialogueActive) {
         if (dialogueActive) {
             StopAllCoroutines();
-            Debug.Log("stop"); 
             return true;
         }
         return false;
@@ -75,6 +78,10 @@ public class PopupInventoryItem : MonoBehaviour {
         Color currcolor = gameObjectImage.color;
         currcolor.a = (active) ? 1 : 0;
         gameObjectImage.color = currcolor;
+    }
+
+    public static void ResetImagePosition() {
+        gameObjectImage.transform.position = originalPos;
     }
 
 }

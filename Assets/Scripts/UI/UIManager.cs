@@ -104,6 +104,7 @@ public class UIManager : Manager<UIManager> {
         bool stopped = Inventory.PopupItem.StopAnimation(show);
         if (stopped) {
             PopupInventoryItem.SetImageSprite(null);
+            PopupInventoryItem.ResetImagePosition();
             PopupInventoryItem.SetImageActive(false);
         }
     }
