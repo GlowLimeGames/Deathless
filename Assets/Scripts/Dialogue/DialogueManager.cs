@@ -10,6 +10,8 @@ using Dialogue;
 public class DialogueManager : Manager<DialogueManager> {
     private const string SPEECH_BUBBLE_TAG = "Speech bubble";
 
+	public const float clickDelay = 0.3f;
+
     private SerializableTree dlgInstance;
     public static SerializableTree DlgInstance {
         get { return Instance.dlgInstance; }
@@ -259,6 +261,7 @@ public class DialogueManager : Manager<DialogueManager> {
             gameObject.SetActive(false);
             DialogueManager.Next(line);
         }
+		StartCoroutine (DelayClick ());
     }
 
     /// <summary>
@@ -266,24 +269,26 @@ public class DialogueManager : Manager<DialogueManager> {
     /// </summary>
     public void ShowChoices(List<Node> choices) {
         gameObject.SetActive(true);
-		StartCoroutine (HelpShowChoices (choices));
-        choiceView.SetActive(true);
-        scrollView.InitializeNewContent(choiceView, true);
-        EnableSpeechBubble(choices[0], true);
-    }
-
-	/// <summary>
-	/// Helps ShowChoices() to include a brief pause without making it an IEnumerator.
-	/// </summary>
-	IEnumerator HelpShowChoices(List<Node> ch) {
-		yield return new WaitForSeconds (1);
-		foreach (Node choice in ch) {
+		foreach (Node choice in choices) {
 			if (choice.Data.Text != "") {
 				DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
 				choiceUI.Init(choice);
 				choiceUI.transform.SetParent(choiceView.transform, false);
 			}
 		}
+        choiceView.SetActive(true);
+        scrollView.InitializeNewContent(choiceView, true);
+        EnableSpeechBubble(choices[0], true);
+		StartCoroutine (DelayClick ());
+    }
+
+	/// <summary>
+	/// Delays the ability to click for clickDelay seconds.
+	/// </summary>
+	IEnumerator DelayClick() {
+		UIManager.BlockAllInput (true);
+		yield return new WaitForSeconds (clickDelay);
+		UIManager.BlockAllInput (false);
 	}
 
     /// <summary>
