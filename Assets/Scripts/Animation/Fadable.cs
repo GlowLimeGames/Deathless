@@ -47,29 +47,17 @@ public class Fadable : MonoBehaviour {
         currentlyRunningCoroutines.Remove(currentCoroutine);
     }
 
-    IEnumerator FadeIn (float fadeRate, FadeCallback fadeCallback) {
+    IEnumerator Fade (bool fadeIn, float fadeRate, FadeCallback fadeCallback) {
+        Fadable[] children = GetFadableChildren();
         Color color = this.color;
+        float alphaPercent = GetAlphaPercent(color.a);
 
-        while (color.a < 1f) {
-            color.a += Time.deltaTime / fadeRate;
-            CopyAlphaToChildren(color.a);
+        while ((fadeIn && alphaPercent < 1f) || (!fadeIn && alphaPercent > 0f)) {
+            float delta = Time.deltaTime / fadeRate;
+            alphaPercent += fadeIn ? delta : -delta;
+            CopyAlphaToChildren(children, alphaPercent);
 
-            Color maxColor = color;
-            maxColor.a = Mathf.Min(maxColor.a, maxAlpha);
-            this.color = maxColor;
-
-            yield return null;
-        }
-
-        if (fadeCallback != null) { fadeCallback(); }
-    }
-
-    IEnumerator FadeOut(float fadeRate, FadeCallback fadeCallback) {
-        Color color = this.color;
-
-        while (color.a > 0f) {
-            color.a -= Time.deltaTime / fadeRate;
-            CopyAlphaToChildren(color.a);
+            color.a = GetAlphaValue(alphaPercent);
             this.color = color;
             yield return null;
         }
@@ -77,17 +65,38 @@ public class Fadable : MonoBehaviour {
         if (fadeCallback != null) { fadeCallback(); }
     }
 
-    private void CopyAlphaToChildren(float alpha) {
+    private float GetAlphaValue(float alphaPercent) {
+        return maxAlpha * alphaPercent;
+    }
+
+    private float GetAlphaPercent(float alphaValue) {
+        return alphaValue / maxAlpha;
+    }
+
+    private Fadable[] GetFadableChildren() {
+        List<GameObject> children = new List<GameObject>();
+
         foreach (Graphic childGraphic in GetComponentsInChildren<Graphic>()) {
-            Color color = childGraphic.color;
-            color.a = alpha;
-            childGraphic.color = color;
+            children.Add(childGraphic.gameObject);
+        }
+        foreach (SpriteRenderer childSprite in GetComponentsInChildren<SpriteRenderer>()) {
+            children.Add(childSprite.gameObject);
         }
 
-        foreach (SpriteRenderer childSprite in GetComponentsInChildren<SpriteRenderer>()) {
-            Color color = childSprite.color;
-            color.a = alpha;
-            childSprite.color = color;
+        foreach (GameObject child in children) {
+            if (child.GetComponent<Fadable>() == null) {
+                child.AddComponent<Fadable>();
+            }
+        }
+
+        return GetComponentsInChildren<Fadable>();
+    }
+
+    private void CopyAlphaToChildren(Fadable[] children, float alphaPercent) {
+        foreach (Fadable child in children) {
+            Color color = child.color;
+            color.a = child.GetAlphaValue(alphaPercent);
+            child.color = color;
         }
     }
 
@@ -114,7 +123,6 @@ public class Fadable : MonoBehaviour {
         color.a = Mathf.Min(startAlpha, maxAlpha);
         this.color = color;
 
-        if (fadeIn) { return StartCoroutine(FadeIn(fadeRate, fadeCallback)); }
-        else { return StartCoroutine(FadeOut(fadeRate, fadeCallback)); }
+        return StartCoroutine(Fade(fadeIn, fadeRate, fadeCallback));
     }
 }
