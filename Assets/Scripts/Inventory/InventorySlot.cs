@@ -62,7 +62,6 @@ public class InventorySlot : Hoverable, IPointerClickHandler {
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        Debug.Log("click slot!");
         if (!isEmpty) {
             if (eventData.button == PointerEventData.InputButton.Left) {
                 if (Inventory.SelectedItem != null) {
@@ -75,7 +74,8 @@ public class InventorySlot : Hoverable, IPointerClickHandler {
                     Inventory.SelectItem(item);
                 }
             }
-            else if (eventData.button == PointerEventData.InputButton.Right) {
+            else if (eventData.button == PointerEventData.InputButton.Right
+                     && Inventory.SelectedItem == null) {
                 item.Interact();
             }
         }
