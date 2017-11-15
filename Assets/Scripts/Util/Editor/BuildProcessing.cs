@@ -46,7 +46,14 @@ public static class BuildProcessing {
         BuildManifestData manifest = null;
         TextAsset json = (TextAsset)Resources.Load("UnityCloudBuildManifest.json");
         if (json != null) {
-           manifest = JsonUtility.FromJson<BuildManifestData>(json.text);
+            manifest = JsonUtility.FromJson<BuildManifestData>(json.text);
+            Debug.Log("Attempted to load build manifest from .json file.\n"
+                + "build #: " + manifest.buildNumber
+                + "\nstart time: " + manifest.buildStartTime
+                + "\ntarget name: " + manifest.cloudBuildTargetName);
+        }
+        else {
+            Debug.Log("Failed to load build manifest .json file as TextAsset.");
         }
         return manifest;
     }

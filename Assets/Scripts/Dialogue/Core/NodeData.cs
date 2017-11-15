@@ -90,6 +90,13 @@ namespace Dialogue {
             set { endDialogue = value; }
         }
 
+        [SerializeField]
+        private bool randomizeChildren;
+        public bool RandomizeChildren {
+            get { return randomizeChildren; }
+            set { randomizeChildren = value; }
+        }
+
         public void Init(NodeType type, Transform parentObject) {
             this.type = type;
             Text = "Add text here";

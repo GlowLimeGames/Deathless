@@ -9,42 +9,30 @@ public class GhostFadeAnim : Fadable {
 
     private float fadeRate;
 	private float fadeDelay;
-    private bool fadeIn;
-    private bool dlgFade;
 
     void Start() {
-        RandomizeFade();
-        StartCoroutine(DelayFade());
+        if (currentlyRunningCoroutines.Count == 0) {
+            BeginGhostFadeLoop();
+        }
     }
 
-    private void Fade() {
-        RandomizeFade();
-        if (fadeIn) { StartFadeIn(fadeRate, FadeComplete); }
-        else { StartFadeOut(fadeRate, FadeComplete); }
+    private void BeginGhostFadeLoop() {
+        StartCoroutine(GhostFadeLoop());
     }
 
-    private void FadeComplete() {
-        fadeIn = !fadeIn;
-
-        if (fadeIn) { Fade(); }
-        else { StartCoroutine(DelayFade()); }
-
-        if (dlgFade) { CompleteDialogueAction(); }
-    }
-
-    public override void StopFade() {
-        StopAllCoroutines();
-    }
-
-    IEnumerator DelayFade() {
-        yield return new WaitForSeconds(fadeDelay);
-        Fade();
+    private IEnumerator GhostFadeLoop() {
+        while (true) {
+            RandomizeFade();
+            yield return new WaitForSeconds(fadeDelay);
+            yield return StartFadeOut(fadeRate, null, false);
+            yield return StartFadeIn(fadeRate, null, false);
+        }
     }
 
     /// <summary>
     /// Randomizes fade time and fade delay for ghosts before each fade
     /// </summary>
-    float RandomizeFade() {
+    private float RandomizeFade() {
 		float flt = Random.Range (minFade, maxFade);
 		fadeDelay = flt;
 		fadeRate = flt;
@@ -52,13 +40,10 @@ public class GhostFadeAnim : Fadable {
 	}
 
     public void StartGhostFade(bool fadeIn, bool isDialogueAction = false) {
-        this.fadeIn = fadeIn;
-        dlgFade = isDialogueAction;
-        Fade();
-    }
+        FadeCallback callback = BeginGhostFadeLoop;
+        if (isDialogueAction) { callback += Dialogue.Actions.CompletePendingAction; }
 
-    private void CompleteDialogueAction() {
-        Dialogue.Actions.CompletePendingAction();
-        dlgFade = false;
+        if (fadeIn) { StartFadeIn(minFade, callback); }
+        else { StartFadeOut(minFade, callback); }
     }
 }
