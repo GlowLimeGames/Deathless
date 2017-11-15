@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,7 @@ public class Fadable : MonoBehaviour {
     public const float DEFAULT_FADE_RATE = 2f;
 
     public delegate void FadeCallback();
+    protected List<Coroutine> currentlyRunningCoroutines = new List<Coroutine>();
     
     private SpriteRenderer spriteRenderer;
     private Graphic graphic;
@@ -31,6 +33,19 @@ public class Fadable : MonoBehaviour {
     }
 
     void OnDestroy() { StopFade(); }
+
+    public new Coroutine StartCoroutine(IEnumerator coroutine) {
+        return base.StartCoroutine(CoroutineWrapper(coroutine));
+    }
+
+    private IEnumerator CoroutineWrapper(IEnumerator coroutine) {
+        Coroutine currentCoroutine = base.StartCoroutine(coroutine);
+        currentlyRunningCoroutines.Add(currentCoroutine);
+        
+        yield return currentCoroutine;
+
+        currentlyRunningCoroutines.Remove(currentCoroutine);
+    }
 
     IEnumerator FadeIn (float fadeRate, FadeCallback fadeCallback) {
         Color color = this.color;
@@ -76,26 +91,30 @@ public class Fadable : MonoBehaviour {
         }
     }
 
-    public virtual void StopFade() {
-        StopAllCoroutines();
+    public void StopFade() {
+        foreach (Coroutine coroutine in currentlyRunningCoroutines) {
+            StopCoroutine(coroutine);
+        }
+
+        currentlyRunningCoroutines = new List<Coroutine>();
     }
 
-    public virtual void StartFadeIn(float fadeRate = DEFAULT_FADE_RATE, FadeCallback fadeCallback = null) {
-        StartFade(0f, true, fadeRate, fadeCallback);
+    public virtual Coroutine StartFadeIn(float fadeRate = DEFAULT_FADE_RATE, FadeCallback fadeCallback = null, bool interruptCoroutines = true) {
+        return StartFade(0f, true, fadeRate, fadeCallback, interruptCoroutines);
     }
 
-    public virtual void StartFadeOut(float fadeRate = DEFAULT_FADE_RATE, FadeCallback fadeCallback = null) {
-        StartFade(1f, false, fadeRate, fadeCallback);
+    public virtual Coroutine StartFadeOut(float fadeRate = DEFAULT_FADE_RATE, FadeCallback fadeCallback = null, bool interruptCoroutines = true) {
+        return StartFade(1f, false, fadeRate, fadeCallback, interruptCoroutines);
     }
 
-    protected virtual void StartFade(float startAlpha, bool fadeIn, float fadeRate, FadeCallback fadeCallback) {
-        StopFade();
+    protected virtual Coroutine StartFade(float startAlpha, bool fadeIn, float fadeRate, FadeCallback fadeCallback, bool interruptCoroutines) {
+        if (interruptCoroutines) { StopFade(); }
 
         Color color = this.color;
         color.a = Mathf.Min(startAlpha, maxAlpha);
         this.color = color;
 
-        if (fadeIn) { StartCoroutine(FadeIn(fadeRate, fadeCallback)); }
-        else { StartCoroutine(FadeOut(fadeRate, fadeCallback)); }
+        if (fadeIn) { return StartCoroutine(FadeIn(fadeRate, fadeCallback)); }
+        else { return StartCoroutine(FadeOut(fadeRate, fadeCallback)); }
     }
 }
