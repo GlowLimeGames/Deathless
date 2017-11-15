@@ -10,6 +10,8 @@ using Dialogue;
 public class DialogueManager : Manager<DialogueManager> {
     private const string SPEECH_BUBBLE_TAG = "Speech bubble";
 
+	private const float CLICK_DELAY = 0.3f;
+
     private SerializableTree dlgInstance;
     public static SerializableTree DlgInstance {
         get { return Instance.dlgInstance; }
@@ -254,6 +256,7 @@ public class DialogueManager : Manager<DialogueManager> {
             lineView.SetActive(true);
             scrollView.InitializeNewContent(lineView, false);
             EnableSpeechBubble(line, false);
+			StartCoroutine (DelayClick ());
         }
         else {
             gameObject.SetActive(false);
@@ -266,17 +269,27 @@ public class DialogueManager : Manager<DialogueManager> {
     /// </summary>
     public void ShowChoices(List<Node> choices) {
         gameObject.SetActive(true);
-        foreach (Node choice in choices) {
-            if (choice.Data.Text != "") {
-                DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
-                choiceUI.Init(choice);
-                choiceUI.transform.SetParent(choiceView.transform, false);
-            }
-        }
+		foreach (Node choice in choices) {
+			if (choice.Data.Text != "") {
+				DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
+				choiceUI.Init(choice);
+				choiceUI.transform.SetParent(choiceView.transform, false);
+			}
+		}
         choiceView.SetActive(true);
         scrollView.InitializeNewContent(choiceView, true);
         EnableSpeechBubble(choices[0], true);
+		StartCoroutine (DelayClick ());
     }
+
+	/// <summary>
+	/// Delays the ability to click for clickDelay seconds.
+	/// </summary>
+	IEnumerator DelayClick() {
+		UIManager.BlockAllInput (true);
+		yield return new WaitForSeconds (CLICK_DELAY);
+		UIManager.BlockAllInput (false);
+	}
 
     /// <summary>
     /// Clear any dialogue lines or choices
