@@ -103,7 +103,7 @@ public class UIManager : Manager<UIManager> {
         UpdateCursorHover();
     }
 
-    private static void UpdateCursorHover() {
+    public static void UpdateCursorHover() {
         SetInteractionCursor(false);
         ClearHoverText();
 
@@ -111,7 +111,7 @@ public class UIManager : Manager<UIManager> {
         Hoverable hitItem = null;
 
         if (hitColl != null) {
-            hitItem = hitColl.GetComponent<GameItem>();
+            hitItem = hitColl.GetComponent<Hoverable>();
         }
 
         if (hitItem != null) {
