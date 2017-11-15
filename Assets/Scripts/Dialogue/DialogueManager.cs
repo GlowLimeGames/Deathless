@@ -10,7 +10,7 @@ using Dialogue;
 public class DialogueManager : Manager<DialogueManager> {
     private const string SPEECH_BUBBLE_TAG = "Speech bubble";
 
-	public const float clickDelay = 0.3f;
+	private const float CLICK_DELAY = 0.3f;
 
     private SerializableTree dlgInstance;
     public static SerializableTree DlgInstance {
@@ -256,12 +256,12 @@ public class DialogueManager : Manager<DialogueManager> {
             lineView.SetActive(true);
             scrollView.InitializeNewContent(lineView, false);
             EnableSpeechBubble(line, false);
+			StartCoroutine (DelayClick ());
         }
         else {
             gameObject.SetActive(false);
             DialogueManager.Next(line);
         }
-		StartCoroutine (DelayClick ());
     }
 
     /// <summary>
@@ -287,7 +287,7 @@ public class DialogueManager : Manager<DialogueManager> {
 	/// </summary>
 	IEnumerator DelayClick() {
 		UIManager.BlockAllInput (true);
-		yield return new WaitForSeconds (clickDelay);
+		yield return new WaitForSeconds (CLICK_DELAY);
 		UIManager.BlockAllInput (false);
 	}
 
