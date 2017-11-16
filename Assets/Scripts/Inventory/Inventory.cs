@@ -63,6 +63,7 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
     public static void Show(bool visible) {
         Instance.gameObject.SetActive(visible);
         UIManager.OnShowUIElement(visible);
+        GameItem.CancelInteraction();
 
         if (isObserveIconSelected) {
             ClearSelection();
