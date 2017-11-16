@@ -101,6 +101,7 @@ public class UIManager : Manager<UIManager> {
         BlockWorldInput(show);
         ShowGameButtons(!show);
         UpdateCursorHover();
+        GameItem.CancelInteraction();
     }
 
     public static void UpdateCursorHover() {
