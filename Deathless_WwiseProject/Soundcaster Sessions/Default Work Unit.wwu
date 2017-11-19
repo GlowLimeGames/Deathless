@@ -14,8 +14,16 @@
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="IncineratorArea_SFX_GasExplosion" ID="{132E8A92-9D21-44D1-B682-565C3436CA88}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="IncineratorArea_SFX_DoorOpen" ID="{85803FDA-919C-40A2-A135-7CFE8619088B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
 							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="IncineratorArea_SFX_ContainerDown" ID="{8209A204-F70D-4917-B077-29CB25FED01B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<Position X="1" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -25,7 +33,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DistanceToFurnace" ID="{E69F62DB-A2B9-42DC-A63F-C859203AF7C6}"/>
-							<Value>0</Value>
+							<Value>1.60837696335079</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DistanceToghost" ID="{87EC5F0B-4713-44F9-9F59-74DF90D10E3E}"/>
@@ -33,7 +41,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DistanceToCorpse_03" ID="{F8A60522-EFFF-47CE-91C1-54C313D2520B}"/>
-							<Value>0</Value>
+							<Value>7.89109947643979</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="DistanceToCorpse_01" ID="{C6266203-6CD7-4EB4-B53D-24924372B16C}"/>
