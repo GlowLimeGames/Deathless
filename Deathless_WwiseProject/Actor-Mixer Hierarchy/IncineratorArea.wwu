@@ -11438,16 +11438,12 @@
 					<PropertyList>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Pitch" Type="int32">
-							<ValueList>
-								<Value>-580</Value>
-							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
 									<Modifier Name="" ID="{10D2AC7E-AB74-4BEE-B94A-94D82FDB0201}">
 										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="682"/>
-											<Property Name="Min" Type="Real64" Value="-758"/>
+											<Property Name="Max" Type="Real64" Value="328"/>
+											<Property Name="Min" Type="Real64" Value="-354"/>
 										</PropertyList>
 									</Modifier>
 								</ModifierInfo>
@@ -11455,7 +11451,7 @@
 						</Property>
 						<Property Name="UserAuxSendVolume0" Type="Real64">
 							<ValueList>
-								<Value>12</Value>
+								<Value>2</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Volume" Type="Real64">
@@ -11480,9 +11476,17 @@
 							<Language>SFX</Language>
 							<AudioFile>dl_sfx_vatBlood.wav</AudioFile>
 						</AudioFileSource>
+						<AudioFileSource Name="dl_sfx_vatBloodV2" ID="{2AE70A5F-CC56-4E5C-8D66-B4D20A8A4EB1}" ShortID="998468798">
+							<Language>SFX</Language>
+							<AudioFile>dl_sfx_vatBloodV2.wav</AudioFile>
+						</AudioFileSource>
+						<AudioFileSource Name="dl_sfx_vatBloodV3" ID="{CA24C733-58C0-4164-B4A9-80E8622C7B74}" ShortID="996428930">
+							<Language>SFX</Language>
+							<AudioFile>dl_sfx_vatBloodV3.wav</AudioFile>
+						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="dl_sfx_vatBlood" ID="{661F73D2-EEFA-4B4E-8D65-095436BA9E27}" Platform="Linked"/>
+						<ActiveSource Name="dl_sfx_vatBloodV2" ID="{2AE70A5F-CC56-4E5C-8D66-B4D20A8A4EB1}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="dl_deathsound_tag" ID="{D0FBBE05-5334-4A80-9345-A3ED92C05483}" ShortID="658144588">
