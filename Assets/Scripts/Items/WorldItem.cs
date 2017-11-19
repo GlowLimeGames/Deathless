@@ -116,18 +116,13 @@ public class WorldItem : GameItem {
                     "(Must have Seeker and CustomAIPath components attached.)");
             }
             else {
+                if (!aiPath.isMoving) { AudioController.PlayEvent(footstepAudioEvent); }
                 dlgActionMovement = isDialogueAction;
                 if (AnimController != null) { AnimController.Walk(); }
                 aiPath.canMove = true;
                 seeker.StartPath(transform.position, point);
-
-                InvokeRepeating("PlayFootsteps", 0f, 0.3f);
             }
         }
-    }
-    
-    private void PlayFootsteps() {
-        AudioController.PlayEvent(footstepAudioEvent);
     }
 
     public void StopMovement() {
@@ -135,7 +130,7 @@ public class WorldItem : GameItem {
         else if (aiPath != null) {
             aiPath.StopImmediately();
             if (AnimController != null) { AnimController.Idle(); }
-            CancelInvoke("PlayFootsteps");
+            AudioController.StopEvent(footstepAudioEvent);
         }
     }
 
