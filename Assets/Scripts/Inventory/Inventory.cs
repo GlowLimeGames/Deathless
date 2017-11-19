@@ -47,6 +47,7 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
         SingletonInit();
 
         ObserveItem = observeItem;
+        PopupItem.Init();
 
         // Add inventory slots to list
         foreach (InventorySlot slot in transform.GetComponentsInChildren<InventorySlot>(true)) {
@@ -87,7 +88,7 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
             }
         }
         if (item != null) { Debug.LogWarning("Failed to add item to inventory: " + item); }
-        PopupInventoryItem.renderItemSprite(prefab);
+        PopupItem.RenderItemSprite(prefab);
     }
 
     /// <summary>
