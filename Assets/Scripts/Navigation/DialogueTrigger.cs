@@ -13,7 +13,7 @@ public class DialogueTrigger : MonoBehaviour {
             if (DialogueManager.StartDialogue(dialogue)) {
                 player.StopMovement();
                 Inventory.Show(false);
-                UIManager.OnShowUIElement(true);
+                Inventory.ClearSelection();
             }
         }
     }

@@ -129,6 +129,10 @@ namespace Dialogue {
             item.Enable();
         }
 
+        public void DisableItem(GameItem item) {
+            item.Disable();
+        }
+
         public void InstantiateItemAtPosition(Transform t) {
             WorldItem item = itemVar as WorldItem;
             if (item != null) {
