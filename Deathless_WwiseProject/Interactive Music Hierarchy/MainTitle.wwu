@@ -4,6 +4,13 @@
 		<WorkUnit Name="MainTitle" ID="{55BFDABE-263B-498B-90ED-25362473BAEE}" OwnerID="{86B97756-68E5-4219-9C43-47DFB7B5CFBB}" PersistMode="Nested">
 			<ChildrenList>
 				<MusicPlaylistContainer Name="MX_MainTitle" ID="{A3BF3916-5140-448E-8B52-1FFEEF59F8A2}" ShortID="363595487">
+					<PropertyList>
+						<Property Name="UserAuxSendVolume0" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
@@ -11,14 +18,17 @@
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
 						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Reverb" ID="{48CBF8F7-D2B0-47D7-B2AB-90A47AE0F679}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<MusicSegment Name="Main Title" ID="{70B63D99-FA7C-4DAE-A3A2-8B8FD7A5D534}" ShortID="696157777">
 							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="80000"/>
+								<Property Name="EndPosition" Type="Real64" Value="160000"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-6</Value>
+										<Value>-1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -61,6 +71,60 @@
 														<Property Name="FadeOutMode" Type="int16" Value="0"/>
 													</PropertyList>
 													<AudioSourceRef Name="Main Title" ID="{228A7ACA-F794-4F40-9927-852EFCF1E176}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+								<MusicTrack Name="Main_TitleV2" ID="{739E4B92-4755-46C5-AFE6-4C5B0786F9A2}" ShortID="115842936">
+									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="dl_mx_Main Title" ID="{CBC8ED4A-57DE-4AA5-864E-94506E9F1B3C}" ShortID="185529974">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+												</Reference>
+											</ReferenceList>
+											<Language>SFX</Language>
+											<AudioFile>dl_mx_Main Title.wav</AudioFile>
+										</AudioFileSource>
+										<AudioFileSource Name="dl_mx_Main Title_01" ID="{28E2A05C-B9BF-4061-9641-9E94CCE34CEF}" ShortID="552794605">
+											<Language>SFX</Language>
+											<AudioFile>dl_mx_Main Title.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="185529974"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{0F593C73-6FC2-4206-8AE9-14AC508F0934}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{18F29299-3597-4AB2-8D6F-E5CAEFDF601A}">
+											<ClipList>
+												<MusicClip Name="dl_mx_Main Title" ID="{1B97AF05-04BD-4EB1-A97A-6E4BE60D02DF}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="80000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="dl_mx_Main Title_01" ID="{28E2A05C-B9BF-4061-9641-9E94CCE34CEF}"/>
 												</MusicClip>
 											</ClipList>
 										</MusicTrackSequence>

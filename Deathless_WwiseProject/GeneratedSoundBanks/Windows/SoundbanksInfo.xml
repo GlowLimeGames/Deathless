@@ -552,13 +552,13 @@
 					<ShortName>_Open Inventory 2.wav</ShortName>
 					<Path>SFX/_Open Inventory 2_53CEE377.wem</Path>
 				</File>
-				<File Id="568696611" Language="SFX">
-					<ShortName>dl_sfx_doorOpen.wav</ShortName>
-					<Path>SFX/dl_sfx_doorOpen_53CEE377_E386810B.wem</Path>
-				</File>
 				<File Id="637813854" Language="SFX">
 					<ShortName>Close Inventory 2_01.wav</ShortName>
 					<Path>SFX/Close Inventory 2_01_53CEE377.wem</Path>
+				</File>
+				<File Id="734495103" Language="SFX">
+					<ShortName>dl_sfx_DoorOpenV2.wav</ShortName>
+					<Path>SFX/dl_sfx_DoorOpenV2_53CEE377.wem</Path>
 				</File>
 				<File Id="812091055" Language="SFX">
 					<ShortName>Close Inventory 3_01.wav</ShortName>
