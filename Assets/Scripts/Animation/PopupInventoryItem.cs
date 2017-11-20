@@ -13,7 +13,7 @@ public class PopupInventoryItem : MonoBehaviour {
     [SerializeField]
     private int bounceRepetitions = 2;
 
-    public void Init() {
+    private void Start() {
         gameObjectImage = gameObject.GetComponent<Image>();
         originalPos = transform.position;
         gameObject.SetActive(false);

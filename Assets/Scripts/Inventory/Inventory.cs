@@ -47,7 +47,6 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
         SingletonInit();
 
         ObserveItem = observeItem;
-        PopupItem.Init();
 
         // Add inventory slots to list
         foreach (InventorySlot slot in transform.GetComponentsInChildren<InventorySlot>(true)) {
