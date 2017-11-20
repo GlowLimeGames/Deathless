@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : Manager<GameManager> {
     public const string MAIN_MENU_SCENE = "MainMenu";
 
+    [SerializeField]
+    private bool displayIntroInEditor = false;
+
     /// <summary>
     /// The Player object in the current scene.
     /// </summary>
@@ -61,8 +64,10 @@ public class GameManager : Manager<GameManager> {
             ResetGameData();
         }
         else {
-           // Intro intro = Util.FindObjectOfType<Intro>(true);
-            //if (intro != null) { intro.gameObject.SetActive(true); }
+            Intro intro = Util.FindObjectOfType<Intro>(true);
+            if (intro != null && (Instance.displayIntroInEditor || !Application.isEditor)) {
+                intro.gameObject.SetActive(true);
+            }
         }
     }
 
