@@ -4,6 +4,7 @@
 		<WorkUnit Name="Default Work Unit" ID="{86B97756-68E5-4219-9C43-47DFB7B5CFBB}" PersistMode="Standalone">
 			<ChildrenList>
 				<WorkUnit Name="IncineratorAreaMX" ID="{D46D78C8-D73B-45CD-B49D-0A1CF13D4279}" PersistMode="Reference"/>
+				<WorkUnit Name="MainTitle" ID="{55BFDABE-263B-498B-90ED-25362473BAEE}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>

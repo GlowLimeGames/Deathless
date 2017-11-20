@@ -401,6 +401,64 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="IncineratorArea_MX_StopAmbrose" ID="{569F88CC-AC56-4F7B-B9DF-F2A667927B32}">
+					<ChildrenList>
+						<Action Name="" ID="{A0458CDA-851C-46CB-A5F5-57F26F1F9C05}" ShortID="66328935">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ThemeAmbroise" ID="{3C5AA8D3-AACB-46CA-ACD9-440E93644C4B}" WorkUnitID="{D46D78C8-D73B-45CD-B49D-0A1CF13D4279}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_BottleRefil" ID="{49B22ABF-4273-48FF-980E-70F34050BCC4}">
+					<ChildrenList>
+						<Action Name="" ID="{D7C52BA1-2664-4331-9BE8-29222A8F3F98}" ShortID="639822081">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BottleRefile" ID="{8DBB0159-F718-409B-BE64-FA8792208BDC}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MainMenu_MX_MainTitle" ID="{C2DBCEEA-40D5-467E-817E-C8EA2BCC79BD}">
+					<ChildrenList>
+						<Action Name="" ID="{6397A0ED-76F3-426C-B66A-16F8D031183A}" ShortID="723927428">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MX_MainTitle" ID="{A3BF3916-5140-448E-8B52-1FFEEF59F8A2}" WorkUnitID="{55BFDABE-263B-498B-90ED-25362473BAEE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MainMenu_MX_StopMainTitle" ID="{8499716C-6AC1-4E0E-ACA9-EC310D0AE2B8}">
+					<ChildrenList>
+						<Action Name="" ID="{4D1AF25E-8619-426C-B333-680D9DC06DD7}" ShortID="523896600">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeCurve" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="6.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MX_MainTitle" ID="{A3BF3916-5140-448E-8B52-1FFEEF59F8A2}" WorkUnitID="{55BFDABE-263B-498B-90ED-25362473BAEE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

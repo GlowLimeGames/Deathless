@@ -18,6 +18,9 @@
 			<IncludedEvents>
 				<Event Id="2665091793" Name="IncineratorArea_MX_Amb" ObjectPath="\Events\Default Work Unit\IncineratorArea_MX_Amb"/>
 				<Event Id="2454824528" Name="IncineratorArea_MX_Ambrose" ObjectPath="\Events\Default Work Unit\IncineratorArea_MX_Ambrose"/>
+				<Event Id="3113703984" Name="IncineratorArea_MX_StopAmbrose" ObjectPath="\Events\Default Work Unit\IncineratorArea_MX_StopAmbrose" MaxAttenuation="0.000000"/>
+				<Event Id="1520979171" Name="MainMenu_MX_MainTitle" ObjectPath="\Events\Default Work Unit\MainMenu_MX_MainTitle"/>
+				<Event Id="3632445627" Name="MainMenu_MX_StopMainTitle" ObjectPath="\Events\Default Work Unit\MainMenu_MX_StopMainTitle" MaxAttenuation="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="60464570" Language="SFX">
@@ -27,6 +30,10 @@
 				<File Id="118550679" Language="SFX">
 					<ShortName>Incinerator_MX_Long Gong 1 v1.0.wav</ShortName>
 					<Path>SFX/Incinerator_MX_Long Gong 1 v1.0_9452F465.wem</Path>
+				</File>
+				<File Id="141210675" Language="SFX">
+					<ShortName>Main Title.wav</ShortName>
+					<Path>SFX/Main Title_9452F465.wem</Path>
 				</File>
 				<File Id="172970656" Language="SFX">
 					<ShortName>Ambrose_IT1.wav</ShortName>
@@ -120,10 +127,6 @@
 				<File Id="38724820" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale01_03.wav</ShortName>
 					<Path>SFX/dl_sfx_bg_incinerator_Ball_ScreamsFemale01_03_53CEE377.wem</Path>
-				</File>
-				<File Id="84126850" Language="SFX">
-					<ShortName>dl_sfx_vatBlood.wav</ShortName>
-					<Path>SFX/dl_sfx_vatBlood_9452F465.wem</Path>
 				</File>
 				<File Id="84457572" Language="SFX">
 					<ShortName>dl_sfx_bg_incinerator_Ball_ScreamsFemale02_03.wav</ShortName>
@@ -437,6 +440,10 @@
 					<ShortName>dl_sfx_bg_incinerator_ScreamsMale02_07.wav</ShortName>
 					<Path>SFX/dl_sfx_bg_incinerator_ScreamsMale02_07_53CEE377.wem</Path>
 				</File>
+				<File Id="998468798" Language="SFX">
+					<ShortName>dl_sfx_vatBloodV2.wav</ShortName>
+					<Path>SFX/dl_sfx_vatBloodV2_9452F465.wem</Path>
+				</File>
 				<File Id="1006801742" Language="SFX">
 					<ShortName>Incinerator_Artifact_AfterDeath_01-01.wav</ShortName>
 					<Path>SFX/Incinerator_Artifact_AfterDeath_01-01_53CEE377.wem</Path>
@@ -474,6 +481,7 @@
 			<Path>Incinerator_SFX_Events.bnk</Path>
 			<IncludedEvents>
 				<Event Id="1223189741" Name="IncineratorArea_SFX_BoozeOnDoor" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_BoozeOnDoor"/>
+				<Event Id="3322555909" Name="IncineratorArea_SFX_BottleRefil" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_BottleRefil"/>
 				<Event Id="723047392" Name="IncineratorArea_SFX_ContainerDown" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_ContainerDown"/>
 				<Event Id="3335150109" Name="IncineratorArea_SFX_DoorIgnite" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_DoorIgnite"/>
 				<Event Id="1931230811" Name="IncineratorArea_SFX_DoorOpen" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_DoorOpen"/>
@@ -492,9 +500,17 @@
 					<ShortName>_Open Inventory 4.wav</ShortName>
 					<Path>SFX/_Open Inventory 4_53CEE377.wem</Path>
 				</File>
+				<File Id="167784024" Language="SFX">
+					<ShortName>dl_sfx_bottleFill3.wav</ShortName>
+					<Path>SFX/dl_sfx_bottleFill3_53CEE377.wem</Path>
+				</File>
 				<File Id="183341747" Language="SFX">
 					<ShortName>Close Inventory 4_01.wav</ShortName>
 					<Path>SFX/Close Inventory 4_01_53CEE377.wem</Path>
+				</File>
+				<File Id="209862829" Language="SFX">
+					<ShortName>dl_sfx_bottleFill.wav</ShortName>
+					<Path>SFX/dl_sfx_bottleFill_53CEE377.wem</Path>
 				</File>
 				<File Id="244888218" Language="SFX">
 					<ShortName>_Open Inventory 3.wav</ShortName>
@@ -536,13 +552,13 @@
 					<ShortName>_Open Inventory 2.wav</ShortName>
 					<Path>SFX/_Open Inventory 2_53CEE377.wem</Path>
 				</File>
-				<File Id="568696611" Language="SFX">
-					<ShortName>dl_sfx_doorOpen.wav</ShortName>
-					<Path>SFX/dl_sfx_doorOpen_53CEE377_E386810B.wem</Path>
-				</File>
 				<File Id="637813854" Language="SFX">
 					<ShortName>Close Inventory 2_01.wav</ShortName>
 					<Path>SFX/Close Inventory 2_01_53CEE377.wem</Path>
+				</File>
+				<File Id="734495103" Language="SFX">
+					<ShortName>dl_sfx_DoorOpenV2.wav</ShortName>
+					<Path>SFX/dl_sfx_DoorOpenV2_53CEE377.wem</Path>
 				</File>
 				<File Id="812091055" Language="SFX">
 					<ShortName>Close Inventory 3_01.wav</ShortName>
@@ -559,6 +575,10 @@
 				<File Id="826692554" Language="SFX">
 					<ShortName>dl_sfx_DoorBooze.wav</ShortName>
 					<Path>SFX/dl_sfx_DoorBooze_53CEE377.wem</Path>
+				</File>
+				<File Id="850327708" Language="SFX">
+					<ShortName>dl_sfx_bottleFill2.wav</ShortName>
+					<Path>SFX/dl_sfx_bottleFill2_53CEE377.wem</Path>
 				</File>
 				<File Id="880753974" Language="SFX">
 					<ShortName>Close Inventory 7_01.wav</ShortName>

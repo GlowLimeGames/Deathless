@@ -8,15 +8,15 @@
 			</Language>
 			<Language ID="393239870">
 				<File Name="Incinerator" Hash="718074055" Timestamp="131523563450000000"/>
-				<File Name="Incinerator_MX" Hash="2363898502" Timestamp="131553082860000000"/>
-				<File Name="Incinerator_SFX" Hash="2131919306" Timestamp="131553083340000000"/>
-				<File Name="Incinerator_SFX_Events" Hash="272234814" Timestamp="131553082870000000"/>
-				<File Name="Init" Hash="2738092225" Timestamp="131553082870000000"/>
+				<File Name="Incinerator_MX" Hash="2762765866" Timestamp="131556211330000000"/>
+				<File Name="Incinerator_SFX" Hash="3360814108" Timestamp="131555873710000000"/>
+				<File Name="Incinerator_SFX_Events" Hash="80317713" Timestamp="131556211330000000"/>
+				<File Name="Init" Hash="2559433671" Timestamp="131556211330000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="3387319281" Timestamp="131553083340000000"/>
+				<File Name="" Hash="1695904710" Timestamp="131556211330000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
@@ -37,15 +37,15 @@
 	<Platform GUID="{86837377-2808-4F20-BDFC-6ACC16F2387E}">
 		<Banks>
 			<Language ID="393239870">
-				<File Name="Incinerator_MX" Hash="2363898502" Timestamp="131553082830000000"/>
-				<File Name="Incinerator_SFX" Hash="2131919306" Timestamp="131553083330000000"/>
-				<File Name="Incinerator_SFX_Events" Hash="272234814" Timestamp="131553082830000000"/>
-				<File Name="Init" Hash="3248061639" Timestamp="131553082830000000"/>
+				<File Name="Incinerator_MX" Hash="2762765866" Timestamp="131556211320000000"/>
+				<File Name="Incinerator_SFX" Hash="3360814108" Timestamp="131555873700000000"/>
+				<File Name="Incinerator_SFX_Events" Hash="80317713" Timestamp="131556211330000000"/>
+				<File Name="Init" Hash="282313037" Timestamp="131556211330000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="551054175" Timestamp="131553083330000000"/>
+				<File Name="" Hash="3206536604" Timestamp="131556211330000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
