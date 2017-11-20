@@ -11,6 +11,5 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 Effect plug-ins	ID	Name	Type				Notes
 	273014423	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	484890516	Church_Small_Wood	Wwise RoomVerb			
-	1675424737	Extreme_Limiting_1	Wwise Peak Limiter			
 	3701691487	Hall_Large_Bright	Wwise RoomVerb			
 

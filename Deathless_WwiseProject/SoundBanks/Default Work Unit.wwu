@@ -33,7 +33,11 @@
 						</Property>
 					</PropertyList>
 					<ObjectInclusionList>
-						<ObjectRef Name="Default Work Unit" ID="{86B97756-68E5-4219-9C43-47DFB7B5CFBB}" WorkUnitID="{86B97756-68E5-4219-9C43-47DFB7B5CFBB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_MX_Ambrose" ID="{73227086-2DEA-4085-9F3D-2072E31C9135}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="MainMenu_MX_MainTitle" ID="{C2DBCEEA-40D5-467E-817E-C8EA2BCC79BD}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_MX_Amb" ID="{729D1B9A-4C4B-4DB3-81D5-3E39C2BE3EB8}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="MainMenu_MX_StopMainTitle" ID="{8499716C-6AC1-4E0E-ACA9-EC310D0AE2B8}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_MX_StopAmbrose" ID="{569F88CC-AC56-4F7B-B9DF-F2A667927B32}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
@@ -52,6 +56,7 @@
 						<ObjectRef Name="IncineratorArea_SFX_PaperDown" ID="{264D416F-B9A0-406B-AFCB-3141E99192E5}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_DoorOpen" ID="{85803FDA-919C-40A2-A135-7CFE8619088B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_GasExplosion" ID="{132E8A92-9D21-44D1-B682-565C3436CA88}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_SFX_BottleRefil" ID="{49B22ABF-4273-48FF-980E-70F34050BCC4}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_ContainerDown" ID="{8209A204-F70D-4917-B077-29CB25FED01B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_DoorIgnite" ID="{39F21799-D1F7-4ABE-B22C-B4B44FEF15BC}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_UI_OpenInventory" ID="{4EAEF89F-FE1A-4B9F-A7B2-6821CDCF7BE0}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>

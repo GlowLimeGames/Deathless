@@ -11438,16 +11438,12 @@
 					<PropertyList>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Pitch" Type="int32">
-							<ValueList>
-								<Value>-580</Value>
-							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
 									<Modifier Name="" ID="{10D2AC7E-AB74-4BEE-B94A-94D82FDB0201}">
 										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="682"/>
-											<Property Name="Min" Type="Real64" Value="-758"/>
+											<Property Name="Max" Type="Real64" Value="328"/>
+											<Property Name="Min" Type="Real64" Value="-354"/>
 										</PropertyList>
 									</Modifier>
 								</ModifierInfo>
@@ -11455,7 +11451,7 @@
 						</Property>
 						<Property Name="UserAuxSendVolume0" Type="Real64">
 							<ValueList>
-								<Value>12</Value>
+								<Value>2</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Volume" Type="Real64">
@@ -11480,9 +11476,17 @@
 							<Language>SFX</Language>
 							<AudioFile>dl_sfx_vatBlood.wav</AudioFile>
 						</AudioFileSource>
+						<AudioFileSource Name="dl_sfx_vatBloodV2" ID="{2AE70A5F-CC56-4E5C-8D66-B4D20A8A4EB1}" ShortID="998468798">
+							<Language>SFX</Language>
+							<AudioFile>dl_sfx_vatBloodV2.wav</AudioFile>
+						</AudioFileSource>
+						<AudioFileSource Name="dl_sfx_vatBloodV3" ID="{CA24C733-58C0-4164-B4A9-80E8622C7B74}" ShortID="996428930">
+							<Language>SFX</Language>
+							<AudioFile>dl_sfx_vatBloodV3.wav</AudioFile>
+						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="dl_sfx_vatBlood" ID="{661F73D2-EEFA-4B4E-8D65-095436BA9E27}" Platform="Linked"/>
+						<ActiveSource Name="dl_sfx_vatBloodV2" ID="{2AE70A5F-CC56-4E5C-8D66-B4D20A8A4EB1}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="dl_deathsound_tag" ID="{D0FBBE05-5334-4A80-9345-A3ED92C05483}" ShortID="658144588">
@@ -11851,19 +11855,9 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="DoorOpen" ID="{0823A712-41BA-44FD-8C07-CC54C514CAEF}" ShortID="697546701">
-					<PropertyList>
-						<Property Name="RenderEffect0" Type="bool">
-							<ValueList>
-								<Value>True</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
-						</Reference>
-						<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
-							<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
@@ -11874,9 +11868,13 @@
 							<Language>SFX</Language>
 							<AudioFile>dl_sfx_doorOpen.wav</AudioFile>
 						</AudioFileSource>
+						<AudioFileSource Name="dl_sfx_DoorOpenV2" ID="{D60C3F46-A03F-45D2-82D5-CBC4F7B1069C}" ShortID="734495103">
+							<Language>SFX</Language>
+							<AudioFile>dl_sfx_DoorOpenV2.wav</AudioFile>
+						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="dl_sfx_doorOpen" ID="{9591641E-DA04-4A1C-8902-35C1AA0ACB71}" Platform="Linked"/>
+						<ActiveSource Name="dl_sfx_DoorOpenV2" ID="{D60C3F46-A03F-45D2-82D5-CBC4F7B1069C}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Evemt_DoorIgnite" ID="{28FF5F33-DEA1-4E0E-8751-ACED328B77FF}" ShortID="763674433">

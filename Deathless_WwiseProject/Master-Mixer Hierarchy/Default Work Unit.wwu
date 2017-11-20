@@ -5,22 +5,13 @@
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
 					<PropertyList>
-						<Property Name="BypassEffect0" Type="bool">
-							<ValueList>
-								<Value>True</Value>
-							</ValueList>
-						</Property>
 						<Property Name="DivergenceCenter" Type="int32">
 							<ValueList>
 								<Value>100</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
-							<ObjectRef Name="Extreme_Limiting_1" ID="{8F08A8A7-3313-4E5D-9EBD-2B1B564DE411}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-						</Reference>
-					</ReferenceList>
+					<ReferenceList/>
 					<ChildrenList>
 						<Bus Name="SFX Master" ID="{DBE0B72C-5059-4D0A-89BE-E07BF614679C}">
 							<PropertyList>
