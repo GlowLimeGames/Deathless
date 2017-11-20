@@ -41,6 +41,7 @@ namespace Dialogue {
             EditorGUILayout.PropertyField(restriction);
             
             data.EndDialogue = EditorGUILayout.Toggle("End Dialogue", data.EndDialogue);
+            data.RandomizeChildren = EditorGUILayout.Toggle("Randomize Children", data.RandomizeChildren);
 
             EditorGUI.EndDisabledGroup();
         }

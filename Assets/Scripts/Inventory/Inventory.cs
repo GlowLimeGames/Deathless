@@ -155,6 +155,7 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
     /// </summary>
     public static void ClearSelection(bool temp = false) {
         SelectItem(null, temp);
+        UIManager.UpdateCursorHover();
     }
 
     /// <summary>

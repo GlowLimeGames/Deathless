@@ -143,7 +143,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Ghost_Sad" ID="{3CDDC55D-6E01-41C0-866F-110E2CBA62A1}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+									<ObjectRef Name="Ghost_Sad" ID="{29B15C3D-84F7-4249-B18F-F4B17899DC98}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -205,13 +205,43 @@
 				</Event>
 				<Event Name="IncineratorArea_SFX_GasExplosion" ID="{132E8A92-9D21-44D1-B682-565C3436CA88}">
 					<ChildrenList>
+						<Action Name="" ID="{13BE5581-01DF-40A8-B0A0-7152B71AB170}" ShortID="393056197">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="11"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+								<Property Name="Volume" Type="Real64" Value="-6"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Container" ID="{069146D6-C7C4-42CE-A4D7-39FB70140E35}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{3EBB6892-404E-44E9-9EA4-2DBD6545E9FE}" ShortID="839825260">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Placeholder_GasExplosion" ID="{2BDDBB76-0E17-4BBF-910E-3D7E9C26977E}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+									<ObjectRef Name="Explosion" ID="{D4D2EE6F-1D54-476A-92B0-03097B851471}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{C6F9F113-C487-4C9F-B305-7897717E3F36}" ShortID="276647236">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Delay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{7F6F5966-311F-48D3-95B8-4602DBDDD5E2}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AcidContainer" ID="{CB281E10-4FA6-4845-9AAB-98806F60F753}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -225,7 +255,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Placeholder_VATBlood" ID="{ED70A225-E260-4B60-B96A-9B8E6BF225D3}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+									<ObjectRef Name="VATBlood" ID="{ED70A225-E260-4B60-B96A-9B8E6BF225D3}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -253,7 +283,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Placeholder_BoozeDoor" ID="{681D2312-B272-4DC5-A7DD-706E863A7878}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+									<ObjectRef Name="Event_BoozeDoor" ID="{681D2312-B272-4DC5-A7DD-706E863A7878}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -267,7 +297,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Placeholder_DoorOpen" ID="{0823A712-41BA-44FD-8C07-CC54C514CAEF}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+									<ObjectRef Name="DoorOpen" ID="{0823A712-41BA-44FD-8C07-CC54C514CAEF}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -281,7 +311,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Placeholder_BoozeDoor" ID="{681D2312-B272-4DC5-A7DD-706E863A7878}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+									<ObjectRef Name="Event_BoozeDoor" ID="{681D2312-B272-4DC5-A7DD-706E863A7878}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -295,7 +325,77 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Placeholder_DoorIgnite" ID="{28FF5F33-DEA1-4E0E-8751-ACED328B77FF}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+									<ObjectRef Name="Evemt_DoorIgnite" ID="{28FF5F33-DEA1-4E0E-8751-ACED328B77FF}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_PaperPickUp" ID="{F6A1517B-4EE6-4FE9-8360-506F284851F5}">
+					<ChildrenList>
+						<Action Name="" ID="{00F29AF6-4FCA-4F9D-94E4-7F7F5216FAD0}" ShortID="629755625">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="PaperPickUp" ID="{3EFFAF5D-7F31-4B53-81CE-A4512C2EE693}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_PaperDown" ID="{264D416F-B9A0-406B-AFCB-3141E99192E5}">
+					<ChildrenList>
+						<Action Name="" ID="{26ACE77D-ED80-4E0D-85E5-38330E2865C4}" ShortID="710410002">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="PaperDown" ID="{A6B013C3-BB32-4F37-A0E1-BE31029E6779}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_ContainerDown" ID="{8209A204-F70D-4917-B077-29CB25FED01B}">
+					<ChildrenList>
+						<Action Name="" ID="{B9284ECD-7313-47B4-9FD8-07BBFDCFF7D0}" ShortID="604291073">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AcidContainer" ID="{CB281E10-4FA6-4845-9AAB-98806F60F753}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_UI_OpenInventory" ID="{4EAEF89F-FE1A-4B9F-A7B2-6821CDCF7BE0}">
+					<ChildrenList>
+						<Action Name="" ID="{233E4A85-29FC-4EA1-9BB6-51D59957BB3E}" ShortID="802579411">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="OpenInventory" ID="{A8394A69-F774-40E3-8B39-B4B7DE76C26A}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_UI_CloseInventory" ID="{5B827ADF-F0DF-4018-B532-EA23B9279573}">
+					<ChildrenList>
+						<Action Name="" ID="{20D19725-B469-43C5-B65C-7DE80794D6C3}" ShortID="14158014">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CloseInventory" ID="{CE952C4E-2EE1-4095-99FC-6E7DC2F84EB5}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
