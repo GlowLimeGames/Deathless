@@ -58,6 +58,10 @@ public class WorldItem : GameItem {
         startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
         UpdateZPos();
     }
+
+    void Update() {
+        if (aiPath != null && aiPath.isMoving) { UpdateZPos(); }
+    }
     
     /// <summary>
     /// Trigger player movement and object interaction
