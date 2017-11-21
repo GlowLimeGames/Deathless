@@ -49,7 +49,7 @@ public static class Util {
         Texture2D texture = CreateCursorTexture(sprite);
 		ResizeCursorSprite (texture, size);
         Vector2 hotspot = new Vector2(texture.width / 2, texture.height / 2);
-        Cursor.SetCursor(texture, hotspot, CursorMode.Auto);
+        Cursor.SetCursor(texture, hotspot, CursorMode.ForceSoftware);
     }
 
     /// <summary>
