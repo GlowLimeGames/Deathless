@@ -133,6 +133,10 @@ public abstract class GameItem : Hoverable {
         Instance.gameObject.SetActive(true);
     }
 
+    public void Disable() {
+        Instance.gameObject.SetActive(false);
+    }
+
     /// <summary>
     /// Trigger an interaction with this object.
     /// </summary>

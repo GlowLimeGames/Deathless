@@ -183,9 +183,12 @@ public class DialogueManager : Manager<DialogueManager> {
     /// Display the first valid dialogue node that comes after the given one.
     /// </summary>
     private static bool DisplayNextLine(Node current) {
-        List<Node> lines = GetValidNodes(current.Children, false);
+        List<Node> lines = GetValidNodes(current.Children, current.Data.RandomizeChildren);
         if (!isDialogueOver(lines)) {
-            Instance.ShowLine(lines[0]);
+            if (current.Data.RandomizeChildren) {
+                Instance.ShowLine(lines[Random.Range(0, lines.Count)]);
+            }
+            else { Instance.ShowLine(lines[0]); }
             return true;
         }
         else { return false; }

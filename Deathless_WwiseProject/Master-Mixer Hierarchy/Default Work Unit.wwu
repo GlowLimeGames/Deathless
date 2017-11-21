@@ -5,22 +5,13 @@
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
 					<PropertyList>
-						<Property Name="BypassEffect0" Type="bool">
-							<ValueList>
-								<Value>True</Value>
-							</ValueList>
-						</Property>
 						<Property Name="DivergenceCenter" Type="int32">
 							<ValueList>
 								<Value>100</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
-							<ObjectRef Name="Extreme_Limiting_1" ID="{8F08A8A7-3313-4E5D-9EBD-2B1B564DE411}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-						</Reference>
-					</ReferenceList>
+					<ReferenceList/>
 					<ChildrenList>
 						<Bus Name="SFX Master" ID="{DBE0B72C-5059-4D0A-89BE-E07BF614679C}">
 							<PropertyList>
@@ -44,7 +35,60 @@
 											<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<Bus Name="Container" ID="{069146D6-C7C4-42CE-A4D7-39FB70140E35}">
+											<PropertyList>
+												<Property Name="DivergenceCenter" Type="int32">
+													<ValueList>
+														<Value>100</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
+									</ChildrenList>
 								</Bus>
+								<AuxBus Name="Reverb" ID="{48CBF8F7-D2B0-47D7-B2AB-90A47AE0F679}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+										<Property Name="BypassEffect0" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>100</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Effect0">
+											<Custom>
+												<Effect Name="Wwise Parametric EQ (Custom)" ID="{89F695C5-26A6-4E61-84BB-6A4D5823C1CB}" ShortID="273014423" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<PropertyList>
+														<Property Name="FilterTypeBand1" Type="int32" Value="6"/>
+														<Property Name="FilterTypeBand3" Type="int32" Value="6"/>
+														<Property Name="FrequencyBand1" Type="Real32" Value="390"/>
+														<Property Name="FrequencyBand2" Type="Real32" Value="9254"/>
+														<Property Name="FrequencyBand3" Type="Real32" Value="505"/>
+														<Property Name="GainBand1" Type="Real32" Value="-7.5"/>
+														<Property Name="GainBand2" Type="Real32" Value="-5"/>
+														<Property Name="GainBand3" Type="Real32" Value="-16"/>
+														<Property Name="QFactorBand1" Type="Real32" Value="17.3"/>
+														<Property Name="QFactorBand2" Type="Real32" Value="4.7"/>
+													</PropertyList>
+												</Effect>
+											</Custom>
+										</Reference>
+										<Reference Name="Effect1" CompanyID="4095" PluginID="65535" PluginType="15">
+											<ObjectRef Name="Hall_Large_Bright" ID="{CB602948-2D1D-4977-A8D5-378184293E80}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+									</ReferenceList>
+								</AuxBus>
 							</ChildrenList>
 						</Bus>
 					</ChildrenList>

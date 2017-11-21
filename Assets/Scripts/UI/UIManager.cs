@@ -103,15 +103,24 @@ public class UIManager : Manager<UIManager> {
         UpdateCursorHover();
     }
 
-    private static void UpdateCursorHover() {
+    public static void UpdateCursorHover() {
         SetInteractionCursor(false);
         ClearHoverText();
-
-        Collider2D hitColl = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         Hoverable hitItem = null;
+        
+        List<RaycastResult> rayResults = new List<RaycastResult>();
+        PointerEventData pointerData = new PointerEventData(EventSystem.current);
+        pointerData.position = Input.mousePosition;
 
-        if (hitColl != null) {
-            hitItem = hitColl.GetComponent<GameItem>();
+        EventSystem.current.RaycastAll(pointerData, rayResults);
+        if (rayResults.Count > 0) {
+            hitItem = rayResults[0].gameObject.GetComponent<Hoverable>();
+        }
+        else {
+            Collider2D hitColl = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            if (hitColl != null) {
+                hitItem = hitColl.GetComponent<Hoverable>();
+            }
         }
 
         if (hitItem != null) {
