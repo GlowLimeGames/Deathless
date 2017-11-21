@@ -55,7 +55,9 @@
 						<ObjectRef Name="IncineratorArea_SFX_BoozeOnDoor" ID="{A6C30229-5B64-4049-AE36-DAFF50AF0463}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_PaperDown" ID="{264D416F-B9A0-406B-AFCB-3141E99192E5}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_DoorOpen" ID="{85803FDA-919C-40A2-A135-7CFE8619088B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_UI_Resume" ID="{05FA9A9D-32D5-4236-B72C-38B14C8BD58B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_GasExplosion" ID="{132E8A92-9D21-44D1-B682-565C3436CA88}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="IncineratorArea_UI_Pause" ID="{EEC37A76-5342-4725-9E34-82A57F68CF99}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_BottleRefil" ID="{49B22ABF-4273-48FF-980E-70F34050BCC4}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_ContainerDown" ID="{8209A204-F70D-4917-B077-29CB25FED01B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="IncineratorArea_SFX_DoorIgnite" ID="{39F21799-D1F7-4ABE-B22C-B4B44FEF15BC}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}" Filter="7" Origin="Manual"/>

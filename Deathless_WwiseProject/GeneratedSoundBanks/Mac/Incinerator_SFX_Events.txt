@@ -1,7 +1,9 @@
 Event	ID	Name			Wwise Object Path	Notes
 	295891968	IncineratorArea_UI_OpenInventory			\Default Work Unit\IncineratorArea_UI_OpenInventory	
+	383798442	IncineratorArea_UI_Pause			\Default Work Unit\IncineratorArea_UI_Pause	
 	534946948	IncineratorArea_UI_CloseInventory			\Default Work Unit\IncineratorArea_UI_CloseInventory	
 	723047392	IncineratorArea_SFX_ContainerDown			\Default Work Unit\IncineratorArea_SFX_ContainerDown	
+	981282301	IncineratorArea_UI_Resume			\Default Work Unit\IncineratorArea_UI_Resume	
 	997071591	IncineratorArea_SFX_PaperPickUp			\Default Work Unit\IncineratorArea_SFX_PaperPickUp	
 	1223189741	IncineratorArea_SFX_BoozeOnDoor			\Default Work Unit\IncineratorArea_SFX_BoozeOnDoor	
 	1931230811	IncineratorArea_SFX_DoorOpen			\Default Work Unit\IncineratorArea_SFX_DoorOpen	
@@ -29,8 +31,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	458451671	PaperDown	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\dl_sfx_paperDown_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\PaperDown		90912
 	476437925	_Open Inventory 1	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\_Open Inventory 1_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\OpenInventory\_Open Inventory 1		73792
 	547787254	_Open Inventory 2	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\_Open Inventory 2_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\OpenInventory\_Open Inventory 2		82576
+	599401307	DoorOpen	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\dl_sfx_DoorOpenV3_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\DoorOpen		1283800
 	637813854	Close Inventory 2_01	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Close Inventory 2_01_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\CloseInventory\Close Inventory 2_01		82576
-	734495103	DoorOpen	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\dl_sfx_DoorOpenV2_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\DoorOpen		1920372
 	812091055	Close Inventory 3_01	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Close Inventory 3_01_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\CloseInventory\Close Inventory 3_01		108608
 	819409258	Paper48_04	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Paper48_04_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\PaperPickUp\Paper48_04		172736
 	820506242	Close Inventory 1_01	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Close Inventory 1_01_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\IncineratorArea\CloseInventory\Close Inventory 1_01		73796
