@@ -746,19 +746,21 @@
 						</Effect>
 						<Effect Name="Tunnel1" ID="{CC44B890-9865-4157-965F-86FED27BC4C6}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
 							<PropertyList>
-								<Property Name="HFRatio" Type="Real32" Value="9.5"/>
-								<Property Name="NumberOfDelays" Type="int32" Value="12"/>
-								<Property Name="ReverbTime" Type="Real32" Value="5"/>
-								<Property Name="WetLevel" Type="Real32" Value="-30"/>
+								<Property Name="DelayLengthsMode" Type="int32" Value="1"/>
+								<Property Name="HFRatio" Type="Real32" Value="7.8"/>
+								<Property Name="NumberOfDelays" Type="int32" Value="16"/>
+								<Property Name="PreDelay" Type="Real32" Value="0.1"/>
+								<Property Name="ReverbTime" Type="Real32" Value="5.6"/>
+								<Property Name="WetLevel" Type="Real32" Value="-96"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Underground_Parking1" ID="{8DA66AA3-6CA0-41A0-B7A2-BB6FCABFCDA8}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
 							<PropertyList>
-								<Property Name="HFRatio" Type="Real32" Value="7.5"/>
+								<Property Name="HFRatio" Type="Real32" Value="4.5"/>
 								<Property Name="NumberOfDelays" Type="int32" Value="12"/>
 								<Property Name="PreDelay" Type="Real32" Value="0.02"/>
-								<Property Name="ReverbTime" Type="Real32" Value="4.5"/>
-								<Property Name="WetLevel" Type="Real32" Value="-30"/>
+								<Property Name="ReverbTime" Type="Real32" Value="3.6"/>
+								<Property Name="WetLevel" Type="Real32" Value="-16"/>
 							</PropertyList>
 						</Effect>
 					</ChildrenList>
@@ -781,7 +783,7 @@
 										<Property Name="HFDamping" Type="Real32" Value="1.6"/>
 										<Property Name="PreDelay" Type="Real32" Value="75"/>
 										<Property Name="Quality" Type="int32" Value="14"/>
-										<Property Name="ReverbLevel" Type="Real32" Value="-23"/>
+										<Property Name="ReverbLevel" Type="Real32" Value="-24"/>
 										<Property Name="RoomShape" Type="Real32" Value="55"/>
 										<Property Name="RoomSize" Type="Real32" Value="49"/>
 									</PropertyList>
@@ -1430,7 +1432,7 @@
 										<Property Name="HFDamping" Type="Real32" Value="10"/>
 										<Property Name="PreDelay" Type="Real32" Value="100"/>
 										<Property Name="Quality" Type="int32" Value="6"/>
-										<Property Name="ReverbLevel" Type="Real32" Value="-9"/>
+										<Property Name="ReverbLevel" Type="Real32" Value="-13"/>
 										<Property Name="RoomSize" Type="Real32" Value="100"/>
 										<Property Name="StereoWidth" Type="Real32" Value="130"/>
 									</PropertyList>
@@ -1438,10 +1440,11 @@
 								<Effect Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 									<PropertyList>
 										<Property Name="DecayTime" Type="Real32" Value="6.2"/>
-										<Property Name="Density" Type="Real32" Value="94"/>
-										<Property Name="Diffusion" Type="Real32" Value="53"/>
-										<Property Name="ERLevel" Type="Real32" Value="-22"/>
-										<Property Name="ERPattern" Type="int32" Value="30"/>
+										<Property Name="Density" Type="Real32" Value="88"/>
+										<Property Name="Diffusion" Type="Real32" Value="67"/>
+										<Property Name="DryLevel" Type="Real32" Value="-96"/>
+										<Property Name="ERLevel" Type="Real32" Value="-17"/>
+										<Property Name="ERPattern" Type="int32" Value="6"/>
 										<Property Name="Filter1Freq" Type="Real32" Value="590"/>
 										<Property Name="Filter1Gain" Type="Real32" Value="-7"/>
 										<Property Name="Filter2Freq" Type="Real32" Value="2200"/>
@@ -1449,11 +1452,13 @@
 										<Property Name="Filter2Q" Type="Real32" Value="0.1"/>
 										<Property Name="Filter3Freq" Type="Real32" Value="12000"/>
 										<Property Name="Filter3Gain" Type="Real32" Value="2.5"/>
-										<Property Name="HFDamping" Type="Real32" Value="5.65"/>
-										<Property Name="PreDelay" Type="Real32" Value="125"/>
-										<Property Name="Quality" Type="int32" Value="12"/>
-										<Property Name="RoomShape" Type="Real32" Value="0"/>
-										<Property Name="RoomSize" Type="Real32" Value="71"/>
+										<Property Name="HFDamping" Type="Real32" Value="4.85"/>
+										<Property Name="InputLFELevel" Type="Real32" Value="-69.3"/>
+										<Property Name="PreDelay" Type="Real32" Value="75"/>
+										<Property Name="Quality" Type="int32" Value="16"/>
+										<Property Name="ReverbLevel" Type="Real32" Value="-9"/>
+										<Property Name="RoomShape" Type="Real32" Value="14"/>
+										<Property Name="RoomSize" Type="Real32" Value="77"/>
 										<Property Name="StereoWidth" Type="Real32" Value="140"/>
 									</PropertyList>
 								</Effect>

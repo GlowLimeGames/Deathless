@@ -12,6 +12,8 @@ public class DialogueTrigger : MonoBehaviour {
         if (player != null) {
             if (DialogueManager.StartDialogue(dialogue)) {
                 player.StopMovement();
+                Inventory.Show(false);
+                Inventory.ClearSelection();
             }
         }
     }

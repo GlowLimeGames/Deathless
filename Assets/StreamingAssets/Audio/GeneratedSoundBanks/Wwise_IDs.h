@@ -13,15 +13,29 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID INCINERATORAREA_CORPSE_01 = 4263198299U;
-        static const AkUniqueID INCINERATORAREA_CORPSE_02 = 4263198296U;
-        static const AkUniqueID INCINERATORAREA_CORPSE_03 = 4263198297U;
-        static const AkUniqueID INCINERATORAREA_GHOSTSOB = 1580874168U;
-        static const AkUniqueID INCINERATORAREA_INCINERATORS = 103633432U;
-        static const AkUniqueID INCINERATORAREA_MXAMB = 3069348512U;
+        static const AkUniqueID INCINERATORAREA_MX_AMB = 2665091793U;
+        static const AkUniqueID INCINERATORAREA_MX_AMBROSE = 2454824528U;
+        static const AkUniqueID INCINERATORAREA_MX_STOPAMBROSE = 3113703984U;
         static const AkUniqueID INCINERATORAREA_PLAYFOOTSTEPS = 2012575842U;
-        static const AkUniqueID INCINERATORAREA_START = 1640926013U;
+        static const AkUniqueID INCINERATORAREA_SFX_BOOZEONDOOR = 1223189741U;
+        static const AkUniqueID INCINERATORAREA_SFX_BOTTLEREFIL = 3322555909U;
+        static const AkUniqueID INCINERATORAREA_SFX_CONTAINERDOWN = 723047392U;
+        static const AkUniqueID INCINERATORAREA_SFX_DOORIGNITE = 3335150109U;
+        static const AkUniqueID INCINERATORAREA_SFX_DOOROPEN = 1931230811U;
+        static const AkUniqueID INCINERATORAREA_SFX_GASEXPLOSION = 3418875787U;
+        static const AkUniqueID INCINERATORAREA_SFX_GHOSTSOB = 4149116740U;
+        static const AkUniqueID INCINERATORAREA_SFX_INCINERATORS = 3123981436U;
+        static const AkUniqueID INCINERATORAREA_SFX_PAPERDOWN = 3909787927U;
+        static const AkUniqueID INCINERATORAREA_SFX_PAPERPICKUP = 997071591U;
+        static const AkUniqueID INCINERATORAREA_SFX_START = 3718798577U;
+        static const AkUniqueID INCINERATORAREA_SFX_VATAMB = 2447014480U;
         static const AkUniqueID INCINERATORAREA_STOPFOOTSTEPS = 2330997336U;
+        static const AkUniqueID INCINERATORAREA_UI_CLOSEINVENTORY = 534946948U;
+        static const AkUniqueID INCINERATORAREA_UI_DEATHTAG = 3729471074U;
+        static const AkUniqueID INCINERATORAREA_UI_EXECUTE = 964843201U;
+        static const AkUniqueID INCINERATORAREA_UI_OPENINVENTORY = 295891968U;
+        static const AkUniqueID MAINMENU_MX_MAINTITLE = 1520979171U;
+        static const AkUniqueID MAINMENU_MX_STOPMAINTITLE = 3632445627U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
@@ -38,15 +52,22 @@ namespace AK
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID INCINERATOR_MX = 849815669U;
         static const AkUniqueID INCINERATOR_SFX = 937002135U;
+        static const AkUniqueID INCINERATOR_SFX_EVENTS = 2444976825U;
     } // namespace BANKS
 
     namespace BUSSES
     {
+        static const AkUniqueID CONTAINER = 3663054174U;
         static const AkUniqueID INCINERATOR_AREA = 3696518466U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MASTER_SECONDARY_BUS = 805203703U;
         static const AkUniqueID SFX_MASTER = 3222323340U;
     } // namespace BUSSES
+
+    namespace AUX_BUSSES
+    {
+        static const AkUniqueID REVERB = 348963605U;
+    } // namespace AUX_BUSSES
 
 }// namespace AK
 

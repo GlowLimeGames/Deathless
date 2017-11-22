@@ -4,14 +4,100 @@
 		<WorkUnit Name="IncineratorAreaMX" ID="{D46D78C8-D73B-45CD-B49D-0A1CF13D4279}" OwnerID="{86B97756-68E5-4219-9C43-47DFB7B5CFBB}" PersistMode="Nested">
 			<ChildrenList>
 				<MusicPlaylistContainer Name="ThemeAmbroise" ID="{3C5AA8D3-AACB-46CA-ACD9-440E93644C4B}" ShortID="366473335">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>9</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>7</Value>
+							</ValueList>
+						</Property>
+						<Property Name="RenderEffect0" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+							<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="Ambrose_IT1" ID="{CF90301D-447A-4995-80C3-23BA1936A399}" ShortID="465805142">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="81375"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{626D8121-9641-467B-8508-02BFBF41812F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="Ambrose_IT1" ID="{5F290980-CB3D-42E2-8B3A-52E03B593784}" ShortID="644767857">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambrose_IT1" ID="{6C8745C0-D65F-44EE-A74F-B56D177EA69E}" ShortID="172970656">
+											<Language>SFX</Language>
+											<AudioFile>Ambrose_IT1.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{0B994F58-5EC9-4FC1-884C-C1796EF322C7}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{154C057F-FA73-43E6-A918-A48C83C987E3}">
+											<ClipList>
+												<MusicClip Name="Ambrose_IT1" ID="{FCF8861E-E883-4B3C-93B6-0F2CAA21CA48}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="81375"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Ambrose_IT1" ID="{6C8745C0-D65F-44EE-A74F-B56D177EA69E}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{342DCF58-84C0-473E-9B6F-C99155F17B46}"/>
+								<MusicCue Name="Exit Cue" ID="{DF2D254E-ADBB-42C1-9EB4-3F20FBD8441F}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="81375"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{EAFEA828-12B7-4FD4-B7E3-1FDA30370221}">
 							<PropertyList>
@@ -26,14 +112,26 @@
 						</MusicTransition>
 					</TransitionList>
 					<Playlist>
-						<MusicPlaylistItem Name="" ID="{E34A5184-06FF-4494-826C-D7A7B885ACE6}" ShortID="533322593"/>
+						<MusicPlaylistItem Name="" ID="{E34A5184-06FF-4494-826C-D7A7B885ACE6}" ShortID="533322593">
+							<PropertyList>
+								<Property Name="PlayMode" Type="int16" Value="1"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{635982E8-58C2-440E-8729-E50B2A436914}" ShortID="57985194">
+									<PropertyList>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="Ambrose_IT1" ID="{CF90301D-447A-4995-80C3-23BA1936A399}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
 					</Playlist>
 				</MusicPlaylistContainer>
 				<MusicPlaylistContainer Name="MusicTextures" ID="{82705C62-830E-4065-81F5-729E31B4311A}" ShortID="126148949">
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-7</Value>
+								<Value>-17</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>

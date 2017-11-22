@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Pathfinding;
 
 public enum CardinalDirection { NORTH = 0, SOUTH = 1, EAST = 2, WEST = 3 }
@@ -8,19 +6,7 @@ public enum CardinalDirection { NORTH = 0, SOUTH = 1, EAST = 2, WEST = 3 }
 /// <summary>
 /// Attached to the background of a scene.
 /// </summary>
-public class World : MonoBehaviour {
-    /// <summary>
-    /// When the player clicks on the background, their character
-    /// should move toward the point they clicked.
-    /// </summary>
-    void OnMouseUpAsButton() {
-        if (UIManager.WorldInputEnabled) {
-            GameItem.CancelInteraction();
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            GameManager.Player.MoveToPoint(pos);
-        }
-    }
-
+public class World : MoveOnClick {
     public static void UpdateNavGraph() {
         AstarPath.active.Scan();
     }

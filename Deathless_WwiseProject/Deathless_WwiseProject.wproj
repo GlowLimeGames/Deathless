@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="Project" SchemaVersion="80" WwiseVersion="v2017.1.0" WwiseBuild="6302">
+<WwiseDocument Type="Project" SchemaVersion="80" WwiseVersion="v2017.1.2" WwiseBuild="6361">
 	<ProjectInfo>
 		<Project Name="Deathless_WwiseProject" ID="{DFCD94DA-5603-48DA-B3BB-666319BA1E9C}">
 			<Platforms>
-				<Platform Name="Android" ReferencePlatform="Android" ID="{602ABDAC-885C-4E9B-835A-832A76581990}"/>
 				<Platform Name="Mac" ReferencePlatform="Mac" ID="{86837377-2808-4F20-BDFC-6ACC16F2387E}"/>
 				<Platform Name="Windows" ReferencePlatform="Windows" ID="{06D7AF25-CA4B-4791-A2FC-7D77CE5AEB9A}"/>
 			</Platforms>
@@ -17,21 +16,18 @@
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
-						<Value Platform="Android"></Value>
 						<Value Platform="Mac"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="ExternalSourcesOutputPath" Type="string">
 					<ValueList>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
-						<Value Platform="Android">GeneratedSoundBanks\Android\</Value>
 						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="GlobalVoiceInstancesLimit" Type="int16">
 					<ValueList>
 						<Value Platform="Windows">256</Value>
-						<Value Platform="Android">256</Value>
 						<Value Platform="Mac">256</Value>
 					</ValueList>
 				</Property>
@@ -41,42 +37,36 @@
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
-						<Value Platform="Android">GeneratedSoundBanks\Android\</Value>
 						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">
 					<ValueList>
 						<Value Platform="Windows">Copy Streamed Files</Value>
-						<Value Platform="Android">Copy Streamed Files</Value>
 						<Value Platform="Mac">Copy Streamed Files</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdLines" Type="string">
 					<ValueList>
 						<Value Platform="Windows">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
-						<Value Platform="Android">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
 						<Value Platform="Mac">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdDescription" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
-						<Value Platform="Android"></Value>
 						<Value Platform="Mac"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdLines" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
-						<Value Platform="Android"></Value>
 						<Value Platform="Mac"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="VolumeThreshold" Type="Real64">
 					<ValueList>
 						<Value Platform="Windows">-80</Value>
-						<Value Platform="Android">-80</Value>
 						<Value Platform="Mac">-80</Value>
 					</ValueList>
 				</Property>
@@ -8635,7 +8625,7 @@
 						</Property>
 					</PropertyList>
 				</SharedPropertyList>
-				<SharedPropertyList ClassName="Wwise Convolution Reverb" PluginType="3" CompanyID="0" PluginID="127">
+				<SharedPropertyList ClassName="" PluginType="3" CompanyID="0" PluginID="127">
 					<PropertyList>
 						<Property Name="AlgoTypeSelect" Type="int32">
 							<ValueList>
@@ -9380,7 +9370,7 @@
 						</Property>
 					</PropertyList>
 				</SharedPropertyList>
-				<SharedPropertyList ClassName="Microsoft HRTF" PluginType="3" CompanyID="0" PluginID="170">
+				<SharedPropertyList ClassName="" PluginType="3" CompanyID="0" PluginID="170">
 					<PropertyList>
 						<Property Name="Inclusion" Type="bool">
 							<ValueList>

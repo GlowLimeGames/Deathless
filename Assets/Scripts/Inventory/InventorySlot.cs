@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// A slot for a single item in the player's inventory.
 /// </summary>
-public class InventorySlot : Hoverable {
+public class InventorySlot : Hoverable, IPointerClickHandler {
     /// <summary>
     /// Whether there is anything in this slot.
     /// </summary>
@@ -61,17 +61,22 @@ public class InventorySlot : Hoverable {
         return this.item != null && this.item.Equals(item);
     }
 
-    /// <summary>
-    /// Handles clicks on this slot. Should be called from the Button
-    /// component of the slot's gameObject.
-    /// </summary>
-    public void OnClick() {
+    public void OnPointerClick(PointerEventData eventData) {
         if (!isEmpty) {
-            if (Inventory.SelectedItem != null) {
-                item.Interact();
+            if (eventData.button == PointerEventData.InputButton.Left) {
+                if (Inventory.SelectedItem != null) {
+                    if (Inventory.SelectedItem.Equals(item)) {
+                        Inventory.ClearSelection();
+                    }
+                    else { item.Interact(); }
+                }
+                else {
+                    Inventory.SelectItem(item);
+                }
             }
-            else {
-                Inventory.SelectItem(item);
+            else if (eventData.button == PointerEventData.InputButton.Right
+                     && Inventory.SelectedItem == null) {
+                item.Interact();
             }
         }
     }

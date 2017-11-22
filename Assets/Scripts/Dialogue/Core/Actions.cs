@@ -129,6 +129,10 @@ namespace Dialogue {
             item.Enable();
         }
 
+        public void DisableItem(GameItem item) {
+            item.Disable();
+        }
+
         public void InstantiateItemAtPosition(Transform t) {
             WorldItem item = itemVar as WorldItem;
             if (item != null) {
@@ -223,7 +227,7 @@ namespace Dialogue {
                 GhostFadeAnim anim = ghost.Instance.gameObject.GetComponent<GhostFadeAnim>();
                 if (anim != null) {
                     pendingActions++;
-                    anim.StartFadeIn(true);
+                    anim.StartGhostFade(true, true);
                 }
             }
         }
@@ -233,7 +237,7 @@ namespace Dialogue {
                 GhostFadeAnim anim = ghost.Instance.gameObject.GetComponent<GhostFadeAnim>();
                 if (anim != null) {
                     pendingActions++;
-                    anim.StartFadeOut(true);
+                    anim.StartGhostFade(false, true);
                 }
             }
         }
