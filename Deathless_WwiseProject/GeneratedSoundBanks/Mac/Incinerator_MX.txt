@@ -1,11 +1,15 @@
 Event	ID	Name			Wwise Object Path	Notes
+	1520979171	MainMenu_MX_MainTitle			\Default Work Unit\MainMenu_MX_MainTitle	
 	2454824528	IncineratorArea_MX_Ambrose			\Default Work Unit\IncineratorArea_MX_Ambrose	
 	2665091793	IncineratorArea_MX_Amb			\Default Work Unit\IncineratorArea_MX_Amb	
+	3113703984	IncineratorArea_MX_StopAmbrose			\Default Work Unit\IncineratorArea_MX_StopAmbrose	
+	3632445627	MainMenu_MX_StopMainTitle			\Default Work Unit\MainMenu_MX_StopMainTitle	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	60464570	MxTexturesRattleTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Incinerator_MX_Rattling Chord 4 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXtexturesRattle\MxTexturesRattleTrack		1881664
 	118550679	MXTexturesGongTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Incinerator_MX_Long Gong 1 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXTexturesGong\MXTexturesGongTrack		4233664
-	172970656	Ambrose_IT1	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Ambrose_IT1_9452F465_20544D82.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\ThemeAmbroise\Ambrose_IT1\Ambrose_IT1		16838720
+	141210675	Main Title	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Main Title_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\MainTitle\MX_MainTitle\Main Title\Main Title		15360064
+	172970656	Ambrose_IT1	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Ambrose_IT1_9452F465_E386810B.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\ThemeAmbroise\Ambrose_IT1\Ambrose_IT1		16830528
 	207608928	SilenceTrck	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Silence_01_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\Silence01\SilenceTrck		1232632
 	246799156	Silence02Trck	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Silence_02_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\Silence02\Silence02Trck		3008712
 	278505635	MXtexturesHarpTrack	Y:\Documents\Unity PJT\Deathless\Deathless_WwiseProject\.cache\Mac\SFX\Incinerator_MX_Chord Arp 13 v1.0_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\IncineratorAreaMX\MusicTextures\MXtexturesHarp\MXtexturesHarpTrack		1411264

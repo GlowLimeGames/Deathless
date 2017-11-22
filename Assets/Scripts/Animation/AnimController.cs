@@ -30,7 +30,6 @@ public class AnimController : MonoBehaviour {
     private bool dlgAction = false;
 
     private CustomAIPath aiPath;
-    private WorldItem worldItem;
 
     void Start() {
         if (animator == null) { Init(); }
@@ -51,12 +50,10 @@ public class AnimController : MonoBehaviour {
         else { animOverride = new AnimatorOverrideController(animOverride); }
         
         aiPath = GetComponent<CustomAIPath>();
-        worldItem = GetComponent<WorldItem>();
     }
 
     void Update() {
         if (current == WALK && aiPath != null) {
-            worldItem.UpdateZPos();
             UpdateWalkDirection(aiPath.GetDirection(allowNS));
         }
         else if (current == ONE_SHOT && !CurrentStateEquals(ONE_SHOT)) {

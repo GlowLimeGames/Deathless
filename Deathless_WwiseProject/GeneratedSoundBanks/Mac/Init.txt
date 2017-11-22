@@ -1,10 +1,15 @@
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	805203703	Master Secondary Bus			\Default Work Unit\Master Secondary Bus	
 	3222323340	SFX Master			\Default Work Unit\Master Audio Bus\SFX Master	
+	3663054174	Container			\Default Work Unit\Master Audio Bus\SFX Master\Incinerator Area\Container	
 	3696518466	Incinerator Area			\Default Work Unit\Master Audio Bus\SFX Master\Incinerator Area	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	348963605	Reverb			\Default Work Unit\Master Audio Bus\SFX Master\Reverb	
+
 Effect plug-ins	ID	Name	Type				Notes
+	273014423	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	484890516	Church_Small_Wood	Wwise RoomVerb			
-	1675424737	Extreme_Limiting_1	Wwise Peak Limiter			
+	3701691487	Hall_Large_Bright	Wwise RoomVerb			
 
