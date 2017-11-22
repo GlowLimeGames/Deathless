@@ -101,11 +101,15 @@ public class UIManager : Manager<UIManager> {
         BlockWorldInput(show);
         ShowGameButtons(!show);
         UpdateCursorHover();
+        /*
         bool stopped = Inventory.PopupItem.StopAnimation(show);
         if (stopped) {
             PopupInventoryItem.SetImageSprite(null);
             PopupInventoryItem.ResetImagePosition();
-            PopupInventoryItem.SetImageActive(false);
+            PopupInventoryItem.SetImageActive(false); */
+        if (show) {
+            Inventory.PopupItem.StopAnimation();
+            GameItem.CancelInteraction();
         }
     }
 
