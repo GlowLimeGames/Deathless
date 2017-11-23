@@ -16,6 +16,10 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
 
     public static List<InventorySlot> Slots { get { return Instance.slots; } }
 
+    [SerializeField]
+    private PopupInventoryItem popupItem;
+    public static PopupInventoryItem PopupItem { get { return Instance.popupItem; } }
+
     /// <summary>
     /// Whether the inventory is currently open.
     /// </summary>
@@ -38,17 +42,17 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
     public static bool isObserveIconSelected {
         get { return (ObserveItem != null && SelectedItem == ObserveItem); }
     }
-    
-	public void Init () {
+
+    public void Init() {
         SingletonInit();
 
         ObserveItem = observeItem;
-        
+
         // Add inventory slots to list
         foreach (InventorySlot slot in transform.GetComponentsInChildren<InventorySlot>(true)) {
             Slots.Add(slot);
         }
-	}
+    }
 
     /// <summary>
     /// Non-static function which calls the static function Show().
@@ -83,8 +87,8 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
                 item = null;
             }
         }
-
         if (item != null) { Debug.LogWarning("Failed to add item to inventory: " + item); }
+        PopupItem.RenderItemSprite(prefab);
     }
 
     /// <summary>
