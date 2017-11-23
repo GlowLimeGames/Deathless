@@ -104,7 +104,6 @@ public class UIManager : Manager<UIManager> {
 
         if (show) {
             Inventory.PopupItem.StopAnimation();
-            GameItem.CancelInteraction();
         }
     }
 
