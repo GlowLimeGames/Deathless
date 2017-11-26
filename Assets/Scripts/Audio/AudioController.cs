@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEngine;
 using System.Collections.Generic;
 
 /// <summary>
@@ -10,7 +11,6 @@ public class AudioController : Manager<AudioController> {
 
     private static void DoActionOnEvent(string eventName, AkActionOnEventType action, int fadeout) {
         uint eventID = AkSoundEngine.GetIDFromString(eventName);
-        //default curve of event action is log, but can change later 
         AkSoundEngine.ExecuteActionOnEvent(eventID, action, Instance.gameObject, fadeout, AkCurveInterpolation.AkCurveInterpolation_Log1);
         AkSoundEngine.RenderAudio();
     }
@@ -21,7 +21,7 @@ public class AudioController : Manager<AudioController> {
     }
     
     public static void StopEvent(string eventName, int fadeout = DEFAULT_FADEOUT) {
-        DoActionOnEvent(eventName, AkActionOnEventType.AkActionOnEventType_Stop, fadeout);
+        DoActionOnEvent(eventName, AkActionOnEventType.AkActionOnEventType_Stop, fadeout*1000);
     }
 
     public static void PauseEvent(string eventName, int fadeout = DEFAULT_FADEOUT) {
@@ -30,5 +30,9 @@ public class AudioController : Manager<AudioController> {
 
     public static void ResumeEvent(string eventName, int fadeout = DEFAULT_FADEOUT) {
         DoActionOnEvent(eventName, AkActionOnEventType.AkActionOnEventType_Resume, fadeout);
+    }
+    //possibly serialize value  to access in the inspector 
+    public static void SetRTPC(string gameParam, float value) {
+        AkSoundEngine.SetRTPCValue(gameParam, value, Instance.gameObject);
     }
 }
