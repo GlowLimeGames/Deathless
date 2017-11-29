@@ -459,6 +459,37 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="IncineratorArea_UI_Pause" ID="{EEC37A76-5342-4725-9E34-82A57F68CF99}">
+					<ChildrenList>
+						<Action Name="" ID="{9751C096-3AA2-4CA2-BB55-B823CA41BE98}" ShortID="416640092">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="11"/>
+								<Property Name="FadeTime" Type="Real64" Value="3"/>
+								<Property Name="Volume" Type="Real64" Value="-12"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_UI_Resume" ID="{05FA9A9D-32D5-4236-B72C-38B14C8BD58B}">
+					<ChildrenList>
+						<Action Name="" ID="{F41591D8-D8D0-46C0-BFB3-26A3C8C884B0}" ShortID="451588972">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="11"/>
+								<Property Name="FadeTime" Type="Real64" Value="3"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
