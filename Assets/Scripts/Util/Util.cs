@@ -32,9 +32,14 @@ public static class Util {
     /// Takes a texture, changes its height and width to a certain fraction of screen height (1/size).
     /// </summary>
     private static int ResizeCursorSprite(Texture2D texture, int size) {
-		int pixelSize = Screen.height / size;
-		TextureScale.Bilinear(texture, pixelSize, pixelSize);
-		return pixelSize;
+		int origWidth = texture.width;
+		int origHeight = texture.height;
+		float origRatio = ((float)origWidth) / ((float)origHeight);
+		int pixelHeight = Screen.height / size;
+		int pixelWidth = Mathf.RoundToInt ((float)pixelHeight * origRatio);
+
+		TextureScale.Bilinear(texture, pixelWidth, pixelHeight);
+		return pixelHeight;
 	}
 
     /// <summary>
@@ -44,7 +49,7 @@ public static class Util {
         Texture2D texture = CreateCursorTexture(sprite);
 		ResizeCursorSprite (texture, size);
         Vector2 hotspot = new Vector2(texture.width / 2, texture.height / 2);
-        Cursor.SetCursor(texture, hotspot, CursorMode.Auto);
+        Cursor.SetCursor(texture, hotspot, CursorMode.ForceSoftware);
     }
 
     /// <summary>
