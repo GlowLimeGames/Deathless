@@ -21,7 +21,7 @@ public class AudioController : Manager<AudioController> {
     }
     
     public static void StopEvent(string eventName, int fadeout = DEFAULT_FADEOUT) {
-        DoActionOnEvent(eventName, AkActionOnEventType.AkActionOnEventType_Stop, fadeout*1000);
+        DoActionOnEvent(eventName, AkActionOnEventType.AkActionOnEventType_Stop, fadeout);
     }
 
     public static void PauseEvent(string eventName, int fadeout = DEFAULT_FADEOUT) {
