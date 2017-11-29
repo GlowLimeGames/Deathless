@@ -32,7 +32,7 @@ public class AudioController : Manager<AudioController> {
         DoActionOnEvent(eventName, AkActionOnEventType.AkActionOnEventType_Resume, fadeout);
     }
     //possibly serialize value  to access in the inspector 
-    public static void SetRTPC(string gameParam, float value) {
-        AkSoundEngine.SetRTPCValue(gameParam, value, Instance.gameObject);
+    public static void SetRTPC(string rtpcName, float value) {
+        AkSoundEngine.SetRTPCValue(rtpcName, value, Instance.gameObject);
     }
 }
