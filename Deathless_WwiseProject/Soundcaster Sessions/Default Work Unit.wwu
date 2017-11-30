@@ -60,6 +60,10 @@
 							<Value>7.89109947643979</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="DistanceToVAT" ID="{FBA7D869-83B4-4DBB-AB8E-441E5771AF72}"/>
+							<Value>5.92251308900524</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="DistanceToCorpse_01" ID="{C6266203-6CD7-4EB4-B53D-24924372B16C}"/>
 							<Value>0</Value>
 						</RTPCValue>
