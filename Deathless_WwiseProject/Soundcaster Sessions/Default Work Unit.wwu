@@ -26,6 +26,14 @@
 							<Position X="1" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="IncineratorArea_SFX_ContainerDown" ID="{8209A204-F70D-4917-B077-29CB25FED01B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="IncineratorArea_UI_Resume" ID="{05FA9A9D-32D5-4236-B72C-38B14C8BD58B}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="MainMenu_MX_MainTitle" ID="{C2DBCEEA-40D5-467E-817E-C8EA2BCC79BD}" WorkUnitID="{45795174-1EAD-48A5-948B-875014D6D5E4}"/>
 							<Position X="3" Y="0"/>
 						</Module>

@@ -91,7 +91,7 @@
 			<Path>Incinerator_SFX.bnk</Path>
 			<IncludedEvents>
 				<Event Id="2012575842" Name="IncineratorArea_PlayFootsteps" ObjectPath="\Events\Default Work Unit\IncineratorArea_PlayFootsteps"/>
-				<Event Id="4149116740" Name="IncineratorArea_SFX_GhostSob" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_GhostSob"/>
+				<Event Id="4149116740" Name="IncineratorArea_SFX_GhostSob" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_GhostSob" MaxAttenuation="100.000000"/>
 				<Event Id="3123981436" Name="IncineratorArea_SFX_Incinerators" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_Incinerators"/>
 				<Event Id="3718798577" Name="IncineratorArea_SFX_Start" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_Start"/>
 				<Event Id="2447014480" Name="IncineratorArea_SFX_VatAmb" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_VatAmb"/>
@@ -490,6 +490,8 @@
 				<Event Id="997071591" Name="IncineratorArea_SFX_PaperPickUp" ObjectPath="\Events\Default Work Unit\IncineratorArea_SFX_PaperPickUp"/>
 				<Event Id="534946948" Name="IncineratorArea_UI_CloseInventory" ObjectPath="\Events\Default Work Unit\IncineratorArea_UI_CloseInventory"/>
 				<Event Id="295891968" Name="IncineratorArea_UI_OpenInventory" ObjectPath="\Events\Default Work Unit\IncineratorArea_UI_OpenInventory"/>
+				<Event Id="383798442" Name="IncineratorArea_UI_Pause" ObjectPath="\Events\Default Work Unit\IncineratorArea_UI_Pause" MaxAttenuation="0.000000"/>
+				<Event Id="981282301" Name="IncineratorArea_UI_Resume" ObjectPath="\Events\Default Work Unit\IncineratorArea_UI_Resume" MaxAttenuation="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="759842" Language="SFX">
@@ -538,7 +540,7 @@
 				</File>
 				<File Id="422882036" Language="SFX">
 					<ShortName>dl_sfx_DoorIgnite.wav</ShortName>
-					<Path>SFX/dl_sfx_DoorIgnite_9452F465.wem</Path>
+					<Path>SFX/dl_sfx_DoorIgnite_53CEE377.wem</Path>
 				</File>
 				<File Id="458451671" Language="SFX">
 					<ShortName>dl_sfx_paperDown.wav</ShortName>
@@ -552,13 +554,13 @@
 					<ShortName>_Open Inventory 2.wav</ShortName>
 					<Path>SFX/_Open Inventory 2_53CEE377.wem</Path>
 				</File>
+				<File Id="599401307" Language="SFX">
+					<ShortName>dl_sfx_DoorOpenV3.wav</ShortName>
+					<Path>SFX/dl_sfx_DoorOpenV3_53CEE377.wem</Path>
+				</File>
 				<File Id="637813854" Language="SFX">
 					<ShortName>Close Inventory 2_01.wav</ShortName>
 					<Path>SFX/Close Inventory 2_01_53CEE377.wem</Path>
-				</File>
-				<File Id="734495103" Language="SFX">
-					<ShortName>dl_sfx_DoorOpenV2.wav</ShortName>
-					<Path>SFX/dl_sfx_DoorOpenV2_53CEE377.wem</Path>
 				</File>
 				<File Id="812091055" Language="SFX">
 					<ShortName>Close Inventory 3_01.wav</ShortName>

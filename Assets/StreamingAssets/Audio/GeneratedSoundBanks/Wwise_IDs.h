@@ -34,6 +34,8 @@ namespace AK
         static const AkUniqueID INCINERATORAREA_UI_DEATHTAG = 3729471074U;
         static const AkUniqueID INCINERATORAREA_UI_EXECUTE = 964843201U;
         static const AkUniqueID INCINERATORAREA_UI_OPENINVENTORY = 295891968U;
+        static const AkUniqueID INCINERATORAREA_UI_PAUSE = 383798442U;
+        static const AkUniqueID INCINERATORAREA_UI_RESUME = 981282301U;
         static const AkUniqueID MAINMENU_MX_MAINTITLE = 1520979171U;
         static const AkUniqueID MAINMENU_MX_STOPMAINTITLE = 3632445627U;
     } // namespace EVENTS
