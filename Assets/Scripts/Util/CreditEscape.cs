@@ -3,7 +3,7 @@
 public class CreditEscape : MonoBehaviour {
 	void LoadMenu() {
 		if (Input.GetKeyDown (KeyCode.Escape) == true) {
-            SceneTransitionManager.BeginSceneTransition(GameScene.MAIN_MENU);
+            Scenes.BeginSceneTransition(GameScene.MAIN_MENU);
 		} 
 	}
 

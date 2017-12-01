@@ -13,7 +13,12 @@ public class IncineratorSceneAudio : SceneAudio {
 
     private List<string> startEvents = new List<string>() {
         "IncineratorArea_SFX_Start",
-        "IncineratorArea_MX_Amb"
+        "IncineratorArea_MX_Amb",
+        "IncineratorArea_SFX_GhostSob"
+
+        // Incinerator SFX temporarily disabled because it was causing memory overload
+        // Re-attempt once audio files have been compressed?
+        //"IncineratorArea_SFX_Incinerators"
     };
 
     private List<string> stopEvents = new List<string>() {

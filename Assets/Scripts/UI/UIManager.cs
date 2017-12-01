@@ -92,7 +92,7 @@ public class UIManager : Manager<UIManager> {
         }
 
         if ((Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Space))
-            && GameManager.GetCurrentScene() != GameManager.MAIN_MENU_SCENE) {
+            && Scenes.IsGameScene(Scenes.CurrentScene)) {
             Pause(!GamePaused);
         }
     }
@@ -171,16 +171,15 @@ public class UIManager : Manager<UIManager> {
     public void Pause(bool pause) {
         Time.timeScale = pause ? 0 : 1;
         OnShowUIElement(pause);
-        pauseMenu.SetActive(pause);
+        if (pauseMenu != null) { pauseMenu.SetActive(pause); }
     }
 
     /// <summary>
     /// Load a different game scene. Use this for buttons (otherwise, use
-    /// GameManager's static function).
+    /// Scenes' static function).
     /// </summary>
-    /// <param name="scene"></param>
     public void LoadScene(string sceneName) {
-        SceneTransitionManager.BeginSceneTransition(sceneName);
+        Scenes.BeginSceneTransition(sceneName);
     }
 
     public void QuitGame() {
@@ -203,18 +202,14 @@ public class UIManager : Manager<UIManager> {
         }
     }
     
-    public static void FadeOut(bool isDialogueAction) { FadeOut(Fadable.DEFAULT_FADE_RATE, isDialogueAction); }
-    public static void FadeOut(float duration = Fadable.DEFAULT_FADE_RATE, bool isDialogueAction = false, Fadable.FadeCallback callback = null) {
+    public static void FadeOut(float duration = Fadable.DEFAULT_FADE_RATE, Fadable.FadeCallback callback = null) {
         Instance.blackout.gameObject.SetActive(true);
-        if (isDialogueAction) { callback += Dialogue.Actions.CompletePendingAction; }
         Instance.blackout.StartFadeIn(duration, callback);
     }
     
-    public static void FadeIn(bool isDialogueAction) { FadeIn(Fadable.DEFAULT_FADE_RATE, isDialogueAction); }
-    public static void FadeIn(float duration = Fadable.DEFAULT_FADE_RATE, bool isDialogueAction = false, Fadable.FadeCallback callback = null) {
+    public static void FadeIn(float duration = Fadable.DEFAULT_FADE_RATE, Fadable.FadeCallback callback = null) {
         Instance.blackout.gameObject.SetActive(true);
         callback += CompleteFadeIn;
-        if (isDialogueAction) { callback += Dialogue.Actions.CompletePendingAction; }
         Instance.blackout.StartFadeOut(duration, callback);
     }
 
