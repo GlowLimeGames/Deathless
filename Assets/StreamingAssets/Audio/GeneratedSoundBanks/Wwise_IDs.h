@@ -47,6 +47,7 @@ namespace AK
         static const AkUniqueID DISTANCETOCORPSE_03 = 1185747269U;
         static const AkUniqueID DISTANCETOFURNACE = 3601735389U;
         static const AkUniqueID DISTANCETOGHOST = 3569817764U;
+        static const AkUniqueID DISTANCETOVAT = 113315032U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
