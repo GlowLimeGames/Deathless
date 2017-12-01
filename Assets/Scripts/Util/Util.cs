@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 /// Contains static utility functions.
 /// </summary>
 public static class Util {
+    public delegate void WaitCallback();
     private static List<GameObject> dontDestroyOnLoad = new List<GameObject>();
 
     /// <summary>
@@ -102,5 +103,14 @@ public static class Util {
     public static void Destroy(GameObject obj) {
         dontDestroyOnLoad.Remove(obj);
         GameObject.Destroy(obj);
+    }
+
+    public static void Wait(MonoBehaviour obj, float seconds, WaitCallback callback = null) {
+        obj.StartCoroutine(WaitEnum(seconds, callback));
+    }
+
+    private static IEnumerator WaitEnum (float seconds, WaitCallback callback) {
+        yield return new WaitForSeconds(seconds);
+        callback.Invoke();
     }
 }

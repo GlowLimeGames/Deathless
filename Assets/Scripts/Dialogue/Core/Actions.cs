@@ -212,6 +212,14 @@ namespace Dialogue {
             }
         }
 
+        public void Wait(float seconds) {
+            pendingActions++;
+            Util.Wait(this, seconds, CompletePendingAction);
+        }
+
+        public void FadeIn() { FadeIn(Fadable.DEFAULT_FADE_RATE); }
+        public void FadeOut() { FadeOut(Fadable.DEFAULT_FADE_RATE); }
+
         public void FadeIn(float fadeDuration) {
             pendingActions++;
             UIManager.FadeIn(fadeDuration, CompletePendingAction);
