@@ -179,8 +179,8 @@ public class UIManager : Manager<UIManager> {
     /// GameManager's static function).
     /// </summary>
     /// <param name="scene"></param>
-    public void LoadScene(string scene) {
-        GameManager.LoadScene(scene);
+    public void LoadScene(string sceneName) {
+        SceneTransitionManager.BeginSceneTransition(sceneName);
     }
 
     public void QuitGame() {

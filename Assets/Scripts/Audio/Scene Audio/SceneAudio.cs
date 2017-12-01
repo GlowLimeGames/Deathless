@@ -11,11 +11,6 @@ public abstract class SceneAudio : MonoBehaviour {
         DoStartEvents(prevScene);
     }
 
-    public void UnloadAudio(GameScene nextScene) {
-        DoStopEvents(nextScene);
-        UnloadBanks(nextScene);
-    }
-
     protected virtual void LoadSoundBanks(GameScene prevScene) {
         foreach (string soundBank in SoundBanks) {
             AudioController.LoadSoundBank(soundBank);
@@ -31,7 +26,7 @@ public abstract class SceneAudio : MonoBehaviour {
         }
     }
 
-    public virtual void UnloadBanks(GameScene nextScene) {
-        AudioController.UnloadAllSoundBanks();
+    public virtual void EndSceneAudio(GameScene nextScene) {
+        AkSoundEngine.StopAll();
     }
 }

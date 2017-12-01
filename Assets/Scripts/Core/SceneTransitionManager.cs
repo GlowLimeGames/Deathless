@@ -18,10 +18,19 @@ public class SceneTransitionManager : Manager<SceneTransitionManager> {
     };
 
     private static float transitionLength = 1f;
+    
     private static GameScene lastScene;
 
     public static void Init() {
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public static GameScene GetScene(string sceneName) {
+        return sceneNames.FirstOrDefault(x => x.Value == sceneName).Key;
+    }
+
+    public static void BeginSceneTransition(string sceneName) {
+        BeginSceneTransition(GetScene(sceneName));
     }
 
     public static void BeginSceneTransition(GameScene scene) {
@@ -32,12 +41,12 @@ public class SceneTransitionManager : Manager<SceneTransitionManager> {
         SceneAudio sceneAudio = FindObjectOfType<SceneAudio>();
         if (sceneAudio != null) { sceneAudio.DoStopEvents(scene); }
         
-        string sceneName = SceneManager.GetActiveScene().name;
-        lastScene = sceneNames.FirstOrDefault(x => x.Value == sceneName).Key;
+        lastScene = GetScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Running scene transition: " + lastScene + " -> " + scene);
 
         yield return new WaitForSecondsRealtime(transitionLength);
         
-        if (sceneAudio != null) { sceneAudio.UnloadBanks(scene); }
+        if (sceneAudio != null) { sceneAudio.EndSceneAudio(scene); }
         LoadSceneImmediately(scene);
     }
 
@@ -48,5 +57,7 @@ public class SceneTransitionManager : Manager<SceneTransitionManager> {
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         SceneAudio sceneAudio = FindObjectOfType<SceneAudio>();
         if (sceneAudio != null) { sceneAudio.LoadAudio(lastScene); }
+
+        Debug.Log("last scene: " + lastScene);
     }
 }

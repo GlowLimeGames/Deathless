@@ -32,9 +32,9 @@ public class MenuSceneAudio : SceneAudio {
         }
     }
 
-    public override void UnloadBanks(GameScene nextScene) {
+    public override void EndSceneAudio(GameScene nextScene) {
         if (nextScene != GameScene.CREDITS) {
-            base.UnloadBanks(nextScene);
+            base.EndSceneAudio(nextScene);
         }
     }
     #endregion
