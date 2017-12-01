@@ -48,6 +48,7 @@ public class GameManager : Manager<GameManager> {
 	void Awake() {
         SingletonInit();
         Globals.Init();
+        SceneTransitionManager.Init();
         SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
