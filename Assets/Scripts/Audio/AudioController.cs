@@ -32,4 +32,14 @@ public class AudioController : Manager<AudioController> {
     public static void ResumeEvent(string eventName, int fadeout = DEFAULT_FADEOUT) {
         DoActionOnEvent(eventName, AkActionOnEventType.AkActionOnEventType_Resume, fadeout);
     }
+
+    public static uint LoadSoundBank(string bankName) {
+        uint bankID;
+        AkSoundEngine.LoadBank(bankName, AkSoundEngine.AK_DEFAULT_POOL_ID, out bankID);
+        return bankID;
+    }
+
+    public static void UnloadAllSoundBanks() {
+        AkSoundEngine.ClearBanks();
+    }
 }
