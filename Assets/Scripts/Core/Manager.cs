@@ -27,18 +27,29 @@ public abstract class Manager<T> : Manager where T : Manager<T> {
 
     [SerializeField]
     private bool dontDestroyOnLoad;
+    [SerializeField]
+    private bool destroyOld = false;
     
 	void Awake () {
         SingletonInit();
 	}
 
-    protected void SingletonInit() {
+    /// <summary>
+    /// Returns true if this instance of the object was successfully
+    /// initialized.
+    /// </summary>
+    protected bool SingletonInit() {
         if (instance == null) {
             Instance = (T)this;
         }
         else if (Instance != this) {
-            Destroy();
+            if (destroyOld) { Destroy(); }
+            else {
+                GameObject.DestroyImmediate(gameObject);
+                return false;
+            }
         }
+        return true;
     }
 	
 	public static void Destroy() {

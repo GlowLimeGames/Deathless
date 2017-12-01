@@ -212,14 +212,22 @@ namespace Dialogue {
             }
         }
 
-        public void FadeIn() {
+        public void Wait(float seconds) {
             pendingActions++;
-            UIManager.FadeIn(true);
+            Util.Wait(this, seconds, CompletePendingAction);
         }
 
-        public void FadeOut() {
+        public void FadeIn() { FadeIn(Fadable.DEFAULT_FADE_RATE); }
+        public void FadeOut() { FadeOut(Fadable.DEFAULT_FADE_RATE); }
+
+        public void FadeIn(float fadeDuration) {
             pendingActions++;
-            UIManager.FadeOut(true);
+            UIManager.FadeIn(fadeDuration, CompletePendingAction);
+        }
+
+        public void FadeOut(float fadeDuration) {
+            pendingActions++;
+            UIManager.FadeOut(fadeDuration, CompletePendingAction);
         }
 
         public void GhostFadeIn(WorldItem ghost) {

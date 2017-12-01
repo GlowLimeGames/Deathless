@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 /// High-level management of game systems and objects.
 /// </summary>
 public class GameManager : Manager<GameManager> {
-    public const string MAIN_MENU_SCENE = "MainMenu";
-
     [SerializeField]
     private bool displayIntroInEditor = false;
 
@@ -48,38 +46,20 @@ public class GameManager : Manager<GameManager> {
 	void Awake() {
         SingletonInit();
         Globals.Init();
-        SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
-    /// <summary>
-    /// Load a different game scene.
-    /// </summary>
-    /// <param name="scene"></param>
-    public static void LoadScene(string scene) {
-        SceneManager.LoadScene(scene);
-    }
-
-    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (scene.name == MAIN_MENU_SCENE) {
-            ResetGameData();
+    public static void PlayIntro() {
+        Intro intro = Util.FindObjectOfType<Intro>(true);
+        if (intro != null && (Instance.displayIntroInEditor || !Application.isEditor)) {
+            intro.gameObject.SetActive(true);
         }
-        else {
-            Intro intro = Util.FindObjectOfType<Intro>(true);
-            if (intro != null && (Instance.displayIntroInEditor || !Application.isEditor)) {
-                intro.gameObject.SetActive(true);
-            }
-        }
-    }
-
-    public static string GetCurrentScene() {
-        return SceneManager.GetActiveScene().name;
     }
 
     public static void QuitGame() {
         Application.Quit();
     }
 
-    private static void ResetGameData() {
+    public static void ResetGameData() {
         DialogueManager.ResetOneShotDialogue();
     }
 }
