@@ -6,14 +6,9 @@ public class CameraAspect : MonoBehaviour {
 
     public static Rect Bounds { get; private set; }
 
-    void Awake() {
-        ScaleCamera();
-        Bounds = CalculateBounds();
-    }
+    void Awake() { ScaleCamera(); }
 
-    void Update() {
-        TrapCursor();
-    }
+    void Start() { CalculateBounds(); }
 
     private void ScaleCamera() {
         float currentaspect = (float)Screen.width / Screen.height;
@@ -35,22 +30,11 @@ public class CameraAspect : MonoBehaviour {
 
         camera.rect = newRect;
     }
-
-    private void TrapCursor() {
-        Vector2 mousePos = Input.mousePosition;
-
-        if (false) {
-            Cursor.visible = false;
-        }
-        else {
-            Cursor.visible = true;
-        }
-    }
-
-    private static Rect CalculateBounds() {
+    
+    public static void CalculateBounds() {
         Rect bounds = Camera.main.pixelRect;
         bounds.x += PIXEL_BUFFER;
         bounds.width -= PIXEL_BUFFER * 2;
-        return bounds;
+        Bounds = bounds;
     }
 }

@@ -5,12 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class UIManager : Manager<UIManager> {
-    /// <summary>
-    /// The size of custom cursors as a fraction of 
-    /// screen height (1/CURSOR_SIZE).
-    /// </summary>
-    private const int CURSOR_SIZE = 20;
-
     [SerializeField]
     private GameObject pauseMenu;
 
@@ -79,6 +73,8 @@ public class UIManager : Manager<UIManager> {
     }
 
     void Update() {
+        CursorUtil.ConfineCustomCursor();
+
         if (AllInputEnabled) {
             // Handle generic input
             if (inventory != null && Input.GetMouseButtonUp(1)) {
@@ -151,9 +147,9 @@ public class UIManager : Manager<UIManager> {
     
 	public static void ShowCustomCursor(bool show) {
 		if (show && cursorIcon != null) {
-			Util.SetCursor(cursorIcon, CURSOR_SIZE);
-		} else { 
-			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); 
+			CursorUtil.SetCursor(cursorIcon);
+		} else {
+            CursorUtil.SetCursor(null, cursorIcon != null);
 		}
 	}
 
