@@ -5,26 +5,54 @@ public static class CursorUtil {
     /// The size of custom cursors as a fraction of 
     /// screen height (1/CURSOR_SIZE).
     /// </summary>
-    private const int CURSOR_SIZE = 20;
+    private const int CURSOR_SIZE = 17;
 
-    private static Vector2 defaultCursorDimensions, cursorDimensions, cursorHotspot, tempHotspot;
+    private static Vector2 defaultCursorDimensions, cursorDimensions, cursorHotspot, currentHotspot;
 
-    private static Sprite cursorIcon;
+    private static Sprite cursorSprite;
+    private static Texture2D cursorTex;
+
+    private static bool allowCustomCursor = true;
+    public static bool AllowCustomCursor {
+        get { return allowCustomCursor; }
+        set {
+            allowCustomCursor = value;
+            ShowCustomCursor(value);
+        }
+    }
 
     public static void ConfineCustomCursor() {
-        Rect cursor = new Rect(Input.mousePosition.x - cursorHotspot.x,
-                                Input.mousePosition.y - cursorHotspot.y,
-                                cursorDimensions.x,
-                                cursorDimensions.y);
+        if (cursorSprite != null) {
+            Rect cursor = new Rect(Input.mousePosition.x - cursorHotspot.x,
+                                    Input.mousePosition.y - (cursorDimensions.y - cursorHotspot.y),
+                                    cursorDimensions.x,
+                                    cursorDimensions.y);
 
-        if (Camera.main.pixelRect.Contains(cursor.min)
-            && Camera.main.pixelRect.Contains(cursor.max)) {
-            ShowCustomCursor(true);
-        }
-        else if (Camera.main.pixelRect.Contains(cursor.min)) {
+            bool containsMin = CameraAspect.Bounds.Contains(cursor.min);
+            bool containsMax = CameraAspect.Bounds.Contains(cursor.max);
+            bool containsPointer = Camera.main.pixelRect.Contains(Input.mousePosition);
 
+            if (containsPointer && (containsMin || containsMax)) {
+                if (containsMin && containsMax) { currentHotspot = cursorHotspot; }
+                else {
+                    if (cursor.xMax > CameraAspect.Bounds.xMax) {
+                        currentHotspot.x = cursorDimensions.x - (CameraAspect.Bounds.xMax - Input.mousePosition.x);
+                    }
+                    else if (cursor.xMin < CameraAspect.Bounds.xMin) {
+                        currentHotspot.x = Input.mousePosition.x - CameraAspect.Bounds.xMin;
+                    }
+
+                    if (cursor.yMax > CameraAspect.Bounds.yMax) {
+                        currentHotspot.y = CameraAspect.Bounds.yMax - Input.mousePosition.y;
+                    }
+                    else if (cursor.yMin < CameraAspect.Bounds.yMin) {
+                        currentHotspot.y = cursorDimensions.y - (Input.mousePosition.y - CameraAspect.Bounds.yMin);
+                    }
+                }
+                ShowCustomCursor(true);
+            }
+            else { ShowCustomCursor(false); }
         }
-        else { ShowCustomCursor(false); }
     }
 
     public static void SetDefaultCursorDimensions(Texture2D defaultCursor) {
@@ -67,47 +95,44 @@ public static class CursorUtil {
     /// <summary>
     /// Set the player's cursor to the given sprite.
     /// </summary>
-	public static void SetCursor(Sprite sprite, bool hidden = false) {
-        Texture2D texture = null;
-        Vector2 hotspot;
-        
+	private static void SetCursor(Sprite sprite) {
         if (sprite == null) {
-            if (!hidden) cursorDimensions = defaultCursorDimensions;
-            hotspot = Vector2.zero;
+            cursorTex = null;
+            cursorDimensions = defaultCursorDimensions;
+            cursorHotspot = Vector2.zero;
         }
         else {
-            texture = CreateCursorTexture(sprite);
-            cursorDimensions = ResizeCursorSprite(texture, CURSOR_SIZE);
-            hotspot = new Vector2(texture.width / 2, texture.height / 2);
+            cursorTex = CreateCursorTexture(sprite);
+            cursorDimensions = ResizeCursorSprite(cursorTex, CURSOR_SIZE);
+            cursorHotspot = new Vector2(cursorTex.width / 2, cursorTex.height / 2);
         }
 
-        if (!hidden) { cursorHotspot = hotspot; }
-        Cursor.SetCursor(texture, cursorHotspot, CursorMode.ForceSoftware);
+        currentHotspot = cursorHotspot;
+        Cursor.SetCursor(cursorTex, currentHotspot, CursorMode.ForceSoftware);
     }
     
     public static void SetCustomCursor(Sprite cursor) {
-        cursorIcon = cursor;
-        ShowCustomCursor(true);
+        cursorSprite = cursor;
+        SetCursor(cursorSprite);
     }
+
+    public static void ClearCustomCursor() { SetCustomCursor(null); }
 
     public static void SetInteractionCursor(bool show) {
-        if (show) {
-            if (cursorIcon == null) { SetCustomCursor(UIManager.InteractIcon); }
+        if (show && cursorSprite == null) {
+            SetCustomCursor(UIManager.InteractIcon);
         }
-        else if (cursorIcon == UIManager.InteractIcon) { ClearCustomCursor(); }
+        else if (!show && cursorSprite == UIManager.InteractIcon) {
+            ClearCustomCursor();
+        }
     }
 
-    public static void ClearCustomCursor() {
-        cursorIcon = null;
-        ShowCustomCursor(false);
-    }
-
-    public static void ShowCustomCursor(bool show) {
-        if (show && cursorIcon != null) {
-            SetCursor(cursorIcon);
+    private static void ShowCustomCursor(bool show) {
+        if (show && cursorTex != null && AllowCustomCursor) {
+            Cursor.SetCursor(cursorTex, currentHotspot, CursorMode.ForceSoftware);
         }
         else {
-            SetCursor(null, cursorIcon != null);
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
         }
     }
 }

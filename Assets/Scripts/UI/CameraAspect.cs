@@ -35,6 +35,8 @@ public class CameraAspect : MonoBehaviour {
         Rect bounds = Camera.main.pixelRect;
         bounds.x += PIXEL_BUFFER;
         bounds.width -= PIXEL_BUFFER * 2;
+        bounds.y += PIXEL_BUFFER;
+        bounds.height -= PIXEL_BUFFER * 2;
         Bounds = bounds;
     }
 }
