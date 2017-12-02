@@ -5,7 +5,7 @@ public static class CursorUtil {
     /// The size of custom cursors as a fraction of 
     /// screen height (1/CURSOR_SIZE).
     /// </summary>
-    private const int CURSOR_SIZE = 17;
+    private const int CURSOR_SIZE = 18;
 
     private static Vector2 defaultCursorDimensions, cursorDimensions, cursorHotspot, currentHotspot;
 
@@ -28,24 +28,29 @@ public static class CursorUtil {
                                     cursorDimensions.x,
                                     cursorDimensions.y);
 
-            bool containsMin = CameraAspect.Bounds.Contains(cursor.min);
-            bool containsMax = CameraAspect.Bounds.Contains(cursor.max);
-            bool containsPointer = Camera.main.pixelRect.Contains(Input.mousePosition);
-
-            if (containsPointer && (containsMin || containsMax)) {
-                if (containsMin && containsMax) { currentHotspot = cursorHotspot; }
+            // Yayyyyy logic
+            bool containsMinX = cursor.xMin >= CameraAspect.Bounds.xMin,
+                 containsMinY = cursor.yMin >= CameraAspect.Bounds.yMin,
+                 containsMaxX = cursor.xMax <= CameraAspect.Bounds.xMax,
+                 containsMaxY = cursor.yMax <= CameraAspect.Bounds.yMax,
+                 containsAny = containsMinX || containsMinY || containsMaxX || containsMaxY,
+                 containsAll = containsMinX && containsMinY && containsMaxX && containsMaxY,
+                 containsPointer = Camera.main.pixelRect.Contains(Input.mousePosition);
+            
+            if (containsPointer && containsAny) {
+                if (containsAll) { currentHotspot = cursorHotspot; }
                 else {
-                    if (cursor.xMax > CameraAspect.Bounds.xMax) {
+                    if (!containsMaxX) {
                         currentHotspot.x = cursorDimensions.x - (CameraAspect.Bounds.xMax - Input.mousePosition.x);
                     }
-                    else if (cursor.xMin < CameraAspect.Bounds.xMin) {
+                    else if (!containsMinX) {
                         currentHotspot.x = Input.mousePosition.x - CameraAspect.Bounds.xMin;
                     }
 
-                    if (cursor.yMax > CameraAspect.Bounds.yMax) {
+                    if (!containsMaxY) {
                         currentHotspot.y = CameraAspect.Bounds.yMax - Input.mousePosition.y;
                     }
-                    else if (cursor.yMin < CameraAspect.Bounds.yMin) {
+                    else if (!containsMinY) {
                         currentHotspot.y = cursorDimensions.y - (Input.mousePosition.y - CameraAspect.Bounds.yMin);
                     }
                 }
@@ -82,11 +87,17 @@ public static class CursorUtil {
     /// <summary>
     /// Takes a texture, changes its height and width to a certain fraction of screen height (1/size).
     /// </summary>
-    private static Vector2 ResizeCursorSprite(Texture2D texture, int size) {
+    private static Vector2 ResizeCursorSprite(Texture2D texture, float size) {
         float ratio = (float)texture.width / texture.height;
 
-        int pixelHeight = Screen.height / size;
-        int pixelWidth = Mathf.RoundToInt((float)pixelHeight * ratio);
+        float height = Screen.height / size;
+        float width = height;
+
+        if (ratio > 1) { height = width / ratio; }
+        else { width = height * ratio; }
+
+        int pixelHeight = Mathf.CeilToInt(height);
+        int pixelWidth = Mathf.CeilToInt(width);
 
         TextureScale.Bilinear(texture, pixelWidth, pixelHeight);
         return new Vector2(pixelWidth, pixelHeight);
