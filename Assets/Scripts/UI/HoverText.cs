@@ -14,24 +14,23 @@ public class HoverText : MonoBehaviour {
     }
 
     private void CalculatePosition() {
-        Vector2 screenPos = Input.mousePosition;
-        screenPos.y -= CameraAspect.PIXEL_BUFFER;
+        Vector2 screenPos = CursorUtil.OffsetFromCursor();
 
         Rect rect = GetDefaultScreenRect(rectTransform.rect, screenPos);
         Vector2 pivot = rectTransform.pivot;
 
+        if (rect.yMin < CameraAspect.Bounds.yMin) {
+            pivot.y = 0;
+            screenPos = CursorUtil.OffsetFromCursor(false);
+        }
+        else if (pivot.y < 1) {
+            pivot.y = 1;
+        }
         if (rect.xMin < CameraAspect.Bounds.xMin) {
             screenPos.x = CameraAspect.Bounds.xMin + (rect.width * pivot.x);
         }
         else if (rect.xMax > CameraAspect.Bounds.xMax) {
             screenPos.x = CameraAspect.Bounds.xMax - (rect.width * (1 - pivot.x));
-        }
-        if (rect.yMin < CameraAspect.Bounds.yMin) {
-            pivot.y = 0;
-            screenPos.y += CameraAspect.PIXEL_BUFFER * 2;
-        }
-        else if (pivot.y < 1) {
-            pivot.y = 1;
         }
         
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);

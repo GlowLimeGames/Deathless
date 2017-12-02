@@ -115,7 +115,10 @@ public static class CursorUtil {
         else {
             cursorTex = CreateCursorTexture(sprite);
             cursorDimensions = ResizeCursorSprite(cursorTex, CURSOR_SIZE);
-            cursorHotspot = new Vector2(cursorTex.width / 2, cursorTex.height / 2);
+            
+            cursorHotspot = (sprite == UIManager.InteractIcon) ?
+                            Vector2.zero :
+                            new Vector2(cursorTex.width / 2, cursorTex.height / 2);
         }
 
         currentHotspot = cursorHotspot;
@@ -127,14 +130,12 @@ public static class CursorUtil {
         SetCursor(cursorSprite);
     }
 
-    public static void ClearCustomCursor() { SetCustomCursor(null); }
-
     public static void SetInteractionCursor(bool show) {
         if (show && cursorSprite == null) {
             SetCustomCursor(UIManager.InteractIcon);
         }
         else if (!show && cursorSprite == UIManager.InteractIcon) {
-            ClearCustomCursor();
+            SetCustomCursor(null);
         }
     }
 
@@ -145,5 +146,14 @@ public static class CursorUtil {
         else {
             Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
         }
+    }
+
+    public static Vector2 OffsetFromCursor(bool below = true) {
+        Vector2 pos = Input.mousePosition;
+
+        pos.x += (cursorDimensions.x / 2) - cursorHotspot.x;
+        pos.y += below ? -(cursorDimensions.y - cursorHotspot.y) : cursorHotspot.y;
+
+        return pos;
     }
 }
