@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -28,12 +27,11 @@ public class UIManager : Manager<UIManager> {
 
     [SerializeField]
     private Sprite interactIcon;
+    public static Sprite InteractIcon { get { return Instance.interactIcon; } }
 
     [SerializeField]
     private AnimController genericAnimPrefab;
     public static AnimController GenericAnimPrefab { get { return Instance.genericAnimPrefab; } }
-
-    private static Sprite cursorIcon;
 
     public static bool GamePaused {
         get {
@@ -104,7 +102,7 @@ public class UIManager : Manager<UIManager> {
     }
 
     public static void UpdateCursorHover() {
-        SetInteractionCursor(false);
+        CursorUtil.SetInteractionCursor(false);
         ClearHoverText();
         Hoverable hitItem = null;
         
@@ -127,31 +125,6 @@ public class UIManager : Manager<UIManager> {
             hitItem.OnHoverEnter();
         }
     }
-
-    public static void SetCustomCursor(Sprite cursor) {
-        cursorIcon = cursor;
-        ShowCustomCursor(true);
-    }
-
-    public static void SetInteractionCursor(bool show) {
-        if (show) {
-            if (cursorIcon == null) { SetCustomCursor(Instance.interactIcon); }
-        }
-        else if (cursorIcon == Instance.interactIcon) { ClearCustomCursor(); }
-    }
-
-    public static void ClearCustomCursor() {
-        cursorIcon = null;
-        ShowCustomCursor(false);
-    }
-    
-	public static void ShowCustomCursor(bool show) {
-		if (show && cursorIcon != null) {
-			CursorUtil.SetCursor(cursorIcon);
-		} else {
-            CursorUtil.SetCursor(null, cursorIcon != null);
-		}
-	}
 
     public static void BlockWorldInput(bool block) {
         if (!block && !Inventory.isShown && !DialogueManager.isShown) {

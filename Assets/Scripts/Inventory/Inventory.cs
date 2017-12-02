@@ -136,8 +136,8 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
         else {
             lastSelectedItem = null;
 
-            if (item == null) { UIManager.ClearCustomCursor(); }
-            else { UIManager.SetCustomCursor(item.CursorSprite); }
+            if (item == null) { CursorUtil.ClearCustomCursor(); }
+            else { CursorUtil.SetCustomCursor(item.CursorSprite); }
         }
 
         SelectedItem = item;

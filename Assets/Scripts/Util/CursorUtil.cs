@@ -7,7 +7,9 @@ public static class CursorUtil {
     /// </summary>
     private const int CURSOR_SIZE = 20;
 
-    private static Vector2 defaultCursorDimensions, cursorDimensions, cursorHotspot;
+    private static Vector2 defaultCursorDimensions, cursorDimensions, cursorHotspot, tempHotspot;
+
+    private static Sprite cursorIcon;
 
     public static void ConfineCustomCursor() {
         Rect cursor = new Rect(Input.mousePosition.x - cursorHotspot.x,
@@ -17,9 +19,12 @@ public static class CursorUtil {
 
         if (Camera.main.pixelRect.Contains(cursor.min)
             && Camera.main.pixelRect.Contains(cursor.max)) {
-            UIManager.ShowCustomCursor(true);
+            ShowCustomCursor(true);
         }
-        else { UIManager.ShowCustomCursor(false); }
+        else if (Camera.main.pixelRect.Contains(cursor.min)) {
+
+        }
+        else { ShowCustomCursor(false); }
     }
 
     public static void SetDefaultCursorDimensions(Texture2D defaultCursor) {
@@ -78,5 +83,31 @@ public static class CursorUtil {
 
         if (!hidden) { cursorHotspot = hotspot; }
         Cursor.SetCursor(texture, cursorHotspot, CursorMode.ForceSoftware);
+    }
+    
+    public static void SetCustomCursor(Sprite cursor) {
+        cursorIcon = cursor;
+        ShowCustomCursor(true);
+    }
+
+    public static void SetInteractionCursor(bool show) {
+        if (show) {
+            if (cursorIcon == null) { SetCustomCursor(UIManager.InteractIcon); }
+        }
+        else if (cursorIcon == UIManager.InteractIcon) { ClearCustomCursor(); }
+    }
+
+    public static void ClearCustomCursor() {
+        cursorIcon = null;
+        ShowCustomCursor(false);
+    }
+
+    public static void ShowCustomCursor(bool show) {
+        if (show && cursorIcon != null) {
+            SetCursor(cursorIcon);
+        }
+        else {
+            SetCursor(null, cursorIcon != null);
+        }
     }
 }
