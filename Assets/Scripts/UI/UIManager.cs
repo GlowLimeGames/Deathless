@@ -1,16 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class UIManager : Manager<UIManager> {
-    /// <summary>
-    /// The size of custom cursors as a fraction of 
-    /// screen height (1/CURSOR_SIZE).
-    /// </summary>
-    private const int CURSOR_SIZE = 20;
-
     [SerializeField]
     private GameObject pauseMenu;
 
@@ -34,12 +27,11 @@ public class UIManager : Manager<UIManager> {
 
     [SerializeField]
     private Sprite interactIcon;
+    public static Sprite InteractIcon { get { return Instance.interactIcon; } }
 
     [SerializeField]
     private AnimController genericAnimPrefab;
     public static AnimController GenericAnimPrefab { get { return Instance.genericAnimPrefab; } }
-
-    private static Sprite cursorIcon;
 
     public static bool GamePaused {
         get {
@@ -79,6 +71,8 @@ public class UIManager : Manager<UIManager> {
     }
 
     void Update() {
+        CursorUtil.ConfineCustomCursor();
+
         if (AllInputEnabled) {
             // Handle generic input
             if (inventory != null && Input.GetMouseButtonUp(1)) {
@@ -108,7 +102,7 @@ public class UIManager : Manager<UIManager> {
     }
 
     public static void UpdateCursorHover() {
-        SetInteractionCursor(false);
+        CursorUtil.SetInteractionCursor(false);
         ClearHoverText();
         Hoverable hitItem = null;
         
@@ -131,31 +125,6 @@ public class UIManager : Manager<UIManager> {
             hitItem.OnHoverEnter();
         }
     }
-
-    public static void SetCustomCursor(Sprite cursor) {
-        cursorIcon = cursor;
-        ShowCustomCursor(true);
-    }
-
-    public static void SetInteractionCursor(bool show) {
-        if (show) {
-            if (cursorIcon == null) { SetCustomCursor(Instance.interactIcon); }
-        }
-        else if (cursorIcon == Instance.interactIcon) { ClearCustomCursor(); }
-    }
-
-    public static void ClearCustomCursor() {
-        cursorIcon = null;
-        ShowCustomCursor(false);
-    }
-    
-	public static void ShowCustomCursor(bool show) {
-		if (show && cursorIcon != null) {
-			Util.SetCursor(cursorIcon, CURSOR_SIZE);
-		} else { 
-			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); 
-		}
-	}
 
     public static void BlockWorldInput(bool block) {
         if (!block && !Inventory.isShown && !DialogueManager.isShown) {
