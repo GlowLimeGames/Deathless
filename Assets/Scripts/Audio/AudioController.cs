@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEngine;
 using System.Collections.Generic;
 
 /// <summary>
@@ -10,12 +11,10 @@ public class AudioController : Manager<AudioController> {
 
     private static void DoActionOnEvent(string eventName, AkActionOnEventType action, int fadeout) {
         uint eventID = AkSoundEngine.GetIDFromString(eventName);
-        
-        //default curve of event action is log, but can change later 
         AkSoundEngine.ExecuteActionOnEvent(eventID, action, Instance.gameObject, fadeout, AkCurveInterpolation.AkCurveInterpolation_Log1);
         AkSoundEngine.RenderAudio();
     }
-    
+
     public static void PlayEvent(string eventName) {
         AkSoundEngine.PostEvent(eventName, Instance.gameObject);
         AkSoundEngine.RenderAudio();
@@ -33,6 +32,7 @@ public class AudioController : Manager<AudioController> {
         DoActionOnEvent(eventName, AkActionOnEventType.AkActionOnEventType_Resume, fadeout);
     }
 
+
     public static uint LoadSoundBank(string bankName) {
         uint bankID;
         AkSoundEngine.LoadBank(bankName, AkSoundEngine.AK_DEFAULT_POOL_ID, out bankID);
@@ -40,6 +40,10 @@ public class AudioController : Manager<AudioController> {
     }
 
     public static void UnloadAllSoundBanks() {
-        AkSoundEngine.ClearBanks();
+		AkSoundEngine.ClearBanks ();
+	}
+
+    public static void SetRTPC(string rtpcName, float value) {
+        AkSoundEngine.SetRTPCValue(rtpcName, value, Instance.gameObject);
     }
 }
