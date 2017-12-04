@@ -13,16 +13,18 @@ public class RTPCTrigger : MonoBehaviour {
     private float rtpcExitValue;
 
     private void OnTriggerEnter2D(Collider2D collision) {
+		Debug.Log ("Enter");
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null) {
-            AudioController.SetRTPCValue(rtpcName, rtpcEnterValue);
+            AudioController.SetRTPC(rtpcName, rtpcEnterValue);
         }
     }//end of TriggerEnter
 
     private void OnTriggerExit2D(Collider2D collision) {
+		Debug.Log ("Exit");
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null) {
-            AudioController.SetRTPCValue(rtpcName, rtpcExitValue);
+            AudioController.SetRTPC(rtpcName, rtpcExitValue);
         }
     }//end of TriggerExit
 }
