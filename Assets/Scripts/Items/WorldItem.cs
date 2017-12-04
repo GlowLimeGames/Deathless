@@ -57,6 +57,8 @@ public class WorldItem : GameItem {
         startingScale = transform.localScale;
         startingZPos = GameManager.ZDepthMap.GetZDepthAtWorldPoint(transform.position);
         UpdateZPos();
+
+        ResetSpeechBubblePos();
     }
 
     void Update() {
@@ -160,8 +162,19 @@ public class WorldItem : GameItem {
     /// (Animated items must set the idle animation instead.)
     /// </summary>
     public override void ChangeSprite(Sprite sprite) {
-        if (((WorldItem)Instance).spriteRenderer != null) {
-            ((WorldItem)Instance).spriteRenderer.sprite = sprite;
+        WorldItem item = (WorldItem)Instance;
+        if (item.spriteRenderer != null) {
+            item.spriteRenderer.sprite = sprite;
+            item.ResetSpeechBubblePos();
+        }
+    }
+
+    private void ResetSpeechBubblePos() {
+        if (speechBubble != null && spriteRenderer != null) {
+            Vector3 pos = speechBubble.transform.position;
+            pos.y = spriteRenderer.bounds.max.y;
+            pos.x = spriteRenderer.bounds.center.x;
+            speechBubble.transform.position = pos;
         }
     }
 

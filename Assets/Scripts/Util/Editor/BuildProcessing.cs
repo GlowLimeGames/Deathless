@@ -37,6 +37,7 @@ public static class BuildProcessing {
     public static void PreBuildWindows() { PreBuild(WINDOWS); }
 
     private static void PreBuild(string platform) {
+        CursorUtil.SetDefaultCursorDimensions(UnityEditor.PlayerSettings.defaultCursor);
         SetVersionNumber();
         MoveSoundBanks(platform);
     }

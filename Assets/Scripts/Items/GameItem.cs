@@ -121,12 +121,12 @@ public abstract class GameItem : Hoverable {
 
     public override void OnHoverEnter() {
         UIManager.SetHoverText(DisplayName);
-        UIManager.SetInteractionCursor(true);
+        CursorUtil.SetInteractionCursor(true);
     }
 
     public override void OnHoverExit() {
         UIManager.ClearHoverText();
-        UIManager.SetInteractionCursor(false);
+        CursorUtil.SetInteractionCursor(false);
     }
 
     public void Enable() {
