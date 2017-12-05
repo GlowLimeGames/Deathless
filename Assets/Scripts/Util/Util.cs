@@ -7,50 +7,8 @@ using UnityEngine.SceneManagement;
 /// Contains static utility functions.
 /// </summary>
 public static class Util {
+    public delegate void WaitCallback();
     private static List<GameObject> dontDestroyOnLoad = new List<GameObject>();
-
-    /// <summary>
-    /// Convert a sprite to a Texture2D that is valid for use as a cursor.
-    /// </summary>\
-    private static Texture2D CreateCursorTexture(Sprite sprite) {
-        Texture2D newText = new Texture2D((int)sprite.textureRect.width, (int)sprite.textureRect.height, TextureFormat.ARGB32, false);
-        Color[] newColors = sprite.texture.GetPixels((int)sprite.textureRect.x,
-                                                        (int)sprite.textureRect.y,
-                                                        (int)sprite.textureRect.width,
-                                                        (int)sprite.textureRect.height);
-        newText.SetPixels(newColors);
-        newText.Apply();
-
-        #if UNITY_EDITOR
-        newText.alphaIsTransparency = true;
-        #endif
-
-        return newText;
-    }
-
-    /// <summary>
-    /// Takes a texture, changes its height and width to a certain fraction of screen height (1/size).
-    /// </summary>
-    private static int ResizeCursorSprite(Texture2D texture, int size) {
-		int origWidth = texture.width;
-		int origHeight = texture.height;
-		float origRatio = ((float)origWidth) / ((float)origHeight);
-		int pixelHeight = Screen.height / size;
-		int pixelWidth = Mathf.RoundToInt ((float)pixelHeight * origRatio);
-
-		TextureScale.Bilinear(texture, pixelWidth, pixelHeight);
-		return pixelHeight;
-	}
-
-    /// <summary>
-    /// Set the player's cursor to the given sprite.
-    /// </summary>
-	public static void SetCursor(Sprite sprite, int size) {
-        Texture2D texture = CreateCursorTexture(sprite);
-		ResizeCursorSprite (texture, size);
-        Vector2 hotspot = new Vector2(texture.width / 2, texture.height / 2);
-        Cursor.SetCursor(texture, hotspot, CursorMode.ForceSoftware);
-    }
 
     /// <summary>
     /// Similar to GameObject.FindObjectOfType but allows for
@@ -102,5 +60,14 @@ public static class Util {
     public static void Destroy(GameObject obj) {
         dontDestroyOnLoad.Remove(obj);
         GameObject.Destroy(obj);
+    }
+
+    public static void Wait(MonoBehaviour obj, float seconds, WaitCallback callback = null) {
+        obj.StartCoroutine(WaitEnum(seconds, callback));
+    }
+
+    private static IEnumerator WaitEnum (float seconds, WaitCallback callback) {
+        yield return new WaitForSeconds(seconds);
+        callback.Invoke();
     }
 }

@@ -11458,6 +11458,33 @@
 							<ValueList>
 								<Value>-5</Value>
 							</ValueList>
+							<RTPCList>
+								<RTPC Name="" ID="{5B734BF6-5B26-44B1-A08E-FB0E774A04D6}" ShortID="145658342">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="DistanceToVAT" ID="{FBA7D869-83B4-4DBB-AB8E-441E5771AF72}" WorkUnitID="{C86261F4-16B7-4193-8D43-C59FD4A1419D}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{FF7B594B-51F9-47C2-BE6B-175944791C35}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+												<SegmentShape>Log2</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>8</XPos>
+												<YPos>-200</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>

@@ -1,16 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class UIManager : Manager<UIManager> {
-    /// <summary>
-    /// The size of custom cursors as a fraction of 
-    /// screen height (1/CURSOR_SIZE).
-    /// </summary>
-    private const int CURSOR_SIZE = 20;
-
     [SerializeField]
     private GameObject pauseMenu;
 
@@ -34,12 +27,11 @@ public class UIManager : Manager<UIManager> {
 
     [SerializeField]
     private Sprite interactIcon;
+    public static Sprite InteractIcon { get { return Instance.interactIcon; } }
 
     [SerializeField]
     private AnimController genericAnimPrefab;
     public static AnimController GenericAnimPrefab { get { return Instance.genericAnimPrefab; } }
-
-    private static Sprite cursorIcon;
 
     public static bool GamePaused {
         get {
@@ -79,6 +71,8 @@ public class UIManager : Manager<UIManager> {
     }
 
     void Update() {
+        CursorUtil.ConfineCustomCursor();
+
         if (AllInputEnabled) {
             // Handle generic input
             if (inventory != null && Input.GetMouseButtonUp(1)) {
@@ -92,7 +86,7 @@ public class UIManager : Manager<UIManager> {
         }
 
         if ((Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Space))
-            && GameManager.GetCurrentScene() != GameManager.MAIN_MENU_SCENE) {
+            && Scenes.IsGameScene(Scenes.CurrentScene)) {
             Pause(!GamePaused);
         }
     }
@@ -108,7 +102,7 @@ public class UIManager : Manager<UIManager> {
     }
 
     public static void UpdateCursorHover() {
-        SetInteractionCursor(false);
+        CursorUtil.SetInteractionCursor(false);
         ClearHoverText();
         Hoverable hitItem = null;
         
@@ -132,31 +126,6 @@ public class UIManager : Manager<UIManager> {
         }
     }
 
-    public static void SetCustomCursor(Sprite cursor) {
-        cursorIcon = cursor;
-        ShowCustomCursor(true);
-    }
-
-    public static void SetInteractionCursor(bool show) {
-        if (show) {
-            if (cursorIcon == null) { SetCustomCursor(Instance.interactIcon); }
-        }
-        else if (cursorIcon == Instance.interactIcon) { ClearCustomCursor(); }
-    }
-
-    public static void ClearCustomCursor() {
-        cursorIcon = null;
-        ShowCustomCursor(false);
-    }
-    
-	public static void ShowCustomCursor(bool show) {
-		if (show && cursorIcon != null) {
-			Util.SetCursor(cursorIcon, CURSOR_SIZE);
-		} else { 
-			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); 
-		}
-	}
-
     public static void BlockWorldInput(bool block) {
         if (!block && !Inventory.isShown && !DialogueManager.isShown) {
             WorldInputEnabled = (true);
@@ -171,16 +140,15 @@ public class UIManager : Manager<UIManager> {
     public void Pause(bool pause) {
         Time.timeScale = pause ? 0 : 1;
         OnShowUIElement(pause);
-        pauseMenu.SetActive(pause);
+        if (pauseMenu != null) { pauseMenu.SetActive(pause); }
     }
 
     /// <summary>
     /// Load a different game scene. Use this for buttons (otherwise, use
-    /// GameManager's static function).
+    /// Scenes' static function).
     /// </summary>
-    /// <param name="scene"></param>
-    public void LoadScene(string scene) {
-        GameManager.LoadScene(scene);
+    public void LoadScene(string sceneName) {
+        Scenes.BeginSceneTransition(sceneName);
     }
 
     public void QuitGame() {
@@ -203,18 +171,14 @@ public class UIManager : Manager<UIManager> {
         }
     }
     
-    public static void FadeOut(bool isDialogueAction) { FadeOut(Fadable.DEFAULT_FADE_RATE, isDialogueAction); }
-    public static void FadeOut(float duration = Fadable.DEFAULT_FADE_RATE, bool isDialogueAction = false, Fadable.FadeCallback callback = null) {
+    public static void FadeOut(float duration = Fadable.DEFAULT_FADE_RATE, Fadable.FadeCallback callback = null) {
         Instance.blackout.gameObject.SetActive(true);
-        if (isDialogueAction) { callback += Dialogue.Actions.CompletePendingAction; }
         Instance.blackout.StartFadeIn(duration, callback);
     }
     
-    public static void FadeIn(bool isDialogueAction) { FadeIn(Fadable.DEFAULT_FADE_RATE, isDialogueAction); }
-    public static void FadeIn(float duration = Fadable.DEFAULT_FADE_RATE, bool isDialogueAction = false, Fadable.FadeCallback callback = null) {
+    public static void FadeIn(float duration = Fadable.DEFAULT_FADE_RATE, Fadable.FadeCallback callback = null) {
         Instance.blackout.gameObject.SetActive(true);
         callback += CompleteFadeIn;
-        if (isDialogueAction) { callback += Dialogue.Actions.CompletePendingAction; }
         Instance.blackout.StartFadeOut(duration, callback);
     }
 

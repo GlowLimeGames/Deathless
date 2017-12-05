@@ -14,7 +14,7 @@ public class Intro : Fadable {
     
 	void Start () {
         UIManager.FadeOut(0f);
-        UIManager.ShowCustomCursor(false);
+        CursorUtil.AllowCustomCursor = false;
         UIManager.OnShowUIElement(true);
 
         foreach (Fadable section in sections) {
@@ -57,7 +57,7 @@ public class Intro : Fadable {
 
     private void DisableIntro() {
         gameObject.SetActive(false);
-        UIManager.ShowCustomCursor(true);
+        CursorUtil.AllowCustomCursor = true;
         UIManager.OnShowUIElement(false);
         UIManager.FadeIn();
     }

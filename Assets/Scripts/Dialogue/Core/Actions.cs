@@ -136,7 +136,7 @@ namespace Dialogue {
         public void InstantiateItemAtPosition(Transform t) {
             WorldItem item = itemVar as WorldItem;
             if (item != null) {
-                Instantiate(item, GetPos(t), Quaternion.identity).gameObject.name = item.gameObject.name;
+                Instantiate(item, GetPos(t), item.transform.rotation).gameObject.name = item.gameObject.name;
                 World.UpdateNavGraph();
             }
         }
@@ -154,7 +154,7 @@ namespace Dialogue {
                 itemVar.ChangeSprite(sprite);
 
                 if (itemVar.AnimController != null) {
-                    Debug.LogWarning("Changing sprites on animated items is not supported. Use ChangeItemIdle instead.");
+                    Debug.LogWarning("This item has an AnimContoller. Did you mean to change its idle?");
                 }
             }
             else {
@@ -175,7 +175,7 @@ namespace Dialogue {
         public void ReplaceItemWith(WorldItem item) {
             if (itemVar != null) {
                 if (itemVar.GetType() == typeof(WorldItem)) {
-                    Instantiate(item, GetPos(itemVar.transform), Quaternion.identity).gameObject.name = item.gameObject.name;
+                    Instantiate(item, GetPos(itemVar.transform), item.transform.rotation).gameObject.name = item.gameObject.name;
                     ((WorldItem)itemVar).RemoveFromWorld();
                 }
                 else { Debug.LogWarning("Cannot place an inventory item in the world."); }
@@ -212,14 +212,22 @@ namespace Dialogue {
             }
         }
 
-        public void FadeIn() {
+        public void Wait(float seconds) {
             pendingActions++;
-            UIManager.FadeIn(true);
+            Util.Wait(this, seconds, CompletePendingAction);
         }
 
-        public void FadeOut() {
+        public void FadeIn() { FadeIn(Fadable.DEFAULT_FADE_RATE); }
+        public void FadeOut() { FadeOut(Fadable.DEFAULT_FADE_RATE); }
+
+        public void FadeIn(float fadeDuration) {
             pendingActions++;
-            UIManager.FadeOut(true);
+            UIManager.FadeIn(fadeDuration, CompletePendingAction);
+        }
+
+        public void FadeOut(float fadeDuration) {
+            pendingActions++;
+            UIManager.FadeOut(fadeDuration, CompletePendingAction);
         }
 
         public void GhostFadeIn(WorldItem ghost) {

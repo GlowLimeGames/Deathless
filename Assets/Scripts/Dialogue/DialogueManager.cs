@@ -242,7 +242,7 @@ public class DialogueManager : Manager<DialogueManager> {
     /// </summary>
     public static void Show(bool show) {
         Instance.gameObject.SetActive(show);
-        UIManager.ShowCustomCursor(!show);
+        CursorUtil.AllowCustomCursor = !show;
         UIManager.OnShowUIElement(show);
 
         if (!show) { Inventory.RevertSelection(); }

@@ -2,8 +2,13 @@
 
 public class CameraAspect : MonoBehaviour {
     private const float ASPECT_RATIO = 16f / 9f;
+    public const float PIXEL_BUFFER = 5;
+
+    public static Rect Bounds { get; private set; }
 
     void Awake() { ScaleCamera(); }
+
+    void Start() { CalculateBounds(); }
 
     private void ScaleCamera() {
         float currentaspect = (float)Screen.width / Screen.height;
@@ -24,5 +29,14 @@ public class CameraAspect : MonoBehaviour {
         }
 
         camera.rect = newRect;
+    }
+    
+    public static void CalculateBounds() {
+        Rect bounds = Camera.main.pixelRect;
+        bounds.x += PIXEL_BUFFER;
+        bounds.width -= PIXEL_BUFFER * 2;
+        bounds.y += PIXEL_BUFFER;
+        bounds.height -= PIXEL_BUFFER * 2;
+        Bounds = bounds;
     }
 }
