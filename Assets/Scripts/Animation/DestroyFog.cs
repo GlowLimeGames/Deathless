@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public class DestroyFog : Fadable {
 	[SerializeField]
-	public float fadeRate;
+	private float fadeRate;
 
 	void Update() {
 		GameObject door_open = GameObject.Find ("Door_open");
