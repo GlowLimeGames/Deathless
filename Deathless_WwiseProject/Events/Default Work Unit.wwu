@@ -490,6 +490,15 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="IncineratorArea_SFX_DoorClosed" ID="{2D9C0A88-6DFF-4572-8D3F-3BD3B4D6AD77}"/>
+				<Event Name="IncineratorArea_SFX_CultAmb" ID="{6808E848-89CA-44F7-83FD-611E1D9E637F}"/>
+				<Event Name="IncineratorArea_SFX_GuardAmb" ID="{5EA2B866-080F-437E-9A39-4EF8D3695D65}"/>
+				<Event Name="IncineratorArea_UI_InspectSound" ID="{1EB4C445-B5B4-4C09-B49D-AC78D69E7DF7}"/>
+				<Event Name="IncineratorArea_UI_InspectTag" ID="{2067CE48-B083-431B-B182-BCAF1EA8764E}"/>
+				<Event Name="IncineratorArea_UI_ObjectObtained" ID="{6BAF1623-9FB7-4605-8BE2-6A1A87F1A6BA}"/>
+				<Event Name="IncineratorArea_SFX_NoKill" ID="{E3D898E5-FE3C-40B5-831B-36EB8E88B979}"/>
+				<Event Name="IncineratorArea_SFX_FootstepBlood" ID="{2DCE6B78-6F47-414B-84AB-C43C0B24C794}"/>
+				<Event Name="IncineratorArea_SFX_FootstepLadder" ID="{F48C5220-6EF6-4181-AEED-BEECA82CA595}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
