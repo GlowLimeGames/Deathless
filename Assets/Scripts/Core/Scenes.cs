@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum GameScene {
+    NONE = 0,
     MAIN_MENU,
     INCINERATOR,
     CREDITS

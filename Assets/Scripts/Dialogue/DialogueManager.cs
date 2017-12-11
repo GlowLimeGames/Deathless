@@ -21,9 +21,7 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Whether a dialogue is currently active.
     /// </summary>
-    public static bool isShown {
-        get { return Instance != null && Instance.gameObject.activeInHierarchy; }
-    }
+    public static bool isShown { get; private set; }
 
     /// <summary>
     /// The line of dialogue currently being shown.
@@ -95,6 +93,7 @@ public class DialogueManager : Manager<DialogueManager> {
     /// </summary>
 	private static bool StartDialogue(DialogueTree dialogue) {
         Show(true);
+        isShown = true;
         return Next(dialogue.root);
     }
 
@@ -173,6 +172,7 @@ public class DialogueManager : Manager<DialogueManager> {
     }
 
     private static void EndDialogue () {
+        isShown = false;
         Show(false);
         if (DlgInstance != null) {
             DlgInstance.CleanupTempInstance();
