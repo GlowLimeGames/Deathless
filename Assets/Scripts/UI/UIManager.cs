@@ -92,6 +92,8 @@ public class UIManager : Manager<UIManager> {
     }
     
     public static void OnShowUIElement(bool show) {
+        if (!show && (DialogueManager.isShown || Inventory.isShown)) { return; }
+
         BlockWorldInput(show);
         ShowGameButtons(!show);
         UpdateCursorHover();

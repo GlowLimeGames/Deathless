@@ -266,6 +266,11 @@ namespace Dialogue {
             AudioController.StopEvent(eventName);
         }
 
+        [EnumAction(typeof(GameScene))]
+        public void LoadScene(int scene) {
+            Scenes.BeginSceneTransition((GameScene)scene);
+        }
+
         #endregion
     }
 }
