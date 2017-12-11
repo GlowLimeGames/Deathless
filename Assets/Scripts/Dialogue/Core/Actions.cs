@@ -211,6 +211,10 @@ namespace Dialogue {
                 item.TeleportToPoint(GetPos(t));
             }
         }
+			
+		public void TurnAround(WorldItem character) {
+			character.GetComponent<SpriteRenderer> ().flipX = true;
+		}
 
         public void Wait(float seconds) {
             pendingActions++;
