@@ -129,7 +129,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Footsteps_Concrete" ID="{9EEB200A-2AEC-4D3F-8756-8A7F6E8BC2D3}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+									<ObjectRef Name="Foosteps" ID="{DE5194E2-424C-4FC6-A924-432B012E5F66}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -242,6 +242,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="AcidContainer" ID="{CB281E10-4FA6-4845-9AAB-98806F60F753}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{85C383C6-B9FC-4032-B1AA-8FF95EF359A2}" ShortID="646320320">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Guard_Amb" ID="{67FD9225-8712-4858-AF6B-C861933C2792}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -464,8 +474,20 @@
 						<Action Name="" ID="{9751C096-3AA2-4CA2-BB55-B823CA41BE98}" ShortID="416640092">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="11"/>
-								<Property Name="FadeTime" Type="Real64" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
 								<Property Name="Volume" Type="Real64" Value="-12"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{54F5341A-1D72-4A41-AB00-E7D3A3ADF06B}" ShortID="755440552">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="26"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+								<Property Name="Lowpass" Type="int16" Value="36"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -485,6 +507,89 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{ABE9F9BD-C278-4A32-8BE9-AEF44CE5A7D1}" ShortID="255013918">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="27"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{4B622601-1969-492A-81AB-D72D20342D7A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_DoorClosed" ID="{2D9C0A88-6DFF-4572-8D3F-3BD3B4D6AD77}"/>
+				<Event Name="IncineratorArea_SFX_CultAmb" ID="{6808E848-89CA-44F7-83FD-611E1D9E637F}"/>
+				<Event Name="IncineratorArea_SFX_GuardAmb" ID="{5EA2B866-080F-437E-9A39-4EF8D3695D65}">
+					<ChildrenList>
+						<Action Name="" ID="{4CDCA3F0-3C98-4683-9FEE-36526E9EDE11}" ShortID="977279038">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Guard_Amb" ID="{67FD9225-8712-4858-AF6B-C861933C2792}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_UI_InspectTag" ID="{2067CE48-B083-431B-B182-BCAF1EA8764E}">
+					<ChildrenList>
+						<Action Name="" ID="{15547BE0-6CA7-4D8D-AAA9-EB108A5EF473}" ShortID="557174026">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Inspect_Tag" ID="{1DDD8136-1C77-4EF7-88D6-525FCF1F1D8F}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_UI_ObjectObtained" ID="{6BAF1623-9FB7-4605-8BE2-6A1A87F1A6BA}">
+					<ChildrenList>
+						<Action Name="" ID="{21BBC670-7C75-468D-8549-FFC807D76A47}" ShortID="358610707">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_ItemPickUp" ID="{3D238DAA-059C-4BDC-AF8E-B6B5F1CA1833}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_NoKill" ID="{E3D898E5-FE3C-40B5-831B-36EB8E88B979}"/>
+				<Event Name="IncineratorArea_SFX_FootstepBlood" ID="{2DCE6B78-6F47-414B-84AB-C43C0B24C794}">
+					<ChildrenList>
+						<Action Name="" ID="{73F368AF-DC5C-4494-83A7-8A1FC232E40D}" ShortID="827869891">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps_Blood" ID="{CCDD8EC1-8DD9-4B2B-BEFD-EDC46D39B174}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="IncineratorArea_SFX_FootstepLadder" ID="{F48C5220-6EF6-4181-AEED-BEECA82CA595}">
+					<ChildrenList>
+						<Action Name="" ID="{D9B8C56A-2BD4-453F-A17C-02637631D977}" ShortID="1003484249">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps_Ladder" ID="{66752CC7-F7FD-4A5C-8A44-CAC637AD489E}" WorkUnitID="{82431660-1859-4E88-8B62-BD1550ECC6AE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

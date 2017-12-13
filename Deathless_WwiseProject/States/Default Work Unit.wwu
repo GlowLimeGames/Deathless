@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{9EE47FA6-B9CC-4145-BF82-DF40573985AB}" SchemaVersion="80">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{9EE47FA6-B9CC-4145-BF82-DF40573985AB}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{9EE47FA6-B9CC-4145-BF82-DF40573985AB}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Foosteps" ID="{FEA1458D-08AA-4BC6-8598-5CF8DD2EA625}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0.1"/>
+					</PropertyList>
+					<ChildrenList>
+						<State Name="None" ID="{0A09D7C4-49BB-4586-8DCB-1374AE3C61BD}"/>
+						<State Name="Blood" ID="{82B16B94-BFE3-4FB5-ABCD-9F0DA4AEFE37}"/>
+						<State Name="Concrete" ID="{E9636507-7286-4DE8-81A9-9081D2350E90}"/>
+						<State Name="Ladder" ID="{D3BD7E33-80E9-4A46-8FA6-14C2B5687CD3}"/>
+					</ChildrenList>
+					<TransitionList>
+						<Transition>
+							<StartState Name="None" ID="{0A09D7C4-49BB-4586-8DCB-1374AE3C61BD}"/>
+							<EndState Name="Blood" ID="{82B16B94-BFE3-4FB5-ABCD-9F0DA4AEFE37}"/>
+							<Time>0</Time>
+							<IsShared>true</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="Blood" ID="{82B16B94-BFE3-4FB5-ABCD-9F0DA4AEFE37}"/>
+							<EndState Name="Concrete" ID="{E9636507-7286-4DE8-81A9-9081D2350E90}"/>
+							<Time>0.1</Time>
+							<IsShared>true</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="Ladder" ID="{D3BD7E33-80E9-4A46-8FA6-14C2B5687CD3}"/>
+							<EndState Name="Concrete" ID="{E9636507-7286-4DE8-81A9-9081D2350E90}"/>
+							<Time>0.1</Time>
+							<IsShared>true</IsShared>
+						</Transition>
+					</TransitionList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

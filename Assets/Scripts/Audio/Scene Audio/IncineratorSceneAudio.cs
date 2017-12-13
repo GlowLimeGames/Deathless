@@ -15,11 +15,16 @@ public class IncineratorSceneAudio : SceneAudio {
         "IncineratorArea_SFX_Start",
         "IncineratorArea_MX_Amb",
         "IncineratorArea_SFX_GhostSob",
+<<<<<<< HEAD
 		"IncineratorArea_SFX_VatAmb"
+=======
+        "IncineratorArea_SFX_VatAmb",
+        "IncineratorArea_SFX_Incinerators"
+>>>>>>> master
 
-        // Incinerator SFX temporarily disabled because it was causing memory overload
-        // Re-attempt once audio files have been compressed?
-        //"IncineratorArea_SFX_Incinerators"
+        // Note: disable IncineratorArea_SFX_Incinerators if you have insufficient memory error while testing.
+        // Works fine when starting from main menu.
+        // Hopefully audio compression will fix this issue.
     };
 
     private List<string> stopEvents = new List<string>() {
