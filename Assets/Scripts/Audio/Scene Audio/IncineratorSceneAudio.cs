@@ -15,12 +15,8 @@ public class IncineratorSceneAudio : SceneAudio {
         "IncineratorArea_SFX_Start",
         "IncineratorArea_MX_Amb",
         "IncineratorArea_SFX_GhostSob",
-<<<<<<< HEAD
-		"IncineratorArea_SFX_VatAmb"
-=======
         "IncineratorArea_SFX_VatAmb",
         "IncineratorArea_SFX_Incinerators"
->>>>>>> master
 
         // Note: disable IncineratorArea_SFX_Incinerators if you have insufficient memory error while testing.
         // Works fine when starting from main menu.
