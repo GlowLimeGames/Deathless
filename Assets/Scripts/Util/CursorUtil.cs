@@ -7,7 +7,7 @@ public static class CursorUtil {
     /// </summary>
     private const int CURSOR_SIZE = 18;
 
-    private static Vector2 defaultCursorDimensions, cursorDimensions, cursorHotspot, currentHotspot;
+    private static Vector2 cursorDimensions, cursorHotspot, currentHotspot;
 
     private static Sprite cursorSprite;
     private static Texture2D cursorTex;
@@ -22,7 +22,7 @@ public static class CursorUtil {
     }
 
     public static void ConfineCustomCursor() {
-        if (cursorSprite != null) {
+        if (cursorSprite != null && cursorDimensions != Vector2.zero) {
             Rect cursor = new Rect(Input.mousePosition.x - cursorHotspot.x,
                                     Input.mousePosition.y - (cursorDimensions.y - cursorHotspot.y),
                                     cursorDimensions.x,
@@ -58,11 +58,6 @@ public static class CursorUtil {
             }
             else { ShowCustomCursor(false); }
         }
-    }
-
-    public static void SetDefaultCursorDimensions(Texture2D defaultCursor) {
-        defaultCursorDimensions = (defaultCursor == null) ? Vector2.zero : new Vector2(defaultCursor.width, defaultCursor.height);
-        cursorDimensions = defaultCursorDimensions;
     }
 
     /// <summary>
@@ -107,22 +102,27 @@ public static class CursorUtil {
     /// Set the player's cursor to the given sprite.
     /// </summary>
 	private static void SetCursor(Sprite sprite) {
+        CursorMode mode;
+
         if (sprite == null) {
             cursorTex = null;
-            cursorDimensions = defaultCursorDimensions;
+            cursorDimensions = Vector2.zero;
             cursorHotspot = Vector2.zero;
+            mode = CursorMode.Auto;
         }
         else {
             cursorTex = CreateCursorTexture(sprite);
             cursorDimensions = ResizeCursorSprite(cursorTex, CURSOR_SIZE);
-            
-            cursorHotspot = (sprite == UIManager.InteractIcon) ?
-                            Vector2.zero :
-                            new Vector2(cursorTex.width / 2, cursorTex.height / 2);
+            mode = CursorMode.ForceSoftware;
         }
 
+        if (sprite != null && sprite != UIManager.InteractIcon) {
+            cursorHotspot = new Vector2(cursorTex.width / 2, cursorTex.height / 2);
+        }
+        else { cursorHotspot = Vector2.zero; }
+
         currentHotspot = cursorHotspot;
-        Cursor.SetCursor(cursorTex, currentHotspot, CursorMode.ForceSoftware);
+        Cursor.SetCursor(cursorTex, currentHotspot, mode);
     }
     
     public static void SetCustomCursor(Sprite cursor) {
@@ -144,7 +144,7 @@ public static class CursorUtil {
             Cursor.SetCursor(cursorTex, currentHotspot, CursorMode.ForceSoftware);
         }
         else {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 

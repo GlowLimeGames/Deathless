@@ -21,19 +21,19 @@ public class MenuSceneAudio : SceneAudio {
     // continues to play through credits scene.
     #region Override defaults
     protected override void DoStartEvents(GameScene prevScene) {
-        if (prevScene != GameScene.CREDITS) {
+        if (prevScene == GameScene.NONE || Scenes.IsGameScene(prevScene)) {
             base.DoStartEvents(prevScene);
         }
     }
 
     public override void DoStopEvents(GameScene nextScene) {
-        if (nextScene != GameScene.CREDITS) {
+        if (Scenes.IsGameScene(nextScene)) {
             base.DoStopEvents(nextScene);
         }
     }
 
     public override void EndSceneAudio(GameScene nextScene) {
-        if (nextScene != GameScene.CREDITS) {
+        if (Scenes.IsGameScene(nextScene)) {
             base.EndSceneAudio(nextScene);
         }
     }

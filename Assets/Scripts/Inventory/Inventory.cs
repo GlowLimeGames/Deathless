@@ -9,6 +9,9 @@ using UnityEngine.UI;
 /// Handles the player's inventory.
 /// </summary>
 public class Inventory : Manager<Inventory>, IPointerClickHandler {
+    private const string OPEN_SFX = "INCINERATORAREA_UI_OPENINVENTORY",
+                         CLOSE_SFX = "INCINERATORAREA_UI_CLOSEINVENTORY";
+
     /// <summary>
     /// An ordered list of all inventory slots in the inventory.
     /// </summary>
@@ -68,6 +71,8 @@ public class Inventory : Manager<Inventory>, IPointerClickHandler {
         Instance.gameObject.SetActive(visible);
         UIManager.OnShowUIElement(visible);
         GameItem.CancelInteraction();
+
+        AudioController.PlayEvent(visible ? OPEN_SFX : CLOSE_SFX);
 
         if (isObserveIconSelected) {
             ClearSelection();
