@@ -53,31 +53,12 @@ public abstract class GameItem : Hoverable {
     }
 
     /// <summary>
-    /// Backing field for Instance
-    /// </summary>
-    private GameItem instance = null;
-
-    /// <summary>
     /// The instance of this GameItem in the current scene.
     /// </summary>
-    public virtual GameItem Instance {
-        get {
-            if (instance == null || instance.Equals(null)) {
-                instance = null;
-                GameItem[] items = Util.FindObjectsOfType<GameItem>(true);
-                foreach (GameItem item in items) {
-                    if (item.Equals(this)) {
-                        instance = item;
-                        break;
-                    }
-                }
-            }
-            return instance;
-        }
+    public virtual new GameItem Instance {
+        get { return (GameItem)base.Instance; }
     }
-
-    public bool hasInstance { get { return Instance != null; } }
-
+    
     /// <summary>
     /// Backing field for Dialogue property.
     /// </summary>
@@ -99,24 +80,14 @@ public abstract class GameItem : Hoverable {
     [SerializeField]
     private List<InventoryItem> validInteractions;
 
-    /// <summary>
-    /// Equality of game items will be based on their gameobject's name.
-    /// Items must be of the same runtime type to be considered equal.
-    /// </summary>
-    public override bool Equals(object other) {
-        if (other == null) { return base.Equals(other); }
-        else {
-            return (other.GetType() == GetType() &&
-            ((GameItem)other).gameObject.name == gameObject.name);
+    protected override SceneObject GetInstance() {
+        SceneObject[] objs = Util.FindObjectsOfType<SceneObject>(true);
+        foreach (SceneObject obj in objs) {
+            if (obj.Equals(this)) {
+                return obj;
+            }
         }
-    }
-
-    /// <summary>
-    /// Returns the hashcode of this object. (Hashcode override required
-    /// to correspod to Equals() override.)
-    /// </summary>
-    public override int GetHashCode() {
-        return gameObject.name.GetHashCode() + GetType().GetHashCode();
+        return null;
     }
 
     public override void OnHoverEnter() {

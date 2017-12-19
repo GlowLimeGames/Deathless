@@ -1,7 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine.EventSystems;
 
-public abstract class Hoverable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler  {
+public abstract class Hoverable : SceneObject, IPointerEnterHandler, IPointerExitHandler {
     public abstract void OnHoverEnter();
     public abstract void OnHoverExit();
 
