@@ -7,16 +7,15 @@ using Dialogue;
 /// <summary>
 /// Manages dialogue trees in-game.
 /// </summary>
-public class DialogueManager : Manager<DialogueManager> {
+public class DialogueUIManager : MonoBehaviour {
     private const string SPEECH_BUBBLE_TAG = "Speech bubble";
 
-	private const float CLICK_DELAY = 0.3f;
+    private const float CLICK_DELAY = 0.3f;
+    
+    public static SerializableTree DlgInstance { get; private set; }
+    protected static DialogueUIManager Instance { get; private set; }
 
-    private SerializableTree dlgInstance;
-    public static SerializableTree DlgInstance {
-        get { return Instance.dlgInstance; }
-        private set { Instance.dlgInstance = value; }
-    }
+    protected virtual bool AllowInput { get; set; }
 
     /// <summary>
     /// Whether a dialogue is currently active.
@@ -28,22 +27,16 @@ public class DialogueManager : Manager<DialogueManager> {
     /// </summary>
     private Node currentNode = null;
 
-    private WorldItem currentSpeaker;
-
-    /// <summary>
-    /// Allow a click to move dialogue forward. Necessary to create a
-    /// single frame delay so clicks don't get registered in more than
-    /// one place.
-    /// </summary>
-    private bool allowClick = false;
+    private ISpeaker currentSpeaker;
+    protected virtual ISpeaker defaultSpeaker { get { return null; } }
 
     /// <summary>
     /// Various GameObjects that are part of the dialogue UI.
     /// </summary>
     [SerializeField]
-    #pragma warning disable 0649
+#pragma warning disable 0649
     private GameObject lineView, choiceView, choicePrefab;
-    #pragma warning restore 0649
+#pragma warning restore 0649
 
     [SerializeField]
     private DialogueUIScrollView scrollView;
@@ -52,22 +45,24 @@ public class DialogueManager : Manager<DialogueManager> {
     /// The text shown for a single line of dialogue.
     /// </summary>
     private Text lineText;
-    
+
     private static bool redirected;
     private static List<int> dontRepeat = new List<int>();
 
+    void Start() { Init(); }
+
     public void Init() {
-        SingletonInit();
+        if (Instance == null) { Instance = this; }
+        else if (Instance != this) { Destroy(this); }
+
         lineText = lineView.GetComponentInChildren<Text>();
     }
 
     void Update() {
         // Advance dialogue when mouse is clicked.
-        if (UIManager.AllInputEnabled && allowClick && Input.GetKeyUp(KeyCode.Mouse0)) {
-            DialogueManager.Next(currentNode);
+        if (AllowInput && Input.GetKeyUp(KeyCode.Mouse0)) {
+            Next(currentNode);
         }
-
-        allowClick = (currentNode != null);
     }
 
     public static void ResetOneShotDialogue() {
@@ -92,7 +87,7 @@ public class DialogueManager : Manager<DialogueManager> {
     /// Begin the given dialogue tree.
     /// </summary>
 	private static bool StartDialogue(DialogueTree dialogue) {
-        Show(true);
+        Instance.Show(true);
         isShown = true;
         return Next(dialogue.root);
     }
@@ -120,14 +115,14 @@ public class DialogueManager : Manager<DialogueManager> {
             current.Data.Restriction = RepeatRestriction.DONT_SHOW;
         }
         if (current.Data.Actions != null) {
-            UIManager.BlockAllInput(true);
+            Instance.AllowInput = false;
             return current.Data.Actions.Invoke(current);
         }
         else { return DisplayNext(current); }
     }
 
     public static bool Continue(Node current) {
-        UIManager.BlockAllInput(false);
+        Instance.AllowInput = true;
         return DisplayNext(current);
     }
 
@@ -171,9 +166,9 @@ public class DialogueManager : Manager<DialogueManager> {
         else { return false; }
     }
 
-    private static void EndDialogue () {
+    private static void EndDialogue() {
         isShown = false;
-        Show(false);
+        Instance.Show(false);
         if (DlgInstance != null) {
             DlgInstance.CleanupTempInstance();
         }
@@ -207,7 +202,7 @@ public class DialogueManager : Manager<DialogueManager> {
         }
         else { return false; }
     }
-    
+
     /// <summary>
     /// Return the nodes from the given list that are currently valid.
     /// </summary>
@@ -240,12 +235,8 @@ public class DialogueManager : Manager<DialogueManager> {
     /// <summary>
     /// Show or hide the dialogue UI.
     /// </summary>
-    public static void Show(bool show) {
-        Instance.gameObject.SetActive(show);
-        CursorUtil.AllowCustomCursor = !show;
-        UIManager.OnShowUIElement(show);
-
-        if (!show) { Inventory.RevertSelection(); }
+    public virtual void Show(bool show) {
+        gameObject.SetActive(show);
     }
 
     /// <summary>
@@ -259,7 +250,7 @@ public class DialogueManager : Manager<DialogueManager> {
             lineView.SetActive(true);
             scrollView.InitializeNewContent(lineView, false);
             EnableSpeechBubble(line, false);
-			StartCoroutine (DelayClick ());
+            StartCoroutine(DelayClick());
         }
         else {
             gameObject.SetActive(false);
@@ -272,27 +263,27 @@ public class DialogueManager : Manager<DialogueManager> {
     /// </summary>
     public void ShowChoices(List<Node> choices) {
         gameObject.SetActive(true);
-		foreach (Node choice in choices) {
-			if (choice.Data.Text != "") {
-				DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
-				choiceUI.Init(choice);
-				choiceUI.transform.SetParent(choiceView.transform, false);
-			}
-		}
+        foreach (Node choice in choices) {
+            if (choice.Data.Text != "") {
+                DialogueUIChoice choiceUI = Instantiate(choicePrefab).GetComponent<DialogueUIChoice>();
+                choiceUI.Init(choice);
+                choiceUI.transform.SetParent(choiceView.transform, false);
+            }
+        }
         choiceView.SetActive(true);
         scrollView.InitializeNewContent(choiceView, true);
         EnableSpeechBubble(choices[0], true);
-		StartCoroutine (DelayClick ());
+        StartCoroutine(DelayClick());
     }
 
-	/// <summary>
-	/// Delays the ability to click for clickDelay seconds.
-	/// </summary>
-	IEnumerator DelayClick() {
-		UIManager.BlockAllInput (true);
-		yield return new WaitForSeconds (CLICK_DELAY);
-		UIManager.BlockAllInput (false);
-	}
+    /// <summary>
+    /// Delays the ability to click for clickDelay seconds.
+    /// </summary>
+    IEnumerator DelayClick() {
+        AllowInput = false;
+        yield return new WaitForSeconds(CLICK_DELAY);
+        AllowInput = true;
+    }
 
     /// <summary>
     /// Clear any dialogue lines or choices
@@ -307,25 +298,25 @@ public class DialogueManager : Manager<DialogueManager> {
         lineView.SetActive(false);
 
         if (currentSpeaker != null) {
-            currentSpeaker.ShowSpeechBubble(false);
+            currentSpeaker.isSpeaking = false;
             currentSpeaker = null;
         }
     }
 
     private void EnableSpeechBubble(Node node, bool isChoice) {
         if (node.Data.Speaker != null) {
-            currentSpeaker = node.Data.Speaker.GetComponent<WorldItem>();
+            currentSpeaker = node.Data.Speaker.GetComponent<ISpeaker>();
         }
 
         if (currentSpeaker == null) {
             if (!isChoice && DlgInstance.Owner != null) {
-                currentSpeaker = DlgInstance.Owner.GetComponent<WorldItem>();
+                currentSpeaker = DlgInstance.Owner.GetComponent<ISpeaker>();
             }
-            else { currentSpeaker = GameManager.Player; }
+            else { currentSpeaker = defaultSpeaker; }
         }
 
         if (currentSpeaker != null) {
-            currentSpeaker.ShowSpeechBubble(true);
+            currentSpeaker.isSpeaking = true;
         }
     }
 }

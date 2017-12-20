@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// An interactable object that exists within the
 /// game world (as opposed to the inventory).
 /// </summary>
-public class WorldItem : GameItem {
+public class WorldItem : GameItem, ISpeaker {
     /// <summary>
     /// Whether this item may be interacted with. Interactable
     /// items should, at the least, have a dialogue attached to
@@ -23,6 +21,8 @@ public class WorldItem : GameItem {
 
     [SerializeField]
     private GameObject speechBubble;
+
+    public bool isSpeaking { set { ShowSpeechBubble(value); } }
 
     [SerializeField]
     private string footstepAudioEvent = "IncineratorArea_PlayFootsteps";
